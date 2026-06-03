@@ -1,0 +1,4 @@
+{
+  "_note": "Authoritative portfolio and gallery data lives in content/site.json. The marketing site loads site.json via js/content-bridge.js.",
+  "projects": []
+}

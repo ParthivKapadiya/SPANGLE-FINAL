@@ -1,0 +1,2246 @@
+{
+    "version": 2,
+    "source": "mysql",
+    "publicBase": "http://localhost/Applications/XAMPP/xamppfiles/htdocs/SPANGLE_FINAL/scripts",
+    "siteName": "Archevo Design",
+    "tagline": "Integrated Design & Build Solutions",
+    "branding": {
+        "logo": "archevo-logo-light.png",
+        "logoLight": "archevo-logo-light.png",
+        "logoDark": "archevo-logo-dark.png",
+        "brandName": "ARCHEVO DESIGN",
+        "brandLine": "Integrated Design & Build",
+        "footerBlurbHtml": "<p>Archevo Infra Edge Pvt Ltd — end-to-end architecture, civil construction, interiors, and turnkey project management from Rajkot, Gujarat.</p>",
+        "footerCopyright": "© 2026 Archevo Design · Archevo Infra Edge Pvt Ltd"
+    },
+    "contact": {
+        "phoneE164": "+916359351513",
+        "phoneDisplay": "+91 63593 51513",
+        "email": "archevodesign6@gmail.com",
+        "addressLine": "1113, RK Supreme, Nanamava Circle, Opp. Twin Star, 150 Ft. Ring Rd, Rajkot, Gujarat",
+        "whatsappDigits": "916359351513",
+        "whatsappPrefill": "Hello Archevo Design — I would like to discuss a project.",
+        "contactSectionTitle": "Rajkot · Gujarat",
+        "contactSectionLead": "Call, email, or visit by appointment. Site meetings across Saurashtra and Gujarat are scheduled in advance.",
+        "contactPageTitle": "Archevo Design · Rajkot",
+        "contactPageLead": "Reach Jay Rathod and the studio team for new projects, plan approvals, interiors, or turnkey delivery.",
+        "websiteUrl": "https://www.archevoinfra.com"
+    },
+    "social": {
+        "instagram": "https://www.instagram.com/archevo._.design/",
+        "facebook": "https://www.facebook.com/share/1D1tnk6xVr/",
+        "youtube": ""
+    },
+    "maps": {
+        "embedUrl": "https://www.google.com/maps?q=1113%2C+RK+Supreme%2C+Nanamava+Circle%2C+Opp.+Twin+Star%2C+150+Ft.+Ring+Rd%2C+Rajkot%2C+Gujarat&output=embed",
+        "title": "Archevo Design · RK Supreme, Nanamava Circle, Rajkot"
+    },
+    "seo": {
+        "organizationDescription": "Archevo Design is a premium architecture and interior design studio in Gujarat — residential, commercial, and bespoke spaces crafted with precision.",
+        "defaultOgImage": "uploads/ENTRY.jpg"
+    },
+    "copy": {
+        "home_hero_btn_primary_text": "View selected work",
+        "home_hero_btn_primary_url": "#projects",
+        "home_hero_btn_secondary_text": "Start a project",
+        "home_hero_btn_secondary_url": "contact.html",
+        "home_hero_scroll_text": "Discover",
+        "home_link_about_text": "Meet the studio",
+        "home_link_about_url": "studio.html",
+        "home_link_services_text": "Explore services",
+        "home_link_services_url": "services.html",
+        "home_link_work_text": "Full portfolio",
+        "home_link_work_url": "work.html",
+        "home_link_process_text": "Detailed methodology",
+        "home_link_process_url": "process.html",
+        "home_link_journal_text": "View journal",
+        "home_link_journal_url": "journal.html",
+        "studio_cta_text": "See how we translate intent into drawings, models, and built work.",
+        "studio_cta_btn_text": "Our process",
+        "studio_cta_btn_url": "process.html",
+        "services_cta_eyebrow": "Brief us",
+        "services_cta_title": "Tell us about your site",
+        "services_cta_lead": "Share your site, scope, and timeline — we will recommend design-only, approval support, or full turnkey delivery.",
+        "services_cta_btn_text": "Book a call",
+        "services_cta_btn_url": "contact.html",
+        "work_cta_text": "Discuss a commission with the studio.",
+        "work_cta_btn_text": "Start a project",
+        "work_cta_btn_url": "contact.html",
+        "work_filter_all": "All",
+        "work_filter_residential": "Residential",
+        "work_filter_commercial": "Commercial",
+        "work_filter_retail": "Retail",
+        "process_cta_text": "Every project begins with a conversation about site, ambition, and calendar.",
+        "process_cta_btn_text": "Enquire",
+        "process_cta_btn_url": "contact.html",
+        "journal_cta_text": "For press, collaborations, or speaking invitations, reach the studio directly.",
+        "journal_cta_btn_text": "Contact us",
+        "journal_cta_btn_url": "contact.html",
+        "thanks_eyebrow": "Enquiry received",
+        "thanks_title": "Thank you",
+        "thanks_note_html": "Your message has been sent. We typically reply within two business days.",
+        "thanks_note_php_html": "Your enquiry was saved. We typically reply within two business days.",
+        "thanks_btn_home_text": "Back to home",
+        "thanks_btn_work_text": "View work",
+        "form_label_name": "Name",
+        "form_label_email": "Email",
+        "form_label_phone": "Phone",
+        "form_label_project_type": "Project type",
+        "form_label_message": "Message",
+        "form_placeholder_name": "Your name",
+        "form_placeholder_email": "you@email.com",
+        "form_placeholder_phone": "+91 …",
+        "form_placeholder_project_type": "Residence / Office / Retail…",
+        "form_placeholder_message": "Site location, approximate area, timeline, budget band…",
+        "form_note_contact": "We respond within two business days. Your details are stored securely for the studio team.",
+        "form_submit_text": "Send enquiry",
+        "legal_privacy_html": "<p class=\"section-lead\">Last updated: January 2026. This policy describes how Archevo Design and Archevo Infra Edge Pvt Ltd (“we”) handle information when you use this website or contact us.</p><h2>Information we collect</h2><p>When you submit an enquiry through our website contact form, we collect the details you provide (such as your name, email address, phone number if given, project type if given, and message). Each submission is stored securely on our server and a notification is emailed to our studio team so we can respond. If you contact us directly by email or phone, we receive the information you choose to share.</p><h2>How we use it</h2><p>We use contact information only to respond to enquiries, prepare proposals, and manage projects. We do not sell personal data.</p><h2>Retention</h2><p>Enquiry records are kept for as long as needed to fulfil our contract and legal obligations, then deleted or anonymised according to our internal policy.</p><h2>Your rights</h2><p>Depending on applicable law, you may request access, correction, or deletion of your personal data. Contact <a href=\"mailto:archevodesign6@gmail.com\">archevodesign6@gmail.com</a>.</p><h2>Changes</h2><p>We may update this page periodically. Continued use of the site after changes constitutes acceptance of the updated policy.</p>",
+        "legal_terms_html": "<p class=\"section-lead\">By using this website you agree to these terms. Content, images, and text are owned by Archevo Infra Edge Pvt Ltd unless otherwise credited.</p><p>Information on this site is for general guidance and does not constitute a contract until agreed in writing. We reserve the right to update these terms at any time.</p>",
+        "seo_home_title": "Archevo Design | Architecture & Interior Design · Rajkot",
+        "seo_home_description": "Archevo Design — integrated design, civil construction, interiors, and turnkey delivery across Gujarat.",
+        "seo_studio_title": "Studio | Archevo Design",
+        "seo_studio_description": "Meet Archevo Design — philosophy, team, and integrated design & build in Rajkot, Gujarat.",
+        "seo_services_title": "Services | Archevo Design",
+        "seo_services_description": "Plan approvals, interiors, civil construction, and turnkey projects from Archevo Design.",
+        "seo_work_title": "Work | Archevo Design",
+        "seo_work_description": "Selected residential, commercial, and retail projects by Archevo Design.",
+        "seo_process_title": "Process | Archevo Design",
+        "seo_process_description": "How Archevo Design moves from brief to handover — clear phases and accountability.",
+        "seo_journal_title": "Journal | Archevo Design",
+        "seo_journal_description": "Ideas on materiality, process, and the culture of space from Archevo Design.",
+        "seo_contact_title": "Contact | Archevo Design",
+        "seo_contact_description": "Contact Archevo Design in Rajkot for architecture and interior design enquiries.",
+        "seo_privacy_title": "Privacy | Archevo Design",
+        "seo_privacy_description": "Privacy policy for Archevo Infra Edge Pvt Ltd website.",
+        "seo_terms_title": "Terms | Archevo Design",
+        "seo_terms_description": "Terms of use for the Archevo Design website.",
+        "seo_thanks_title": "Thank you | Archevo Design",
+        "seo_thanks_description": "Thank you for contacting Archevo Design."
+    },
+    "legal": {
+        "privacyHtml": "<p class=\"section-lead\">Last updated: January 2026. This policy describes how Archevo Design and Archevo Infra Edge Pvt Ltd (“we”) handle information when you use this website or contact us.</p><h2>Information we collect</h2><p>When you submit an enquiry through our website contact form, we collect the details you provide (such as your name, email address, phone number if given, project type if given, and message). Each submission is stored securely on our server and a notification is emailed to our studio team so we can respond. If you contact us directly by email or phone, we receive the information you choose to share.</p><h2>How we use it</h2><p>We use contact information only to respond to enquiries, prepare proposals, and manage projects. We do not sell personal data.</p><h2>Retention</h2><p>Enquiry records are kept for as long as needed to fulfil our contract and legal obligations, then deleted or anonymised according to our internal policy.</p><h2>Your rights</h2><p>Depending on applicable law, you may request access, correction, or deletion of your personal data. Contact <a href=\"mailto:archevodesign6@gmail.com\">archevodesign6@gmail.com</a>.</p><h2>Changes</h2><p>We may update this page periodically. Continued use of the site after changes constitutes acceptance of the updated policy.</p>",
+        "termsHtml": "<p class=\"section-lead\">By using this website you agree to these terms. Content, images, and text are owned by Archevo Infra Edge Pvt Ltd unless otherwise credited.</p><p>Information on this site is for general guidance and does not constitute a contract until agreed in writing. We reserve the right to update these terms at any time.</p>"
+    },
+    "seoPages": {
+        "home": {
+            "title": "Archevo Design | Architecture & Interior Design · Rajkot",
+            "description": "Archevo Design — integrated design, civil construction, interiors, and turnkey delivery across Gujarat."
+        },
+        "studio": {
+            "title": "Studio | Archevo Design",
+            "description": "Meet Archevo Design — philosophy, team, and integrated design & build in Rajkot, Gujarat."
+        },
+        "services": {
+            "title": "Services | Archevo Design",
+            "description": "Plan approvals, interiors, civil construction, and turnkey projects from Archevo Design."
+        },
+        "work": {
+            "title": "Work | Archevo Design",
+            "description": "Selected residential, commercial, and retail projects by Archevo Design."
+        },
+        "process": {
+            "title": "Process | Archevo Design",
+            "description": "How Archevo Design moves from brief to handover — clear phases and accountability."
+        },
+        "journal": {
+            "title": "Journal | Archevo Design",
+            "description": "Ideas on materiality, process, and the culture of space from Archevo Design."
+        },
+        "contact": {
+            "title": "Contact | Archevo Design",
+            "description": "Contact Archevo Design in Rajkot for architecture and interior design enquiries."
+        },
+        "privacy": {
+            "title": "Privacy | Archevo Design",
+            "description": "Privacy policy for Archevo Infra Edge Pvt Ltd website."
+        },
+        "terms": {
+            "title": "Terms | Archevo Design",
+            "description": "Terms of use for the Archevo Design website."
+        },
+        "thanks": {
+            "title": "Thank you | Archevo Design",
+            "description": "Thank you for contacting Archevo Design."
+        }
+    },
+    "home": {
+        "heroEyebrow": "Rajkot · Gujarat · Since 2016",
+        "heroTitleHtml": "Spaces shaped for <em>how you live</em>",
+        "heroLead": "Architecture and interior design for discerning homes, workplaces, and retail — conceived with rigour, finished with quiet luxury.",
+        "stats": [
+            {
+                "value": "130",
+                "label": "Client commissions"
+            },
+            {
+                "value": "145",
+                "label": "Project visuals"
+            },
+            {
+                "value": "16+",
+                "label": "Years in practice"
+            },
+            {
+                "value": "3",
+                "label": "Design disciplines"
+            }
+        ],
+        "aboutEyebrow": "Practice",
+        "aboutTitle": "Architecture with intention",
+        "aboutLeadHtml": "<p class=\"section-lead\">Archevo Infra Edge Pvt Ltd is a full-service studio for architecture, interiors, and delivery. We work from first sketch through site administration — one accountable team, aligned incentives, and drawings that contractors can actually build.</p><p class=\"section-lead\">Our work favours honest materials, generous daylight, and envelopes tuned for Gujarat’s climate. The result feels calm, durable, and unmistakably yours.</p>",
+        "aboutImage": "uploads/1228_HARESHBHAI_LIVING_5.jpg",
+        "aboutImageAlt": "Archevo Design interior project · Rajkot",
+        "aboutCaption": "Client project · Rajkot",
+        "galleryEyebrow": "Gallery",
+        "galleryTitle": "Project gallery",
+        "galleryIntro": "A curated library of interiors, architecture, and 3D visualisations from recent Archevo commissions across Gujarat.",
+        "projectsEyebrow": "Selected work",
+        "projectsTitle": "Featured commissions",
+        "projectsIntro": "Explore client projects — each album opens a full visual case study.",
+        "capabilitiesEyebrow": "What we do",
+        "capabilitiesTitle": "Integrated design & build solutions",
+        "capabilitiesIntro": "At Archevo Infra Edge Pvt Ltd, we blend structural expertise with aesthetic precision — functional, compliant, and beautifully designed spaces from brief to handover.",
+        "processEyebrow": "Process",
+        "processTitle": "How we move from brief to keys",
+        "processIntro": "Clear phases, shared tools, and sign-off moments — so you always know what happens next.",
+        "testimonialsEyebrow": "Clients",
+        "testimonialsTitle": "What clients say",
+        "awardsEyebrow": "Studio",
+        "awardsTitle": "Why clients work with us",
+        "teamEyebrow": "People",
+        "teamTitle": "Leadership",
+        "journalEyebrow": "Journal",
+        "journalTitle": "Latest insights",
+        "ctaEyebrow": "Next project",
+        "ctaTitle": "Reserve a studio conversation",
+        "ctaLead": "Share your site, timeline, and ambitions — we respond with a clear path and indicative scope.",
+        "ctaBtnText": "Plan your space",
+        "ctaBtnUrl": "contact.html"
+    },
+    "testimonials": [
+        {
+            "quote": "“Our living and bedroom layouts were planned practically. The team was on site when it mattered and handover was smooth.”",
+            "authorName": "Hareshbhai",
+            "authorRole": "Residence · Rajkot"
+        },
+        {
+            "quote": "“3D views and drawings helped us decide finishes before work started. Plan-related queries were handled without us chasing offices.”",
+            "authorName": "Kantilalbhai",
+            "authorRole": "Residence · Rajkot"
+        },
+        {
+            "quote": "“Plot layout and front elevation matched what we discussed. One studio for design and coordination through construction.”",
+            "authorName": "Sanjaysinh Jadeja",
+            "authorRole": "Plot & residence · Rajkot"
+        },
+        {
+            "quote": "“Interior detailing and civil work moved in step. We always knew who to call and what was happening next.”",
+            "authorName": "Arvind Parmar",
+            "authorRole": "Residence · Rajkot"
+        }
+    ],
+    "team": [
+        {
+            "name": "Jay Rathod",
+            "role": "Director",
+            "bio": "Leads project direction, client relationships, and overall delivery for Archevo Infra Edge across Gujarat.",
+            "image": "",
+            "initials": "JR"
+        },
+        {
+            "name": "Kishan Tank",
+            "role": "Director",
+            "bio": "Oversees design, interiors, and site coordination — from drawings and 3D through execution.",
+            "image": "",
+            "initials": "KT"
+        },
+        {
+            "name": "Jignesh Sekhva",
+            "role": "Engineer",
+            "bio": "Technical drawings, structural coordination, and on-site engineering support for civil and approval work.",
+            "image": "",
+            "initials": "JS"
+        }
+    ],
+    "awards": [
+        {
+            "icon": "fas fa-map-location-dot",
+            "title": "Rajkot & Saurashtra",
+            "subtitle": "On-ground experience across Gujarat — not a distant design-only studio."
+        },
+        {
+            "icon": "fas fa-file-lines",
+            "title": "Approvals support",
+            "subtitle": "Drawings and submissions prepared for local plan-sanctioning requirements."
+        },
+        {
+            "icon": "fas fa-handshake",
+            "title": "Referral-led work",
+            "subtitle": "A large share of new projects come from past clients and word of mouth."
+        },
+        {
+            "icon": "fas fa-house-chimney",
+            "title": "Turnkey under one roof",
+            "subtitle": "Design, civil, and interiors coordinated by one accountable team."
+        }
+    ],
+    "processSteps": [
+        {
+            "label": "I",
+            "title": "Discovery",
+            "description": "Site, aspirations, and feasibility — aligned before pencil hits paper.",
+            "context": "both"
+        },
+        {
+            "label": "II",
+            "title": "Design",
+            "description": "Schematic through tender-ready drawings, models, and sample boards.",
+            "context": "both"
+        },
+        {
+            "label": "III",
+            "title": "Delivery",
+            "description": "Site administration, RFIs, and vendor coordination until handover.",
+            "context": "both"
+        },
+        {
+            "label": "IV",
+            "title": "Close-out",
+            "description": "Styling, documentation, and photography — space ready to live in.",
+            "context": "both"
+        }
+    ],
+    "journalPosts": [
+        {
+            "slug": "journal-materiality",
+            "title": "Materiality in Indian light",
+            "excerpt": "How finishes behave under harsh sun and monsoon.",
+            "category": "",
+            "readMinutes": null,
+            "bodyHtml": "",
+            "image": "uploads/054-KANTILAL-3D-5.jpg",
+            "url": "journal-materiality.html"
+        },
+        {
+            "slug": "journal-sustainable",
+            "title": "Sustainable architecture in 2026",
+            "excerpt": "Passive cooling, honest materials, and long-life envelopes.",
+            "category": "",
+            "readMinutes": null,
+            "bodyHtml": "",
+            "image": "uploads/LIVING%2002.jpg",
+            "url": "journal-sustainable.html"
+        },
+        {
+            "slug": "journal-quiet-luxury",
+            "title": "Quiet luxury interiors",
+            "excerpt": "Restraint, texture, and light as the real ornament.",
+            "category": "",
+            "readMinutes": null,
+            "bodyHtml": "",
+            "image": "uploads/1228_HARESHBHAI_LIVING_3.jpg",
+            "url": "journal-quiet-luxury.html"
+        },
+        {
+            "slug": "journal-workplaces",
+            "title": "Workplaces that perform",
+            "excerpt": "Acoustics, focus zones, and hospitality moments for teams.",
+            "category": "",
+            "readMinutes": null,
+            "bodyHtml": "",
+            "image": "uploads/1071-SANJAYSINH%20JADEJA_4.jpg",
+            "url": "journal-workplaces.html"
+        }
+    ],
+    "heroSlides": [
+        {
+            "src": "uploads/ENTRY.jpg",
+            "alt": "ENTRY"
+        },
+        {
+            "src": "uploads/1228_HARESHBHAI_LIVING_5.jpg",
+            "alt": "1228 HARESHBHAI LIVING 5"
+        },
+        {
+            "src": "uploads/1159-VISALBHAI%20RAMPARIYA-5.jpg",
+            "alt": "1159 VISALBHAI RAMPARIYA 5"
+        },
+        {
+            "src": "uploads/LIVING%2001.jpg",
+            "alt": "LIVING 01"
+        },
+        {
+            "src": "uploads/1523-HARSHITBHAI-5_ER.jpg.jpeg",
+            "alt": "1523 HARSHITBHAI 5 ER.jpg"
+        },
+        {
+            "src": "uploads/1228-HARESHBHAI_BED_ROOM-2.jpg",
+            "alt": "1228 HARESHBHAI BED ROOM 2"
+        },
+        {
+            "src": "uploads/LIVING_ROOM_2-1.jpg",
+            "alt": "LIVING ROOM 2 1"
+        },
+        {
+            "src": "uploads/054-KANTILAL-3D-6.jpg",
+            "alt": "054 KANTILAL 3D 6"
+        }
+    ],
+    "gallery": [
+        {
+            "src": "uploads/1228_HARESHBHAI_LIVING_5.jpg",
+            "alt": "Hareshbhai_living",
+            "caption": "Hareshbhai_living"
+        },
+        {
+            "src": "uploads/1213-SANJAYSINH%20JADEJA_PLOT-54-2.jpg",
+            "alt": "Sanjaysinh Jadeja_plot",
+            "caption": "Sanjaysinh Jadeja_plot"
+        },
+        {
+            "src": "uploads/054-KANTILAL-3D-6.jpg",
+            "alt": "Kantilal-3d",
+            "caption": "Kantilal-3d"
+        },
+        {
+            "src": "uploads/1228-FORAM_BED_ROOM-1.jpg",
+            "alt": "Foram_bed_room",
+            "caption": "Foram_bed_room"
+        },
+        {
+            "src": "uploads/1228-HARESHBHAI_BED_ROOM-2.jpg",
+            "alt": "Hareshbhai_bed_room",
+            "caption": "Hareshbhai_bed_room"
+        },
+        {
+            "src": "uploads/1228-PARYUL_BED_ROOM-2.jpg",
+            "alt": "Paryul_bed_room",
+            "caption": "Paryul_bed_room"
+        },
+        {
+            "src": "uploads/1466-MAHESHBHAI%20RATHOD-1.jpg",
+            "alt": "Maheshbhai Rathod",
+            "caption": "Maheshbhai Rathod"
+        },
+        {
+            "src": "uploads/2005-NAIMISHBHAI%20RUPARELIYA-6.jpg",
+            "alt": "Naimishbhai Rupareliya",
+            "caption": "Naimishbhai Rupareliya"
+        },
+        {
+            "src": "uploads/1.jpg",
+            "alt": "1",
+            "caption": "1"
+        },
+        {
+            "src": "uploads/02%20BEDROOM%201.jpg",
+            "alt": "02 Bedroom 1",
+            "caption": "02 Bedroom 1"
+        },
+        {
+            "src": "uploads/02%20BEDROOM%202.jpg",
+            "alt": "02 Bedroom 2",
+            "caption": "02 Bedroom 2"
+        },
+        {
+            "src": "uploads/02%20BEDROOM%203.jpg",
+            "alt": "02 Bedroom 3",
+            "caption": "02 Bedroom 3"
+        }
+    ],
+    "homeGallery": [
+        {
+            "src": "uploads/1228_HARESHBHAI_LIVING_5.jpg",
+            "alt": "Hareshbhai_living",
+            "caption": "Hareshbhai_living"
+        },
+        {
+            "src": "uploads/1213-SANJAYSINH%20JADEJA_PLOT-54-2.jpg",
+            "alt": "Sanjaysinh Jadeja_plot",
+            "caption": "Sanjaysinh Jadeja_plot"
+        },
+        {
+            "src": "uploads/054-KANTILAL-3D-6.jpg",
+            "alt": "Kantilal-3d",
+            "caption": "Kantilal-3d"
+        },
+        {
+            "src": "uploads/1228-FORAM_BED_ROOM-1.jpg",
+            "alt": "Foram_bed_room",
+            "caption": "Foram_bed_room"
+        },
+        {
+            "src": "uploads/1228-HARESHBHAI_BED_ROOM-2.jpg",
+            "alt": "Hareshbhai_bed_room",
+            "caption": "Hareshbhai_bed_room"
+        },
+        {
+            "src": "uploads/1228-PARYUL_BED_ROOM-2.jpg",
+            "alt": "Paryul_bed_room",
+            "caption": "Paryul_bed_room"
+        },
+        {
+            "src": "uploads/1466-MAHESHBHAI%20RATHOD-1.jpg",
+            "alt": "Maheshbhai Rathod",
+            "caption": "Maheshbhai Rathod"
+        },
+        {
+            "src": "uploads/2005-NAIMISHBHAI%20RUPARELIYA-6.jpg",
+            "alt": "Naimishbhai Rupareliya",
+            "caption": "Naimishbhai Rupareliya"
+        },
+        {
+            "src": "uploads/1.jpg",
+            "alt": "1",
+            "caption": "1"
+        },
+        {
+            "src": "uploads/02%20BEDROOM%201.jpg",
+            "alt": "02 Bedroom 1",
+            "caption": "02 Bedroom 1"
+        },
+        {
+            "src": "uploads/02%20BEDROOM%202.jpg",
+            "alt": "02 Bedroom 2",
+            "caption": "02 Bedroom 2"
+        },
+        {
+            "src": "uploads/02%20BEDROOM%203.jpg",
+            "alt": "02 Bedroom 3",
+            "caption": "02 Bedroom 3"
+        }
+    ],
+    "projects": [
+        {
+            "slug": "1228-hareshbhai-living",
+            "title": "Hareshbhai_living",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "8 visuals from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_1.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_2.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_3.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_4.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_5.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_6.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_7.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_8.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1228_HARESHBHAI_LIVING_1.jpg",
+            "linkUrl": "project.php?slug=1228-hareshbhai-living",
+            "homeHighlight": true,
+            "homeLayout": "lg"
+        },
+        {
+            "slug": "1213-sanjaysinh-jadeja-plot",
+            "title": "Sanjaysinh Jadeja_plot",
+            "location": "Gujarat, India",
+            "category": "commercial",
+            "summary": "3 visuals from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1213-SANJAYSINH%20JADEJA_PLOT-54-2.jpg\" alt=\"Sanjaysinh Jadeja_plot\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"uploads/1213-SANJAYSINH%20JADEJA_PLOT-62-1.jpg\" alt=\"Sanjaysinh Jadeja_plot\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"uploads/1213-SANJAYSINH%20JADEJA_PLOT-62-2.jpg\" alt=\"Sanjaysinh Jadeja_plot\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1213-SANJAYSINH%20JADEJA_PLOT-54-2.jpg",
+            "linkUrl": "project.php?slug=1213-sanjaysinh-jadeja-plot",
+            "homeHighlight": true,
+            "homeLayout": ""
+        },
+        {
+            "slug": "054-kantilal-3d",
+            "title": "Kantilal-3d",
+            "location": "Gujarat, India",
+            "category": "commercial",
+            "summary": "2 visuals from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/054-KANTILAL-3D-5.jpg\" alt=\"Kantilal-3d\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"uploads/054-KANTILAL-3D-6.jpg\" alt=\"Kantilal-3d\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/054-KANTILAL-3D-5.jpg",
+            "linkUrl": "project.php?slug=054-kantilal-3d",
+            "homeHighlight": true,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1228-foram-bed-room",
+            "title": "Foram_bed_room",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "2 visuals from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-FORAM_BED_ROOM-1.jpg\" alt=\"Foram_bed_room\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"uploads/1228-FORAM_BED_ROOM-2.jpg\" alt=\"Foram_bed_room\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1228-FORAM_BED_ROOM-1.jpg",
+            "linkUrl": "project.php?slug=1228-foram-bed-room",
+            "homeHighlight": true,
+            "homeLayout": "wide"
+        },
+        {
+            "slug": "1228-hareshbhai-bed-room",
+            "title": "Hareshbhai_bed_room",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "2 visuals from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-HARESHBHAI_BED_ROOM-1.jpg\" alt=\"Hareshbhai_bed_room\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"uploads/1228-HARESHBHAI_BED_ROOM-2.jpg\" alt=\"Hareshbhai_bed_room\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1228-HARESHBHAI_BED_ROOM-1.jpg",
+            "linkUrl": "project.php?slug=1228-hareshbhai-bed-room",
+            "homeHighlight": true,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1228-paryul-bed-room",
+            "title": "Paryul_bed_room",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "2 visuals from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-PARYUL_BED_ROOM-1.jpg\" alt=\"Paryul_bed_room\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"uploads/1228-PARYUL_BED_ROOM-2.jpg\" alt=\"Paryul_bed_room\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1228-PARYUL_BED_ROOM-1.jpg",
+            "linkUrl": "project.php?slug=1228-paryul-bed-room",
+            "homeHighlight": true,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1466-maheshbhai-rathod",
+            "title": "Maheshbhai Rathod",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "2 visuals from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1466-MAHESHBHAI%20RATHOD-1.jpg\" alt=\"Maheshbhai Rathod\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"uploads/1466-MAHESHBHAI%20RATHOD-4.jpg\" alt=\"Maheshbhai Rathod\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1466-MAHESHBHAI%20RATHOD-1.jpg",
+            "linkUrl": "project.php?slug=1466-maheshbhai-rathod",
+            "homeHighlight": true,
+            "homeLayout": ""
+        },
+        {
+            "slug": "2005-naimishbhai-rupareliya",
+            "title": "Naimishbhai Rupareliya",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "2 visuals from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/2005-NAIMISHBHAI%20RUPARELIYA-2.jpg\" alt=\"Naimishbhai Rupareliya\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"uploads/2005-NAIMISHBHAI%20RUPARELIYA-6.jpg\" alt=\"Naimishbhai Rupareliya\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/2005-NAIMISHBHAI%20RUPARELIYA-2.jpg",
+            "linkUrl": "project.php?slug=2005-naimishbhai-rupareliya",
+            "homeHighlight": true,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-1",
+            "title": "1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1.jpg\" alt=\"1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1.jpg",
+            "linkUrl": "project.php?slug=collection-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-02-bedroom-1",
+            "title": "02 Bedroom 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/02%20BEDROOM%201.jpg\" alt=\"02 Bedroom 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/02%20BEDROOM%201.jpg",
+            "linkUrl": "project.php?slug=collection-02-bedroom-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-02-bedroom-2",
+            "title": "02 Bedroom 2",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/02%20BEDROOM%202.jpg\" alt=\"02 Bedroom 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/02%20BEDROOM%202.jpg",
+            "linkUrl": "project.php?slug=collection-02-bedroom-2",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-02-bedroom-3",
+            "title": "02 Bedroom 3",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/02%20BEDROOM%203.jpg\" alt=\"02 Bedroom 3\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/02%20BEDROOM%203.jpg",
+            "linkUrl": "project.php?slug=collection-02-bedroom-3",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-02-bedroom-4",
+            "title": "02 Bedroom 4",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/02%20BEDROOM%204.jpg\" alt=\"02 Bedroom 4\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/02%20BEDROOM%204.jpg",
+            "linkUrl": "project.php?slug=collection-02-bedroom-4",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-2",
+            "title": "2",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/2.jpg\" alt=\"2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/2.jpg",
+            "linkUrl": "project.php?slug=collection-2",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-3",
+            "title": "3",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/3.jpg\" alt=\"3\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/3.jpg",
+            "linkUrl": "project.php?slug=collection-3",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-4",
+            "title": "4",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/4.jpg\" alt=\"4\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/4.jpg",
+            "linkUrl": "project.php?slug=collection-4",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "043-dharmeshbhai",
+            "title": "Dharmeshbhai",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/043-DHARMESHBHAI-3.jpg\" alt=\"Dharmeshbhai\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/043-DHARMESHBHAI-3.jpg",
+            "linkUrl": "project.php?slug=043-dharmeshbhai",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "058-prakashbhai-tank-3d",
+            "title": "Prakashbhai Tank-3d",
+            "location": "Gujarat, India",
+            "category": "commercial",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/058-PRAKASHBHAI%20TANK-3D-2.jpg\" alt=\"Prakashbhai Tank-3d\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/058-PRAKASHBHAI%20TANK-3D-2.jpg",
+            "linkUrl": "project.php?slug=058-prakashbhai-tank-3d",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "066-upendrasinh-3d",
+            "title": "Upendrasinh-3d",
+            "location": "Gujarat, India",
+            "category": "commercial",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/066-UPENDRASINH-3D-3.jpg\" alt=\"Upendrasinh-3d\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/066-UPENDRASINH-3D-3.jpg",
+            "linkUrl": "project.php?slug=066-upendrasinh-3d",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "085-jiteshbhai-kosamba-5-jpg",
+            "title": "Jiteshbhai Kosamba-5.jpg",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/085-JITESHBHAI%20KOSAMBA-5.jpg.jpeg\" alt=\"Jiteshbhai Kosamba-5.jpg\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/085-JITESHBHAI%20KOSAMBA-5.jpg.jpeg",
+            "linkUrl": "project.php?slug=085-jiteshbhai-kosamba-5-jpg",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "747-1",
+            "title": "1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/747-1.jpg\" alt=\"1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/747-1.jpg",
+            "linkUrl": "project.php?slug=747-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "985-3",
+            "title": "3",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/985-3.jpg\" alt=\"3\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/985-3.jpg",
+            "linkUrl": "project.php?slug=985-3",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1002-6",
+            "title": "6",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1002-6.jpg\" alt=\"6\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1002-6.jpg",
+            "linkUrl": "project.php?slug=1002-6",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1071-sanjaysinh-jadeja",
+            "title": "Sanjaysinh Jadeja",
+            "location": "Gujarat, India",
+            "category": "commercial",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1071-SANJAYSINH%20JADEJA_4.jpg\" alt=\"Sanjaysinh Jadeja\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1071-SANJAYSINH%20JADEJA_4.jpg",
+            "linkUrl": "project.php?slug=1071-sanjaysinh-jadeja",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1090-maheshbhai-jadav",
+            "title": "Maheshbhai Jadav",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1090-MAHESHBHAI%20JADAV-2.jpg\" alt=\"Maheshbhai Jadav\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1090-MAHESHBHAI%20JADAV-2.jpg",
+            "linkUrl": "project.php?slug=1090-maheshbhai-jadav",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1128-floor-aunty-mandir",
+            "title": "Floor_aunty_mandir",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1128-FLOOR_AUNTY_MANDIR.jpg\" alt=\"Floor_aunty_mandir\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1128-FLOOR_AUNTY_MANDIR.jpg",
+            "linkUrl": "project.php?slug=1128-floor-aunty-mandir",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1134-jiteshbhai",
+            "title": "Jiteshbhai",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1134-JITESHBHAI-1.jpg\" alt=\"Jiteshbhai\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1134-JITESHBHAI-1.jpg",
+            "linkUrl": "project.php?slug=1134-jiteshbhai",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1138-jiteshbhai-chauhan-kharod",
+            "title": "Jiteshbhai Chauhan (kharod)",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1138-JITESHBHAI%20CHAUHAN%20%28KHAROD%29-1.jpg\" alt=\"Jiteshbhai Chauhan (kharod)\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1138-JITESHBHAI%20CHAUHAN%20%28KHAROD%29-1.jpg",
+            "linkUrl": "project.php?slug=1138-jiteshbhai-chauhan-kharod",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1159-visalbhai-rampariya",
+            "title": "Visalbhai Rampariya",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1159-VISALBHAI%20RAMPARIYA-5.jpg\" alt=\"Visalbhai Rampariya\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1159-VISALBHAI%20RAMPARIYA-5.jpg",
+            "linkUrl": "project.php?slug=1159-visalbhai-rampariya",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1184-rajeshbhai-chothani",
+            "title": "Rajeshbhai Chothani",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1184-RAJESHBHAI%20CHOTHANI-1.jpg\" alt=\"Rajeshbhai Chothani\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1184-RAJESHBHAI%20CHOTHANI-1.jpg",
+            "linkUrl": "project.php?slug=1184-rajeshbhai-chothani",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1186-yash-vegad",
+            "title": "Yash Vegad",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1186-YASH%20VEGAD-1.jpg\" alt=\"Yash Vegad\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1186-YASH%20VEGAD-1.jpg",
+            "linkUrl": "project.php?slug=1186-yash-vegad",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1204-vinodbhai-vaghela",
+            "title": "Vinodbhai Vaghela",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1204-VINODBHAI%20VAGHELA-3.jpg\" alt=\"Vinodbhai Vaghela\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1204-VINODBHAI%20VAGHELA-3.jpg",
+            "linkUrl": "project.php?slug=1204-vinodbhai-vaghela",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1208-kantibhai-parmar",
+            "title": "Kantibhai Parmar",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1208-KANTIBHAI%20PARMAR-1.jpg\" alt=\"Kantibhai Parmar\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1208-KANTIBHAI%20PARMAR-1.jpg",
+            "linkUrl": "project.php?slug=1208-kantibhai-parmar",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1212-arvindbhai-parmar-back",
+            "title": "Arvindbhai Parmar_back",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1212-ARVINDBHAI%20PARMAR_BACK-2.jpg\" alt=\"Arvindbhai Parmar_back\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1212-ARVINDBHAI%20PARMAR_BACK-2.jpg",
+            "linkUrl": "project.php?slug=1212-arvindbhai-parmar-back",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1212-arvindbhai-parmar-front",
+            "title": "Arvindbhai Parmar_front",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1212-ARVINDBHAI%20PARMAR_FRONT-2.jpg\" alt=\"Arvindbhai Parmar_front\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1212-ARVINDBHAI%20PARMAR_FRONT-2.jpg",
+            "linkUrl": "project.php?slug=1212-arvindbhai-parmar-front",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1224-vinodbhai-vaghela-ghanteshwar",
+            "title": "Vinodbhai Vaghela (ghanteshwar)",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1224-VINODBHAI%20VAGHELA%20%28GHANTESHWAR%29-2.jpg\" alt=\"Vinodbhai Vaghela (ghanteshwar)\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1224-VINODBHAI%20VAGHELA%20%28GHANTESHWAR%29-2.jpg",
+            "linkUrl": "project.php?slug=1224-vinodbhai-vaghela-ghanteshwar",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1228-diyabedroom",
+            "title": "Diyabedroom",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-DIYABEDROOM_3.jpg\" alt=\"Diyabedroom\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1228-DIYABEDROOM_3.jpg",
+            "linkUrl": "project.php?slug=1228-diyabedroom",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1228-diyabedroom-wordrob",
+            "title": "Diyabedroom_wordrob",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-DIYABEDROOM_WORDROB.jpg\" alt=\"Diyabedroom_wordrob\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1228-DIYABEDROOM_WORDROB.jpg",
+            "linkUrl": "project.php?slug=1228-diyabedroom-wordrob",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1228-mandir",
+            "title": "Mandir",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-MANDIR-2.jpg\" alt=\"Mandir\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1228-MANDIR-2.jpg",
+            "linkUrl": "project.php?slug=1228-mandir",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1228-paryul-front-view",
+            "title": "Paryul_front_view",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-PARYUL_FRONT_VIEW.jpg\" alt=\"Paryul_front_view\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1228-PARYUL_FRONT_VIEW.jpg",
+            "linkUrl": "project.php?slug=1228-paryul-front-view",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1450-manojbhai",
+            "title": "Manojbhai",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1450-MANOJBHAI-4.jpg\" alt=\"Manojbhai\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1450-MANOJBHAI-4.jpg",
+            "linkUrl": "project.php?slug=1450-manojbhai",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1456-mansukhbhai-sakariya",
+            "title": "Mansukhbhai Sakariya",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1456-MANSUKHBHAI%20SAKARIYA-1.jpg\" alt=\"Mansukhbhai Sakariya\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1456-MANSUKHBHAI%20SAKARIYA-1.jpg",
+            "linkUrl": "project.php?slug=1456-mansukhbhai-sakariya",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1474-sanjaysinh-jadeja-20-11-2025",
+            "title": "Sanjaysinh Jadeja (20-11-2025)",
+            "location": "Gujarat, India",
+            "category": "commercial",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1474-SANJAYSINH%20JADEJA%20%2820-11-2025%29-7.jpg\" alt=\"Sanjaysinh Jadeja (20-11-2025)\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1474-SANJAYSINH%20JADEJA%20%2820-11-2025%29-7.jpg",
+            "linkUrl": "project.php?slug=1474-sanjaysinh-jadeja-20-11-2025",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1489-pareshbhai-ladumor",
+            "title": "Pareshbhai Ladumor",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1489-PARESHBHAI%20LADUMOR-3.jpg\" alt=\"Pareshbhai Ladumor\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1489-PARESHBHAI%20LADUMOR-3.jpg",
+            "linkUrl": "project.php?slug=1489-pareshbhai-ladumor",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1489-pareshbhai-ladumor-3-er",
+            "title": "Pareshbhai Ladumor-3_er",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1489-PARESHBHAI%20LADUMOR-3_ER.jpg\" alt=\"Pareshbhai Ladumor-3_er\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1489-PARESHBHAI%20LADUMOR-3_ER.jpg",
+            "linkUrl": "project.php?slug=1489-pareshbhai-ladumor-3-er",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1515-gauravbhai",
+            "title": "Gauravbhai",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1515-GAURAVBHAI-1.jpg\" alt=\"Gauravbhai\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1515-GAURAVBHAI-1.jpg",
+            "linkUrl": "project.php?slug=1515-gauravbhai",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1515-gauravbhai-1-er-jpg",
+            "title": "Gauravbhai-1_er.jpg",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1515-GAURAVBHAI-1_ER.jpg.jpeg\" alt=\"Gauravbhai-1_er.jpg\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1515-GAURAVBHAI-1_ER.jpg.jpeg",
+            "linkUrl": "project.php?slug=1515-gauravbhai-1-er-jpg",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1523-harshitbhai-5-er-jpg",
+            "title": "Harshitbhai-5_er.jpg",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1523-HARSHITBHAI-5_ER.jpg.jpeg\" alt=\"Harshitbhai-5_er.jpg\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1523-HARSHITBHAI-5_ER.jpg.jpeg",
+            "linkUrl": "project.php?slug=1523-harshitbhai-5-er-jpg",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "1551-kishorbhai-chotaliya-2-er",
+            "title": "Kishorbhai Chotaliya-2_er",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1551-KISHORBHAI%20CHOTALIYA-2_ER.jpg\" alt=\"Kishorbhai Chotaliya-2_er\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/1551-KISHORBHAI%20CHOTALIYA-2_ER.jpg",
+            "linkUrl": "project.php?slug=1551-kishorbhai-chotaliya-2-er",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "2013-rajbha-parmar",
+            "title": "Rajbha Parmar",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/2013-RAJBHA%20PARMAR-3.jpg\" alt=\"Rajbha Parmar\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/2013-RAJBHA%20PARMAR-3.jpg",
+            "linkUrl": "project.php?slug=2013-rajbha-parmar",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "2015-ashishbhai-mehta",
+            "title": "Ashishbhai Mehta",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/2015-ASHISHBHAI%20MEHTA-1.jpg\" alt=\"Ashishbhai Mehta\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/2015-ASHISHBHAI%20MEHTA-1.jpg",
+            "linkUrl": "project.php?slug=2015-ashishbhai-mehta",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-camera-01-1",
+            "title": "Camera 01 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/camera%2001%20%281%29.jpg\" alt=\"Camera 01 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/camera%2001%20%281%29.jpg",
+            "linkUrl": "project.php?slug=collection-camera-01-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-camera-01",
+            "title": "Camera 01",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/camera%2001.jpg\" alt=\"Camera 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/camera%2001.jpg",
+            "linkUrl": "project.php?slug=collection-camera-01",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-devanshi-bedroom-1",
+            "title": "Devanshi Bedroom 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/DEVANSHI_BEDROOM_1.jpg\" alt=\"Devanshi Bedroom 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/DEVANSHI_BEDROOM_1.jpg",
+            "linkUrl": "project.php?slug=collection-devanshi-bedroom-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-devanshi-bedroom-2",
+            "title": "Devanshi Bedroom 2",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/DEVANSHI_BEDROOM_2.jpg\" alt=\"Devanshi Bedroom 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/DEVANSHI_BEDROOM_2.jpg",
+            "linkUrl": "project.php?slug=collection-devanshi-bedroom-2",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-dining-01",
+            "title": "Dining 01",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/DINING%2001.jpg\" alt=\"Dining 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/DINING%2001.jpg",
+            "linkUrl": "project.php?slug=collection-dining-01",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-entrance-1",
+            "title": "Entrance 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/ENTRANCE_1.jpg\" alt=\"Entrance 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/ENTRANCE_1.jpg",
+            "linkUrl": "project.php?slug=collection-entrance-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-entry",
+            "title": "Entry",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/ENTRY.jpg\" alt=\"Entry\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/ENTRY.jpg",
+            "linkUrl": "project.php?slug=collection-entry",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-finnle-editing-rajnikbhai",
+            "title": "Finnle Editing Rajnikbhai",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/Finnle%20Editing%20Rajnikbhai.jpg\" alt=\"Finnle Editing Rajnikbhai\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/Finnle%20Editing%20Rajnikbhai.jpg",
+            "linkUrl": "project.php?slug=collection-finnle-editing-rajnikbhai",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-forma-1",
+            "title": "Forma 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/FORMA_1.jpg\" alt=\"Forma 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/FORMA_1.jpg",
+            "linkUrl": "project.php?slug=collection-forma-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-forma-2",
+            "title": "Forma 2",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/FORMA_2.jpg\" alt=\"Forma 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/FORMA_2.jpg",
+            "linkUrl": "project.php?slug=collection-forma-2",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-gf-bedroom-01",
+            "title": "Gf Bedroom 01",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/GF%20BEDROOM%2001.jpg\" alt=\"Gf Bedroom 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/GF%20BEDROOM%2001.jpg",
+            "linkUrl": "project.php?slug=collection-gf-bedroom-01",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-gf-bedroom-02",
+            "title": "Gf Bedroom 02",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/GF%20BEDROOM%2002.jpg\" alt=\"Gf Bedroom 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/GF%20BEDROOM%2002.jpg",
+            "linkUrl": "project.php?slug=collection-gf-bedroom-02",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-gf-bedroom-03",
+            "title": "Gf Bedroom 03",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/GF%20BEDROOM%2003.jpg\" alt=\"Gf Bedroom 03\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/GF%20BEDROOM%2003.jpg",
+            "linkUrl": "project.php?slug=collection-gf-bedroom-03",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-gf-bedroom-04",
+            "title": "Gf Bedroom 04",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/GF%20BEDROOM%2004.jpg\" alt=\"Gf Bedroom 04\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/GF%20BEDROOM%2004.jpg",
+            "linkUrl": "project.php?slug=collection-gf-bedroom-04",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-girishbhai",
+            "title": "Girishbhai",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/girishbhai.jpg\" alt=\"Girishbhai\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/girishbhai.jpg",
+            "linkUrl": "project.php?slug=collection-girishbhai",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-hareshbhai-bed-room-1",
+            "title": "Hareshbhai Bed Room 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/HARESHBHAI_BED_ROOM_1.jpg\" alt=\"Hareshbhai Bed Room 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/HARESHBHAI_BED_ROOM_1.jpg",
+            "linkUrl": "project.php?slug=collection-hareshbhai-bed-room-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-hareshbhai-bed-room-2",
+            "title": "Hareshbhai Bed Room 2",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/HARESHBHAI_BED_ROOM_2.jpg\" alt=\"Hareshbhai Bed Room 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/HARESHBHAI_BED_ROOM_2.jpg",
+            "linkUrl": "project.php?slug=collection-hareshbhai-bed-room-2",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-002-01-01",
+            "title": "Ip 002 01 01",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-01_01.jpg\" alt=\"Ip 002 01 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-002-01_01.jpg",
+            "linkUrl": "project.php?slug=collection-ip-002-01-01",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-002-01-02",
+            "title": "Ip 002 01 02",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-01_02.jpg\" alt=\"Ip 002 01 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-002-01_02.jpg",
+            "linkUrl": "project.php?slug=collection-ip-002-01-02",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-002-01-03",
+            "title": "Ip 002 01 03",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-01_03.jpg\" alt=\"Ip 002 01 03\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-002-01_03.jpg",
+            "linkUrl": "project.php?slug=collection-ip-002-01-03",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-002-01-04",
+            "title": "Ip 002 01 04",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-01_04.jpg\" alt=\"Ip 002 01 04\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-002-01_04.jpg",
+            "linkUrl": "project.php?slug=collection-ip-002-01-04",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-002-01-05",
+            "title": "Ip 002 01 05",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-01_05.jpg\" alt=\"Ip 002 01 05\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-002-01_05.jpg",
+            "linkUrl": "project.php?slug=collection-ip-002-01-05",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-002-01-06",
+            "title": "Ip 002 01 06",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-01_06.jpg\" alt=\"Ip 002 01 06\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-002-01_06.jpg",
+            "linkUrl": "project.php?slug=collection-ip-002-01-06",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-002-02-01",
+            "title": "Ip 002 02 01",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-02-01.jpg\" alt=\"Ip 002 02 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-002-02-01.jpg",
+            "linkUrl": "project.php?slug=collection-ip-002-02-01",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-002-02-02",
+            "title": "Ip 002 02 02",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-02-02.jpg\" alt=\"Ip 002 02 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-002-02-02.jpg",
+            "linkUrl": "project.php?slug=collection-ip-002-02-02",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-002-02-03",
+            "title": "Ip 002 02 03",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-02-03.jpg\" alt=\"Ip 002 02 03\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-002-02-03.jpg",
+            "linkUrl": "project.php?slug=collection-ip-002-02-03",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-002-02-04",
+            "title": "Ip 002 02 04",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-02-04.jpg\" alt=\"Ip 002 02 04\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-002-02-04.jpg",
+            "linkUrl": "project.php?slug=collection-ip-002-02-04",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-002-03-01",
+            "title": "Ip 002 03 01",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-03-01.jpg\" alt=\"Ip 002 03 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-002-03-01.jpg",
+            "linkUrl": "project.php?slug=collection-ip-002-03-01",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-002-03-02",
+            "title": "Ip 002 03 02",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-03-02.jpg\" alt=\"Ip 002 03 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-002-03-02.jpg",
+            "linkUrl": "project.php?slug=collection-ip-002-03-02",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-002-03-03",
+            "title": "Ip 002 03 03",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-03-03.jpg\" alt=\"Ip 002 03 03\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-002-03-03.jpg",
+            "linkUrl": "project.php?slug=collection-ip-002-03-03",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-002-05-01",
+            "title": "Ip 002 05 01",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-05-01.jpg\" alt=\"Ip 002 05 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-002-05-01.jpg",
+            "linkUrl": "project.php?slug=collection-ip-002-05-01",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-002-05-02",
+            "title": "Ip 002 05 02",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-05-02.jpg\" alt=\"Ip 002 05 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-002-05-02.jpg",
+            "linkUrl": "project.php?slug=collection-ip-002-05-02",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-005-sidharth-siyani-1",
+            "title": "Ip 005 Sidharth Siyani 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-005-SIDHARTH%20SIYANI-1.jpg\" alt=\"Ip 005 Sidharth Siyani 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-005-SIDHARTH%20SIYANI-1.jpg",
+            "linkUrl": "project.php?slug=collection-ip-005-sidharth-siyani-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-005-sidharth-siyani-2",
+            "title": "Ip 005 Sidharth Siyani 2",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-005-SIDHARTH%20SIYANI-2.jpg\" alt=\"Ip 005 Sidharth Siyani 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-005-SIDHARTH%20SIYANI-2.jpg",
+            "linkUrl": "project.php?slug=collection-ip-005-sidharth-siyani-2",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-005-sidharth-siyani-3",
+            "title": "Ip 005 Sidharth Siyani 3",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-005-SIDHARTH%20SIYANI-3.jpg\" alt=\"Ip 005 Sidharth Siyani 3\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-005-SIDHARTH%20SIYANI-3.jpg",
+            "linkUrl": "project.php?slug=collection-ip-005-sidharth-siyani-3",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-ip-005-sidharth-siyani-4",
+            "title": "Ip 005 Sidharth Siyani 4",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-005-SIDHARTH%20SIYANI-4.jpg\" alt=\"Ip 005 Sidharth Siyani 4\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/IP-005-SIDHARTH%20SIYANI-4.jpg",
+            "linkUrl": "project.php?slug=collection-ip-005-sidharth-siyani-4",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-kitchen-01",
+            "title": "Kitchen 01",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/KITCHEN%2001.jpg\" alt=\"Kitchen 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/KITCHEN%2001.jpg",
+            "linkUrl": "project.php?slug=collection-kitchen-01",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-kitchen-02",
+            "title": "Kitchen 02",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/KITCHEN%2002.jpg\" alt=\"Kitchen 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/KITCHEN%2002.jpg",
+            "linkUrl": "project.php?slug=collection-kitchen-02",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-kitchen-03",
+            "title": "Kitchen 03",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/KITCHEN%2003.jpg\" alt=\"Kitchen 03\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/KITCHEN%2003.jpg",
+            "linkUrl": "project.php?slug=collection-kitchen-03",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-01",
+            "title": "Living 01",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING%2001.jpg\" alt=\"Living 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING%2001.jpg",
+            "linkUrl": "project.php?slug=collection-living-01",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-02",
+            "title": "Living 02",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING%2002.jpg\" alt=\"Living 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING%2002.jpg",
+            "linkUrl": "project.php?slug=collection-living-02",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-03",
+            "title": "Living 03",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING%2003.jpg\" alt=\"Living 03\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING%2003.jpg",
+            "linkUrl": "project.php?slug=collection-living-03",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-04",
+            "title": "Living 04",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING%2004.jpg\" alt=\"Living 04\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING%2004.jpg",
+            "linkUrl": "project.php?slug=collection-living-04",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-05",
+            "title": "Living 05",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING%2005.jpg\" alt=\"Living 05\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING%2005.jpg",
+            "linkUrl": "project.php?slug=collection-living-05",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-1-1",
+            "title": "Living Room 1 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_1-1.jpg\" alt=\"Living Room 1 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_1-1.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-1-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-1",
+            "title": "Living Room 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_1.jpg\" alt=\"Living Room 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_1.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-2-1",
+            "title": "Living Room 2 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_2-1.jpg\" alt=\"Living Room 2 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_2-1.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-2-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-2",
+            "title": "Living Room 2",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_2.jpg\" alt=\"Living Room 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_2.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-2",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-3-1",
+            "title": "Living Room 3 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_3-1.jpg\" alt=\"Living Room 3 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_3-1.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-3-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-3",
+            "title": "Living Room 3",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_3.jpg\" alt=\"Living Room 3\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_3.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-3",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-4-1",
+            "title": "Living Room 4 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_4-1.jpg\" alt=\"Living Room 4 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_4-1.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-4-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-4",
+            "title": "Living Room 4",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_4.jpg\" alt=\"Living Room 4\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_4.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-4",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-5-1",
+            "title": "Living Room 5 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_5-1.jpg\" alt=\"Living Room 5 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_5-1.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-5-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-5",
+            "title": "Living Room 5",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_5.jpg\" alt=\"Living Room 5\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_5.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-5",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-6-1",
+            "title": "Living Room 6 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_6-1.jpg\" alt=\"Living Room 6 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_6-1.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-6-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-6",
+            "title": "Living Room 6",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_6.jpg\" alt=\"Living Room 6\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_6.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-6",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-7-1",
+            "title": "Living Room 7 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_7-1.jpg\" alt=\"Living Room 7 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_7-1.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-7-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-7",
+            "title": "Living Room 7",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_7.jpg\" alt=\"Living Room 7\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_7.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-7",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-8-1",
+            "title": "Living Room 8 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_8-1.jpg\" alt=\"Living Room 8 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_8-1.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-8-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-living-room-8",
+            "title": "Living Room 8",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_8.jpg\" alt=\"Living Room 8\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/LIVING_ROOM_8.jpg",
+            "linkUrl": "project.php?slug=collection-living-room-8",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-mandir-01",
+            "title": "Mandir 01",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/MANDIR%2001.jpg\" alt=\"Mandir 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/MANDIR%2001.jpg",
+            "linkUrl": "project.php?slug=collection-mandir-01",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-master-bedroom-01",
+            "title": "Master Bedroom 01",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/MASTER%20BEDROOM%2001.jpg\" alt=\"Master Bedroom 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/MASTER%20BEDROOM%2001.jpg",
+            "linkUrl": "project.php?slug=collection-master-bedroom-01",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-master-bedroom-02",
+            "title": "Master Bedroom 02",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/MASTER%20BEDROOM%2002.jpg\" alt=\"Master Bedroom 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/MASTER%20BEDROOM%2002.jpg",
+            "linkUrl": "project.php?slug=collection-master-bedroom-02",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-master-bedroom-03",
+            "title": "Master Bedroom 03",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/MASTER%20BEDROOM%2003.jpg\" alt=\"Master Bedroom 03\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/MASTER%20BEDROOM%2003.jpg",
+            "linkUrl": "project.php?slug=collection-master-bedroom-03",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-master-bedroom-04",
+            "title": "Master Bedroom 04",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/MASTER%20BEDROOM%2004.jpg\" alt=\"Master Bedroom 04\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/MASTER%20BEDROOM%2004.jpg",
+            "linkUrl": "project.php?slug=collection-master-bedroom-04",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-mukeshbhai-bedroom-1",
+            "title": "Mukeshbhai Bedroom 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/MUKESHBHAI_BEDROOM_1.jpg\" alt=\"Mukeshbhai Bedroom 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/MUKESHBHAI_BEDROOM_1.jpg",
+            "linkUrl": "project.php?slug=collection-mukeshbhai-bedroom-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-mukeshbhai-bedroom-2",
+            "title": "Mukeshbhai Bedroom 2",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/MUKESHBHAI_BEDROOM_2.jpg\" alt=\"Mukeshbhai Bedroom 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/MUKESHBHAI_BEDROOM_2.jpg",
+            "linkUrl": "project.php?slug=collection-mukeshbhai-bedroom-2",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-paryul-1",
+            "title": "Paryul 1",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/PARYUL_1.jpg\" alt=\"Paryul 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/PARYUL_1.jpg",
+            "linkUrl": "project.php?slug=collection-paryul-1",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-paryul-2",
+            "title": "Paryul 2",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/PARYUL_2.jpg\" alt=\"Paryul 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/PARYUL_2.jpg",
+            "linkUrl": "project.php?slug=collection-paryul-2",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-passage-01",
+            "title": "Passage 01",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/PASSAGE%2001.jpg\" alt=\"Passage 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/PASSAGE%2001.jpg",
+            "linkUrl": "project.php?slug=collection-passage-01",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-stair-case-storage-01",
+            "title": "Stair Case Storage 01",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/STAIR%20CASE%20STORAGE%2001.jpg\" alt=\"Stair Case Storage 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/STAIR%20CASE%20STORAGE%2001.jpg",
+            "linkUrl": "project.php?slug=collection-stair-case-storage-01",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-stair-case-storage-02",
+            "title": "Stair Case Storage 02",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/STAIR%20CASE%20STORAGE%2002.jpg\" alt=\"Stair Case Storage 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/STAIR%20CASE%20STORAGE%2002.jpg",
+            "linkUrl": "project.php?slug=collection-stair-case-storage-02",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "collection-view-02-night",
+            "title": "View 02 Night",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "summary": "1 visual from this commission.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/View%2002-night.jpg\" alt=\"View 02 Night\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/View%2002-night.jpg",
+            "linkUrl": "project.php?slug=collection-view-02-night",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "retail-jewellery-showcase",
+            "title": "Jewellery showroom",
+            "location": "Rajkot, Gujarat",
+            "category": "retail",
+            "summary": "Luxury retail interior with display lighting and bespoke joinery.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Jewellery showroom\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Jewellery showroom\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Jewellery showroom\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/retail/retail-jewellery-showroom.jpg",
+            "linkUrl": "project.php?slug=retail-jewellery-showcase",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "retail-fashion-boutique",
+            "title": "Fashion boutique",
+            "location": "Ahmedabad, Gujarat",
+            "category": "retail",
+            "summary": "Boutique fit-out — merchandising walls, trial rooms, and brand-led atmosphere.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Fashion boutique\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Fashion boutique\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/retail/retail-fashion-boutique.jpg",
+            "linkUrl": "project.php?slug=retail-fashion-boutique",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "retail-furniture-showroom",
+            "title": "Furniture showroom",
+            "location": "Surat, Gujarat",
+            "category": "retail",
+            "summary": "Open-plan showroom zoning with feature displays and customer circulation.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Furniture showroom\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Furniture showroom\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/retail/retail-furniture-showroom.jpg",
+            "linkUrl": "project.php?slug=retail-furniture-showroom",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "retail-cafe-lounge",
+            "title": "Café & retail lounge",
+            "location": "Vadodara, Gujarat",
+            "category": "retail",
+            "summary": "Hybrid café-retail concept — hospitality finishes with product display.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Café &amp; retail lounge\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Café &amp; retail lounge\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/retail/retail-cafe-lounge.jpg",
+            "linkUrl": "project.php?slug=retail-cafe-lounge",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "retail-electronics-store",
+            "title": "Electronics retail",
+            "location": "Rajkot, Gujarat",
+            "category": "retail",
+            "summary": "Clean-lined retail shell with modular fixtures and accent lighting.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Electronics retail\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Electronics retail\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/retail/retail-electronics-store.jpg",
+            "linkUrl": "project.php?slug=retail-electronics-store",
+            "homeHighlight": false,
+            "homeLayout": ""
+        },
+        {
+            "slug": "retail-cosmetics-counter",
+            "title": "Cosmetics counter",
+            "location": "Gandhinagar, Gujarat",
+            "category": "retail",
+            "summary": "Premium beauty retail — illuminated counters and material-rich surfaces.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Cosmetics counter\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Cosmetics counter\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Cosmetics counter\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/retail/retail-cosmetics-counter.jpg",
+            "linkUrl": "project.php?slug=retail-cosmetics-counter",
+            "homeHighlight": false,
+            "homeLayout": ""
+        }
+    ],
+    "servicesHome": [
+        {
+            "number": "01",
+            "title": "Plan sanctioning & approvals",
+            "shortDescription": "Architectural drawings, authority liaison, and regulatory compliance.",
+            "eyebrow": "01 — Approvals",
+            "detailTitle": "Plan sanctioning & authority approvals",
+            "detailLead1": "Architectural drawing preparation and documentation aligned to your plot and programme.",
+            "detailLead2": "Liaison with municipal and town-planning authorities; compliance with local development control rules.",
+            "image": "uploads/054-KANTILAL-3D-6.jpg"
+        },
+        {
+            "number": "02",
+            "title": "Interior design & execution",
+            "shortDescription": "Space planning, 3D visuals, materials, and turnkey interior delivery.",
+            "eyebrow": "02 — Interiors",
+            "detailTitle": "Interior design & execution",
+            "detailLead1": "Space planning, 3D visualization, material selection, lighting, false ceiling, and wall finishes.",
+            "detailLead2": "Modular furniture, joinery, and turnkey interior project delivery — documented for site.",
+            "image": "uploads/1228_HARESHBHAI_LIVING_5.jpg"
+        },
+        {
+            "number": "03",
+            "title": "Civil construction",
+            "shortDescription": "Residential and commercial structure execution across Gujarat.",
+            "eyebrow": "03 — Construction",
+            "detailTitle": "Civil construction",
+            "detailLead1": "Residential and commercial structure execution with disciplined site supervision.",
+            "detailLead2": "RCC work, brick masonry, plastering, waterproofing, and coordinated MEP interfaces.",
+            "image": "uploads/1212-ARVINDBHAI%20PARMAR_FRONT-2.jpg"
+        },
+        {
+            "number": "04",
+            "title": "Turnkey project management",
+            "shortDescription": "From design brief to handover — one point of contact.",
+            "eyebrow": "04 — Turnkey",
+            "detailTitle": "Turnkey project management",
+            "detailLead1": "From design brief to handover: procurement, labour management, and vendor coordination.",
+            "detailLead2": "A single accountable team for design, approvals, build, and interior completion.",
+            "image": "uploads/LIVING_ROOM_2-1.jpg"
+        }
+    ],
+    "pages": {
+        "studio": {
+            "kicker": "Rajkot · Gujarat",
+            "title": "Archevo Infra Edge Pvt Ltd",
+            "lead": "Integrated design and build — civil engineering, plan approvals, interiors, and turnkey project management from Rajkot.",
+            "heroImage": "uploads/1212-ARVINDBHAI%20PARMAR_FRONT-2.jpg",
+            "philosophyEyebrow": "Philosophy",
+            "philosophyTitle": "From design vision to built reality",
+            "philosophyLead1": "Archevo Infra Edge Pvt Ltd offers end-to-end services across civil engineering, plan sanctioning, interior design, and turnkey project management — one accountable team for homes, workplaces, and developments in Gujarat.",
+            "philosophyLead2": "We execute with integrity, intelligence, and innovation — coordinating authorities, contractors, and vendors so you have a single point of contact from drawing board to keys.",
+            "philosophyImage": "uploads/1228_HARESHBHAI_LIVING_3.jpg",
+            "valuesEyebrow": "In the studio",
+            "valuesTitle": "Three disciplines, one table",
+            "valuesHtml": "<div class=\"value-card\"><h3>Approvals &amp; planning</h3><p>Drawings, municipal liaison, and regulatory compliance under local development rules.</p></div><div class=\"value-card\"><h3>Interiors &amp; execution</h3><p>Space planning, 3D visualization, modular fit-outs, and turnkey interior delivery.</p></div><div class=\"value-card\"><h3>Build &amp; management</h3><p>Civil construction, procurement, labour management, and handover — one studio, one contract.</p></div>",
+            "pullquote": "From design vision to built reality — we execute with integrity, intelligence, and innovation.",
+            "stripImages": [
+                "uploads/1213-SANJAYSINH%20JADEJA_PLOT-62-1.jpg",
+                "uploads/1228_HARESHBHAI_LIVING_4.jpg",
+                "uploads/058-PRAKASHBHAI%20TANK-3D-2.jpg"
+            ]
+        },
+        "work": {
+            "kicker": "Portfolio",
+            "title": "Selected work",
+            "lead": "Residential, commercial, and retail — conceived as one coherent story from street to detail.",
+            "heroImage": "uploads/1523-HARSHITBHAI-5_ER.jpg.jpeg"
+        },
+        "contact": {
+            "heroKicker": "Enquiries",
+            "heroTitle": "Let's talk about your project",
+            "heroLead": "Tell us about your site, timeline, and ambitions. We respond within two business days with next steps.",
+            "heroImage": "uploads/ENTRY.jpg",
+            "hoursHtml": "<p><strong>Studio hours</strong><br>Mon–Fri · 10:00–18:00<br>Saturday · By appointment</p>"
+        },
+        "process": {
+            "kicker": "Method",
+            "title": "Clarity at every milestone",
+            "lead": "You always know where we are in the journey — what decisions are due, what we need from you, and what happens next on site.",
+            "heroImage": "uploads/LIVING_ROOM_2-1.jpg",
+            "splitEyebrow": "Engagement",
+            "splitTitle": "Phased gates, shared tools",
+            "splitLeadHtml": "<p class=\"section-lead\">We structure every commission in clear phases with sign-off moments — so scope, cost, and calendar stay visible.</p>",
+            "splitImage": "uploads/066-UPENDRASINH-3D-3.jpg"
+        },
+        "journal": {
+            "kicker": "Journal",
+            "title": "Ideas from the studio",
+            "lead": "Notes on materiality, process, and the culture of space — for clients and collaborators.",
+            "heroImage": "uploads/1228_HARESHBHAI_LIVING_4.jpg"
+        },
+        "services": {
+            "kicker": "What we do",
+            "title": "Integrated design & build solutions",
+            "lead": "At Archevo Infra Edge Pvt Ltd, we blend structural expertise with aesthetic precision — functional, compliant, and beautifully designed spaces from brief to handover.",
+            "heroImage": "uploads/054-KANTILAL-3D-6.jpg",
+            "items": [
+                {
+                    "number": "01",
+                    "title": "Plan sanctioning & approvals",
+                    "shortDescription": "Architectural drawings, authority liaison, and regulatory compliance.",
+                    "eyebrow": "01 — Approvals",
+                    "detailTitle": "Plan sanctioning & authority approvals",
+                    "detailLead1": "Architectural drawing preparation and documentation aligned to your plot and programme.",
+                    "detailLead2": "Liaison with municipal and town-planning authorities; compliance with local development control rules.",
+                    "image": "uploads/054-KANTILAL-3D-6.jpg"
+                },
+                {
+                    "number": "02",
+                    "title": "Interior design & execution",
+                    "shortDescription": "Space planning, 3D visuals, materials, and turnkey interior delivery.",
+                    "eyebrow": "02 — Interiors",
+                    "detailTitle": "Interior design & execution",
+                    "detailLead1": "Space planning, 3D visualization, material selection, lighting, false ceiling, and wall finishes.",
+                    "detailLead2": "Modular furniture, joinery, and turnkey interior project delivery — documented for site.",
+                    "image": "uploads/1228_HARESHBHAI_LIVING_5.jpg"
+                },
+                {
+                    "number": "03",
+                    "title": "Civil construction",
+                    "shortDescription": "Residential and commercial structure execution across Gujarat.",
+                    "eyebrow": "03 — Construction",
+                    "detailTitle": "Civil construction",
+                    "detailLead1": "Residential and commercial structure execution with disciplined site supervision.",
+                    "detailLead2": "RCC work, brick masonry, plastering, waterproofing, and coordinated MEP interfaces.",
+                    "image": "uploads/1212-ARVINDBHAI%20PARMAR_FRONT-2.jpg"
+                },
+                {
+                    "number": "04",
+                    "title": "Turnkey project management",
+                    "shortDescription": "From design brief to handover — one point of contact.",
+                    "eyebrow": "04 — Turnkey",
+                    "detailTitle": "Turnkey project management",
+                    "detailLead1": "From design brief to handover: procurement, labour management, and vendor coordination.",
+                    "detailLead2": "A single accountable team for design, approvals, build, and interior completion.",
+                    "image": "uploads/LIVING_ROOM_2-1.jpg"
+                },
+                {
+                    "number": "05",
+                    "title": "Consulting civil engineering",
+                    "shortDescription": "Structural advice, site feasibility, and buildability reviews.",
+                    "eyebrow": "05 — Engineering",
+                    "detailTitle": "Consulting civil engineer",
+                    "detailLead1": "Structural and civil engineering consultation for new builds and renovations.",
+                    "detailLead2": "Feasibility studies, BOQs, and coordination with architects and contractors.",
+                    "image": "uploads/058-PRAKASHBHAI%20TANK-3D-2.jpg"
+                },
+                {
+                    "number": "06",
+                    "title": "Building plan & NA layouts",
+                    "shortDescription": "Plan approval support, layouts, and land survey.",
+                    "eyebrow": "06 — Planning",
+                    "detailTitle": "Building plan approval & NA layouts",
+                    "detailLead1": "Building plan approval pathways and documentation for residential and commercial plots.",
+                    "detailLead2": "NA layouts, land survey, and plot planning support across Gujarat.",
+                    "image": "uploads/1213-SANJAYSINH%20JADEJA_PLOT-62-1.jpg"
+                },
+                {
+                    "number": "07",
+                    "title": "3D design & visualization",
+                    "shortDescription": "Concept renders and presentation models for client sign-off.",
+                    "eyebrow": "07 — Visualization",
+                    "detailTitle": "3D designing & visualization",
+                    "detailLead1": "Photorealistic 3D renders and walkthroughs for architecture and interior schemes.",
+                    "detailLead2": "Material and lighting studies before work starts on site — fewer surprises at execution.",
+                    "image": "uploads/066-UPENDRASINH-3D-3.jpg"
+                }
+            ]
+        }
+    }
+}

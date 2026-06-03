@@ -1,0 +1,512 @@
+/**
+ * SPANGLE — Atelier theme (fresh design direction)
+ * Gallery-minimal · warm stone · terracotta accent · light sections
+ */
+
+:root {
+  --bg: #f7f5f0;
+  --bg-warm: #efeae2;
+  --bg-elevated: #ffffff;
+  --ink: #1a1816;
+  --ink-muted: #5e5953;
+  --line: rgba(26, 24, 22, 0.08);
+  --gold: #b85c38;
+  --gold-mid: #c45c3e;
+  --gold-bright: #e8a88a;
+  --gold-glow: rgba(196, 92, 62, 0.22);
+  --deep: #1a1816;
+  --deep-soft: #2a2724;
+  --accent: #c45c3e;
+  --accent-soft: #f3e8e3;
+  --scrim: linear-gradient(
+    105deg,
+    rgba(22, 20, 18, 0.82) 0%,
+    rgba(22, 20, 18, 0.45) 42%,
+    rgba(22, 20, 18, 0.08) 68%,
+    transparent 100%
+  );
+  --radius: 2px;
+  --radius-lg: 8px;
+  --shadow: 0 20px 60px rgba(26, 24, 22, 0.08);
+  --shadow-lift: 0 16px 48px rgba(26, 24, 22, 0.1);
+  --header-h: 5rem;
+  --lux-line: linear-gradient(90deg, transparent, rgba(196, 92, 62, 0.45), transparent);
+}
+
+body {
+  background-color: var(--bg);
+  background-image: none;
+}
+
+body.home {
+  background-attachment: scroll;
+}
+
+/* —— Header: floating minimal —— */
+.site-header.is-solid {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.site-header.is-top .brand-name {
+  color: #fff;
+  letter-spacing: 0.24em;
+}
+
+.brand-mark {
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.nav-desktop a:not(.nav-cta)::after {
+  background: var(--accent);
+  height: 2px;
+}
+
+.nav-cta {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #fff !important;
+  border-radius: 999px;
+}
+
+.site-header.is-top .nav-cta {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  color: #fff !important;
+}
+
+.site-header.is-top .nav-cta:hover,
+.site-header.is-top .nav-cta:focus-visible {
+  background: #fff !important;
+  color: var(--deep) !important;
+}
+
+.site-header.is-solid .nav-cta:hover {
+  background: var(--deep) !important;
+  border-color: var(--deep) !important;
+  color: #fff !important;
+}
+
+/* —— Hero: editorial glass panel —— */
+.hero-grain,
+.hero-lux-accent {
+  display: none;
+}
+
+.hero-vignette {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.35) 0%,
+    transparent 35%,
+    transparent 55%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  mix-blend-mode: normal;
+}
+
+.hero-scrim {
+  background: var(--scrim);
+}
+
+.hero-slide {
+  filter: saturate(1) contrast(1.03) brightness(0.94);
+  transform: scale(1.04);
+}
+
+.hero-slide.active {
+  transform: scale(1);
+  filter: saturate(1.02) contrast(1.02) brightness(0.96);
+}
+
+.hero-content {
+  left: 0;
+  right: auto;
+  max-width: 36rem;
+  margin-left: clamp(1.25rem, 5vw, 4rem);
+  margin-right: auto;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  background: rgba(22, 20, 18, 0.42);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+.hero-eyebrow::before {
+  background: var(--accent);
+  width: 2.5rem;
+  height: 2px;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6.5vw, 4.25rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.hero-title em {
+  color: var(--gold-bright);
+  font-style: italic;
+  text-shadow: none;
+}
+
+.hero-actions {
+  margin-top: 0.25rem;
+}
+
+.home .hero-actions .btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  box-shadow: 0 8px 28px rgba(196, 92, 62, 0.35);
+}
+
+.home .hero-actions .btn-primary:hover,
+.home .hero-actions .btn-primary:focus-visible {
+  background: #fff;
+  color: var(--deep);
+  border-color: #fff;
+}
+
+.home .hero-actions .btn-ghost {
+  border-radius: 999px;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.hero-arrow {
+  border-radius: 50%;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.hero-controls {
+  bottom: 5.5rem;
+}
+
+.hero-dots {
+  bottom: 4.5rem;
+}
+
+.lux-editorial-rule {
+  display: none;
+}
+
+/* —— Stats: light editorial strip —— */
+.stats-bar {
+  background: var(--bg-elevated);
+  color: var(--ink);
+  border-block: 1px solid var(--line);
+  padding: 3rem 1.5rem;
+}
+
+.stats-bar::before {
+  display: none;
+}
+
+.stat-value {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  color: var(--accent);
+  font-weight: 500;
+  filter: none;
+}
+
+.stat-label {
+  color: var(--ink-muted);
+  opacity: 1;
+}
+
+.stat:not(:last-child)::after {
+  background: var(--line);
+}
+
+/* —— Sections —— */
+.section-eyebrow {
+  color: var(--accent);
+  letter-spacing: 0.24em;
+}
+
+.section-title {
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.section-head {
+  border-bottom-color: var(--line);
+}
+
+.section-head::after {
+  background: var(--accent);
+  width: 3rem;
+  height: 2px;
+}
+
+.text-link {
+  color: var(--accent);
+  border-color: rgba(196, 92, 62, 0.35);
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+  color: var(--deep);
+  border-color: var(--deep);
+}
+
+/* —— Services: light cards (not dark band) —— */
+.section-services {
+  background: var(--accent-soft);
+  color: var(--ink);
+  border-block: none;
+}
+
+.section-services .section-title,
+.section-services .section-intro {
+  color: var(--ink);
+}
+
+.section-services .section-intro {
+  opacity: 0.85;
+}
+
+.section-services .section-head {
+  border-bottom-color: var(--line);
+}
+
+.section-services .section-head::after {
+  background: var(--accent);
+}
+
+.service-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.service-card::before {
+  display: none;
+}
+
+.service-card:hover {
+  border-color: rgba(196, 92, 62, 0.35);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+}
+
+.service-num {
+  color: rgba(196, 92, 62, 0.2);
+  font-size: 2.25rem;
+}
+
+.service-card h3 {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.service-card p {
+  color: var(--ink-muted);
+}
+
+.section-services .text-link {
+  color: var(--accent);
+}
+
+/* —— Projects —— */
+#projects {
+  background: var(--bg);
+  border-block: none;
+}
+
+.project-tile {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.project-tile::after {
+  background: linear-gradient(180deg, transparent 30%, rgba(22, 20, 18, 0.75) 100%);
+}
+
+.project-cat {
+  color: var(--gold-bright);
+}
+
+/* —— About split —— */
+.media-frame {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lift);
+}
+
+.media-frame::after {
+  border-color: rgba(196, 92, 62, 0.15);
+  inset: 1rem;
+}
+
+/* —— Testimonials —— */
+.section-testimonials {
+  background: var(--deep);
+}
+
+.quote-card {
+  border-radius: var(--radius-lg);
+  border-left: 3px solid var(--accent);
+}
+
+.quote-card::before {
+  color: var(--accent);
+}
+
+/* —— CTA panel —— */
+.cta-panel {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  border: none;
+  background-image:
+    radial-gradient(circle at 100% 0%, rgba(196, 92, 62, 0.25), transparent 45%),
+    linear-gradient(135deg, #2a2724 0%, var(--deep) 100%);
+}
+
+.cta-panel .section-eyebrow {
+  color: var(--gold-bright);
+}
+
+/* —— Dark inline CTA —— */
+.cta-inline {
+  background: var(--deep);
+  border-radius: var(--radius-lg);
+  border: none;
+  background-image:
+    linear-gradient(120deg, rgba(196, 92, 62, 0.15) 0%, transparent 50%),
+    var(--deep);
+}
+
+/* CTA buttons on dark strips */
+.cta-inline .btn.btn-primary,
+.cta-panel .btn.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  border-radius: 999px;
+}
+
+.cta-inline .btn.btn-primary:hover,
+.cta-panel .btn.btn-primary:hover {
+  background: #fff;
+  color: var(--deep);
+  border-color: #fff;
+}
+
+/* —— Buttons global —— */
+.btn {
+  border-radius: 999px;
+}
+
+body.page-sub .section-contact .btn-primary,
+body.page-sub .contact-form .btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+body.page-sub .section-contact .btn-primary:hover,
+body.page-sub .contact-form .btn-primary:hover {
+  background: var(--deep);
+  color: #fff;
+  border-color: var(--deep);
+}
+
+/* —— Contact form —— */
+.contact-form {
+  border-radius: var(--radius-lg);
+  border-color: var(--line);
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* —— Footer —— */
+.site-footer {
+  background: #141210;
+  border-top: 3px solid var(--accent);
+}
+
+/* —— Page hero subpages —— */
+.page-hero::before {
+  background: linear-gradient(
+    180deg,
+    rgba(22, 20, 18, 0.25) 0%,
+    rgba(22, 20, 18, 0.55) 55%,
+    rgba(22, 20, 18, 0.9) 100%
+  );
+}
+
+.page-kicker {
+  color: var(--gold-bright);
+}
+
+/* —— Cards —— */
+.work-card,
+.blog-card,
+.team-card,
+.award-item {
+  border-radius: var(--radius-lg);
+}
+
+.work-card:hover,
+.blog-card:hover {
+  border-color: rgba(196, 92, 62, 0.25);
+}
+
+.team-avatar {
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--accent), #8a3d28);
+}
+
+.process-list li {
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  border-top: 1px solid var(--line);
+  padding: 1.5rem;
+}
+
+.process-step {
+  color: var(--accent);
+}
+
+/* —— WhatsApp + mobile bar —— */
+.whatsapp-fab {
+  background: var(--accent);
+  border-color: var(--accent);
+  border-radius: 50%;
+}
+
+.mobile-enquire-bar a.mobile-enquire-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  border-radius: 999px;
+}
+
+.motion-progress {
+  background: linear-gradient(90deg, var(--accent), var(--gold-bright));
+}
+
+/* —— Motion curtain —— */
+body::before {
+  background: var(--deep);
+}
+
+@media (max-width: 900px) {
+  .hero-content {
+    margin-left: 0;
+    margin-right: 0;
+    border-left: none;
+    border-top: 3px solid var(--accent);
+    border-radius: 0;
+    max-width: none;
+  }
+}
