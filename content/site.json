@@ -1,7 +1,7 @@
 {
     "version": 2,
     "source": "mysql",
-    "publicBase": "http://localhost/SPANGLE_FINAL",
+    "publicBase": "",
     "siteName": "Archevo Design",
     "tagline": "Integrated Design & Build Solutions",
     "branding": {

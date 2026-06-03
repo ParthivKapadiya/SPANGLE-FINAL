@@ -116,6 +116,10 @@
 
     var b = (data && data.publicBase) || '';
     b = String(b).trim().replace(/\/$/, '');
+    // Stale XAMPP base in DB/site.json must not break images on live hosting.
+    if (b && /localhost|127\.0\.0\.1/i.test(b)) {
+      b = '';
+    }
     if (!b && typeof window !== 'undefined' && window.location && /^https?:/i.test(window.location.protocol)) {
       b = (
         window.location.origin +
