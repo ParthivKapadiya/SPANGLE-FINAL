@@ -1,0 +1,23 @@
+# SPANGLE — InfinityFree / shared hosting (domain root)
+DirectoryIndex index.html index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteCond %{QUERY_STRING} (^|&)slug=([a-z0-9-]+)(&|$) [NC]
+  RewriteRule ^journal-post\.php$ %2.html?v=3 [R=302,L]
+  RewriteRule ^(config|includes|database)/ - [F,L]
+  RewriteRule ^php/ - [F,L]
+</IfModule>
+
+<FilesMatch "^(database\.php|\.installed|\.env)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

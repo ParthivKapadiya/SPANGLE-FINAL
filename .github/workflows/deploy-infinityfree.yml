@@ -1,0 +1,56 @@
+# Deploy SPANGLE-FINAL to InfinityFree on every push to main.
+# Add GitHub Secrets (see docs/DEPLOY-INFINITYFREE.md):
+# FTP_SERVER, FTP_USERNAME, FTP_PASSWORD, FTP_SERVER_DIR
+
+name: Deploy to InfinityFree
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-infinityfree
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Apply InfinityFree .htaccess
+        run: cp deploy/htaccess.infinityfree .htaccess
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          local-dir: ./
+          log-level: minimal
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.github/**
+            **/.DS_Store
+            **/node_modules/**
+            **/*.log
+            config/database.php
+            config/database.local.php
+            config/mail.local.php
+            config/.installed
+            uploads/**
+            !uploads/.htaccess
+            !uploads/index.html
+            scripts/**
+            test.php
+            developer.html
+            LOCALHOST.md
+            docs/**
