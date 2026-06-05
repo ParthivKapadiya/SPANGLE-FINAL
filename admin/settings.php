@@ -174,7 +174,7 @@ require __DIR__ . '/includes/layout.php';
 
   <div class="adm-card adm-settings-section">
     <h2>Logo &amp; favicon</h2>
-    <p class="adm-hint">Upload SPANGLE branding images. Paths update automatically after upload.</p>
+    <p class="adm-hint">Upload Archevo Design branding images. Paths update automatically after upload.</p>
     <?php foreach (['site_logo' => 'Main logo', 'site_logo_light' => 'Light logo (header)', 'site_logo_dark' => 'Dark logo', 'site_favicon' => 'Favicon'] as $key => $label): ?>
       <div class="adm-field">
         <label><?= e($label) ?></label>

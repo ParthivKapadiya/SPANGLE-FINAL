@@ -15,6 +15,7 @@ final class SiteContent
         require_once SPANGLE_ROOT . '/includes/cmsCopyKeys.php';
         require_once SPANGLE_ROOT . '/includes/cmsPlainFields.php';
         require_once SPANGLE_ROOT . '/includes/cmsNavigation.php';
+        require_once SPANGLE_ROOT . '/includes/cms/ProjectRepository.php';
 
         $keys = [
             'public_base', 'site_name', 'tagline', 'site_logo', 'site_logo_light', 'site_logo_dark', 'site_favicon',
@@ -24,10 +25,23 @@ final class SiteContent
             'whatsapp_digits', 'whatsapp_prefill',
             'contact_section_title', 'contact_section_lead', 'contact_page_title', 'contact_page_lead',
             'contact_hero_kicker', 'contact_hero_title', 'contact_hero_lead', 'contact_hero_image', 'contact_hours_html',
+            'contact_intro_title', 'contact_intro_lead',
+            'contact_step_1_title', 'contact_step_1_text', 'contact_step_2_title', 'contact_step_2_text',
+            'contact_step_3_title', 'contact_step_3_text', 'contact_step_4_title', 'contact_step_4_text',
+            'contact_project_types', 'contact_budget_ranges', 'contact_reasons',
+            'contact_trust_1_title', 'contact_trust_1_text', 'contact_trust_2_title', 'contact_trust_2_text',
+            'contact_trust_3_title', 'contact_trust_3_text', 'contact_trust_4_title', 'contact_trust_4_text',
+            'contact_trust_5_title', 'contact_trust_5_text', 'contact_trust_6_title', 'contact_trust_6_text',
+            'contact_founder_quote', 'contact_visit_parking', 'contact_visit_appointment', 'contact_wa_lead',
+            'contact_cta_title', 'contact_cta_sub', 'contact_cta_btn_text', 'contact_cta_btn_url',
+            'contact_cta_btn2_text', 'contact_cta_btn2_url',
+            'contact_faq_q1', 'contact_faq_a1', 'contact_faq_q2', 'contact_faq_a2',
+            'contact_faq_q3', 'contact_faq_a3', 'contact_faq_q4', 'contact_faq_a4',
+            'contact_faq_q5', 'contact_faq_a5',
             'social_instagram', 'social_facebook', 'social_youtube',
             'map_embed_url', 'map_title',
             'seo_description', 'seo_og_image',
-            'home_hero_eyebrow', 'home_hero_title_html', 'home_hero_title_main', 'home_hero_title_highlight', 'home_hero_lead',
+            'home_hero_eyebrow', 'home_hero_title_html', 'home_hero_title_main', 'home_hero_title_highlight', 'home_hero_lead', 'home_hero_video_url',
             'home_about_eyebrow', 'home_about_title', 'home_about_lead_html', 'home_about_paragraph_1', 'home_about_paragraph_2',
             'home_about_image', 'home_about_image_alt', 'home_about_caption',
             'footer_blurb_1', 'footer_blurb_2',
@@ -46,12 +60,34 @@ final class SiteContent
             'studio_values_eyebrow', 'studio_values_title', 'studio_values_html', 'studio_pullquote',
             'studio_strip_image_1', 'studio_strip_image_2', 'studio_strip_image_3',
             'services_kicker', 'services_title', 'services_lead', 'services_hero_image',
+            'services_cta_sub', 'services_cta_btn2_text', 'services_cta_btn2_url',
+            'services_faq_eyebrow', 'services_faq_title',
+            'services_faq_q1', 'services_faq_a1', 'services_faq_q2', 'services_faq_a2',
+            'services_faq_q3', 'services_faq_a3', 'services_faq_q4', 'services_faq_a4',
+            'services_faq_q5', 'services_faq_a5', 'services_faq_q6', 'services_faq_a6',
             'work_kicker', 'work_title', 'work_lead', 'work_hero_image',
+            'work_featured_eyebrow', 'work_stats_eyebrow', 'work_stats_title',
+            'work_categories_eyebrow', 'work_categories_title',
+            'work_testimonials_eyebrow', 'work_testimonials_title',
+            'work_timeline_eyebrow', 'work_timeline_title', 'work_timeline_intro',
+            'work_trust_eyebrow', 'work_trust_title',
+            'work_cta_final_eyebrow', 'work_cta_final_title', 'work_cta_final_sub',
+            'work_cta_final_btn_text', 'work_cta_final_btn2_text',
             'process_kicker', 'process_title', 'process_lead', 'process_hero_image',
             'process_split_eyebrow', 'process_split_title', 'process_split_lead_html',
             'process_split_paragraph_1', 'process_split_paragraph_2', 'process_split_image',
             'process_timeline_eyebrow', 'process_timeline_title',
+            'process_cta_eyebrow', 'process_cta_sub', 'process_cta_btn2_text', 'process_cta_btn2_url',
+            'process_faq_eyebrow', 'process_faq_title',
+            'process_faq_q1', 'process_faq_a1', 'process_faq_q2', 'process_faq_a2',
+            'process_faq_q3', 'process_faq_a3', 'process_faq_q4', 'process_faq_a4',
+            'process_faq_q5', 'process_faq_a5',
             'journal_kicker', 'journal_title', 'journal_lead', 'journal_hero_image',
+            'journal_stat_readers', 'journal_newsletter_title', 'journal_newsletter_lead',
+            'journal_cta_eyebrow', 'journal_cta_title', 'journal_cta_sub',
+            'journal_cta_btn2_text', 'journal_cta_btn2_url',
+            'journal_faq_q1', 'journal_faq_a1', 'journal_faq_q2', 'journal_faq_a2',
+            'journal_faq_q3', 'journal_faq_a3', 'journal_faq_q4', 'journal_faq_a4',
         ];
         $keys = array_merge($keys, array_keys(cms_copy_setting_keys()));
         $s = settings_get_many($pdo, $keys);
@@ -82,19 +118,22 @@ final class SiteContent
 
         $projects = [];
         $stmt = $pdo->query(
-            'SELECT slug, title, location, category, summary, body_html, hero_image, link_url,
-                    home_highlight, home_layout, is_featured, sort_order
+            'SELECT slug, title, location, category, project_type, summary, body_html, hero_image, link_url,
+                    home_highlight, home_layout, is_featured, sort_order, area_label, completion_year,
+                    services_provided
              FROM projects WHERE is_active = 1
              ORDER BY is_featured DESC, sort_order ASC, id ASC'
         );
         foreach ($stmt->fetchAll() as $row) {
             $heroRel = (string) ($row['hero_image'] ?? '');
             $img = image_responsive_bundle($heroRel, '(max-width: 900px) 100vw, 50vw');
+            $ptype = ProjectRepository::normalizeType((string) ($row['project_type'] ?? $row['category'] ?? 'residential'));
             $projects[] = [
                 'slug' => $row['slug'],
                 'title' => $row['title'],
                 'location' => $row['location'],
-                'category' => $row['category'],
+                'category' => $ptype,
+                'projectType' => $ptype,
                 'summary' => $row['summary'],
                 'bodyHtml' => $row['body_html'] ?? '',
                 'heroImage' => $img['src'],
@@ -105,6 +144,9 @@ final class SiteContent
                 'homeLayout' => $row['home_layout'] ?? '',
                 'isFeatured' => (bool) ($row['is_featured'] ?? false),
                 'sortOrder' => (int) ($row['sort_order'] ?? 0),
+                'area' => (string) ($row['area_label'] ?? ''),
+                'year' => isset($row['completion_year']) && $row['completion_year'] !== '' ? (int) $row['completion_year'] : null,
+                'servicesProvided' => (string) ($row['services_provided'] ?? ''),
             ];
         }
 
@@ -117,13 +159,14 @@ final class SiteContent
             foreach ($pdo->query('SELECT quote, author_name, author_role FROM testimonials WHERE is_active = 1 ORDER BY sort_order ASC, id ASC')->fetchAll() as $row) {
                 $testimonials[] = ['quote' => $row['quote'], 'authorName' => $row['author_name'], 'authorRole' => $row['author_role'] ?? ''];
             }
-            foreach ($pdo->query('SELECT name, role_title, bio, image_path, initials FROM team_members WHERE is_active = 1 ORDER BY sort_order ASC, id ASC')->fetchAll() as $row) {
+            foreach ($pdo->query('SELECT name, role_title, bio, image_path, initials, linkedin_url FROM team_members WHERE is_active = 1 ORDER BY sort_order ASC, id ASC')->fetchAll() as $row) {
                 $team[] = [
                     'name' => $row['name'],
                     'role' => $row['role_title'],
                     'bio' => $row['bio'] ?? '',
                     'image' => public_upload_url((string) ($row['image_path'] ?? '')),
                     'initials' => $row['initials'] ?? '',
+                    'linkedin' => trim((string) ($row['linkedin_url'] ?? '')),
                 ];
             }
             foreach ($pdo->query('SELECT icon_class, title, subtitle FROM awards WHERE is_active = 1 ORDER BY sort_order ASC, id ASC')->fetchAll() as $row) {
@@ -186,14 +229,14 @@ final class SiteContent
             'version' => 2,
             'source' => 'mysql',
             'publicBase' => local_public_base(trim((string) ($s['public_base'] ?? ''))),
-            'siteName' => $s['site_name'] ?? 'SPANGLE Architecture & Interior Design Studio',
+            'siteName' => $s['site_name'] ?? 'Archevo Design',
             'tagline' => $s['tagline'] ?? 'Architecture & Interiors',
             'branding' => [
                 'logo' => public_upload_url($s['site_logo'] ?? 'uploads/branding/archevo-logo.png'),
                 'logoLight' => public_upload_url($s['site_logo_light'] ?? 'uploads/branding/archevo-logo-light.png'),
                 'logoDark' => public_upload_url($s['site_logo_dark'] ?? 'uploads/branding/archevo-logo-dark.png'),
-                'favicon' => public_upload_url($s['site_favicon'] ?? ($s['site_logo'] ?? 'uploads/branding/archevo-logo-light.png')),
-                'brandName' => $s['brand_name'] ?? 'SPANGLE',
+                'favicon' => public_upload_url($s['site_favicon'] ?? 'uploads/branding/archevo-icon.png'),
+                'brandName' => $s['brand_name'] ?? 'Archevo Design',
                 'brandLine' => $s['brand_line'] ?? 'Architecture & Interiors',
                 'footerBlurbHtml' => cms_resolve_footer_blurb_html($s),
                 'footerCopyright' => $s['footer_copyright'] ?? '',
@@ -246,6 +289,7 @@ final class SiteContent
                 'heroEyebrow' => $s['home_hero_eyebrow'] ?? '',
                 'heroTitleHtml' => cms_resolve_hero_title_html($s),
                 'heroLead' => $s['home_hero_lead'] ?? '',
+                'heroVideoUrl' => trim((string) ($s['home_hero_video_url'] ?? '')),
                 'stats' => $stats,
                 'aboutEyebrow' => $s['home_about_eyebrow'] ?? '',
                 'aboutTitle' => $s['home_about_title'] ?? '',
@@ -318,6 +362,21 @@ final class SiteContent
                     'title' => $s['work_title'] ?? '',
                     'lead' => $s['work_lead'] ?? '',
                     'heroImage' => public_upload_url($s['work_hero_image'] ?? ''),
+                    'featuredEyebrow' => $s['work_featured_eyebrow'] ?? '',
+                    'statsEyebrow' => $s['work_stats_eyebrow'] ?? '',
+                    'statsTitle' => $s['work_stats_title'] ?? '',
+                    'categoriesEyebrow' => $s['work_categories_eyebrow'] ?? '',
+                    'categoriesTitle' => $s['work_categories_title'] ?? '',
+                    'testimonialsEyebrow' => $s['work_testimonials_eyebrow'] ?? '',
+                    'testimonialsTitle' => $s['work_testimonials_title'] ?? '',
+                    'timelineEyebrow' => $s['work_timeline_eyebrow'] ?? '',
+                    'timelineTitle' => $s['work_timeline_title'] ?? '',
+                    'timelineIntro' => $s['work_timeline_intro'] ?? '',
+                    'trustEyebrow' => $s['work_trust_eyebrow'] ?? '',
+                    'trustTitle' => $s['work_trust_title'] ?? '',
+                    'ctaEyebrow' => $s['work_cta_final_eyebrow'] ?? '',
+                    'ctaTitle' => $s['work_cta_final_title'] ?? '',
+                    'ctaSub' => $s['work_cta_final_sub'] ?? '',
                 ],
                 'contact' => [
                     'heroKicker' => $s['contact_hero_kicker'] ?? '',
@@ -325,6 +384,31 @@ final class SiteContent
                     'heroLead' => $s['contact_hero_lead'] ?? '',
                     'heroImage' => public_upload_url($s['contact_hero_image'] ?? ''),
                     'hoursHtml' => $s['contact_hours_html'] ?? '',
+                    'introTitle' => $s['contact_intro_title'] ?? '',
+                    'introLead' => $s['contact_intro_lead'] ?? '',
+                    'steps' => cms_contact_steps_from_settings($s),
+                    'projectTypes' => cms_contact_lines_from_setting(
+                        (string) ($s['contact_project_types'] ?? ''),
+                        ['Residential', 'Commercial', 'Interior Design', 'Construction', 'Turnkey', 'Renovation']
+                    ),
+                    'budgetRanges' => cms_contact_lines_from_setting(
+                        (string) ($s['contact_budget_ranges'] ?? ''),
+                        ['₹10L – ₹25L', '₹25L – ₹50L', '₹50L – ₹1Cr', '₹1Cr+']
+                    ),
+                    'reasons' => cms_contact_lines_from_setting(
+                        (string) ($s['contact_reasons'] ?? ''),
+                        ['New Home Design', 'Villa Design', 'Office Design', 'Interior Design', 'Construction', 'Turnkey Solutions']
+                    ),
+                    'trustPoints' => cms_contact_trust_from_settings($s),
+                    'founderQuote' => $s['contact_founder_quote'] ?? '',
+                    'visitParking' => $s['contact_visit_parking'] ?? '',
+                    'visitAppointment' => $s['contact_visit_appointment'] ?? '',
+                    'whatsappLead' => $s['contact_wa_lead'] ?? '',
+                    'faq' => cms_contact_faq_from_settings($s),
+                    'ctaSecondary' => [
+                        'text' => $s['contact_cta_btn2_text'] ?? '',
+                        'url' => $s['contact_cta_btn2_url'] ?? '#cnt-enquiry-form',
+                    ],
                 ],
                 'process' => [
                     'kicker' => $s['process_kicker'] ?? '',
@@ -342,12 +426,24 @@ final class SiteContent
                     'splitImage' => public_upload_url($s['process_split_image'] ?? ''),
                     'timelineEyebrow' => $s['process_timeline_eyebrow'] ?? '',
                     'timelineTitle' => $s['process_timeline_title'] ?? '',
+                    'faq' => cms_process_faq_from_settings($s),
+                    'ctaSecondary' => [
+                        'text' => $s['process_cta_btn2_text'] ?? '',
+                        'url' => $s['process_cta_btn2_url'] ?? 'contact.html',
+                    ],
                 ],
                 'journal' => [
                     'kicker' => $s['journal_kicker'] ?? '',
                     'title' => $s['journal_title'] ?? '',
                     'lead' => $s['journal_lead'] ?? '',
                     'heroImage' => public_upload_url($s['journal_hero_image'] ?? ''),
+                    'newsletterTitle' => $s['journal_newsletter_title'] ?? '',
+                    'newsletterLead' => $s['journal_newsletter_lead'] ?? '',
+                    'faq' => cms_journal_faq_from_settings($s),
+                    'ctaSecondary' => [
+                        'text' => $s['journal_cta_btn2_text'] ?? '',
+                        'url' => $s['journal_cta_btn2_url'] ?? 'contact.html',
+                    ],
                 ],
                 'services' => [
                     'kicker' => $s['services_kicker'] ?? '',
@@ -355,6 +451,11 @@ final class SiteContent
                     'lead' => $s['services_lead'] ?? '',
                     'heroImage' => public_upload_url($s['services_hero_image'] ?? ''),
                     'items' => $servicesPage,
+                    'faq' => cms_services_faq_from_settings($s),
+                    'ctaSecondary' => [
+                        'text' => $s['services_cta_btn2_text'] ?? '',
+                        'url' => $s['services_cta_btn2_url'] ?? 'contact.html',
+                    ],
                 ],
             ],
         ];

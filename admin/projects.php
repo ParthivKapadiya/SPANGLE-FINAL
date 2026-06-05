@@ -204,9 +204,20 @@ if ($action === 'edit' || $action === 'new') {
         <label>Full description</label>
         <p class="adm-hint">Use separate boxes for each paragraph — no code or tags needed.</p>
       </div>
-      <?php foreach ($bodyParagraphs as $i => $para): $n = $i + 1; ?>
+      <?php
+      $bodyLabels = [
+          1 => 'Challenge (case study & portfolio card)',
+          2 => 'Approach / design process',
+          3 => 'Result / outcome',
+          4 => 'Materials (optional)',
+          5 => 'Execution (optional)',
+          6 => 'Additional detail (optional)',
+      ];
+      foreach ($bodyParagraphs as $i => $para):
+          $n = $i + 1;
+          ?>
         <div class="adm-field">
-          <label for="body_paragraph_<?= $n ?>">Paragraph <?= $n ?><?= $n === 1 ? '' : ' (optional)' ?></label>
+          <label for="body_paragraph_<?= $n ?>"><?= e($bodyLabels[$n] ?? ('Paragraph ' . $n)) ?></label>
           <textarea name="body_paragraph_<?= $n ?>" id="body_paragraph_<?= $n ?>" rows="4"><?= e($para) ?></textarea>
         </div>
       <?php endforeach; ?>
@@ -262,6 +273,7 @@ $activeNav = 'projects';
 require __DIR__ . '/includes/layout.php';
 ?>
 <div class="adm-actions" style="margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
+  <a href="work-page.php" class="adm-btn adm-btn-ghost"><i class="fa-solid fa-layer-group"></i> Work page copy</a>
   <a href="projects.php?action=new" class="adm-btn adm-btn-primary"><i class="fa-solid fa-plus"></i> Add project</a>
   <form method="post" data-confirm="Replace all portfolio projects with one entry per image in uploads/? Retail samples are kept.">
     <?= csrf_field() ?>

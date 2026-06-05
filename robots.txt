@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.spangle.studio/sitemap.xml
+Sitemap: https://www.archevoinfra.com/sitemap.php

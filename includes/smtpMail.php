@@ -34,7 +34,7 @@ function smtp_mail_config(): ?array
         'username' => $user,
         'password' => $pass,
         'from_email' => $from,
-        'from_name' => trim((string) ($cfg['from_name'] ?? 'SPANGLE Architecture & Interior Design Studio')),
+        'from_name' => trim((string) ($cfg['from_name'] ?? 'Archevo Design')),
         'timeout' => (int) ($cfg['timeout'] ?? 20),
     ];
 }

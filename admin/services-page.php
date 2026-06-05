@@ -11,8 +11,13 @@ cms_sync_plain_services_fields($pdo);
 
 $pageKeys = [
     'services_kicker', 'services_title', 'services_lead',
-    'services_cta_eyebrow', 'services_cta_title', 'services_cta_lead',
+    'services_cta_eyebrow', 'services_cta_title', 'services_cta_sub', 'services_cta_lead',
     'services_cta_btn_text', 'services_cta_btn_url',
+    'services_cta_btn2_text', 'services_cta_btn2_url',
+    'services_faq_eyebrow', 'services_faq_title',
+    'services_faq_q1', 'services_faq_a1', 'services_faq_q2', 'services_faq_a2',
+    'services_faq_q3', 'services_faq_a3', 'services_faq_q4', 'services_faq_a4',
+    'services_faq_q5', 'services_faq_a5', 'services_faq_q6', 'services_faq_a6',
 ];
 
 $labels = [
@@ -21,9 +26,26 @@ $labels = [
     'services_lead' => 'Top banner — intro text',
     'services_cta_eyebrow' => 'Bottom section — small label',
     'services_cta_title' => 'Bottom section — heading',
+    'services_cta_sub' => 'Bottom section — subheadline (e.g. Architecture · Interiors)',
     'services_cta_lead' => 'Bottom section — text',
-    'services_cta_btn_text' => 'Bottom button — label',
-    'services_cta_btn_url' => 'Bottom button — link',
+    'services_cta_btn_text' => 'Primary button — label',
+    'services_cta_btn_url' => 'Primary button — link',
+    'services_cta_btn2_text' => 'Secondary button — label',
+    'services_cta_btn2_url' => 'Secondary button — link',
+    'services_faq_eyebrow' => 'FAQ — small label',
+    'services_faq_title' => 'FAQ — heading',
+    'services_faq_q1' => 'FAQ 1 — question',
+    'services_faq_a1' => 'FAQ 1 — answer',
+    'services_faq_q2' => 'FAQ 2 — question',
+    'services_faq_a2' => 'FAQ 2 — answer',
+    'services_faq_q3' => 'FAQ 3 — question',
+    'services_faq_a3' => 'FAQ 3 — answer',
+    'services_faq_q4' => 'FAQ 4 — question',
+    'services_faq_a4' => 'FAQ 4 — answer',
+    'services_faq_q5' => 'FAQ 5 — question',
+    'services_faq_a5' => 'FAQ 5 — answer',
+    'services_faq_q6' => 'FAQ 6 — question',
+    'services_faq_a6' => 'FAQ 6 — answer',
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
@@ -48,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
 $s = settings_get_many($pdo, array_merge($pageKeys, ['services_hero_image']));
 
 $pageTitle = 'Services page';
-$pageDescription = 'Banner, bottom invitation, and links to each service block.';
+$pageDescription = 'Banner, FAQ, bottom invitation, and links to each service block.';
 $activeNav = 'services-page';
 require __DIR__ . '/includes/layout.php';
 ?>
@@ -85,8 +107,28 @@ require __DIR__ . '/includes/layout.php';
   </div>
 
   <div class="adm-card">
+    <h2>FAQ section</h2>
+    <?php foreach (['services_faq_eyebrow', 'services_faq_title'] as $key): ?>
+      <div class="adm-field">
+        <label for="<?= e($key) ?>"><?= e($labels[$key]) ?></label>
+        <input type="text" name="<?= e($key) ?>" id="<?= e($key) ?>" value="<?= e($s[$key] ?? '') ?>" />
+      </div>
+    <?php endforeach; ?>
+    <?php for ($i = 1; $i <= 6; $i++): ?>
+      <div class="adm-field">
+        <label for="services_faq_q<?= $i ?>"><?= e($labels['services_faq_q' . $i]) ?></label>
+        <input type="text" name="services_faq_q<?= $i ?>" id="services_faq_q<?= $i ?>" value="<?= e($s['services_faq_q' . $i] ?? '') ?>" />
+      </div>
+      <div class="adm-field">
+        <label for="services_faq_a<?= $i ?>"><?= e($labels['services_faq_a' . $i]) ?></label>
+        <textarea name="services_faq_a<?= $i ?>" id="services_faq_a<?= $i ?>" rows="2"><?= e($s['services_faq_a' . $i] ?? '') ?></textarea>
+      </div>
+    <?php endfor; ?>
+  </div>
+
+  <div class="adm-card">
     <h2>Bottom call-to-action</h2>
-    <?php foreach (['services_cta_eyebrow', 'services_cta_title', 'services_cta_lead', 'services_cta_btn_text', 'services_cta_btn_url'] as $key): ?>
+    <?php foreach (['services_cta_eyebrow', 'services_cta_title', 'services_cta_sub', 'services_cta_lead', 'services_cta_btn_text', 'services_cta_btn_url', 'services_cta_btn2_text', 'services_cta_btn2_url'] as $key): ?>
       <div class="adm-field">
         <label for="<?= e($key) ?>"><?= e($labels[$key]) ?></label>
         <?php if ($key === 'services_cta_lead'): ?>

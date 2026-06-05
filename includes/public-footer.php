@@ -12,6 +12,5 @@ readfile(__DIR__ . '/partials/site-footer.html');
   <script src="js/ux.js?v=9" defer></script>
   <script src="js/content-bridge.js?v=9" defer></script>
   <script src="js/consultation-modal.js?v=9" defer></script>
-  <script src="js/stats-counter.js?v=9" defer></script>
 </body>
 </html>

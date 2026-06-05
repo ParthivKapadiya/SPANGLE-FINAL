@@ -301,7 +301,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$messages && !$errors) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SPANGLE Architecture & Interior Design Studio — Install</title>
+  <title>Archevo Design — Install</title>
   <style>
     body { font-family: system-ui, sans-serif; max-width: 520px; margin: 3rem auto; padding: 0 1rem; }
     label { display: block; margin: 0.75rem 0 0.25rem; font-size: 0.9rem; }
@@ -311,7 +311,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$messages && !$errors) {
   </style>
 </head>
 <body>
-  <h1>SPANGLE Architecture & Interior Design Studio installer</h1>
+  <h1>Archevo Design installer</h1>
   <p>Creates MySQL database, tables, seed data, and <code>config/database.php</code>.</p>
   <?php foreach ($errors as $err): ?>
     <p class="err"><?= htmlspecialchars($err) ?></p>

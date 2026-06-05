@@ -21,6 +21,7 @@ $textKeys = [
     'home_hero_btn_secondary_text' => 'Secondary button text',
     'home_hero_btn_secondary_url' => 'Secondary button link',
     'home_hero_scroll_text' => 'Scroll hint text',
+    'home_hero_video_url' => 'Hero background video URL (MP4, optional)',
     'home_about_eyebrow' => 'About — small label',
     'home_about_title' => 'About — heading',
     'home_about_image_alt' => 'About image description',
@@ -312,6 +313,7 @@ require __DIR__ . '/includes/layout.php';
     <?php
     $heroFields = [
         'home_hero_eyebrow', 'home_hero_title_main', 'home_hero_title_highlight', 'home_hero_lead',
+        'home_hero_video_url',
         'home_hero_btn_primary_text', 'home_hero_btn_primary_url', 'home_hero_btn_secondary_text',
         'home_hero_btn_secondary_url', 'home_hero_scroll_text',
     ];
@@ -329,8 +331,8 @@ require __DIR__ . '/includes/layout.php';
   </div>
 
   <div class="adm-card">
-    <h2>Statistics bar (animated counters)</h2>
-    <p class="adm-hint">Shown under the hero on the homepage. Use numbers like <strong>150+</strong> or text like <strong>India</strong> — they animate when visitors scroll into view.</p>
+    <h2>Statistics (hero glass cards + homepage bar)</h2>
+    <p class="adm-hint">First four values power the floating glass cards in the hero and the stats bar below. Use formats like <strong>150+</strong>, <strong>2M+</strong>, or <strong>98%</strong>.</p>
     <?php foreach ($stats as $stat): ?>
       <div class="adm-field adm-field-row">
         <input type="text" name="stats[<?= (int) $stat['id'] ?>][value]" value="<?= e($stat['stat_value']) ?>" placeholder="e.g. 150+" aria-label="Number" />

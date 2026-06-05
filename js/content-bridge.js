@@ -249,7 +249,7 @@
     var email = c.email || '';
     var addr = c.addressLine || '';
     var waDigits = String(c.whatsappDigits || '').replace(/\D/g, '');
-    var waMsg = encodeURIComponent(c.whatsappPrefill || 'Hello SPANGLE Architecture & Interior Design Studio');
+    var waMsg = encodeURIComponent(c.whatsappPrefill || 'Hello Archevo Design — I would like to discuss a project.');
     var waHref = waDigits ? 'https://wa.me/' + waDigits + '?text=' + waMsg : '';
 
     $$('a[href^="tel:"]').forEach(function (a) {
@@ -330,7 +330,7 @@
     script.textContent = JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
-      name: data.siteName || 'SPANGLE Architecture & Interior Design Studio',
+      name: data.siteName || 'Archevo Design',
       description: (data.seo && data.seo.organizationDescription) || '',
       url: b,
       image: (data.seo && data.seo.defaultOgImage) || '',
@@ -361,7 +361,7 @@
     a.href = waHref;
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
-    a.setAttribute('aria-label', 'Chat with SPANGLE on WhatsApp');
+    a.setAttribute('aria-label', 'Chat with Archevo Design on WhatsApp');
     a.innerHTML = '<span class="whatsapp-fab-inner"><i class="fab fa-whatsapp" aria-hidden="true"></i></span>';
     document.body.appendChild(a);
     setInterval(function () {
@@ -394,7 +394,22 @@
     var eyebrow = $('.site-hero-eyebrow');
     if (eyebrow && h.heroEyebrow) eyebrow.textContent = h.heroEyebrow;
     var title = $('.site-hero-title');
-    if (title && h.heroTitleHtml) title.innerHTML = h.heroTitleHtml;
+    if (title && h.heroTitleHtml) {
+      title.innerHTML = h.heroTitleHtml;
+      if (window.SpangleHero && window.SpangleHero.setHeadlines) {
+        var titlePlain = title.textContent ? title.textContent.replace(/\s+/g, ' ').trim() : '';
+        if (titlePlain) {
+          var headlinePool = window.SpangleHero.getDefaultHeadlines
+            ? window.SpangleHero.getDefaultHeadlines()
+            : [];
+          var mergedHeadlines = [titlePlain];
+          headlinePool.forEach(function (line) {
+            if (line !== titlePlain) mergedHeadlines.push(line);
+          });
+          window.SpangleHero.setHeadlines(mergedHeadlines);
+        }
+      }
+    }
     var lead = $('.site-hero-lead');
     if (lead && h.heroLead) lead.textContent = h.heroLead;
 
@@ -407,6 +422,11 @@
         if (v && row.value != null) v.textContent = row.value;
         if (l && row.label) l.textContent = row.label;
       });
+      if (window.SpangleHero && window.SpangleHero.renderImpactPanel) {
+        window.SpangleHero.renderImpactPanel(h.stats);
+      } else if (window.SpangleHero && window.SpangleHero.renderGlassStats) {
+        window.SpangleHero.renderGlassStats(h.stats);
+      }
     }
 
     var abEyebrow = $('.site-about-eyebrow');
@@ -465,12 +485,20 @@
       .map(function (p, idx) {
         var cat = categoryLabel(p.category);
         var extra = layoutClass(p.homeLayout, idx, highlights.length);
-        var cls = 'project-tile' + (extra === 'lg' ? ' project-tile-lg' : extra === 'wide' ? ' project-tile-wide' : '');
+        var cls = 'project-tile home-reveal' + (extra === 'lg' ? ' project-tile-lg' : extra === 'wide' ? ' project-tile-wide' : '');
         var imgSrc = mediaSrc(p.heroImage || '', data);
         var title = esc(p.title);
         var loc = esc(p.location);
         var link = esc(p.linkUrl || 'work.html');
         var sum = esc(p.summary || '');
+        var catKey = String(p.category || p.projectType || 'residential').toLowerCase();
+        var metrics = [];
+        if (p.area) metrics.push(esc(p.area));
+        if (p.year) metrics.push(String(p.year));
+        if (loc) metrics.push(loc);
+        var metricsHtml = metrics.length
+          ? '<div class="project-metrics">' + metrics.map(function (m) { return '<span>' + m + '</span>'; }).join('') + '</div>'
+          : '';
         var imgAttrs = responsiveImgAttrs({
           src: imgSrc,
           alt: p.title,
@@ -480,8 +508,14 @@
           height: 480,
         });
         return (
-          '<a href="' + link + '" class="' + cls + '" title="' + esc(sum) + '">' +
+          '<a href="' + link + '" class="' + cls + '" data-category="' + esc(catKey) + '" title="' + esc(sum) + '">' +
           '<img' + imgAttrs + ' />' +
+          '<div class="project-hover">' +
+          '<span class="project-cat">' + cat + '</span>' +
+          '<h3>' + title + '</h3>' +
+          metricsHtml +
+          '<span class="project-view">View project →</span>' +
+          '</div>' +
           '<div class="project-meta">' +
           '<span class="project-cat">' + cat + '</span>' +
           '<h3>' + title + '</h3>' +
@@ -617,11 +651,12 @@
       var img = document.createElement('img');
       img.className = 'hero-slide' + (i === 0 ? ' active' : '');
       img.src = mediaSrc(s.src, data);
-      img.alt = '';
+      img.alt = s.alt || s.description || 'Archevo Design architecture and interior project';
       img.width = 1920;
       img.height = 1080;
       img.decoding = 'async';
-      img.setAttribute('aria-hidden', 'true');
+      if (i !== 0) img.loading = 'lazy';
+      img.setAttribute('aria-hidden', i === 0 ? 'false' : 'true');
       if (i === 0) img.setAttribute('fetchpriority', 'high');
       var next = slides[(i + 1) % slides.length];
       if (next && next.src) img.setAttribute('data-hero-fallback', next.src);
@@ -707,14 +742,46 @@
     if (b) root.setAttribute('data-public-base', b);
   }
 
+  function isArchevoLogo(path) {
+    return /archevo/i.test(String(path || ''));
+  }
+
+  function isSpangleLogo(path) {
+    return /spangle/i.test(String(path || ''));
+  }
+
   function applyBranding(data) {
     var b = data.branding || {};
+    var siteName = data.siteName || 'Archevo Design';
+    var brandLabel = b.brandName || 'Archevo Design';
+    var brandLine = b.brandLine || 'Architecture & Interiors';
+    var logoPath = b.logoLight || b.logo || b.logoDark || '';
     var faviconUrl = b.favicon ? mediaSrc(b.favicon, data) : '';
+    var hasArchevoInDom = $$('.brand-logo-mark, .brand-logo-full--light, .brand-logo-full--dark').some(function (img) {
+      return /archevo/i.test(img.getAttribute('src') || '');
+    });
+    var useArchevoLockup =
+      (isArchevoLogo(logoPath) && !isSpangleLogo(logoPath)) || hasArchevoInDom;
+    var useSpangleLockup = isSpangleLogo(logoPath) && !hasArchevoInDom;
+
+    $$('.site-header .brand, .brand.brand--full').forEach(function (el) {
+      el.classList.toggle('brand--wordmark-only', false);
+      el.classList.toggle('brand--has-logo', useSpangleLockup);
+      el.classList.toggle('brand--lux', useArchevoLockup || useSpangleLockup);
+      if (useArchevoLockup || useSpangleLockup) {
+        var full = el.querySelector('.brand-full');
+        if (full) {
+          full.removeAttribute('hidden');
+          full.setAttribute('aria-hidden', 'false');
+        }
+      }
+    });
+
     if (b.logo) {
       var logoUrl = mediaSrc(b.logo, data);
       $$('.footer-logo').forEach(function (img) {
         img.setAttribute('src', logoUrl);
-        img.setAttribute('alt', b.brandName || 'SPANGLE Architecture & Interior Design Studio');
+        img.setAttribute('alt', siteName);
       });
       $$('link[rel="icon"], link[rel="apple-touch-icon"]').forEach(function (link) {
         link.setAttribute('href', faviconUrl || logoUrl);
@@ -724,21 +791,35 @@
         link.setAttribute('href', faviconUrl);
       });
     }
-    var lightUrl = b.logoLight ? mediaSrc(b.logoLight, data) : mediaSrc('uploads/branding/archevo-logo-light.png', data);
-    var darkUrl = b.logoDark ? mediaSrc(b.logoDark, data) : mediaSrc('uploads/branding/archevo-logo-dark.png', data);
-    $$('.brand-logo-full--light').forEach(function (img) {
-      img.setAttribute('src', lightUrl);
-    });
-    $$('.brand-logo-full--dark').forEach(function (img) {
-      img.setAttribute('src', darkUrl);
-    });
-    if (b.brandName) {
-      $$('.brand-name, .site-brand-name').forEach(function (el) { el.textContent = b.brandName; });
-      $$('.site-header .brand[aria-label]').forEach(function (el) {
-        el.setAttribute('aria-label', b.brandName + ' home');
+
+    var lightUrl = b.logoLight && (!isSpangleLogo(b.logoLight) || !hasArchevoInDom)
+      ? mediaSrc(b.logoLight, data)
+      : '';
+    var darkUrl = b.logoDark && (!isSpangleLogo(b.logoDark) || !hasArchevoInDom)
+      ? mediaSrc(b.logoDark, data)
+      : '';
+    if (useArchevoLockup) {
+      if (!lightUrl) lightUrl = mediaSrc('uploads/branding/archevo-logo-light.png', data);
+      if (!darkUrl) darkUrl = mediaSrc('uploads/branding/archevo-logo-dark.png', data);
+    }
+    if (lightUrl) {
+      $$('.brand-logo-full--light').forEach(function (img) {
+        img.setAttribute('src', lightUrl);
       });
     }
-    if (b.brandLine) $$('.brand-line, .site-brand-line').forEach(function (el) { el.textContent = b.brandLine; });
+    if (darkUrl) {
+      $$('.brand-logo-full--dark').forEach(function (img) {
+        img.setAttribute('src', darkUrl);
+      });
+    }
+
+    $$('.brand-name, .site-brand-name').forEach(function (el) {
+      el.textContent = brandLabel;
+    });
+    $$('.site-header .brand[aria-label]').forEach(function (el) {
+      el.setAttribute('aria-label', siteName + ' home');
+    });
+    $$('.brand-line, .site-brand-line').forEach(function (el) { el.textContent = brandLine; });
     if (b.footerBlurbHtml) $$('.site-footer-blurb').forEach(function (el) { el.innerHTML = b.footerBlurbHtml; });
     if (b.footerCopyright) $$('.site-footer-copy').forEach(function (el) { el.textContent = b.footerCopyright; });
   }
@@ -807,7 +888,7 @@
     });
     if (!filtered.length) return;
     list.innerHTML = filtered.map(function (s) {
-      return '<li><span class="process-step">' + esc(s.label) + '</span><h3>' + esc(s.title) + '</h3><p>' + esc(s.description) + '</p></li>';
+      return '<li class="home-reveal"><span class="process-step">' + esc(s.label) + '</span><h3>' + esc(s.title) + '</h3><p>' + esc(s.description) + '</p></li>';
     }).join('');
   }
 
@@ -907,10 +988,18 @@
       var el = $(sel);
       if (!el) return;
       if (c[textKey]) el.textContent = c[textKey];
-      if (c[urlKey]) el.setAttribute('href', c[urlKey]);
+      if (c[urlKey] && el.tagName === 'A') el.setAttribute('href', c[urlKey]);
     }
 
-    setBtn('.site-hero-btn-primary', 'home_hero_btn_primary_text', 'home_hero_btn_primary_url');
+    var primaryBtn = $('.site-hero-btn-primary');
+    if (primaryBtn) {
+      if (c.home_hero_btn_primary_text) primaryBtn.textContent = c.home_hero_btn_primary_text;
+      if (primaryBtn.hasAttribute('data-consult-open')) {
+        primaryBtn.removeAttribute('href');
+      } else if (c.home_hero_btn_primary_url && primaryBtn.tagName === 'A') {
+        primaryBtn.setAttribute('href', c.home_hero_btn_primary_url);
+      }
+    }
     setBtn('.site-hero-btn-secondary', 'home_hero_btn_secondary_text', 'home_hero_btn_secondary_url');
     setText('.site-hero-scroll-text', 'home_hero_scroll_text');
     setLinkHtml($('.site-home-link-about'), c.home_link_about_text, c.home_link_about_url);
@@ -927,10 +1016,38 @@
     setBtn('.site-services-cta-btn', 'services_cta_btn_text', 'services_cta_btn_url');
     setText('.site-work-cta-text', 'work_cta_text');
     setBtn('.site-work-cta-btn', 'work_cta_btn_text', 'work_cta_btn_url');
+    setText('.site-work-cta-eyebrow', 'work_cta_final_eyebrow');
+    setText('.site-work-cta-final-title', 'work_cta_final_title');
+    setHtml('.site-work-cta-final-sub', 'work_cta_final_sub');
+    setText('.site-work-cta-final-btn', 'work_cta_final_btn_text');
+    setText('.site-work-cta-btn-secondary', 'work_cta_final_btn2_text');
+    setText('.site-work-featured-eyebrow', 'work_featured_eyebrow');
+    setText('.site-work-stats-eyebrow', 'work_stats_eyebrow');
+    setText('.site-work-stats-title', 'work_stats_title');
+    setText('.site-work-categories-eyebrow', 'work_categories_eyebrow');
+    setText('.site-work-categories-title', 'work_categories_title');
+    setText('.site-work-testimonials-eyebrow', 'work_testimonials_eyebrow');
+    setText('.site-work-testimonials-title', 'work_testimonials_title');
+    setText('.site-work-timeline-eyebrow', 'work_timeline_eyebrow');
+    setText('.site-work-timeline-title', 'work_timeline_title');
+    setText('.site-work-timeline-intro', 'work_timeline_intro');
+    setText('.site-work-trust-eyebrow', 'work_trust_eyebrow');
+    setText('.site-work-trust-title', 'work_trust_title');
     setText('.site-process-cta-text', 'process_cta_text');
     setBtn('.site-process-cta-btn', 'process_cta_btn_text', 'process_cta_btn_url');
+    setText('.site-journal-cta-eyebrow', 'journal_cta_eyebrow');
+    setText('.site-journal-cta-title', 'journal_cta_title');
+    setText('.jnl-cta__sub', 'journal_cta_sub');
     setText('.site-journal-cta-text', 'journal_cta_text');
     setBtn('.site-journal-cta-btn', 'journal_cta_btn_text', 'journal_cta_btn_url');
+    setBtn('.site-journal-cta-btn-secondary', 'journal_cta_btn2_text', 'journal_cta_btn2_url');
+    setText('.jnl-newsletter__title', 'journal_newsletter_title');
+    setText('.jnl-newsletter__lead', 'journal_newsletter_lead');
+    setText('.site-contact-cta-title', 'contact_cta_title');
+    setText('.cnt-cta__sub', 'contact_cta_sub');
+    setBtn('.site-contact-cta-btn', 'contact_cta_btn_text', 'contact_cta_btn_url');
+    setBtn('.site-contact-cta-btn-secondary', 'contact_cta_btn2_text', 'contact_cta_btn2_url');
+    setText('.cnt-wa__lead', 'contact_wa_lead');
 
     $$('.site-work-filter').forEach(function (btn) {
       var f = btn.getAttribute('data-filter');
@@ -974,7 +1091,7 @@
       css.href = 'css/conversion-ux.css?' + v;
       document.head.appendChild(css);
     }
-    ['js/consultation-modal.js', 'js/stats-counter.js'].forEach(function (src) {
+    ['js/consultation-modal.js'].forEach(function (src) {
       var file = src.split('/').pop();
       if ($('script[src*="' + file + '"]')) return;
       var s = document.createElement('script');
@@ -1010,6 +1127,9 @@
       renderHomeServices(data);
       renderFooterServices(data);
       renderHomeProjects(data);
+      if (window.SpangleHero && window.SpangleHero.renderProjectPreview) {
+        window.SpangleHero.renderProjectPreview(data.projects, data);
+      }
       renderGallery(data);
       renderProcessList('#site-home-process-list', data.processSteps, 'home');
       renderTestimonials(data);

@@ -10,7 +10,7 @@ function enquiry_notify_recipients(PDO $pdo): array
 {
     $raw = trim(setting_get($pdo, 'enquiry_notify_email', ''));
     if ($raw === '') {
-        $raw = trim(setting_get($pdo, 'contact_email', 'hello@spangle.studio'));
+        $raw = trim(setting_get($pdo, 'contact_email', 'archevodesign6@gmail.com'));
     }
 
     $parts = preg_split('/[\s,;]+/', $raw, -1, PREG_SPLIT_NO_EMPTY) ?: [];
@@ -46,7 +46,7 @@ function enquiry_mail_from_address(PDO $pdo): string
 
 function enquiry_build_message(PDO $pdo, array $enquiry): array
 {
-    $siteName = setting_get($pdo, 'site_name', 'SPANGLE Architecture & Interior Design Studio');
+    $siteName = setting_get($pdo, 'site_name', 'Archevo Design');
     $name = (string) ($enquiry['name'] ?? '');
     $email = (string) ($enquiry['email'] ?? '');
     $phone = (string) ($enquiry['phone'] ?? '');

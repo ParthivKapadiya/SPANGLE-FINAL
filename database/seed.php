@@ -35,7 +35,7 @@ $seo = $data['seo'] ?? [];
 
 $settings = [
     'public_base' => $data['publicBase'] ?? '',
-    'site_name' => $data['siteName'] ?? 'SPANGLE Architecture & Interior Design Studio',
+    'site_name' => $data['siteName'] ?? 'Archevo Design',
     'tagline' => $data['tagline'] ?? '',
     'contact_phone_e164' => $c['phoneE164'] ?? '',
     'contact_phone_display' => $c['phoneDisplay'] ?? '',
@@ -75,7 +75,7 @@ $settings = [
     'studio_hero_image' => 'uploads/1212-ARVINDBHAI PARMAR_FRONT-2.jpg',
     'studio_philosophy_eyebrow' => 'Philosophy',
     'studio_philosophy_title' => 'Quiet confidence',
-    'studio_philosophy_lead_1' => 'SPANGLE Architecture & Interior Design Studio offers end-to-end design and build from Rajkot, Gujarat.',
+    'studio_philosophy_lead_1' => 'Archevo Design offers end-to-end design and build from Rajkot, Gujarat.',
     'studio_philosophy_lead_2' => 'We do not chase novelty for its own sake.',
     'studio_philosophy_image' => 'uploads/1228_HARESHBHAI_LIVING_3.jpg',
     'services_kicker' => 'What we offer',
@@ -97,7 +97,7 @@ foreach ($home['stats'] ?? [] as $stat) {
 
 $pdo->exec('DELETE FROM hero_slides');
 $heroImages = [
-    ['uploads/ENTRY.jpg', 'SPANGLE Architecture & Interior Design Studio entry'],
+    ['uploads/ENTRY.jpg', 'Archevo Design entry'],
     ['uploads/1228_HARESHBHAI_LIVING_5.jpg', 'Living room interior'],
     ['uploads/1159-VISALBHAI RAMPARIYA-5.jpg', 'Residential interior'],
     ['uploads/LIVING 01.jpg', 'Modern living space'],

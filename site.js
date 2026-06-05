@@ -89,18 +89,20 @@
   var testUserPaused = false;
   var testIndex = 0;
 
-  function isSubPage() {
-    return document.body.classList.contains('page-sub');
+  function hasCinematicHero() {
+    return !!document.querySelector(
+      '.hero--cinematic, .hero--premium, .wrk-hero, .svc-hero, .proc-hero, .studio-hero, .cnt-hero, .jnl-hero, .page-hero, .site-page-hero, .prj-hero'
+    );
   }
 
   function setHeaderState() {
     if (!header) return;
-    if (isSubPage()) {
+    /* Legal / plain pages: always solid. Hero pages: same scroll behaviour as home. */
+    if (!hasCinematicHero()) {
       header.classList.remove('is-top');
       header.classList.add('is-solid');
       return;
     }
-    /* Switch to solid bar soon after scroll (not after the full hero) */
     var threshold = 72;
     if (window.scrollY < threshold) {
       header.classList.add('is-top');
@@ -224,6 +226,9 @@
     }
     heroIndex = index;
     announceSlide(index);
+    document.dispatchEvent(
+      new CustomEvent('spangle:hero-slide-change', { detail: { index: index } })
+    );
   }
 
   function nextHero() {

@@ -112,6 +112,9 @@
   }
 
   function injectCtas() {
+    if (document.body.classList.contains('home')) {
+      return;
+    }
     if (!$('.consult-cta-desktop')) {
       var desk = document.createElement('button');
       desk.type = 'button';
@@ -239,7 +242,15 @@
     fetchCsrf();
     buildModal();
     injectCtas();
-    document.body.classList.add('has-consult-cta');
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest('[data-consult-open]');
+      if (!trigger) return;
+      e.preventDefault();
+      openModal();
+    });
+    if (!document.body.classList.contains('home')) {
+      document.body.classList.add('has-consult-cta');
+    }
   }
 
   if (document.readyState === 'loading') {

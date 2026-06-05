@@ -271,7 +271,7 @@
   }
 
   function countStatsIn(root) {
-    $$('.stat-value', root).forEach(function (el) {
+    $$('.stats-bar .stat-value', root).forEach(function (el) {
       if (countedStats.has(el)) return;
       var parsed = parseStatValue(el.textContent);
       if (!parsed || parsed.num <= 0) return;

@@ -15,7 +15,7 @@ $post = $stmt->fetch();
 
 if (!$post) {
     http_response_code(404);
-    $publicPageTitle = 'Article not found | SPANGLE Architecture & Interior Design Studio';
+    $publicPageTitle = 'Article not found | Archevo Design';
     require SPANGLE_ROOT . '/includes/public-header.php';
     echo '<main id="main" class="section" style="padding-top:6rem;"><div class="container narrow"><h1 class="section-title">Article not found</h1><p><a href="journal.html">Back to journal</a></p></div></main>';
     require SPANGLE_ROOT . '/includes/public-footer.php';
@@ -37,7 +37,7 @@ if ($readMins) {
 
 $seoTitle = trim((string) ($post['seo_title'] ?? ''));
 $seoDesc = trim((string) ($post['seo_description'] ?? ''));
-$publicPageTitle = $seoTitle !== '' ? $seoTitle : $title . ' | SPANGLE Architecture & Interior Design Studio Journal';
+$publicPageTitle = $seoTitle !== '' ? $seoTitle : $title . ' | Archevo Design Journal';
 $publicMetaDescription = $seoDesc !== '' ? $seoDesc : (string) ($post['excerpt'] ?? '');
 $publicBodyClass = 'page-journal-article';
 

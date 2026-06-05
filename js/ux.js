@@ -69,8 +69,8 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  /* —— Mobile sticky enquire bar —— */
-  if (!document.body.classList.contains('page-contact')) {
+  /* —— Mobile sticky enquire bar (not on home — hero has primary CTA) —— */
+  if (!document.body.classList.contains('page-contact') && !document.body.classList.contains('home')) {
     var bar = document.createElement('div');
     bar.className = 'mobile-enquire-bar';
     bar.setAttribute('role', 'navigation');

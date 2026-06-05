@@ -78,7 +78,7 @@
       resetMotionTitle(t);
     }
     if (l && page.lead) l.textContent = page.lead;
-    var hero = $('.site-page-hero');
+    var hero = $('.studio-hero__media') || $('.site-page-hero');
     if (hero && page.heroImage) hero.style.backgroundImage = "url('" + mediaSrc(page.heroImage).replace(/'/g, '%27') + "')";
   }
 
@@ -118,6 +118,8 @@
     if (p1 && page.philosophyLead1) p1.textContent = page.philosophyLead1;
     if (p2 && page.philosophyLead2) p2.textContent = page.philosophyLead2;
     if (pi && page.philosophyImage) pi.setAttribute('src', mediaSrc(page.philosophyImage));
+    var storyImg = document.getElementById('studio-story-image');
+    if (storyImg && page.philosophyImage) storyImg.setAttribute('src', mediaSrc(page.philosophyImage));
     var ve = $('.site-studio-values-eyebrow');
     var vt = $('.site-studio-values-title');
     var vw = $('.site-studio-values-wrap');
@@ -154,6 +156,8 @@
     });
     var pq = $('.site-studio-pullquote');
     if (pq && page.pullquote) pq.textContent = page.pullquote;
+    var founderQuote = document.getElementById('studio-founder-quote');
+    if (founderQuote && page.pullquote) founderQuote.textContent = page.pullquote.replace(/^["“]|["”]$/g, '');
     var strip = $('.site-studio-strip');
     if (strip && page.stripImages && page.stripImages.length) {
       var stripImgs = strip.querySelectorAll('img');
@@ -167,6 +171,7 @@
 
   function applyServices(page) {
     if (!page) return;
+    if (document.getElementById('svc-detail-section')) return;
     applyPageHero(page);
     var grid = $('#site-services-detail-grid');
     if (!grid || !page.items || !page.items.length) return;
@@ -202,6 +207,7 @@
 
   function applyProcessPage(page, processSteps) {
     if (!page) return;
+    if (document.getElementById('proc-timeline')) return;
     applyPageHero(page);
     var se = $('.site-process-split-eyebrow');
     var st = $('.site-process-split-title');
@@ -325,13 +331,21 @@
     if (!copy) return;
     var eyebrow = $('.site-services-cta-eyebrow');
     var title = $('.site-services-cta-title');
+    var sub = $('.site-services-cta-sub');
     var lead = $('.site-services-cta-lead');
     var btn = $('.site-services-cta-btn');
+    var btn2 = $('.site-services-cta-btn-secondary');
     if (eyebrow && copy.services_cta_eyebrow) eyebrow.textContent = copy.services_cta_eyebrow;
     if (title && copy.services_cta_title) title.textContent = copy.services_cta_title;
+    if (sub && copy.services_cta_sub) sub.textContent = copy.services_cta_sub;
     if (lead && copy.services_cta_lead) lead.textContent = copy.services_cta_lead;
     if (btn && copy.services_cta_btn_text) btn.textContent = copy.services_cta_btn_text;
     if (btn && copy.services_cta_btn_url) btn.setAttribute('href', copy.services_cta_btn_url);
+    if (btn2 && copy.services_cta_btn2_text) {
+      btn2.textContent = copy.services_cta_btn2_text;
+      btn2.hidden = false;
+    }
+    if (btn2 && copy.services_cta_btn2_url) btn2.setAttribute('href', copy.services_cta_btn2_url);
   }
 
   function onData(e) {
@@ -342,13 +356,21 @@
       document.dispatchEvent(new CustomEvent('spangle:content-updated'));
     }
     if (document.body.classList.contains('page-services')) {
-      applyServices(data.pages.services);
+      if (!document.getElementById('svc-detail-section')) {
+        applyServices(data.pages.services);
+      }
       applyServicesCta(data.copy);
     }
-    if (document.body.classList.contains('page-work')) applyPageHero(data.pages.work);
-    if (document.body.classList.contains('page-contact')) applyContactExtras(data.pages.contact);
-    if (document.body.classList.contains('page-process')) applyProcessPage(data.pages.process, data.processSteps);
-    if (document.body.classList.contains('page-journal')) {
+    if (document.body.classList.contains('page-work') && !document.getElementById('wrk-hero')) {
+      applyPageHero(data.pages.work);
+    }
+    if (document.body.classList.contains('page-contact') && !document.getElementById('cnt-enquiry-form')) {
+      applyContactExtras(data.pages.contact);
+    }
+    if (document.body.classList.contains('page-process') && !document.getElementById('proc-timeline')) {
+      applyProcessPage(data.pages.process, data.processSteps);
+    }
+    if (document.body.classList.contains('page-journal') && !document.getElementById('journal-grid')) {
       applyPageHero(data.pages.journal);
       renderJournalList(data.journalPosts);
     }

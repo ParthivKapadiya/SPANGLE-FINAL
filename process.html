@@ -3,27 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Process | SPANGLE Architecture & Interior Design Studio</title>
-  <meta name="description" content="How SPANGLE Architecture & Interior Design Studio moves from discovery to handover — a transparent design and delivery process." />
+  <title>Process | Archevo Design</title>
+  <meta name="description" content="How Archevo Design moves from discovery to handover — a transparent design and delivery process." />
   <link rel="icon" href="uploads/branding/archevo-logo.png" type="image/png" />
   <link rel="stylesheet" href="fonts/fonts.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="css/header-lux.css?v=27" />
+  <link rel="stylesheet" href="css/process-premium.css?v=1" />
 </head>
 <body class="page-sub page-process">
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header is-solid" id="site-header" data-header role="banner">
+  <header class="site-header is-top" id="site-header" data-header role="banner">
     <div class="header-inner">
-      <a href="index.html" class="brand brand--full" aria-label="SPANGLE Architecture & Interior Design Studio home">
+      <a href="index.html" class="brand brand--full brand--lux" aria-label="Archevo Design home">
         <span class="brand-full">
-          <img src="uploads/branding/archevo-logo-light.png" alt="" width="168" height="100" class="brand-logo-full brand-logo-full--light" decoding="async" />
-          <img src="uploads/branding/archevo-logo-dark.png" alt="" width="148" height="88" class="brand-logo-full brand-logo-full--dark" decoding="async" />
+          <img src="uploads/branding/archevo-logo-light.png" alt="" width="67" height="76" class="brand-logo-full brand-logo-full--light brand-logo-mark" decoding="async" />
+          <img src="uploads/branding/archevo-logo-dark.png" alt="" width="67" height="76" class="brand-logo-full brand-logo-full--dark brand-logo-mark" decoding="async" />
         </span>
-      
         <span class="brand-text">
-          <span class="brand-name">SPANGLE</span>
-          <span class="brand-line">Integrated Design &amp; Build</span>
+          <span class="brand-name site-brand-name">Archevo Design</span>
+          <span class="brand-line site-brand-line">Architecture &amp; Interiors</span>
         </span>
       </a>
       <nav class="nav-desktop" aria-label="Main navigation">
@@ -31,15 +32,12 @@
           <li><a href="studio.html" data-nav-link="studio">Studio</a></li>
           <li><a href="services.html" data-nav-link="services">Services</a></li>
           <li><a href="work.html" data-nav-link="work">Work</a></li>
-          <li><a href="process.html" class="is-active" aria-current="page">Process</a></li>
+          <li><a href="process.html" data-nav-link="process">Process</a></li>
           <li><a href="journal.html" data-nav-link="journal">Journal</a></li>
-          <li><a class="nav-cta" href="contact.html" data-nav-link="contact">Enquire</a></li>
+          <li><a class="nav-cta" href="contact.html" data-nav-link="contact" data-consult-open>Enquire</a></li>
         </ul>
       </nav>
-      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open menu">
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-      </button>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open menu"><span class="nav-toggle-bar" aria-hidden="true"></span><span class="nav-toggle-bar" aria-hidden="true"></span></button>
     </div>
     <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
       <div class="nav-drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
@@ -57,75 +55,197 @@
   </header>
 
   <main id="main">
-    <section class="page-hero site-page-hero" style="background-image: url('uploads/LIVING_ROOM_2-1.jpg');" aria-labelledby="page-title">
-      <div class="page-hero-inner">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
+    <!-- S1: Cinematic hero -->
+    <section class="proc-hero site-page-hero" aria-labelledby="page-title">
+      <div class="proc-hero__media" style="background-image: url('uploads/LIVING_ROOM_2-1.jpg');" role="img" aria-label="Archevo Design process"></div>
+      <div class="proc-hero__scrim" aria-hidden="true"></div>
+      <div class="proc-hero__grid" aria-hidden="true"></div>
+      <div class="proc-hero__inner">
+        <nav class="proc-hero__breadcrumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
-          <span aria-hidden="true">/</span>
+          <span aria-hidden="true"> / </span>
           <span aria-current="page">Process</span>
         </nav>
-        <p class="page-kicker site-page-kicker">Method</p>
-        <h1 id="page-title" class="page-hero-title site-page-hero-title">Clarity at every milestone</h1>
-        <p class="page-hero-lead site-page-hero-lead">You always know where we are in the journey — what decisions are due, what we need from you, and what happens next on site.</p>
+        <p class="proc-hero__kicker site-page-kicker">Method</p>
+        <h1 id="page-title" class="proc-hero__title site-page-hero-title">From Vision To Reality.</h1>
+        <p class="proc-hero__lead site-page-hero-lead">You always know where we are in the journey — what decisions are due, what we need from you, and what happens next on site.</p>
+        <div class="proc-hero__stats" id="proc-hero-stats" aria-label="Studio credentials"></div>
+      </div>
+      <a href="#trust-why" class="proc-hero__scroll" aria-label="Scroll to process overview">
+        <span class="proc-hero__scroll-line" aria-hidden="true"></span>
+        <span>Explore</span>
+      </a>
+    </section>
+
+    <!-- S2: Why our process works -->
+    <section class="proc-section" id="trust-why" aria-labelledby="trust-why-title">
+      <div class="proc-container">
+        <header class="proc-section-head proc-section-head--center proc-reveal">
+          <p class="section-eyebrow">Confidence</p>
+          <h2 id="trust-why-title" class="section-title">Why our process works</h2>
+          <p class="section-intro">A proven system built on clear communication, defined milestones, and single-point accountability — so your project moves forward without surprises.</p>
+        </header>
+        <div class="proc-trust-grid" id="proc-trust-grid"></div>
       </div>
     </section>
 
-    <section class="section section-tight fade-slide">
-      <div class="container split">
-        <div class="split-media">
-          <div class="media-frame">
-            <img src="uploads/066-UPENDRASINH-3D-3.jpg" class="site-process-split-image" alt="Design studio atmosphere and materials" loading="lazy" width="800" height="900" decoding="async" data-img-fallback="uploads/054-KANTILAL-3D-6.jpg" />
-          </div>
+    <!-- S3: Framework -->
+    <section class="proc-section proc-section--elevated" id="framework" aria-labelledby="framework-title">
+      <div class="proc-container">
+        <header class="proc-section-head proc-section-head--center proc-reveal">
+          <p class="section-eyebrow">Methodology</p>
+          <h2 id="framework-title" class="section-title"><span id="proc-framework-title">Archevo Design Project Framework</span></h2>
+          <p class="section-intro">Six disciplined stages — from first conversation to keys in hand — each with defined deliverables and sign-off moments.</p>
+        </header>
+        <div class="proc-framework" id="proc-framework"></div>
+      </div>
+    </section>
+
+    <!-- Engagement split (CMS: process_split_*) -->
+    <section class="proc-section" id="engagement" aria-labelledby="split-title">
+      <div class="proc-container proc-split">
+        <div class="proc-split__visual proc-reveal">
+          <img src="uploads/066-UPENDRASINH-3D-3.jpg" class="site-process-split-image" alt="Design studio atmosphere and materials" loading="lazy" width="800" height="900" decoding="async" data-img-fallback="uploads/054-KANTILAL-3D-6.jpg" />
         </div>
-        <div class="split-copy">
+        <div class="proc-split__copy proc-reveal">
           <p class="section-eyebrow site-process-split-eyebrow">Engagement</p>
-          <h2 class="section-title site-process-split-title">Phased gates, shared tools</h2>
+          <h2 id="split-title" class="section-title site-process-split-title">Phased gates, shared tools</h2>
           <p class="section-lead site-process-split-lead">We structure work into clear phases with sign-off moments. Drawings, 3D studies, and sample boards live in a shared workspace so feedback is captured once — not lost across threads.</p>
           <p class="section-lead site-process-split-lead">On site, our project directors hold weekly coordination meetings with contractors and vendors until handover is complete.</p>
         </div>
       </div>
     </section>
 
-    <section class="section section-tight fade-slide" style="background: var(--bg-elevated); border-block: 1px solid var(--line);">
-      <div class="container">
-        <header class="section-head">
+    <!-- S4: Interactive timeline (CMS: process_steps) -->
+    <section class="proc-section proc-section--dark" id="timeline" aria-labelledby="timeline-title">
+      <div class="proc-container">
+        <header class="proc-section-head proc-section-head--center proc-reveal">
           <p class="section-eyebrow site-process-timeline-eyebrow">Timeline</p>
-          <h2 class="section-title site-process-timeline-title">From brief to keys</h2>
+          <h2 id="timeline-title" class="section-title site-process-timeline-title">From brief to keys</h2>
+          <p class="section-intro">Expand each phase to see goals, deliverables, client inputs, duration, and expected outcomes.</p>
         </header>
-        <ol class="timeline-vertical" id="site-process-page-list">
-          <li class="is-milestone">
-            <span class="step-tag">Phase 01</span>
-            <h3>Discovery &amp; feasibility</h3>
-            <p>Site survey, aspirations workshop, budget alignment, and concept massing. Outcome: agreed spatial strategy.</p>
-          </li>
-          <li class="is-milestone">
-            <span class="step-tag">Phase 02</span>
-            <h3>Schematic design</h3>
-            <p>Zoning-compliant plans, key sections, and indicative materials. Outcome: locked floor plans and façade direction.</p>
-          </li>
-          <li class="is-milestone">
-            <span class="step-tag">Phase 03</span>
-            <h3>Design development</h3>
-            <p>Services coordination, joinery design, lighting intent, and cost checks. Outcome: tender-ready package.</p>
-          </li>
-          <li class="is-milestone">
-            <span class="step-tag">Phase 04</span>
-            <h3>Construction administration</h3>
-            <p>RFIs, shop drawing reviews, site inspections, and snag resolution. Outcome: defect-free handover.</p>
-          </li>
-          <li>
-            <span class="step-tag">Close-out</span>
-            <h3>Styling &amp; documentation</h3>
-            <p>Final FF&amp;E placement, O&amp;M binders, and photography. Outcome: a space ready to live or work in.</p>
-          </li>
-        </ol>
+        <div class="proc-timeline" id="proc-timeline"></div>
       </div>
     </section>
 
-    <section class="section section-tight fade-slide">
-      <div class="container cta-inline">
-        <p class="site-process-cta-text">Request a PDF overview of deliverables and typical timelines for your project type.</p>
-        <a href="contact.html" class="btn btn-primary site-process-cta-btn">Contact the studio</a>
+    <!-- S5: Client journey map -->
+    <section class="proc-section" id="journey" aria-labelledby="journey-title">
+      <div class="proc-container">
+        <header class="proc-section-head proc-section-head--center proc-reveal">
+          <p class="section-eyebrow">Clarity</p>
+          <h2 id="journey-title" class="section-title">Your journey, our responsibility</h2>
+          <p class="section-intro">Know exactly what you contribute and what the studio handles at every stage.</p>
+        </header>
+        <div class="proc-journey" id="proc-journey"></div>
+      </div>
+    </section>
+
+    <!-- S6: Quality control -->
+    <section class="proc-section proc-section--elevated" id="quality" aria-labelledby="quality-title">
+      <div class="proc-container">
+        <header class="proc-section-head proc-reveal">
+          <p class="section-eyebrow">Assurance</p>
+          <h2 id="quality-title" class="section-title">Quality control system</h2>
+          <p class="section-intro">Disciplined site rhythm, documented decisions, and director oversight through handover.</p>
+        </header>
+        <div class="proc-feature-grid" id="proc-quality-grid"></div>
+      </div>
+    </section>
+
+    <!-- S7: Technology & tools -->
+    <section class="proc-section" id="tools" aria-labelledby="tools-title">
+      <div class="proc-container">
+        <header class="proc-section-head proc-reveal">
+          <p class="section-eyebrow">Professionalism</p>
+          <h2 id="tools-title" class="section-title">Technology &amp; tools</h2>
+          <p class="section-intro">Shared documentation, visualization, and reporting — so every stakeholder sees the same truth.</p>
+        </header>
+        <div class="proc-feature-grid" id="proc-tools-grid"></div>
+      </div>
+    </section>
+
+    <!-- S8: Timeline estimator -->
+    <section class="proc-section proc-section--elevated" id="durations" aria-labelledby="durations-title">
+      <div class="proc-container">
+        <header class="proc-section-head proc-section-head--center proc-reveal">
+          <p class="section-eyebrow">Planning</p>
+          <h2 id="durations-title" class="section-title">Typical project timelines</h2>
+          <p class="section-intro">Indicative durations by project type — your milestone calendar is confirmed at engagement.</p>
+        </header>
+        <div class="proc-durations" id="proc-durations"></div>
+      </div>
+    </section>
+
+    <!-- S9: Risk reduction -->
+    <section class="proc-section proc-section--dark" id="risk" aria-labelledby="risk-title">
+      <div class="proc-container">
+        <header class="proc-section-head proc-reveal">
+          <p class="section-eyebrow">Peace of mind</p>
+          <h2 id="risk-title" class="section-title">How we reduce project risk</h2>
+          <p class="section-intro">Transparency, documentation, and accountable delivery — fewer gaps between design and site.</p>
+        </header>
+        <div class="proc-feature-grid" id="proc-risk-grid"></div>
+      </div>
+    </section>
+
+    <!-- S10: Case study walkthrough -->
+    <section class="proc-section" id="case-study" aria-labelledby="case-title">
+      <div class="proc-container">
+        <header class="proc-section-head proc-reveal">
+          <p class="section-eyebrow">Proof</p>
+          <h2 id="case-title" class="section-title">A project through our process</h2>
+        </header>
+        <div id="proc-case-study"></div>
+      </div>
+    </section>
+
+    <!-- S11: Process statistics -->
+    <section class="proc-section proc-section--dark proc-impact" id="impact" aria-labelledby="impact-title">
+      <div class="proc-impact__bg" aria-hidden="true"></div>
+      <div class="proc-container">
+        <header class="proc-section-head proc-section-head--center proc-reveal">
+          <p class="section-eyebrow">Track record</p>
+          <h2 id="impact-title" class="section-title">Built with discipline</h2>
+        </header>
+        <div class="proc-impact__grid" id="proc-impact-grid"></div>
+      </div>
+    </section>
+
+    <!-- S12: Testimonials -->
+    <section class="proc-section proc-section--elevated" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="proc-container">
+        <header class="proc-section-head proc-reveal">
+          <p class="section-eyebrow">Clients</p>
+          <h2 id="testimonials-title" class="section-title">Process experience</h2>
+          <p class="section-intro">What clients say about communication, transparency, and delivery.</p>
+        </header>
+        <div class="proc-trust-track" id="proc-trust-track"></div>
+      </div>
+    </section>
+
+    <!-- S13: FAQ -->
+    <section class="proc-section" id="faq" aria-labelledby="faq-title">
+      <div class="proc-container">
+        <header class="proc-section-head proc-section-head--center proc-reveal">
+          <p class="section-eyebrow site-process-faq-eyebrow">Questions</p>
+          <h2 id="faq-title" class="section-title site-process-faq-title">About our process</h2>
+        </header>
+        <div class="proc-faq-list" id="proc-faq-list"></div>
+      </div>
+    </section>
+
+    <!-- S14: Final CTA -->
+    <section class="proc-cta" id="enquire" aria-labelledby="cta-title">
+      <div class="proc-cta__bg" aria-hidden="true"></div>
+      <div class="proc-cta__inner proc-reveal">
+        <p class="section-eyebrow site-process-cta-eyebrow">Next step</p>
+        <h2 id="cta-title" class="proc-cta__title site-process-cta-title">Let&rsquo;s Build With Confidence.</h2>
+        <p class="proc-cta__sub">Architecture · Interiors · Construction · Delivered Through A Proven Process</p>
+        <p class="proc-cta__lead site-process-cta-text">Request a PDF overview of deliverables and typical timelines for your project type.</p>
+        <div class="proc-cta__actions">
+          <a href="contact.html" class="btn btn-primary site-process-cta-btn">Book consultation</a>
+          <a href="contact.html" class="btn btn-ghost site-process-cta-btn-secondary" hidden>Discuss your project</a>
+        </div>
       </div>
     </section>
   </main>
@@ -133,8 +253,8 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="uploads/branding/archevo-logo.png" alt="SPANGLE Architecture & Interior Design Studio" class="footer-logo" width="120" height="40" loading="lazy" decoding="async" />
-        <p class="site-footer-blurb">SPANGLE Architecture & Interior Design Studio — integrated architecture, civil construction, interiors, and turnkey delivery from Rajkot, Gujarat.</p>
+        <img src="uploads/branding/archevo-logo.png" alt="Archevo Design" class="footer-logo" width="120" height="40" loading="lazy" decoding="async" />
+        <p class="site-footer-blurb">Archevo Design — integrated architecture, civil construction, interiors, and turnkey delivery from Rajkot, Gujarat.</p>
       </div>
       <div class="footer-col">
         <h3>Navigate</h3>
@@ -167,17 +287,18 @@
     </div>
     <div class="footer-bar">
       <div class="footer-bar-inner">
-        <p class="site-footer-copy">&copy; 2026 SPANGLE Architecture & Interior Design Studio · SPANGLE Architecture & Interior Design Studio</p>
+        <p class="site-footer-copy">&copy; 2026 Archevo Design · Archevo Infra Edge Pvt Ltd</p>
         <p class="footer-agency-credit">Digital experience by <a href="developer.html">Parthiv Kapadiya</a></p>
         <button type="button" class="footer-studio-link" id="admin-access-open" aria-haspopup="dialog">CMS</button>
       </div>
     </div>
   </footer>
+
   <div class="admin-access-modal" id="admin-access-modal" role="dialog" aria-modal="true" aria-labelledby="admin-access-title" hidden>
     <div class="admin-access-backdrop" data-admin-access-close></div>
     <div class="admin-access-panel">
       <button type="button" class="admin-access-close" data-admin-access-close aria-label="Close">&times;</button>
-      <p class="admin-access-eyebrow">SPANGLE Architecture & Interior Design Studio</p>
+      <p class="admin-access-eyebrow">Archevo Design</p>
       <h2 id="admin-access-title">Content studio</h2>
       <p class="admin-access-lead">Sign in to update copy, imagery, and portfolio projects.</p>
       <p class="admin-access-error" id="admin-access-error" hidden></p>
@@ -198,5 +319,6 @@
   <script src="js/ux.js?v=8" defer></script>
   <script src="js/content-bridge.js?v=8" defer></script>
   <script src="js/page-content.js?v=8" defer></script>
+  <script src="js/process-premium.js?v=1" defer></script>
 </body>
 </html>

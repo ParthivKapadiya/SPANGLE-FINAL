@@ -9,7 +9,7 @@ declare(strict_types=1);
  * Set env to "production" on live hosting to force production-safe behavior.
  */
 return [
-    'site_name' => 'SPANGLE Architecture & Interior Design Studio',
+    'site_name' => 'Archevo Design',
     'timezone' => 'Asia/Kolkata',
     'env' => 'auto',
     'admin_session_timeout' => 7200,

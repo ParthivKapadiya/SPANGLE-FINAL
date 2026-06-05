@@ -17,7 +17,12 @@ $pageKeys = [
     'process_split_eyebrow', 'process_split_title',
     'process_split_paragraph_1', 'process_split_paragraph_2',
     'process_timeline_eyebrow', 'process_timeline_title',
-    'process_cta_text', 'process_cta_btn_text', 'process_cta_btn_url',
+    'process_cta_eyebrow', 'process_cta_title', 'process_cta_sub', 'process_cta_text',
+    'process_cta_btn_text', 'process_cta_btn_url', 'process_cta_btn2_text', 'process_cta_btn2_url',
+    'process_faq_eyebrow', 'process_faq_title',
+    'process_faq_q1', 'process_faq_a1', 'process_faq_q2', 'process_faq_a2',
+    'process_faq_q3', 'process_faq_a3', 'process_faq_q4', 'process_faq_a4',
+    'process_faq_q5', 'process_faq_a5',
 ];
 
 $labels = [
@@ -30,9 +35,26 @@ $labels = [
     'process_split_paragraph_2' => 'Middle section — second paragraph',
     'process_timeline_eyebrow' => 'Timeline — small label',
     'process_timeline_title' => 'Timeline — heading',
+    'process_cta_eyebrow' => 'Bottom section — small label',
+    'process_cta_title' => 'Bottom section — heading',
+    'process_cta_sub' => 'Bottom section — subheadline',
     'process_cta_text' => 'Bottom section — text',
-    'process_cta_btn_text' => 'Bottom button — label',
-    'process_cta_btn_url' => 'Bottom button — link',
+    'process_cta_btn_text' => 'Primary button — label',
+    'process_cta_btn_url' => 'Primary button — link',
+    'process_cta_btn2_text' => 'Secondary button — label',
+    'process_cta_btn2_url' => 'Secondary button — link',
+    'process_faq_eyebrow' => 'FAQ — small label',
+    'process_faq_title' => 'FAQ — heading',
+    'process_faq_q1' => 'FAQ 1 — question',
+    'process_faq_a1' => 'FAQ 1 — answer',
+    'process_faq_q2' => 'FAQ 2 — question',
+    'process_faq_a2' => 'FAQ 2 — answer',
+    'process_faq_q3' => 'FAQ 3 — question',
+    'process_faq_a3' => 'FAQ 3 — answer',
+    'process_faq_q4' => 'FAQ 4 — question',
+    'process_faq_a4' => 'FAQ 4 — answer',
+    'process_faq_q5' => 'FAQ 5 — question',
+    'process_faq_a5' => 'FAQ 5 — answer',
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
@@ -220,8 +242,28 @@ require __DIR__ . '/includes/layout.php';
   </div>
 
   <div class="adm-card">
+    <h2>FAQ section</h2>
+    <?php foreach (['process_faq_eyebrow', 'process_faq_title'] as $key): ?>
+      <div class="adm-field">
+        <label for="<?= e($key) ?>"><?= e($labels[$key]) ?></label>
+        <input type="text" name="<?= e($key) ?>" id="<?= e($key) ?>" value="<?= e($s[$key] ?? '') ?>" />
+      </div>
+    <?php endforeach; ?>
+    <?php for ($i = 1; $i <= 5; $i++): ?>
+      <div class="adm-field">
+        <label for="process_faq_q<?= $i ?>"><?= e($labels['process_faq_q' . $i]) ?></label>
+        <input type="text" name="process_faq_q<?= $i ?>" id="process_faq_q<?= $i ?>" value="<?= e($s['process_faq_q' . $i] ?? '') ?>" />
+      </div>
+      <div class="adm-field">
+        <label for="process_faq_a<?= $i ?>"><?= e($labels['process_faq_a' . $i]) ?></label>
+        <textarea name="process_faq_a<?= $i ?>" id="process_faq_a<?= $i ?>" rows="2"><?= e($s['process_faq_a' . $i] ?? '') ?></textarea>
+      </div>
+    <?php endfor; ?>
+  </div>
+
+  <div class="adm-card">
     <h2>Bottom call-to-action</h2>
-    <?php foreach (['process_cta_text', 'process_cta_btn_text', 'process_cta_btn_url'] as $key): ?>
+    <?php foreach (['process_cta_eyebrow', 'process_cta_title', 'process_cta_sub', 'process_cta_text', 'process_cta_btn_text', 'process_cta_btn_url', 'process_cta_btn2_text', 'process_cta_btn2_url'] as $key): ?>
       <div class="adm-field">
         <label for="<?= e($key) ?>"><?= e($labels[$key]) ?></label>
         <?php if ($key === 'process_cta_text'): ?>

@@ -6,15 +6,63 @@ require_once __DIR__ . '/includes/bootstrap.php';
 require_once SPANGLE_ROOT . '/includes/cmsPlainFields.php';
 
 admin_require_auth();
+cms_sync_plain_journal_fields($pdo);
 
 const JOURNAL_BODY_PARAGRAPHS = 8;
 
 $action = $_GET['action'] ?? 'list';
 $id = (int) ($_GET['id'] ?? $_POST['id'] ?? 0);
 
+$pageKeys = [
+    'journal_kicker', 'journal_title', 'journal_lead', 'journal_hero_image', 'journal_stat_readers',
+    'journal_newsletter_title', 'journal_newsletter_lead',
+    'journal_cta_eyebrow', 'journal_cta_title', 'journal_cta_sub', 'journal_cta_text',
+    'journal_cta_btn_text', 'journal_cta_btn_url', 'journal_cta_btn2_text', 'journal_cta_btn2_url',
+    'journal_faq_q1', 'journal_faq_a1', 'journal_faq_q2', 'journal_faq_a2',
+    'journal_faq_q3', 'journal_faq_a3', 'journal_faq_q4', 'journal_faq_a4',
+];
+
+$pageLabels = [
+    'journal_kicker' => 'Hero — small label',
+    'journal_title' => 'Hero — main heading',
+    'journal_lead' => 'Hero — intro text',
+    'journal_hero_image' => 'Hero — background image path',
+    'journal_stat_readers' => 'Hero — monthly readers stat',
+    'journal_newsletter_title' => 'Newsletter — heading',
+    'journal_newsletter_lead' => 'Newsletter — intro',
+    'journal_cta_eyebrow' => 'CTA — small label',
+    'journal_cta_title' => 'CTA — heading',
+    'journal_cta_sub' => 'CTA — subheadline',
+    'journal_cta_text' => 'CTA — paragraph',
+    'journal_cta_btn_text' => 'Primary button — label',
+    'journal_cta_btn_url' => 'Primary button — link',
+    'journal_cta_btn2_text' => 'Secondary button — label',
+    'journal_cta_btn2_url' => 'Secondary button — link',
+    'journal_faq_q1' => 'FAQ 1 — question',
+    'journal_faq_a1' => 'FAQ 1 — answer',
+    'journal_faq_q2' => 'FAQ 2 — question',
+    'journal_faq_a2' => 'FAQ 2 — answer',
+    'journal_faq_q3' => 'FAQ 3 — question',
+    'journal_faq_a3' => 'FAQ 3 — answer',
+    'journal_faq_q4' => 'FAQ 4 — question',
+    'journal_faq_a4' => 'FAQ 4 — answer',
+];
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
     $postAction = $_POST['action'] ?? '';
     $postId = (int) ($_POST['id'] ?? 0);
+
+    if ($postAction === 'save_page') {
+        foreach ($pageKeys as $key) {
+            if (array_key_exists($key, $_POST)) {
+                setting_set($pdo, $key, trim((string) $_POST[$key]));
+            }
+        }
+        cms_sync_plain_journal_fields($pdo);
+        content_sync_site_json($pdo);
+        admin_flash_set('success', 'Journal page settings saved.');
+        redirect('journal.php?action=page');
+    }
     if ($postAction === 'delete' && $postId > 0) {
         $pdo->prepare('DELETE FROM journal_posts WHERE id = ?')->execute([$postId]);
         content_sync_site_json($pdo);
@@ -26,6 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
         $slug = trim($_POST['slug'] ?? '') ?: admin_slugify($title);
         $slug = admin_slugify($slug);
         $excerpt = trim($_POST['excerpt'] ?? '');
+        $category = trim($_POST['category'] ?? '');
+        $readMinutes = trim($_POST['read_minutes'] ?? '');
+        $readMinutes = $readMinutes !== '' ? max(1, (int) $readMinutes) : null;
         $body = cms_build_paragraphs_html(cms_post_body_paragraphs($_POST, 'body_paragraph_', JOURNAL_BODY_PARAGRAPHS));
         $seoTitle = trim($_POST['seo_title'] ?? '');
         $seoDesc = trim($_POST['seo_description'] ?? '');
@@ -44,18 +95,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
         if ($editId > 0) {
             if ($imagePath) {
                 $pdo->prepare(
-                    'UPDATE journal_posts SET slug=?, title=?, excerpt=?, body_html=?, seo_title=?, seo_description=?, sort_order=?, is_active=?, image_path=? WHERE id=?'
-                )->execute([$slug, $title, $excerpt, $body, $seoTitle, $seoDesc, $sort, $active, $imagePath, $editId]);
+                    'UPDATE journal_posts SET slug=?, title=?, excerpt=?, category=?, read_minutes=?, body_html=?, seo_title=?, seo_description=?, sort_order=?, is_active=?, image_path=? WHERE id=?'
+                )->execute([$slug, $title, $excerpt, $category ?: null, $readMinutes, $body, $seoTitle, $seoDesc, $sort, $active, $imagePath, $editId]);
             } else {
                 $pdo->prepare(
-                    'UPDATE journal_posts SET slug=?, title=?, excerpt=?, body_html=?, seo_title=?, seo_description=?, sort_order=?, is_active=? WHERE id=?'
-                )->execute([$slug, $title, $excerpt, $body, $seoTitle, $seoDesc, $sort, $active, $editId]);
+                    'UPDATE journal_posts SET slug=?, title=?, excerpt=?, category=?, read_minutes=?, body_html=?, seo_title=?, seo_description=?, sort_order=?, is_active=? WHERE id=?'
+                )->execute([$slug, $title, $excerpt, $category ?: null, $readMinutes, $body, $seoTitle, $seoDesc, $sort, $active, $editId]);
             }
         } else {
             $pdo->prepare(
-                'INSERT INTO journal_posts (slug, title, excerpt, body_html, seo_title, seo_description, sort_order, is_active, image_path)
-                 VALUES (?,?,?,?,?,?,?,?,?)'
-            )->execute([$slug, $title, $excerpt, $body, $seoTitle, $seoDesc, $sort, $active, $imagePath ?? '']);
+                'INSERT INTO journal_posts (slug, title, excerpt, category, read_minutes, body_html, seo_title, seo_description, sort_order, is_active, image_path)
+                 VALUES (?,?,?,?,?,?,?,?,?,?,?)'
+            )->execute([$slug, $title, $excerpt, $category ?: null, $readMinutes, $body, $seoTitle, $seoDesc, $sort, $active, $imagePath ?? '']);
         }
         content_sync_site_json($pdo);
         admin_flash_set('success', 'Blog post saved.');
@@ -64,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
 }
 
 if ($action === 'edit' || $action === 'new') {
-    $row = ['id' => 0, 'title' => '', 'slug' => '', 'excerpt' => '', 'body_html' => '', 'seo_title' => '', 'seo_description' => '', 'sort_order' => 0, 'is_active' => 1, 'image_path' => ''];
+    $row = ['id' => 0, 'title' => '', 'slug' => '', 'excerpt' => '', 'category' => '', 'read_minutes' => null, 'body_html' => '', 'seo_title' => '', 'seo_description' => '', 'sort_order' => 0, 'is_active' => 1, 'image_path' => ''];
     if ($id > 0) {
         $stmt = $pdo->prepare('SELECT * FROM journal_posts WHERE id = ?');
         $stmt->execute([$id]);
@@ -81,6 +132,8 @@ if ($action === 'edit' || $action === 'new') {
       <div class="adm-field"><label>Title</label><input type="text" name="title" value="<?= e($row['title']) ?>" required /></div>
       <div class="adm-field"><label>URL slug</label><input type="text" name="slug" value="<?= e($row['slug']) ?>" /></div>
       <div class="adm-field"><label>Short summary</label><textarea name="excerpt" rows="2"><?= e($row['excerpt'] ?? '') ?></textarea></div>
+      <div class="adm-field"><label>Category</label><input type="text" name="category" value="<?= e($row['category'] ?? '') ?>" placeholder="e.g. Interiors, Sustainability" /></div>
+      <div class="adm-field"><label>Reading time (minutes)</label><input type="number" name="read_minutes" min="1" max="120" value="<?= e((string) ($row['read_minutes'] ?? '')) ?>" /></div>
       <?php $bodyParagraphs = cms_plain_paragraph_slots((string) ($row['body_html'] ?? ''), JOURNAL_BODY_PARAGRAPHS); ?>
       <div class="adm-field">
         <label>Article text</label>
@@ -108,19 +161,54 @@ if ($action === 'edit' || $action === 'new') {
     exit;
 }
 
-$rows = $pdo->query('SELECT id, title, slug, is_active, created_at FROM journal_posts ORDER BY created_at DESC')->fetchAll(PDO::FETCH_ASSOC);
+if ($action === 'page') {
+    $pageTitle = 'Journal page';
+    $activeNav = 'journal';
+    $pageSettings = settings_get_many($pdo, $pageKeys);
+    require __DIR__ . '/includes/layout.php';
+    ?>
+    <div class="adm-actions" style="margin-bottom:1rem;">
+      <a href="journal.php" class="adm-btn adm-btn-ghost">← Posts</a>
+    </div>
+    <form method="post" class="adm-card">
+      <?= csrf_field() ?>
+      <input type="hidden" name="action" value="save_page" />
+      <?php foreach ($pageKeys as $key): ?>
+        <div class="adm-field">
+          <label><?= e($pageLabels[$key] ?? $key) ?></label>
+          <?php if (str_ends_with($key, '_lead') || str_ends_with($key, '_text') || str_starts_with($key, 'journal_faq_a')): ?>
+            <textarea name="<?= e($key) ?>" rows="<?= str_starts_with($key, 'journal_faq_a') ? 3 : 2 ?>"><?= e($pageSettings[$key] ?? '') ?></textarea>
+          <?php else: ?>
+            <input type="text" name="<?= e($key) ?>" value="<?= e($pageSettings[$key] ?? '') ?>" />
+          <?php endif; ?>
+        </div>
+      <?php endforeach; ?>
+      <div class="adm-actions">
+        <button type="submit" class="adm-btn adm-btn-primary">Save page settings</button>
+      </div>
+    </form>
+    <?php
+    require __DIR__ . '/includes/layout-end.php';
+    exit;
+}
+
+$rows = $pdo->query('SELECT id, title, slug, category, is_active, created_at FROM journal_posts ORDER BY created_at DESC')->fetchAll(PDO::FETCH_ASSOC);
 $pageTitle = 'Blog';
 $activeNav = 'journal';
 require __DIR__ . '/includes/layout.php';
 ?>
-<div class="adm-actions" style="margin-bottom:1rem;"><a href="journal.php?action=new" class="adm-btn adm-btn-primary">Add blog post</a></div>
+<div class="adm-actions" style="margin-bottom:1rem;">
+  <a href="journal.php?action=new" class="adm-btn adm-btn-primary">Add blog post</a>
+  <a href="journal.php?action=page" class="adm-btn adm-btn-ghost">Page settings</a>
+</div>
 <div class="adm-card">
   <table class="adm-table">
-    <thead><tr><th>Title</th><th>Slug</th><th>Published</th><th></th></tr></thead>
+    <thead><tr><th>Title</th><th>Category</th><th>Slug</th><th>Published</th><th></th></tr></thead>
     <tbody>
       <?php foreach ($rows as $row): ?>
         <tr>
           <td><?= e($row['title']) ?></td>
+          <td><?= e($row['category'] ?? '') ?></td>
           <td><?= e($row['slug']) ?></td>
           <td><?= !empty($row['is_active']) ? 'Yes' : 'Draft' ?></td>
           <td>

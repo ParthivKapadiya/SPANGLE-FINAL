@@ -1,7 +1,7 @@
 .work-toolbar {
   display: grid;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 .work-search input {
