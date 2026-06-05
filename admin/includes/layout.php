@@ -22,31 +22,35 @@ $navSections = [
         ],
     ],
     [
-        'label' => 'Homepage',
+        'label' => 'Global',
         'items' => [
-            ['id' => 'home', 'label' => 'Home builder', 'icon' => 'fa-house', 'href' => 'home.php'],
-            ['id' => 'gallery', 'label' => 'Home gallery', 'icon' => 'fa-camera', 'href' => 'gallery.php'],
-            ['id' => 'testimonials', 'label' => 'Testimonials', 'icon' => 'fa-quote-left', 'href' => 'testimonials.php'],
+            ['id' => 'settings', 'label' => 'Global settings', 'icon' => 'fa-gear', 'href' => 'settings.php'],
+            ['id' => 'seo', 'label' => 'SEO & analytics', 'icon' => 'fa-magnifying-glass', 'href' => 'seo.php'],
+            ['id' => 'footer', 'label' => 'Footer', 'icon' => 'fa-shoe-prints', 'href' => 'footer.php'],
+            ['id' => 'legal', 'label' => 'Legal pages', 'icon' => 'fa-scale-balanced', 'href' => 'legal.php'],
+            ['id' => 'media', 'label' => 'Media library', 'icon' => 'fa-images', 'href' => 'media.php'],
         ],
     ],
     [
-        'label' => 'Portfolio',
+        'label' => 'Homepage',
         'items' => [
-            ['id' => 'projects', 'label' => 'Projects', 'icon' => 'fa-folder-open', 'href' => 'projects.php'],
-            ['id' => 'media', 'label' => 'Media library', 'icon' => 'fa-images', 'href' => 'media.php'],
+            ['id' => 'home', 'label' => 'Homepage', 'icon' => 'fa-house', 'href' => 'home.php'],
+            ['id' => 'gallery', 'label' => 'Home gallery', 'icon' => 'fa-camera', 'href' => 'gallery.php'],
+            ['id' => 'testimonials', 'label' => 'Testimonials', 'icon' => 'fa-quote-left', 'href' => 'testimonials.php'],
         ],
     ],
     [
         'label' => 'Pages',
         'items' => [
             ['id' => 'studio', 'label' => 'Studio', 'icon' => 'fa-building', 'href' => 'studio.php'],
-            ['id' => 'services-page', 'label' => 'Services page', 'icon' => 'fa-briefcase', 'href' => 'services-page.php'],
-            ['id' => 'work-page', 'label' => 'Work page', 'icon' => 'fa-layer-group', 'href' => 'work-page.php'],
-            ['id' => 'services', 'label' => 'Service blocks', 'icon' => 'fa-list-check', 'href' => 'services.php'],
-            ['id' => 'process', 'label' => 'Process', 'icon' => 'fa-diagram-project', 'href' => 'process.php'],
-            ['id' => 'journal', 'label' => 'Blog', 'icon' => 'fa-newspaper', 'href' => 'journal.php'],
-            ['id' => 'contact-page', 'label' => 'Contact page', 'icon' => 'fa-envelope', 'href' => 'contact-page.php'],
             ['id' => 'team', 'label' => 'Team', 'icon' => 'fa-users', 'href' => 'team.php'],
+            ['id' => 'services-page', 'label' => 'Services page', 'icon' => 'fa-briefcase', 'href' => 'services-page.php'],
+            ['id' => 'services', 'label' => 'Service blocks', 'icon' => 'fa-list-check', 'href' => 'services.php'],
+            ['id' => 'work-page', 'label' => 'Work page', 'icon' => 'fa-layer-group', 'href' => 'work-page.php'],
+            ['id' => 'projects', 'label' => 'Projects', 'icon' => 'fa-folder-open', 'href' => 'projects.php'],
+            ['id' => 'process', 'label' => 'Process', 'icon' => 'fa-diagram-project', 'href' => 'process.php'],
+            ['id' => 'journal', 'label' => 'Journal', 'icon' => 'fa-newspaper', 'href' => 'journal.php'],
+            ['id' => 'contact-page', 'label' => 'Contact', 'icon' => 'fa-envelope', 'href' => 'contact-page.php'],
         ],
     ],
     [
@@ -56,10 +60,8 @@ $navSections = [
         ],
     ],
     [
-        'label' => 'System',
+        'label' => 'Account',
         'items' => [
-            ['id' => 'settings', 'label' => 'Site settings', 'icon' => 'fa-gear', 'href' => 'settings.php'],
-            ['id' => 'seo', 'label' => 'SEO', 'icon' => 'fa-magnifying-glass', 'href' => 'seo.php'],
             ['id' => 'password', 'label' => 'Password', 'icon' => 'fa-key', 'href' => 'change-password.php'],
         ],
     ],
@@ -73,7 +75,7 @@ $navSections = [
   <meta name="robots" content="noindex, nofollow" />
   <title><?= e($pageTitle) ?> · <?= e($brand['short']) ?> Studio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/admin.css?v=5" />
+  <link rel="stylesheet" href="assets/admin.css?v=6" />
 </head>
 <body class="adm-app" id="adm-app">
   <div class="adm-sidebar-backdrop" id="adm-sidebar-backdrop" hidden aria-hidden="true"></div>
@@ -82,11 +84,15 @@ $navSections = [
       <strong><?= e($brand['short']) ?></strong>
       <span>Architecture studio CMS</span>
     </div>
-    <nav class="adm-nav" aria-label="Admin navigation">
+    <div class="adm-nav-search">
+      <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      <input type="search" id="adm-nav-search" placeholder="Search modules…" autocomplete="off" aria-label="Search admin modules" />
+    </div>
+    <nav class="adm-nav" id="adm-nav" aria-label="Admin navigation">
       <?php foreach ($navSections as $section): ?>
         <p class="adm-nav-section"><?= e($section['label']) ?></p>
         <?php foreach ($section['items'] as $item): ?>
-          <a href="<?= e($item['href']) ?>" class="adm-nav-link<?= $activeNav === $item['id'] ? ' is-active' : '' ?>">
+          <a href="<?= e($item['href']) ?>" class="adm-nav-link<?= $activeNav === $item['id'] ? ' is-active' : '' ?>" data-nav-label="<?= e(strtolower($item['label'] . ' ' . $section['label'])) ?>">
             <i class="fa-solid <?= e($item['icon']) ?>"></i>
             <span><?= e($item['label']) ?></span>
             <?php if (!empty($item['badge'])): ?>

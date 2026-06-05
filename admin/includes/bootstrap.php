@@ -6,6 +6,7 @@ define('ADMIN_AUTH_OK', true);
 
 require_once dirname(__DIR__, 2) . '/includes/bootstrap.php';
 require_once SPANGLE_ROOT . '/includes/cmsMigrate.php';
+require_once __DIR__ . '/activity.php';
 
 /** @var array<string, mixed> $configDb */
 $configDb = (array) ($GLOBALS['configDb'] ?? []);

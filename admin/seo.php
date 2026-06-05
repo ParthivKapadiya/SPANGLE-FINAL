@@ -13,6 +13,8 @@ $seoKeys = array_filter(
 );
 $seoKeys[] = 'seo_description';
 $seoKeys[] = 'seo_og_image';
+$seoKeys[] = 'analytics_ga_id';
+$seoKeys[] = 'analytics_gsc_meta';
 $seoKeys = array_values(array_unique($seoKeys));
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
@@ -30,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
         }
     }
     content_sync_site_json($pdo);
+    admin_log_activity($pdo, 'save', 'seo', null, 'SEO & analytics updated');
     admin_flash_set('success', 'SEO settings saved.');
     redirect('seo.php');
 }
@@ -37,14 +40,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
 cms_seed_copy_settings($pdo);
 $s = settings_get_many($pdo, $seoKeys);
 
-$pageTitle = 'SEO';
-$pageDescription = 'Page titles and descriptions for search engines and social sharing.';
+$pageTitle = 'SEO & analytics';
+$pageDescription = 'Meta titles, descriptions, social images, Google Analytics, and Search Console.';
 $activeNav = 'seo';
 require __DIR__ . '/includes/layout.php';
 ?>
-<form method="post" enctype="multipart/form-data" class="adm-card">
+<form method="post" enctype="multipart/form-data" class="adm-settings-grid">
   <?= csrf_field() ?>
-  <h2>Global</h2>
+  <div class="adm-card adm-glass">
+  <h2>Global SEO</h2>
   <div class="adm-field">
     <label>Default meta description</label>
     <textarea name="seo_description"><?= e($s['seo_description'] ?? '') ?></textarea>
@@ -55,6 +59,20 @@ require __DIR__ . '/includes/layout.php';
     <?php if (!empty($s['seo_og_image'])): ?><p><img src="../<?= e($s['seo_og_image']) ?>" alt="" style="max-width:200px;" /></p><?php endif; ?>
     <input type="file" name="seo_og_image_file" accept="image/*" />
   </div>
+  </div>
+  <div class="adm-card adm-glass">
+  <h2>Analytics</h2>
+  <p class="adm-hint">Google Analytics loads on the public site when an ID is set. Search Console meta tag is injected in &lt;head&gt;.</p>
+  <div class="adm-field">
+    <label for="analytics_ga_id">Google Analytics measurement ID</label>
+    <input type="text" name="analytics_ga_id" id="analytics_ga_id" value="<?= e($s['analytics_ga_id'] ?? '') ?>" placeholder="G-XXXXXXXXXX" />
+  </div>
+  <div class="adm-field">
+    <label for="analytics_gsc_meta">Google Search Console verification (meta content)</label>
+    <input type="text" name="analytics_gsc_meta" id="analytics_gsc_meta" value="<?= e($s['analytics_gsc_meta'] ?? '') ?>" />
+  </div>
+  </div>
+  <div class="adm-card adm-glass">
   <h2>Per page</h2>
   <?php foreach ($seoKeys as $key):
       if ($key === 'seo_description' || $key === 'seo_og_image') {
@@ -71,8 +89,11 @@ require __DIR__ . '/includes/layout.php';
       <?php endif; ?>
     </div>
   <?php endforeach; ?>
+  </div>
+  <div class="adm-card adm-glass">
   <div class="adm-actions">
-    <button type="submit" class="adm-btn adm-btn-primary">Save SEO</button>
+    <button type="submit" class="adm-btn adm-btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save SEO &amp; analytics</button>
+  </div>
   </div>
 </form>
 <?php require __DIR__ . '/includes/layout-end.php'; ?>

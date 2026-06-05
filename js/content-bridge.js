@@ -822,6 +822,9 @@
     $$('.brand-line, .site-brand-line').forEach(function (el) { el.textContent = brandLine; });
     if (b.footerBlurbHtml) $$('.site-footer-blurb').forEach(function (el) { el.innerHTML = b.footerBlurbHtml; });
     if (b.footerCopyright) $$('.site-footer-copy').forEach(function (el) { el.textContent = b.footerCopyright; });
+    if (b.footerAgencyCredit) {
+      $$('.footer-agency-credit').forEach(function (el) { el.innerHTML = b.footerAgencyCredit; });
+    }
   }
 
   function applyNavigation(data) {
@@ -829,7 +832,7 @@
     Object.keys(nav).forEach(function (id) {
       var item = nav[id];
       if (!item) return;
-      var sel = '.site-header [data-nav-link="' + id + '"], .nav-drawer-links [data-nav-link="' + id + '"]';
+      var sel = '.site-header [data-nav-link="' + id + '"], .nav-drawer-links [data-nav-link="' + id + '"], .site-footer [data-nav-link="' + id + '"]';
       $$(sel).forEach(function (a) {
         if (item.label) a.textContent = item.label;
         if (item.href) a.setAttribute('href', item.href);
@@ -1101,6 +1104,29 @@
     });
   }
 
+  function applyAnalytics(data) {
+    var gaId = data.analytics && data.analytics.gaId;
+    var gscMeta = data.analytics && data.analytics.gscMeta;
+    if (gscMeta && !document.querySelector('meta[name="google-site-verification"]')) {
+      var gsc = document.createElement('meta');
+      gsc.setAttribute('name', 'google-site-verification');
+      gsc.setAttribute('content', gscMeta);
+      document.head.appendChild(gsc);
+    }
+    if (gaId && !window.__SPANGLE_GA_LOADED__) {
+      window.__SPANGLE_GA_LOADED__ = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', gaId, { anonymize_ip: true });
+    }
+  }
+
   function init() {
     loadConversionAssets();
     loadJson().then(function (data) {
@@ -1116,6 +1142,7 @@
       injectWaFab(extra && extra.waHref);
       applyMaps(data);
       applyBranding(data);
+      applyAnalytics(data);
       applyNavigation(data);
       applySeoPages(data);
       applyLegal(data);

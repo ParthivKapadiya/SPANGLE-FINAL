@@ -120,4 +120,26 @@
       if (!window.confirm(msg)) e.preventDefault();
     });
   });
+
+  var navSearch = document.getElementById('adm-nav-search');
+  var nav = document.getElementById('adm-nav');
+  if (navSearch && nav) {
+    navSearch.addEventListener('input', function () {
+      var q = navSearch.value.trim().toLowerCase();
+      nav.querySelectorAll('.adm-nav-section').forEach(function (section) {
+        var visible = 0;
+        var next = section.nextElementSibling;
+        while (next && !next.classList.contains('adm-nav-section')) {
+          if (next.classList.contains('adm-nav-link')) {
+            var label = (next.getAttribute('data-nav-label') || next.textContent || '').toLowerCase();
+            var show = q === '' || label.indexOf(q) !== -1;
+            next.classList.toggle('is-hidden', !show);
+            if (show) visible++;
+          }
+          next = next.nextElementSibling;
+        }
+        section.classList.toggle('is-hidden', q !== '' && visible === 0);
+      });
+    });
+  }
 })();

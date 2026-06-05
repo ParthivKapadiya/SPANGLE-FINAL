@@ -111,6 +111,7 @@ function cms_run_migrations(PDO $pdo): void
     }
 
     cms_run_v3_migrations($pdo);
+    cms_run_v4_migrations($pdo);
 
     require_once SPANGLE_ROOT . '/includes/cmsSeed.php';
     cms_seed_defaults($pdo);
@@ -214,6 +215,46 @@ function cms_run_v3_migrations(PDO $pdo): void
             }
         }
     } catch (Throwable $e) {
+    }
+}
+
+function cms_run_v4_migrations(PDO $pdo): void
+{
+    try {
+        $pdo->exec("CREATE TABLE IF NOT EXISTS admin_activity (
+          id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+          admin_id INT UNSIGNED NULL,
+          action VARCHAR(80) NOT NULL,
+          entity VARCHAR(80) NOT NULL DEFAULT '',
+          entity_id INT UNSIGNED NULL,
+          detail VARCHAR(500) NULL,
+          created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          INDEX idx_admin_activity_created (created_at DESC),
+          INDEX idx_admin_activity_entity (entity, entity_id)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+    } catch (Throwable $e) {
+    }
+
+    cms_add_column_if_missing($pdo, 'media_assets', 'folder', "VARCHAR(60) NOT NULL DEFAULT 'general' AFTER file_name");
+    cms_add_column_if_missing($pdo, 'journal_posts', 'status', "ENUM('draft','published') NOT NULL DEFAULT 'published' AFTER is_active");
+    cms_add_column_if_missing($pdo, 'projects', 'show_on_home', 'TINYINT(1) NOT NULL DEFAULT 0 AFTER is_featured');
+
+    foreach ([
+        'analytics_ga_id' => 'Google Analytics measurement ID',
+        'analytics_gsc_meta' => 'Google Search Console verification meta content',
+        'footer_agency_credit' => 'Footer agency credit line',
+        'social_linkedin' => 'LinkedIn URL',
+        'site_description' => 'Company description (schema & about)',
+    ] as $key => $_label) {
+        try {
+            $stmt = $pdo->prepare('SELECT id FROM site_settings WHERE setting_key = ? LIMIT 1');
+            $stmt->execute([$key]);
+            if (!$stmt->fetch()) {
+                $ins = $pdo->prepare('INSERT INTO site_settings (setting_key, setting_value) VALUES (?, ?)');
+                $ins->execute([$key, '']);
+            }
+        } catch (Throwable $e) {
+        }
     }
 }
 

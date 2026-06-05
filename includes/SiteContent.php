@@ -38,7 +38,8 @@ final class SiteContent
             'contact_faq_q1', 'contact_faq_a1', 'contact_faq_q2', 'contact_faq_a2',
             'contact_faq_q3', 'contact_faq_a3', 'contact_faq_q4', 'contact_faq_a4',
             'contact_faq_q5', 'contact_faq_a5',
-            'social_instagram', 'social_facebook', 'social_youtube',
+            'social_instagram', 'social_facebook', 'social_youtube', 'social_linkedin',
+            'footer_agency_credit', 'analytics_ga_id', 'analytics_gsc_meta', 'site_description',
             'map_embed_url', 'map_title',
             'seo_description', 'seo_og_image',
             'home_hero_eyebrow', 'home_hero_title_html', 'home_hero_title_main', 'home_hero_title_highlight', 'home_hero_lead', 'home_hero_video_url',
@@ -240,6 +241,7 @@ final class SiteContent
                 'brandLine' => $s['brand_line'] ?? 'Architecture & Interiors',
                 'footerBlurbHtml' => cms_resolve_footer_blurb_html($s),
                 'footerCopyright' => $s['footer_copyright'] ?? '',
+                'footerAgencyCredit' => $s['footer_agency_credit'] ?? '',
             ],
             'navigation' => cms_navigation_from_settings($s),
             'contact' => [
@@ -258,7 +260,12 @@ final class SiteContent
             'social' => [
                 'instagram' => $s['social_instagram'] ?? '',
                 'facebook' => $s['social_facebook'] ?? '',
+                'linkedin' => $s['social_linkedin'] ?? '',
                 'youtube' => $s['social_youtube'] ?? '',
+            ],
+            'analytics' => [
+                'gaId' => trim((string) ($s['analytics_ga_id'] ?? '')),
+                'gscMeta' => trim((string) ($s['analytics_gsc_meta'] ?? '')),
             ],
             'maps' => [
                 'embedUrl' => $s['map_embed_url'] ?? '',

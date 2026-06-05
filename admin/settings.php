@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/includes/bootstrap.php';
-require_once SPANGLE_ROOT . '/includes/cmsNavigation.php';
 require_once SPANGLE_ROOT . '/includes/cmsPlainFields.php';
 
 cms_sync_plain_home_fields($pdo);
@@ -17,7 +16,7 @@ $fieldGroups = [
         'fields' => [
             'site_name' => 'Company / studio name',
             'tagline' => 'Tagline (under logo)',
-            'footer_copyright' => 'Copyright line',
+            'site_description' => 'Company description',
             'public_base' => 'Live website URL (for images & links)',
         ],
     ],
@@ -45,6 +44,7 @@ $fieldGroups = [
         'fields' => [
             'social_instagram' => 'Instagram URL',
             'social_facebook' => 'Facebook URL',
+            'social_linkedin' => 'LinkedIn URL',
             'social_youtube' => 'YouTube URL',
         ],
     ],
@@ -85,21 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
         }
         setting_set($pdo, $key, $value);
     }
-    $footer1 = trim((string) ($_POST['footer_blurb_1'] ?? ''));
-    $footer2 = trim((string) ($_POST['footer_blurb_2'] ?? ''));
-    setting_set($pdo, 'footer_blurb_1', $footer1);
-    setting_set($pdo, 'footer_blurb_2', $footer2);
-    setting_set($pdo, 'footer_blurb_html', cms_build_footer_blurb_html($footer1, $footer2));
-    foreach (cms_nav_item_definitions() as $def) {
-        $lk = $def['setting_label'];
-        $hk = $def['setting_href'];
-        if (isset($_POST[$lk])) {
-            setting_set($pdo, $lk, trim((string) $_POST[$lk]));
-        }
-        if (isset($_POST[$hk])) {
-            setting_set($pdo, $hk, trim((string) $_POST[$hk]));
-        }
-    }
+    admin_log_activity($pdo, 'save', 'settings', null, 'Global settings updated');
     foreach (['site_logo', 'site_logo_light', 'site_logo_dark', 'site_favicon'] as $imgKey) {
         if (!empty($_FILES[$imgKey]['name'])) {
             $up = Upload::image($appConfig, 'general', $_FILES[$imgKey]);
@@ -115,25 +101,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
     redirect('settings.php');
 }
 
-$navKeys = [];
-foreach (cms_nav_item_definitions() as $def) {
-    $navKeys[] = $def['setting_label'];
-    $navKeys[] = $def['setting_href'];
-}
-$s = settings_get_many($pdo, array_merge(array_keys($allKeys), $navKeys, ['footer_blurb_html', 'footer_blurb_1', 'footer_blurb_2']));
-if (trim((string) ($s['footer_blurb_1'] ?? '')) === '' && trim((string) ($s['footer_blurb_html'] ?? '')) !== '') {
-    $footer = cms_parse_footer_blurb_html((string) $s['footer_blurb_html']);
-    $s['footer_blurb_1'] = $footer['paragraph1'];
-    $s['footer_blurb_2'] = $footer['paragraph2'];
-}
+$s = settings_get_many($pdo, array_keys($allKeys));
 
 $brand = admin_brand();
 if (trim((string) ($s['whatsapp_prefill'] ?? '')) === '') {
     $s['whatsapp_prefill'] = $brand['whatsapp_prefill'];
 }
 
-$pageTitle = 'Site settings';
-$pageDescription = 'Logo, contact, WhatsApp, footer, menu, and social links — no code required.';
+$pageTitle = 'Global settings';
+$pageDescription = 'Branding, logos, company info, contact, WhatsApp, and social links.';
 $activeNav = 'settings';
 require __DIR__ . '/includes/layout.php';
 ?>
@@ -149,8 +125,8 @@ require __DIR__ . '/includes/layout.php';
       <?php foreach ($group['fields'] as $key => $label): ?>
         <div class="adm-field">
           <label for="<?= e($key) ?>"><?= e($label) ?> <?= admin_tooltip('Saved when you click Save at the bottom') ?></label>
-          <?php if ($key === 'whatsapp_prefill' || $key === 'contact_address'): ?>
-            <textarea name="<?= e($key) ?>" id="<?= e($key) ?>" rows="<?= $key === 'contact_address' ? 2 : 3 ?>"><?= e($s[$key] ?? '') ?></textarea>
+          <?php if ($key === 'whatsapp_prefill' || $key === 'contact_address' || $key === 'site_description'): ?>
+            <textarea name="<?= e($key) ?>" id="<?= e($key) ?>" rows="<?= $key === 'contact_address' ? 2 : ($key === 'site_description' ? 4 : 3) ?>"><?= e($s[$key] ?? '') ?></textarea>
           <?php else: ?>
             <input type="text" name="<?= e($key) ?>" id="<?= e($key) ?>" value="<?= e($s[$key] ?? '') ?>" />
           <?php endif; ?>
@@ -159,20 +135,12 @@ require __DIR__ . '/includes/layout.php';
     </div>
   <?php endforeach; ?>
 
-  <div class="adm-card adm-settings-section">
-    <h2>Footer description</h2>
-    <p class="adm-hint">Two short lines shown under the logo in the site footer.</p>
-    <div class="adm-field">
-      <label for="footer_blurb_1">First line</label>
-      <textarea name="footer_blurb_1" id="footer_blurb_1" rows="2"><?= e($s['footer_blurb_1'] ?? '') ?></textarea>
-    </div>
-    <div class="adm-field">
-      <label for="footer_blurb_2">Second line (optional)</label>
-      <textarea name="footer_blurb_2" id="footer_blurb_2" rows="2"><?= e($s['footer_blurb_2'] ?? '') ?></textarea>
-    </div>
+  <div class="adm-card adm-settings-section adm-glass">
+    <h2>Footer &amp; navigation</h2>
+    <p class="adm-hint">Footer copy, copyright, and menu links are managed in the <a href="footer.php">Footer module</a>.</p>
   </div>
 
-  <div class="adm-card adm-settings-section">
+  <div class="adm-card adm-settings-section adm-glass">
     <h2>Logo &amp; favicon</h2>
     <p class="adm-hint">Upload Archevo Design branding images. Paths update automatically after upload.</p>
     <?php foreach (['site_logo' => 'Main logo', 'site_logo_light' => 'Light logo (header)', 'site_logo_dark' => 'Dark logo', 'site_favicon' => 'Favicon'] as $key => $label): ?>
@@ -186,23 +154,7 @@ require __DIR__ . '/includes/layout.php';
     <?php endforeach; ?>
   </div>
 
-  <div class="adm-card adm-settings-section">
-    <h2>Header menu</h2>
-    <?php foreach (cms_nav_item_definitions() as $id => $def): ?>
-      <div class="adm-field adm-field-row">
-        <div>
-          <label><?= e($def['label']) ?> label</label>
-          <input type="text" name="<?= e($def['setting_label']) ?>" value="<?= e($s[$def['setting_label']] ?? $def['label']) ?>" />
-        </div>
-        <div>
-          <label>Link</label>
-          <input type="text" name="<?= e($def['setting_href']) ?>" value="<?= e($s[$def['setting_href']] ?? $def['href']) ?>" />
-        </div>
-      </div>
-    <?php endforeach; ?>
-  </div>
-
-  <div class="adm-card">
+  <div class="adm-card adm-glass">
     <div class="adm-actions">
       <button type="submit" class="adm-btn adm-btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save all settings</button>
       <a href="../index.html" target="_blank" rel="noopener" class="adm-btn adm-btn-ghost">Preview website</a>
