@@ -17,7 +17,6 @@
   var STAGGER_CHILDREN = [
     '.service-card',
     '.project-tile',
-    '.work-card',
     '.quote-card',
     '.team-card',
     '.award-item',
@@ -341,6 +340,9 @@
       $$('.fade-slide').forEach(function (section) {
         bindStagger(section);
         if (section.classList.contains('active')) {
+          $$('.motion-item', section).forEach(function (item) {
+            item.classList.add('motion-in');
+          });
           $$('.journal-row-img', section).forEach(function (frame) {
             frame.classList.add('motion-media-revealed');
           });

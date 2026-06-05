@@ -89,6 +89,103 @@ final class SyncUploadLibrary
         return ucwords(str_replace('-', ' ', $key));
     }
 
+    public static function titleFromFilename(string $filename): string
+    {
+        $base = pathinfo($filename, PATHINFO_FILENAME);
+        $text = preg_replace('/[-_]+/', ' ', $base) ?? $base;
+        $text = preg_replace('/\s+/', ' ', trim($text));
+
+        return ucwords(strtolower($text));
+    }
+
+    /**
+     * Create one work-page project per uploaded image (title from filename).
+     *
+     * @return array{projects: int, images: int, gallery: int}
+     */
+    public static function syncOneProjectPerImage(PDO $pdo, bool $replacePortfolio = true): array
+    {
+        require_once SPANGLE_ROOT . '/includes/cmsMigrate.php';
+        require_once SPANGLE_ROOT . '/includes/cms/ProjectRepository.php';
+        cms_run_migrations($pdo);
+
+        $scan = self::scan();
+        $images = $scan['images'];
+        if (!$images) {
+            return ['projects' => 0, 'images' => 0, 'gallery' => 0];
+        }
+
+        if ($replacePortfolio) {
+            $pdo->exec(
+                "DELETE pi FROM project_images pi
+                 INNER JOIN projects p ON p.id = pi.project_id
+                 WHERE p.slug NOT LIKE 'retail-%' AND p.hero_image NOT LIKE 'http%'"
+            );
+            $pdo->exec("DELETE FROM projects WHERE slug NOT LIKE 'retail-%' AND hero_image NOT LIKE 'http%'");
+        }
+
+        $projectStmt = $pdo->prepare(
+            'INSERT INTO projects (slug, title, location, category, project_type, summary, body_html, hero_image, link_url,
+             home_highlight, home_layout, sort_order, is_active, is_featured)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?)'
+        );
+        $imageStmt = $pdo->prepare(
+            'INSERT INTO project_images (project_id, image_path, caption, sort_order) VALUES (?, ?, ?, 0)'
+        );
+
+        $sort = 0;
+        $highlightCount = 0;
+        foreach ($images as $img) {
+            $title = self::titleFromFilename($img['name']);
+            $slugBase = self::slugify(pathinfo($img['name'], PATHINFO_FILENAME));
+            $slug = $slugBase;
+            $n = 2;
+            while (self::slugExists($pdo, $slug)) {
+                $slug = $slugBase . '-' . $n;
+                $n++;
+            }
+
+            $category = self::guessCategory(self::projectKeyFromFilename($img['name']), $img['name']);
+            $projectType = ProjectRepository::normalizeType($category === 'retail' ? 'commercial' : $category);
+            $link = 'project.php?slug=' . rawurlencode($slug);
+            $highlight = $highlightCount < 8 ? 1 : 0;
+            $layout = $highlightCount === 0 ? 'lg' : ($highlightCount === 3 ? 'wide' : '');
+            if ($highlight) {
+                $highlightCount++;
+            }
+
+            $body = self::buildProjectBodyHtml([$img]);
+            $projectStmt->execute([
+                $slug,
+                $title,
+                'Gujarat, India',
+                $projectType,
+                $projectType,
+                'Interior & architecture visual — ' . $title . '.',
+                $body,
+                $img['rel'],
+                $link,
+                $highlight,
+                $layout,
+                $sort++,
+                $highlight ? 1 : 0,
+            ]);
+
+            $projectId = (int) $pdo->lastInsertId();
+            $imageStmt->execute([$projectId, $img['rel'], $title]);
+        }
+
+        setting_set($pdo, 'home_projects_title', 'Featured commissions');
+        setting_set($pdo, 'home_projects_intro', 'Explore client projects — each album opens a full visual case study.');
+        content_sync_site_json($pdo);
+
+        return [
+            'projects' => count($images),
+            'images' => count($images),
+            'gallery' => count($images),
+        ];
+    }
+
     public static function slugify(string $text): string
     {
         $text = strtolower(trim($text));

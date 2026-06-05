@@ -75,7 +75,7 @@ On localhost, image and asset URLs automatically use
 
 - Deploy files to hosting
 - Run install (or import DB) on the server
-- Set **public base URL** in Admin → Site branding to your live URL (e.g. `https://www.archevoinfra.com`)
+- Set **public base URL** in Admin → Site branding to your live URL (e.g. `https://spangle.page.gd`)
 - In Admin → **Contact information**, set **Enquiry notify email** (testing: `pkapadiya257@rku.ac.in`; production: studio inbox)
 - Change the default admin password (`admin` / `admin123`) after first login
 - **Admin URL is not shown in the public footer** — bookmark `https://your-domain.com/admin/login.php` for the studio owner

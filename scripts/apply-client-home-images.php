@@ -45,7 +45,7 @@ foreach ($journalMap as $slug => $path) {
 }
 
 setting_set($pdo, 'home_about_image', 'uploads/1228_HARESHBHAI_LIVING_5.jpg');
-setting_set($pdo, 'home_about_image_alt', 'Archevo Design interior project · Rajkot');
+setting_set($pdo, 'home_about_image_alt', 'SPANGLE Architecture & Interior Design Studio interior project · Rajkot');
 setting_set($pdo, 'home_about_caption', 'Client project · Rajkot');
 setting_set($pdo, 'seo_og_image', 'uploads/ENTRY.jpg');
 setting_set($pdo, 'home_gallery_intro', 'A curated selection from recent Archevo commissions — interiors, architecture, and 3D visualisations across Gujarat.');

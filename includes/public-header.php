@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /** @var string $publicPageTitle */
 /** @var string $publicBodyClass */
-$publicPageTitle = $publicPageTitle ?? 'Archevo Design';
+$publicPageTitle = $publicPageTitle ?? 'SPANGLE Architecture & Interior Design Studio';
 $publicBodyClass = trim('page-sub ' . ($publicBodyClass ?? ''));
 ?>
 <!DOCTYPE html>
@@ -13,23 +13,25 @@ $publicBodyClass = trim('page-sub ' . ($publicBodyClass ?? ''));
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title><?= htmlspecialchars($publicPageTitle) ?></title>
-  <meta name="description" content="" />
-  <link rel="icon" href="archevo-logo-light.png" type="image/png" />
+  <meta name="description" content="<?= htmlspecialchars(trim((string) ($publicMetaDescription ?? ''))) ?>" />
+  <link rel="icon" href="uploads/branding/archevo-logo-light.png" type="image/png" />
   <link rel="stylesheet" href="fonts/fonts.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="style.css?v=7" />
+  <?php readfile(SPANGLE_ROOT . '/includes/partials/schema-organization.html'); ?>
 </head>
 <body class="<?= htmlspecialchars($publicBodyClass) ?>">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header is-solid" id="site-header" data-header role="banner">
     <div class="header-inner">
-      <a href="index.html" class="brand brand--full" aria-label="Archevo Design home">
+      <a href="index.html" class="brand brand--full" aria-label="SPANGLE Architecture & Interior Design Studio home">
         <span class="brand-full">
-          <img src="archevo-logo-light.png" alt="" width="168" height="100" class="brand-logo-full brand-logo-full--light" decoding="async" />
-          <img src="archevo-logo-dark.png" alt="" width="148" height="88" class="brand-logo-full brand-logo-full--dark" decoding="async" />
+          <img src="uploads/branding/archevo-logo-light.png" alt="" width="168" height="100" class="brand-logo-full brand-logo-full--light" decoding="async" />
+          <img src="uploads/branding/archevo-logo-dark.png" alt="" width="148" height="88" class="brand-logo-full brand-logo-full--dark" decoding="async" />
         </span>
         <span class="brand-text">
-          <span class="brand-name">ARCHEVO DESIGN</span>
+          <span class="brand-name">SPANGLE</span>
           <span class="brand-line">Architecture &amp; Interiors</span>
         </span>
       </a>

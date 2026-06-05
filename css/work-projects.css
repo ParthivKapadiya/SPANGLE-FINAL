@@ -1,0 +1,239 @@
+.work-toolbar {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.work-search input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+  border-radius: 10px;
+  font: inherit;
+  background: var(--surface, #fff);
+}
+
+.work-toolbar-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.work-toolbar-row select {
+  flex: 1 1 160px;
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+  font: inherit;
+}
+
+.work-results-meta {
+  font-size: 0.9rem;
+  color: var(--muted, #5c6370);
+  margin-bottom: 1rem;
+}
+
+.work-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem 0.5rem;
+  margin-top: 2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+.work-page-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.work-page-ellipsis {
+  padding: 0 0.25rem;
+  color: var(--muted, #5c6370);
+  user-select: none;
+  line-height: 2.25rem;
+}
+
+.work-page-btn,
+.work-page-num {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+  border-radius: var(--radius-lg, 10px);
+  background: var(--surface, #fff);
+  cursor: pointer;
+  font: inherit;
+  font-size: inherit;
+  line-height: 1.2;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.work-page-num {
+  min-width: 2rem;
+  padding-left: 0.55rem;
+  padding-right: 0.55rem;
+  text-align: center;
+}
+
+.work-page-btn:hover:not(:disabled),
+.work-page-num:hover:not(.is-active) {
+  border-color: var(--accent, #8f6f42);
+  color: var(--accent, #8f6f42);
+}
+
+.work-page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.work-page-num.is-active {
+  background: var(--ink, #1a1a1a);
+  border-color: var(--ink, #1a1a1a);
+  color: #fff;
+  cursor: default;
+}
+
+.work-page-nav {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.work-page-summary {
+  flex: 1 1 100%;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--muted, #5c6370);
+  margin-top: 0.35rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.work-page-summary strong {
+  color: var(--ink, #1a1a1a);
+  font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .work-pagination {
+    gap: 0.5rem 0.75rem;
+  }
+
+  .work-page-summary {
+    flex: 0 0 auto;
+    margin-top: 0;
+    margin-left: 0.5rem;
+  }
+}
+
+.work-loading,
+.work-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--muted, #5c6370);
+}
+
+.project-hero {
+  position: relative;
+  min-height: 52vh;
+  overflow: hidden;
+  background: #111;
+}
+
+.project-hero-img {
+  width: 100%;
+  height: 52vh;
+  object-fit: cover;
+}
+
+.project-hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 3rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent 55%);
+  color: #fff;
+}
+
+.project-hero-title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  margin: 0.5rem 0 0;
+}
+
+.project-detail-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .project-detail-grid {
+    grid-template-columns: 240px 1fr;
+  }
+}
+
+.project-facts ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project-facts li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line, rgba(0, 0, 0, 0.1));
+}
+
+.project-facts span {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted, #5c6370);
+}
+
+.project-gallery-slide {
+  display: none;
+}
+
+.project-gallery-slide.is-active {
+  display: block;
+}
+
+.project-gallery-slide img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: zoom-in;
+}
+
+.project-hero-img {
+  cursor: zoom-in;
+}
+
+.project-quote {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-left: 3px solid var(--accent, #8f6f42);
+  background: rgba(143, 111, 66, 0.08);
+}
+
+.project-related-grid {
+  margin-top: 1.5rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

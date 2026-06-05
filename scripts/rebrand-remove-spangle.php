@@ -11,9 +11,9 @@ require_once dirname(__DIR__) . '/includes/bootstrap.php';
 
 $pdo = Database::connection($GLOBALS['configDb']);
 
-$brand = 'Archevo Design';
-$company = 'Archevo Infra Edge Pvt Ltd';
-$siteUrl = 'https://www.archevoinfra.com';
+$brand = 'SPANGLE Architecture & Interior Design Studio';
+$company = 'SPANGLE Architecture & Interior Design Studio';
+$siteUrl = 'https://spangle.page.gd';
 
 $settings = [
     'site_name' => $brand,
@@ -48,7 +48,7 @@ foreach ($settings as $key => $val) {
     setting_set($pdo, $key, $val);
 }
 
-$pdo->exec("UPDATE testimonials SET quote = REPLACE(quote, 'SPANGLE', 'Archevo Design') WHERE quote LIKE '%SPANGLE%'");
+$pdo->exec("UPDATE testimonials SET quote = REPLACE(quote, 'SPANGLE', 'SPANGLE Architecture & Interior Design Studio') WHERE quote LIKE '%SPANGLE%'");
 
 content_sync_site_json($pdo);
 
@@ -80,9 +80,9 @@ $replacements = [
     'SPANGLE is a' => "{$brand} is a",
     'SPANGLE is ' => "{$brand} is ",
     'SPANGLE moved' => "{$brand} moved",
-    'SPANGLE stayed' => 'Archevo Design stayed',
-    'SPANGLE transformed' => 'Archevo Design transformed',
-    'SPANGLE project' => 'Archevo Design project',
+    'SPANGLE stayed' => 'SPANGLE Architecture & Interior Design Studio stayed',
+    'SPANGLE transformed' => 'SPANGLE Architecture & Interior Design Studio transformed',
+    'SPANGLE project' => 'SPANGLE Architecture & Interior Design Studio project',
     'public SPANGLE site' => "public {$brand} site",
     'SPANGLE on ' => "{$brand} on ",
     '· SPANGLE' => "· {$brand}",

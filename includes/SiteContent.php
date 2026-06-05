@@ -27,10 +27,12 @@ final class SiteContent
             'social_instagram', 'social_facebook', 'social_youtube',
             'map_embed_url', 'map_title',
             'seo_description', 'seo_og_image',
-            'home_hero_eyebrow', 'home_hero_title_html', 'home_hero_lead',
-            'home_about_eyebrow', 'home_about_title', 'home_about_lead_html', 'home_about_image', 'home_about_image_alt', 'home_about_caption',
+            'home_hero_eyebrow', 'home_hero_title_html', 'home_hero_title_main', 'home_hero_title_highlight', 'home_hero_lead',
+            'home_about_eyebrow', 'home_about_title', 'home_about_lead_html', 'home_about_paragraph_1', 'home_about_paragraph_2',
+            'home_about_image', 'home_about_image_alt', 'home_about_caption',
+            'footer_blurb_1', 'footer_blurb_2',
             'home_gallery_eyebrow', 'home_gallery_title', 'home_gallery_intro',
-            'home_projects_eyebrow', 'home_projects_title', 'home_projects_intro',
+            'home_projects_eyebrow', 'home_projects_title', 'home_projects_intro', 'home_projects_limit',
             'home_capabilities_eyebrow', 'home_capabilities_title', 'home_capabilities_intro',
             'home_process_eyebrow', 'home_process_title', 'home_process_intro',
             'home_testimonials_eyebrow', 'home_testimonials_title',
@@ -46,7 +48,9 @@ final class SiteContent
             'services_kicker', 'services_title', 'services_lead', 'services_hero_image',
             'work_kicker', 'work_title', 'work_lead', 'work_hero_image',
             'process_kicker', 'process_title', 'process_lead', 'process_hero_image',
-            'process_split_eyebrow', 'process_split_title', 'process_split_lead_html', 'process_split_image',
+            'process_split_eyebrow', 'process_split_title', 'process_split_lead_html',
+            'process_split_paragraph_1', 'process_split_paragraph_2', 'process_split_image',
+            'process_timeline_eyebrow', 'process_timeline_title',
             'journal_kicker', 'journal_title', 'journal_lead', 'journal_hero_image',
         ];
         $keys = array_merge($keys, array_keys(cms_copy_setting_keys()));
@@ -78,10 +82,14 @@ final class SiteContent
 
         $projects = [];
         $stmt = $pdo->query(
-            'SELECT slug, title, location, category, summary, body_html, hero_image, link_url, home_highlight, home_layout
-             FROM projects WHERE is_active = 1 ORDER BY sort_order ASC, id ASC'
+            'SELECT slug, title, location, category, summary, body_html, hero_image, link_url,
+                    home_highlight, home_layout, is_featured, sort_order
+             FROM projects WHERE is_active = 1
+             ORDER BY is_featured DESC, sort_order ASC, id ASC'
         );
         foreach ($stmt->fetchAll() as $row) {
+            $heroRel = (string) ($row['hero_image'] ?? '');
+            $img = image_responsive_bundle($heroRel, '(max-width: 900px) 100vw, 50vw');
             $projects[] = [
                 'slug' => $row['slug'],
                 'title' => $row['title'],
@@ -89,10 +97,14 @@ final class SiteContent
                 'category' => $row['category'],
                 'summary' => $row['summary'],
                 'bodyHtml' => $row['body_html'] ?? '',
-                'heroImage' => public_upload_url((string) $row['hero_image']),
+                'heroImage' => $img['src'],
+                'heroSrcset' => $img['srcset'],
+                'heroSizes' => $img['sizes'],
                 'linkUrl' => $row['link_url'] ?: ('project.php?slug=' . rawurlencode((string) $row['slug'])),
                 'homeHighlight' => (bool) $row['home_highlight'],
                 'homeLayout' => $row['home_layout'] ?? '',
+                'isFeatured' => (bool) ($row['is_featured'] ?? false),
+                'sortOrder' => (int) ($row['sort_order'] ?? 0),
             ];
         }
 
@@ -150,14 +162,13 @@ final class SiteContent
             ];
         }
 
-        $servicesHome = [];
         $servicesPage = [];
         $stmt = $pdo->query(
-            'SELECT number_label, title, short_description, eyebrow, detail_title, detail_lead_1, detail_lead_2, image_path, show_on_home
+            'SELECT number_label, title, short_description, eyebrow, detail_title, detail_lead_1, detail_lead_2, image_path
              FROM services WHERE is_active = 1 ORDER BY sort_order ASC, id ASC'
         );
         foreach ($stmt->fetchAll() as $row) {
-            $item = [
+            $servicesPage[] = [
                 'number' => $row['number_label'],
                 'title' => $row['title'],
                 'shortDescription' => $row['short_description'],
@@ -167,26 +178,24 @@ final class SiteContent
                 'detailLead2' => $row['detail_lead_2'],
                 'image' => public_upload_url((string) ($row['image_path'] ?? '')),
             ];
-            $servicesPage[] = $item;
-            if ((int) $row['show_on_home'] === 1) {
-                $servicesHome[] = $item;
-            }
         }
+        // Same list drives home cards, services.html blocks, and footer links.
+        $servicesHome = $servicesPage;
 
         return [
             'version' => 2,
             'source' => 'mysql',
             'publicBase' => local_public_base(trim((string) ($s['public_base'] ?? ''))),
-            'siteName' => $s['site_name'] ?? 'Archevo Design',
+            'siteName' => $s['site_name'] ?? 'SPANGLE Architecture & Interior Design Studio',
             'tagline' => $s['tagline'] ?? 'Architecture & Interiors',
             'branding' => [
-                'logo' => public_upload_url($s['site_logo'] ?? 'archevo-logo.png'),
-                'logoLight' => public_upload_url($s['site_logo_light'] ?? 'archevo-logo-light.png'),
-                'logoDark' => public_upload_url($s['site_logo_dark'] ?? 'archevo-logo-dark.png'),
-                'favicon' => public_upload_url($s['site_favicon'] ?? ($s['site_logo'] ?? 'archevo-logo.png')),
-                'brandName' => $s['brand_name'] ?? 'ARCHEVO DESIGN',
+                'logo' => public_upload_url($s['site_logo'] ?? 'uploads/branding/archevo-logo.png'),
+                'logoLight' => public_upload_url($s['site_logo_light'] ?? 'uploads/branding/archevo-logo-light.png'),
+                'logoDark' => public_upload_url($s['site_logo_dark'] ?? 'uploads/branding/archevo-logo-dark.png'),
+                'favicon' => public_upload_url($s['site_favicon'] ?? ($s['site_logo'] ?? 'uploads/branding/archevo-logo-light.png')),
+                'brandName' => $s['brand_name'] ?? 'SPANGLE',
                 'brandLine' => $s['brand_line'] ?? 'Architecture & Interiors',
-                'footerBlurbHtml' => $s['footer_blurb_html'] ?? '',
+                'footerBlurbHtml' => cms_resolve_footer_blurb_html($s),
                 'footerCopyright' => $s['footer_copyright'] ?? '',
             ],
             'navigation' => cms_navigation_from_settings($s),
@@ -235,12 +244,12 @@ final class SiteContent
             ],
             'home' => [
                 'heroEyebrow' => $s['home_hero_eyebrow'] ?? '',
-                'heroTitleHtml' => $s['home_hero_title_html'] ?? '',
+                'heroTitleHtml' => cms_resolve_hero_title_html($s),
                 'heroLead' => $s['home_hero_lead'] ?? '',
                 'stats' => $stats,
                 'aboutEyebrow' => $s['home_about_eyebrow'] ?? '',
                 'aboutTitle' => $s['home_about_title'] ?? '',
-                'aboutLeadHtml' => $s['home_about_lead_html'] ?? '',
+                'aboutLeadHtml' => cms_resolve_about_lead_html($s),
                 'aboutImage' => public_upload_url($s['home_about_image'] ?? ''),
                 'aboutImageAlt' => $s['home_about_image_alt'] ?? '',
                 'aboutCaption' => $s['home_about_caption'] ?? '',
@@ -250,6 +259,7 @@ final class SiteContent
                 'projectsEyebrow' => $s['home_projects_eyebrow'] ?? '',
                 'projectsTitle' => $s['home_projects_title'] ?? '',
                 'projectsIntro' => $s['home_projects_intro'] ?? '',
+                'projectsLimit' => max(4, min(12, (int) ($s['home_projects_limit'] ?? 8))),
                 'capabilitiesEyebrow' => $s['home_capabilities_eyebrow'] ?? '',
                 'capabilitiesTitle' => $s['home_capabilities_title'] ?? '',
                 'capabilitiesIntro' => $s['home_capabilities_intro'] ?? '',
@@ -258,8 +268,8 @@ final class SiteContent
                 'processIntro' => $s['home_process_intro'] ?? '',
                 'testimonialsEyebrow' => $s['home_testimonials_eyebrow'] ?? '',
                 'testimonialsTitle' => $s['home_testimonials_title'] ?? '',
-                'awardsEyebrow' => $s['home_awards_eyebrow'] ?? '',
-                'awardsTitle' => $s['home_awards_title'] ?? '',
+                'awardsEyebrow' => $s['home_awards_eyebrow'] ?? ($s['studio_values_eyebrow'] ?? ''),
+                'awardsTitle' => $s['home_awards_title'] ?? ($s['studio_values_title'] ?? ''),
                 'teamEyebrow' => $s['home_team_eyebrow'] ?? '',
                 'teamTitle' => $s['home_team_title'] ?? '',
                 'journalEyebrow' => $s['home_journal_eyebrow'] ?? '',
@@ -291,9 +301,11 @@ final class SiteContent
                     'philosophyLead1' => $s['studio_philosophy_lead_1'] ?? '',
                     'philosophyLead2' => $s['studio_philosophy_lead_2'] ?? '',
                     'philosophyImage' => public_upload_url($s['studio_philosophy_image'] ?? ''),
-                    'valuesEyebrow' => $s['studio_values_eyebrow'] ?? '',
-                    'valuesTitle' => $s['studio_values_title'] ?? '',
-                    'valuesHtml' => cms_studio_values_html_from_settings($s),
+                    'valuesEyebrow' => $s['studio_values_eyebrow'] ?? ($s['home_awards_eyebrow'] ?? ''),
+                    'valuesTitle' => $s['studio_values_title'] ?? ($s['home_awards_title'] ?? ''),
+                    'valuesHtml' => $awards
+                        ? cms_studio_values_html_from_awards($awards)
+                        : cms_studio_values_html_from_settings($s),
                     'pullquote' => $s['studio_pullquote'] ?? '',
                     'stripImages' => array_values(array_filter([
                         public_upload_url($s['studio_strip_image_1'] ?? ''),
@@ -321,8 +333,15 @@ final class SiteContent
                     'heroImage' => public_upload_url($s['process_hero_image'] ?? ''),
                     'splitEyebrow' => $s['process_split_eyebrow'] ?? '',
                     'splitTitle' => $s['process_split_title'] ?? '',
-                    'splitLeadHtml' => $s['process_split_lead_html'] ?? '',
+                    'splitLeadHtml' => cms_build_about_lead_html(
+                        (string) ($s['process_split_paragraph_1'] ?? ''),
+                        (string) ($s['process_split_paragraph_2'] ?? '')
+                    ) ?: ($s['process_split_lead_html'] ?? ''),
+                    'splitLead1' => $s['process_split_paragraph_1'] ?? '',
+                    'splitLead2' => $s['process_split_paragraph_2'] ?? '',
                     'splitImage' => public_upload_url($s['process_split_image'] ?? ''),
+                    'timelineEyebrow' => $s['process_timeline_eyebrow'] ?? '',
+                    'timelineTitle' => $s['process_timeline_title'] ?? '',
                 ],
                 'journal' => [
                     'kicker' => $s['journal_kicker'] ?? '',

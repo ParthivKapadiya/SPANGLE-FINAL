@@ -22,6 +22,8 @@ function process_contact_enquiry(array $configDb, array $redirects): void
     $email = trim((string) ($_POST['email'] ?? ''));
     $phone = trim((string) ($_POST['phone'] ?? ''));
     $projectType = trim((string) ($_POST['project_type'] ?? ''));
+    $budgetRange = trim((string) ($_POST['budget_range'] ?? ''));
+    $location = trim((string) ($_POST['location'] ?? ''));
     $message = trim((string) ($_POST['message'] ?? ''));
     $formSource = trim((string) ($_POST['form_source'] ?? 'contact'));
     if ($formSource === '') {
@@ -39,17 +41,25 @@ function process_contact_enquiry(array $configDb, array $redirects): void
 
     try {
         $pdo = Database::connection($configDb);
+        $subject = trim((string) ($_POST['subject'] ?? ''));
+        if ($subject === '' && $projectType !== '') {
+            $subject = $projectType;
+        }
         $stmt = $pdo->prepare(
-            'INSERT INTO contact_messages (name, email, phone, message, form_source, ip_address)
-             VALUES (?, ?, ?, ?, ?, ?)'
+            'INSERT INTO contact_messages (name, email, phone, message, subject, form_source, budget_range, location, ip_address, status)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
         );
         $stmt->execute([
             $name,
             $email,
             $phone,
             $message,
+            $subject !== '' ? $subject : null,
             $formSource,
+            $budgetRange !== '' ? $budgetRange : null,
+            $location !== '' ? $location : null,
             (string) ($_SERVER['REMOTE_ADDR'] ?? ''),
+            'new',
         ]);
 
         require_once SPANGLE_ROOT . '/includes/enquiryMail.php';
@@ -63,12 +73,12 @@ function process_contact_enquiry(array $configDb, array $redirects): void
             'submitted_at' => date('Y-m-d H:i:s'),
         ];
         if (!enquiry_send_notification($pdo, $mailPayload)) {
-            error_log('[Archevo] Enquiry saved (id ' . $pdo->lastInsertId() . ') but email notification failed.');
+            error_log('[SPANGLE] Enquiry saved (id ' . $pdo->lastInsertId() . ') but email notification failed.');
         }
 
         redirect($redirects['thanks'] ?? '../thanks.html?sent=1');
     } catch (Throwable $e) {
-        error_log('[Archevo] Contact enquiry save failed: ' . $e->getMessage());
+        error_log('[SPANGLE] Contact enquiry save failed: ' . $e->getMessage());
         redirect($redirects['save'] ?? '../contact.html?enquiry=save');
     }
 }

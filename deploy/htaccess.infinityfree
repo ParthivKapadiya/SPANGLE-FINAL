@@ -4,8 +4,7 @@ DirectoryIndex index.html index.php
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteCond %{QUERY_STRING} (^|&)slug=([a-z0-9-]+)(&|$) [NC]
-  RewriteRule ^journal-post\.php$ %2.html?v=3 [R=302,L]
+  # Journal articles are served by journal-post.php (CMS); no redirect to .html
   RewriteRule ^(config|includes|database)/ - [F,L]
   RewriteRule ^php/ - [F,L]
 </IfModule>

@@ -40,13 +40,27 @@ function app_is_production(): bool
  * On localhost, always use the current request base URL for uploads and asset paths.
  * On production, use the stored public_base when set.
  */
+function sanitize_public_base_url(string $url): string
+{
+    $url = trim($url);
+    if ($url === '' || !preg_match('#^https?://#i', $url)) {
+        return '';
+    }
+    $host = strtolower((string) parse_url($url, PHP_URL_HOST));
+    if ($host === '' || preg_match('/localhost|127\.0\.0\.1/', $host)) {
+        return '';
+    }
+
+    return rtrim($url, '/');
+}
+
 function local_public_base(string $stored = ''): string
 {
     if (app_is_local()) {
         return site_base_url();
     }
 
-    $stored = trim($stored);
+    $stored = sanitize_public_base_url($stored);
 
     return $stored !== '' ? $stored : site_base_url();
 }
@@ -105,7 +119,7 @@ function site_base_url(): string
     return rtrim($scheme . '://' . $host . $dir, '/');
 }
 
-/** Public URL for a journal article (static .html — never journal-post.php). */
+/** Public URL for a journal article (dynamic PHP page from database). */
 function journal_public_url(string $slug): string
 {
     $slug = preg_replace('/[^a-z0-9-]+/', '', strtolower(trim($slug)));
@@ -113,7 +127,7 @@ function journal_public_url(string $slug): string
         return 'journal.html';
     }
 
-    return $slug . '.html';
+    return 'journal-post.php?slug=' . rawurlencode($slug);
 }
 
 function e(?string $value): string
@@ -162,10 +176,23 @@ function csrf_field(): string
 
 function csrf_verify(): bool
 {
-    $token = $_POST['csrf_token'] ?? '';
+    return csrf_verify_from_value($_POST['csrf_token'] ?? '');
+}
+
+function csrf_verify_from_value(?string $token): bool
+{
+    if (session_status() === PHP_SESSION_NONE) {
+        Auth::startSession();
+    }
+    $token = (string) ($token ?? '');
     $session = $_SESSION['csrf_token'] ?? '';
 
-    return is_string($token) && is_string($session) && $token !== '' && hash_equals($session, $token);
+    return is_string($session) && $token !== '' && hash_equals($session, $token);
+}
+
+function csrf_json_field(): string
+{
+    return json_encode(csrf_token(), JSON_UNESCAPED_UNICODE);
 }
 
 function setting_get(PDO $pdo, string $key, string $default = ''): string
@@ -247,9 +274,76 @@ function public_upload_url(string $path): string
     return public_media_path($path);
 }
 
-function public_media_path(string $path): string
+/**
+ * Responsive image bundle for front-end (optional -640w / -1280w variants).
+ *
+ * @return array{src: string, srcset: string, sizes: string}
+ */
+function image_responsive_bundle(string $relPath, string $sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'): array
+{
+    $relPath = trim(str_replace('\\', '/', $relPath));
+    $src = public_upload_url($relPath);
+    if ($relPath === '' || preg_match('#^https?://#i', $relPath)) {
+        return ['src' => $src, 'srcset' => '', 'sizes' => $sizes];
+    }
+
+    require_once SPANGLE_ROOT . '/includes/ImageOptimizer.php';
+
+    if (!ImageOptimizer::variantsEnabled()) {
+        return ['src' => $src, 'srcset' => '', 'sizes' => ''];
+    }
+
+    $parts = [];
+    $masterAbs = SPANGLE_ROOT . '/' . $relPath;
+    if (is_file($masterAbs)) {
+        $info = @getimagesize($masterAbs);
+        if ($info && $info[0] > 0) {
+            $parts[] = $src . ' ' . $info[0] . 'w';
+        }
+    }
+
+    foreach (ImageOptimizer::VARIANT_WIDTHS as $width) {
+        $variantRel = ImageOptimizer::variantRelativePath($relPath, $width);
+        if (is_file(SPANGLE_ROOT . '/' . $variantRel)) {
+            $parts[] = public_upload_url($variantRel) . ' ' . $width . 'w';
+        }
+    }
+
+    $parts = array_values(array_unique($parts));
+    usort($parts, static function (string $a, string $b): int {
+        preg_match('/(\d+)w$/', $a, $ma);
+        preg_match('/(\d+)w$/', $b, $mb);
+
+        return ((int) ($ma[1] ?? 0)) <=> ((int) ($mb[1] ?? 0));
+    });
+
+    return [
+        'src' => $src,
+        'srcset' => implode(', ', $parts),
+        'sizes' => $sizes,
+    ];
+}
+
+function normalize_upload_relative_path(string $path): string
 {
     $path = trim(str_replace('\\', '/', $path));
+    if ($path === '' || preg_match('#^https?://#i', $path)) {
+        return $path;
+    }
+    if (preg_match('#^uploads/#i', $path)) {
+        return $path;
+    }
+    $base = basename($path);
+    if (preg_match('/^(archevo-logo|archevo-icon)/i', $base)) {
+        return 'uploads/branding/' . $base;
+    }
+
+    return 'uploads/' . ltrim($path, '/');
+}
+
+function public_media_path(string $path): string
+{
+    $path = normalize_upload_relative_path($path);
     if ($path === '') {
         return '';
     }

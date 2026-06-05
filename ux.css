@@ -216,8 +216,19 @@ img.is-loaded,
 img[loading="eager"],
 .brand-logo-full,
 .footer-logo,
-.hero-slide {
+.hero-slide,
+.work-archive img,
+.work-card img {
   opacity: 1;
+}
+
+/* Work grid: always show thumbnails (beats lazy-load fade + motion stagger) */
+#work-archive img,
+.work-archive .work-card img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  transform: none !important;
 }
 
 /* —— Reduced motion —— */

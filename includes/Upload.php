@@ -62,6 +62,9 @@ final class Upload
             return ['ok' => false, 'error' => 'Could not save uploaded file.'];
         }
 
+        require_once SPANGLE_ROOT . '/includes/ImageOptimizer.php';
+        ImageOptimizer::processUploadedFile($absPath);
+
         return ['ok' => true, 'path' => str_replace('\\', '/', $relPath)];
     }
 }

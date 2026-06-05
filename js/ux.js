@@ -102,6 +102,13 @@
     }
   });
 
+  document.addEventListener('spangle:work-archive-rendered', function () {
+    $$('#work-archive img, .work-archive .work-card img').forEach(function (img) {
+      markLoaded(img);
+      img.loading = 'eager';
+    });
+  });
+
   document.addEventListener('spangle:content-updated', function () {
     $$('img[loading="lazy"]:not(.is-loaded)').forEach(function (img) {
       if (img.complete && img.naturalWidth > 0) {

@@ -97,8 +97,8 @@ final class SiteContent
         return [
             'version' => 2,
             'source' => 'mysql',
-            'publicBase' => $s['public_base'] ?? 'https://www.archevoinfra.com',
-            'siteName' => $s['site_name'] ?? 'Archevo Design',
+            'publicBase' => $s['public_base'] ?? 'https://spangle.page.gd',
+            'siteName' => $s['site_name'] ?? 'SPANGLE Architecture & Interior Design Studio',
             'tagline' => $s['tagline'] ?? 'Architecture & Interiors',
             'contact' => [
                 'phoneE164' => $s['contact_phone_e164'] ?? '',

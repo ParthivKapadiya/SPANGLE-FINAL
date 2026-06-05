@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Replace inline footers in static HTML pages with the shared partial.
+ * Sync shared footer + single CMS modal into static HTML pages.
  * Run: php scripts/sync-site-footer.php
  */
 
@@ -16,7 +16,8 @@ if ($footer === false || trim($footer) === '') {
     exit(1);
 }
 
-$skip = ['admin.html'];
+$footer = trim($footer);
+$skip = [];
 $updated = 0;
 
 foreach (glob($root . '/*.html') as $file) {
@@ -30,16 +31,24 @@ foreach (glob($root . '/*.html') as $file) {
         continue;
     }
 
+    if (str_contains($html, '<!-- FOOTER_SYNC -->')) {
+        $html = str_replace('<!-- FOOTER_SYNC -->', $footer, $html);
+        file_put_contents($file, $html);
+        echo "Updated {$name} (placeholder)\n";
+        $updated++;
+        continue;
+    }
+
     $replaced = preg_replace(
-        '/<footer class="site-footer">[\s\S]*?<\/footer>/',
-        trim($footer),
+        '/<footer class="site-footer">[\s\S]*?(?=<script src="js\/spangle-env\.js(?:\?v=\d+)?">)/',
+        $footer . "\n\n  ",
         $html,
         1,
         $count
     );
 
     if ($count !== 1 || $replaced === null) {
-        fwrite(STDERR, "Skipped {$name}: footer not found or multiple matches.\n");
+        fwrite(STDERR, "Skipped {$name}: footer block not found.\n");
         continue;
     }
 

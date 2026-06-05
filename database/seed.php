@@ -7,9 +7,13 @@ declare(strict_types=1);
  * Run via install.php or: php database/seed.php
  */
 
-require_once dirname(__DIR__) . '/includes/bootstrap.php';
-
-$pdo = Database::connection($configDb);
+if (isset($GLOBALS['installSeedPdo']) && $GLOBALS['installSeedPdo'] instanceof PDO) {
+    $pdo = $GLOBALS['installSeedPdo'];
+} else {
+    require_once dirname(__DIR__) . '/includes/bootstrap.php';
+    Database::reset();
+    $pdo = Database::connection($GLOBALS['configDb'] ?? $configDb);
+}
 
 $jsonPath = SPANGLE_ROOT . '/content/site.json';
 if (!is_file($jsonPath)) {
@@ -31,7 +35,7 @@ $seo = $data['seo'] ?? [];
 
 $settings = [
     'public_base' => $data['publicBase'] ?? '',
-    'site_name' => $data['siteName'] ?? 'Archevo Design',
+    'site_name' => $data['siteName'] ?? 'SPANGLE Architecture & Interior Design Studio',
     'tagline' => $data['tagline'] ?? '',
     'contact_phone_e164' => $c['phoneE164'] ?? '',
     'contact_phone_display' => $c['phoneDisplay'] ?? '',
@@ -71,7 +75,7 @@ $settings = [
     'studio_hero_image' => 'uploads/1212-ARVINDBHAI PARMAR_FRONT-2.jpg',
     'studio_philosophy_eyebrow' => 'Philosophy',
     'studio_philosophy_title' => 'Quiet confidence',
-    'studio_philosophy_lead_1' => 'Archevo Infra Edge Pvt Ltd offers end-to-end design and build from Rajkot, Gujarat.',
+    'studio_philosophy_lead_1' => 'SPANGLE Architecture & Interior Design Studio offers end-to-end design and build from Rajkot, Gujarat.',
     'studio_philosophy_lead_2' => 'We do not chase novelty for its own sake.',
     'studio_philosophy_image' => 'uploads/1228_HARESHBHAI_LIVING_3.jpg',
     'services_kicker' => 'What we offer',
@@ -93,7 +97,7 @@ foreach ($home['stats'] ?? [] as $stat) {
 
 $pdo->exec('DELETE FROM hero_slides');
 $heroImages = [
-    ['uploads/ENTRY.jpg', 'Archevo Design entry'],
+    ['uploads/ENTRY.jpg', 'SPANGLE Architecture & Interior Design Studio entry'],
     ['uploads/1228_HARESHBHAI_LIVING_5.jpg', 'Living room interior'],
     ['uploads/1159-VISALBHAI RAMPARIYA-5.jpg', 'Residential interior'],
     ['uploads/LIVING 01.jpg', 'Modern living space'],
@@ -149,14 +153,18 @@ foreach ($defaultServices as $svc) {
 
 // Default admin — change password after first login
 $username = 'admin';
+$email = 'admin@spangle.local';
 $password = 'admin123';
 $hash = password_hash($password, PASSWORD_DEFAULT);
 $stmt = $pdo->prepare('SELECT id FROM admins WHERE username = ? LIMIT 1');
 $stmt->execute([$username]);
 if (!$stmt->fetch()) {
-    $ins = $pdo->prepare('INSERT INTO admins (username, password_hash, display_name) VALUES (?, ?, ?)');
-    $ins->execute([$username, $hash, 'Studio Admin']);
+    $ins = $pdo->prepare('INSERT INTO admins (username, email, password_hash, display_name) VALUES (?, ?, ?, ?)');
+    $ins->execute([$username, $email, $hash, 'Studio Admin']);
+} else {
+    $pdo->prepare('UPDATE admins SET email = ? WHERE username = ? AND (email IS NULL OR email = "")')
+        ->execute([$email, $username]);
 }
 
 echo "Seed complete.\n";
-echo "Admin login: username admin / password admin123 (change immediately)\n";
+echo "Admin login: admin (or admin@spangle.local) / password admin123 (change immediately)\n";

@@ -105,6 +105,86 @@ function install_mark_complete(): void
     @chmod($lockPath, app_is_local() ? 0666 : 0640);
 }
 
+function install_error_message(Throwable $e): string
+{
+    $msg = trim($e->getMessage());
+    if ($msg === '') {
+        return 'Installation failed. Check database credentials and folder permissions.';
+    }
+    if (app_is_local()) {
+        return $msg;
+    }
+
+    return 'Installation failed: ' . $msg
+        . ' — Check host (sql###.infinityfree.com), database name, username, password, and config/ permissions.';
+}
+
+function install_connect(string $host, string $port, string $user, string $pass, string $database): PDO
+{
+    $host = trim($host);
+    $port = trim($port) ?: '3306';
+    $database = trim($database);
+
+    if (!app_is_local()) {
+        if ($database === '') {
+            throw new RuntimeException('Database name is required on shared hosting.');
+        }
+        $dsn = sprintf('mysql:host=%s;port=%s;dbname=%s;charset=utf8mb4', $host, $port, $database);
+        $pdo = new PDO($dsn, $user, $pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+
+        return $pdo;
+    }
+
+    $pdo = new PDO(
+        sprintf('mysql:host=%s;port=%s;charset=utf8mb4', $host, $port),
+        $user,
+        $pass,
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    );
+    if ($database !== '') {
+        $pdo->exec("CREATE DATABASE IF NOT EXISTS `$database` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
+        $pdo->exec("USE `$database`");
+    }
+
+    return $pdo;
+}
+
+require_once SPANGLE_ROOT . '/includes/installSchema.php';
+
+function install_reload_db_config(): array
+{
+    global $configDb, $configPath;
+
+    clearstatcache(true, $configPath);
+    $config = require $configPath;
+    $localDbPath = SPANGLE_ROOT . '/config/database.local.php';
+    if (is_file($localDbPath) && app_is_local()) {
+        $config = array_merge($config, require $localDbPath);
+    }
+    $configDb = $config;
+    $GLOBALS['configDb'] = $config;
+    Database::reset();
+
+    return $config;
+}
+
+function install_migrate_and_seed(?PDO $pdo = null): void
+{
+    global $configDb;
+
+    install_reload_db_config();
+    require_once SPANGLE_ROOT . '/includes/cmsMigrate.php';
+
+    if (!$pdo instanceof PDO) {
+        $pdo = Database::connection($configDb);
+    }
+
+    cms_run_migrations($pdo);
+    $GLOBALS['installSeedPdo'] = $pdo;
+    require SPANGLE_ROOT . '/database/seed.php';
+    unset($GLOBALS['installSeedPdo']);
+}
+
 /**
  * Database + config already exist but .installed lock is missing — finish without rewriting config.
  */
@@ -129,19 +209,22 @@ function install_finish_existing(): bool
             $existing['password'] ?? '',
             [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
         );
-        $pdo->query('SELECT 1 FROM admins LIMIT 1');
-        require SPANGLE_ROOT . '/database/seed.php';
+        try {
+            $pdo->query('SELECT 1 FROM admins LIMIT 1');
+        } catch (Throwable $e) {
+            install_apply_schema($pdo);
+        }
+        $GLOBALS['configDb'] = $existing;
+        install_migrate_and_seed($pdo);
         ensure_upload_directories();
         install_mark_complete();
         $messages[] = 'Setup completed using your existing <code>config/database.php</code>.';
-        $messages[] = 'Database is ready. Admin panel will be added separately.';
+        $messages[] = 'Admin login: <strong>admin</strong> / <strong>admin123</strong> — change after first login.';
 
         return true;
     } catch (Throwable $e) {
         global $errors;
-        $errors[] = app_is_local()
-            ? ('Could not complete setup: ' . $e->getMessage())
-            : 'Could not complete setup. Check database.php credentials and MySQL.';
+        $errors[] = install_error_message($e);
 
         return false;
     }
@@ -189,27 +272,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$messages && !$errors) {
         $user = trim($_POST['db_user'] ?? 'root');
         $pass = (string) ($_POST['db_pass'] ?? '');
 
-        $pdoRoot = new PDO(
-            "mysql:host=$host;port=$port;charset=utf8mb4",
-            $user,
-            $pass,
-            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-        );
-        $pdoRoot->exec("CREATE DATABASE IF NOT EXISTS `$name` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
-        $pdoRoot->exec("USE `$name`");
-
-        $schema = file_get_contents(SPANGLE_ROOT . '/database/schema.sql');
-        if ($schema === false) {
-            throw new RuntimeException('Could not read schema.sql');
-        }
-        $parts = preg_split('/;\s*\n/', $schema);
-        foreach ($parts as $sql) {
-            $sql = trim($sql);
-            if ($sql === '' || stripos($sql, 'CREATE DATABASE') === 0 || stripos($sql, 'USE ') === 0) {
-                continue;
-            }
-            $pdoRoot->exec($sql);
-        }
+        $pdoRoot = install_connect($host, $port, $user, $pass, $name);
+        install_apply_schema($pdoRoot);
 
         $configPhp = "<?php\n\ndeclare(strict_types=1);\n\nreturn [\n"
             . "    'host' => " . var_export($host, true) . ",\n"
@@ -219,19 +283,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$messages && !$errors) {
             . "    'password' => " . var_export($pass, true) . ",\n"
             . "    'charset' => 'utf8mb4',\n];\n";
         install_write_config($configPath, $configPhp);
+        $GLOBALS['configDb'] = require SPANGLE_ROOT . '/config/database.php';
+        install_migrate_and_seed();
+        ensure_upload_directories();
         install_mark_complete();
 
-        $configDb = require SPANGLE_ROOT . '/config/database.php';
-        require SPANGLE_ROOT . '/database/seed.php';
-        ensure_upload_directories();
-
         $messages[] = 'Database installed and seeded successfully.';
-        if (app_is_local()) {
-            $messages[] = 'Default DB admin user: <strong>admin</strong> / <strong>admin123</strong> (for the new admin panel when built).';
-        }
+        $messages[] = 'Admin login: <strong>admin</strong> / <strong>admin123</strong> — change after first login.';
         $messages[] = 'Delete <code>install.php</code> when done.';
     } catch (Throwable $e) {
-        $errors[] = app_is_local() ? $e->getMessage() : 'Installation failed. Check database credentials and folder permissions.';
+        $errors[] = install_error_message($e);
     }
 }
 ?>
@@ -240,7 +301,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$messages && !$errors) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Archevo Design — Install</title>
+  <title>SPANGLE Architecture & Interior Design Studio — Install</title>
   <style>
     body { font-family: system-ui, sans-serif; max-width: 520px; margin: 3rem auto; padding: 0 1rem; }
     label { display: block; margin: 0.75rem 0 0.25rem; font-size: 0.9rem; }
@@ -250,7 +311,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$messages && !$errors) {
   </style>
 </head>
 <body>
-  <h1>Archevo Design installer</h1>
+  <h1>SPANGLE Architecture & Interior Design Studio installer</h1>
   <p>Creates MySQL database, tables, seed data, and <code>config/database.php</code>.</p>
   <?php foreach ($errors as $err): ?>
     <p class="err"><?= htmlspecialchars($err) ?></p>
@@ -271,18 +332,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$messages && !$errors) {
   <?php endif; ?>
   <form method="post">
     <label>MySQL host</label>
-    <input name="db_host" value="<?= htmlspecialchars(app_is_local() ? '127.0.0.1' : 'localhost') ?>" required />
+    <input name="db_host" value="<?= htmlspecialchars(app_is_local() ? '127.0.0.1' : '') ?>" placeholder="<?= app_is_local() ? '' : 'sql207.infinityfree.com' ?>" required />
     <label>Port</label>
     <input name="db_port" value="3306" required />
     <label>Database name</label>
-    <input name="db_name" value="spangle_studio" required />
+    <input name="db_name" value="<?= htmlspecialchars(app_is_local() ? 'spangle_studio' : '') ?>" placeholder="<?= app_is_local() ? '' : 'if0_42093866_archevoinfra' ?>" required />
     <label>Username</label>
-    <input name="db_user" value="root" required />
+    <input name="db_user" value="<?= htmlspecialchars(app_is_local() ? 'root' : '') ?>" placeholder="<?= app_is_local() ? '' : 'if0_42093866' ?>" required />
     <label>Password</label>
     <input name="db_pass" type="password" value="" autocomplete="off" placeholder="<?= app_is_local() ? 'empty on Mac, or root on Windows' : '' ?>" />
     <button type="submit">Install now</button>
   </form>
-  <p style="font-size:0.85rem;color:#666;">XAMPP: user <strong>root</strong>, password usually <strong>empty</strong> (Mac) or <strong>root</strong> (Windows). Start MySQL first. Override anytime with <code>config/database.local.php</code>.</p>
+  <p style="font-size:0.85rem;color:#666;">
+    <?php if (app_is_local()): ?>
+      XAMPP: user <strong>root</strong>, password usually <strong>empty</strong> (Mac) or <strong>root</strong> (Windows). Start MySQL first.
+    <?php else: ?>
+      InfinityFree: host <strong>sql###.infinityfree.com</strong> (from MySQL Databases), user <strong>if0_…</strong>, password = <strong>hosting account password</strong> (Account Details). Do not use <code>localhost</code> or <code>root</code>.
+    <?php endif; ?>
+  </p>
   <?php elseif ($alreadyInstalled && $messages): ?>
   <p style="font-size:0.85rem;color:#666;">To reinstall: delete <code>config/.installed</code> and <code>config/database.php</code>, then reload this page.</p>
   <?php endif; ?>

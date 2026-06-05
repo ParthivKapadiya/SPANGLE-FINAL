@@ -81,8 +81,12 @@ final class Auth
             return false;
         }
 
-        $stmt = $pdo->prepare('SELECT id, password_hash, display_name FROM admins WHERE username = ? LIMIT 1');
-        $stmt->execute([trim($username)]);
+        $login = trim($username);
+        $stmt = $pdo->prepare(
+            'SELECT id, password_hash, display_name FROM admins
+             WHERE username = ? OR email = ? LIMIT 1'
+        );
+        $stmt->execute([$login, $login]);
         $row = $stmt->fetch();
         if (!$row || !password_verify($password, $row['password_hash'])) {
             self::recordFailedLogin();
@@ -197,5 +201,11 @@ final class Auth
         }
 
         return (time() - $last) > $timeout;
+    }
+
+    public static function updatePassword(PDO $pdo, int $adminId, string $newPassword): void
+    {
+        $hash = password_hash($newPassword, PASSWORD_DEFAULT);
+        $pdo->prepare('UPDATE admins SET password_hash = ? WHERE id = ?')->execute([$hash, $adminId]);
     }
 }

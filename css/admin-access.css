@@ -1,0 +1,96 @@
+.admin-access-modal[hidden] {
+  display: none !important;
+}
+
+.admin-access-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.admin-access-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 12, 16, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.admin-access-panel {
+  position: relative;
+  width: min(420px, 100%);
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem 1.75rem 1.75rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.admin-access-eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8f6f42;
+  font-weight: 600;
+}
+
+.admin-access-panel h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+  font-family: var(--font-serif, "Cormorant Garamond", Georgia, serif);
+  font-weight: 600;
+}
+
+.admin-access-lead {
+  margin: 0 0 1.25rem;
+  color: #6b7280;
+  font-size: 0.92rem;
+}
+
+.admin-access-panel label {
+  display: block;
+  margin-bottom: 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #374151;
+}
+
+.admin-access-panel input {
+  display: block;
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid rgba(17, 19, 24, 0.12);
+  border-radius: 10px;
+  font-size: 1rem;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.admin-access-panel .btn {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.admin-access-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.85rem;
+  border: 0;
+  background: transparent;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.admin-access-error {
+  color: #b42318;
+  font-size: 0.9rem;
+  margin: 0 0 0.75rem;
+}

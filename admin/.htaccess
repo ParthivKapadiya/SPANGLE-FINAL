@@ -1,0 +1,4 @@
+# Discourage indexing of admin URLs (Apache)
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>

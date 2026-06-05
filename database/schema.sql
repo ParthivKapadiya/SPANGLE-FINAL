@@ -1,11 +1,6 @@
 -- SPANGLE Studio — MySQL schema
--- Run once via phpMyAdmin or: mysql -u root < database/schema.sql
-
-CREATE DATABASE IF NOT EXISTS spangle_studio
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-
-USE spangle_studio;
+-- Select your database in phpMyAdmin first, or let install.php / finish-setup.php connect via config/database.php.
+-- (No CREATE DATABASE / USE here — shared hosts e.g. InfinityFree cannot create arbitrary DB names.)
 
 CREATE TABLE IF NOT EXISTS admins (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

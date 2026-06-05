@@ -213,7 +213,6 @@ html.motion-ready .page-hero-inner > *:nth-child(4) { animation-delay: 0.72s; }
 .media-frame,
 .service-detail-img,
 .journal-row-img,
-.work-card,
 .project-tile,
 .site-gallery-open {
   --clip-inset: 100% 0 0 0;

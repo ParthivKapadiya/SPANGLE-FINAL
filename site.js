@@ -70,7 +70,7 @@
       }
     }
 
-    return 'https://www.archevoinfra.com';
+    return 'https://spangle.page.gd';
   }
 
   var SITE_PUBLIC_BASE = resolveSitePublicBase();
@@ -393,22 +393,32 @@
     return LOCAL_IMG_POOL[0];
   }
 
-  $$('img[data-img-fallback]').forEach(function (img) {
-    img.addEventListener('error', function onDataImgErr() {
-      var fb = img.getAttribute('data-img-fallback');
-      var cur = img.getAttribute('src') || '';
-      if (fb && cur !== fb) {
-        img.src = fb;
-        return;
-      }
-      var nxt = nextPoolImage(cur);
-      if (nxt && imgBasename(cur) !== imgBasename(nxt)) {
-        img.src = nxt;
-        return;
-      }
-      img.removeEventListener('error', onDataImgErr);
-      img.src = IMG_PLACEHOLDER_FALLBACK;
+  function bindDataImgFallbacks(root) {
+    $$('img[data-img-fallback]', root).forEach(function (img) {
+      if (img.getAttribute('data-img-fb-bound')) return;
+      img.setAttribute('data-img-fb-bound', '1');
+      img.addEventListener('error', function onDataImgErr() {
+        var fb = img.getAttribute('data-img-fallback');
+        var cur = img.getAttribute('src') || '';
+        if (fb && cur !== fb) {
+          img.src = fb;
+          return;
+        }
+        var nxt = nextPoolImage(cur);
+        if (nxt && imgBasename(cur) !== imgBasename(nxt)) {
+          img.src = nxt;
+          return;
+        }
+        img.removeEventListener('error', onDataImgErr);
+        img.src = IMG_PLACEHOLDER_FALLBACK;
+      });
     });
+  }
+
+  bindDataImgFallbacks();
+
+  document.addEventListener('spangle:content-updated', function () {
+    bindDataImgFallbacks();
   });
 
   $$('.project-tile img, .work-card img').forEach(function (img) {
@@ -605,7 +615,8 @@
       });
     }
     var projectLbImg = projectLb.querySelector('img');
-    $$('.page-project-detail .project-gallery-grid img, .page-project-detail .container > p > img, .article-hero-img').forEach(function (img) {
+    $$('.page-project-detail .project-gallery-grid img, .page-project-detail .project-gallery-slide img, .page-project-detail .project-hero-img, .page-project-detail .container > p > img, .article-hero-img').forEach(function (img) {
+      img.style.cursor = 'zoom-in';
       img.addEventListener('click', function () {
         var src = img.currentSrc || img.src;
         if (!src) return;

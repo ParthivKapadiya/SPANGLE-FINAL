@@ -1,0 +1,283 @@
+/* —— Conversion CTAs: WhatsApp FAB, consultation modal —— */
+
+.whatsapp-fab {
+  background: rgba(37, 211, 102, 0.82);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.whatsapp-fab.is-pulse {
+  animation: wa-fab-pulse 1.2s ease-out;
+}
+
+@keyframes wa-fab-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); }
+  70% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22); }
+}
+
+.consult-cta-desktop {
+  position: fixed;
+  top: calc(5.5rem + env(safe-area-inset-top, 0px));
+  right: 1.25rem;
+  z-index: 9400;
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(12, 11, 10, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #f5f2ec;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease, ease), box-shadow 0.25s ease, background 0.25s ease;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+
+.consult-cta-desktop:hover,
+.consult-cta-desktop:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(12, 11, 10, 0.88);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.24);
+}
+
+.consult-cta-mobile {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9300;
+  display: none;
+  padding: 0.65rem 1rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
+  background: rgba(12, 11, 10, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.consult-cta-mobile button {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--gold-mid, #c4a574);
+  background: var(--deep, #0c0b0a);
+  color: #f5f2ec;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+@media (min-width: 901px) {
+  .consult-cta-desktop { display: inline-flex; }
+}
+
+@media (max-width: 900px) {
+  .consult-cta-mobile { display: block; }
+
+  body.has-consult-cta {
+    padding-bottom: calc(8.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  body.has-consult-cta .whatsapp-fab {
+    bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Consultation modal */
+.consult-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.consult-modal[hidden] {
+  display: none !important;
+}
+
+.consult-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 7, 6, 0.62);
+  backdrop-filter: blur(4px);
+}
+
+.consult-modal-panel {
+  position: relative;
+  width: min(100%, 32rem);
+  max-height: min(92vh, 720px);
+  overflow: auto;
+  border-radius: var(--radius-lg, 12px);
+  border: 1px solid var(--line, rgba(255, 255, 255, 0.12));
+  background: var(--bg-elevated, #141210);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+  padding: 1.75rem 1.5rem 1.5rem;
+}
+
+.consult-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-muted, #9a9488);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.consult-modal-eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-mid, #c4a574);
+  margin: 0 0 0.35rem;
+}
+
+.consult-modal-title {
+  font-family: var(--font-display, serif);
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  margin: 0 0 0.5rem;
+  color: var(--ink, #f5f2ec);
+}
+
+.consult-modal-lead {
+  margin: 0 0 1.25rem;
+  color: var(--ink-muted, #9a9488);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.consult-form label {
+  display: block;
+  margin-bottom: 0.85rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted, #9a9488);
+}
+
+.consult-form input,
+.consult-form select,
+.consult-form textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--radius-sm, 6px);
+  border: 1px solid var(--line, rgba(255, 255, 255, 0.12));
+  background: var(--bg, #0c0b0a);
+  color: var(--ink, #f5f2ec);
+  font-size: 0.95rem;
+}
+
+.consult-form textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.consult-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+@media (max-width: 520px) {
+  .consult-form-row { grid-template-columns: 1fr; }
+}
+
+.consult-form-error {
+  color: #e8a0a0;
+  font-size: 0.8rem;
+  margin: -0.35rem 0 0.75rem;
+}
+
+.consult-form-submit {
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.consult-success {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.consult-success-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.15);
+  color: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  animation: consult-success-pop 0.5s ease;
+}
+
+@keyframes consult-success-pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Work filter chips */
+.work-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.work-chip {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.work-chip:hover,
+.work-chip:focus-visible {
+  border-color: var(--gold-mid);
+  color: var(--ink);
+}
+
+.work-chip.is-active {
+  background: var(--deep);
+  border-color: var(--deep);
+  color: #f5f2ec;
+}
+
+.work-archive.is-filtering {
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
+}
+
+/* Animated stats */
+.stat-value[data-count] {
+  font-variant-numeric: tabular-nums;
+}
+
+.stats-bar.is-counted .stat-value[data-count] {
+  transition: opacity 0.3s ease;
+}

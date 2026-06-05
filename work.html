@@ -3,31 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Work | Archevo Design</title>
-  <meta name="description" content="Selected architecture and interior projects by Archevo Design — residences, workplaces, and retail across Western India." />
-  <link rel="canonical" href="https://www.archevoinfra.com/work.html" />
-  <meta property="og:title" content="Work | Archevo Design" />
-  <meta property="og:url" content="https://www.archevoinfra.com/work.html" />
-  <meta property="og:image" content="https://www.archevoinfra.com/uploads/1523-HARSHITBHAI-5_ER.jpg.jpeg" />
+  <title>Work | SPANGLE Architecture & Interior Design Studio</title>
+  <meta name="description" content="Selected architecture and interior projects by SPANGLE Architecture & Interior Design Studio — residences, workplaces, and retail across Western India." />
+  <link rel="canonical" href="https://spangle.page.gd/work.html" />
+  <meta property="og:title" content="Work | SPANGLE Architecture & Interior Design Studio" />
+  <meta property="og:url" content="https://spangle.page.gd/work.html" />
+  <meta property="og:image" content="https://spangle.page.gd/uploads/1523-HARSHITBHAI-5_ER.jpg.jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="archevo-logo.png" type="image/png" />
+  <link rel="icon" href="uploads/branding/archevo-logo.png" type="image/png" />
   <link rel="stylesheet" href="fonts/fonts.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=8" />
 </head>
 <body class="page-sub page-work">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header is-solid" id="site-header" data-header role="banner">
     <div class="header-inner">
-      <a href="index.html" class="brand brand--full" aria-label="Archevo Design home">
+      <a href="index.html" class="brand brand--full" aria-label="SPANGLE Architecture & Interior Design Studio home">
         <span class="brand-full">
-          <img src="archevo-logo-light.png" alt="" width="168" height="100" class="brand-logo-full brand-logo-full--light" decoding="async" />
-          <img src="archevo-logo-dark.png" alt="" width="148" height="88" class="brand-logo-full brand-logo-full--dark" decoding="async" />
+          <img src="uploads/branding/archevo-logo-light.png" alt="" width="168" height="100" class="brand-logo-full brand-logo-full--light" decoding="async" />
+          <img src="uploads/branding/archevo-logo-dark.png" alt="" width="148" height="88" class="brand-logo-full brand-logo-full--dark" decoding="async" />
         </span>
       
         <span class="brand-text">
-          <span class="brand-name">ARCHEVO DESIGN</span>
+          <span class="brand-name">SPANGLE</span>
           <span class="brand-line">Integrated Design &amp; Build</span>
         </span>
       </a>
@@ -75,15 +75,55 @@
       </div>
     </section>
 
-    <section class="section section-tight fade-slide">
-      <div class="container" data-work-filter>
-        <div class="work-filter-bar" role="group" aria-label="Filter projects">
-          <button type="button" class="work-filter-btn is-active site-work-filter" data-filter="all" data-label="All" aria-pressed="true">All <span class="work-filter-count" aria-hidden="true"></span></button>
-          <button type="button" class="work-filter-btn site-work-filter" data-filter="residential" data-label="Residential" aria-pressed="false">Residential <span class="work-filter-count" aria-hidden="true"></span></button>
-          <button type="button" class="work-filter-btn site-work-filter" data-filter="commercial" data-label="Commercial" aria-pressed="false">Commercial <span class="work-filter-count" aria-hidden="true"></span></button>
-          <button type="button" class="work-filter-btn site-work-filter" data-filter="retail" data-label="Retail" aria-pressed="false">Retail <span class="work-filter-count" aria-hidden="true"></span></button>
+    <section class="section section-tight fade-slide" id="work-projects">
+      <div class="container" data-work-projects>
+        <div class="work-toolbar" role="search">
+          <label class="work-search">
+            <span class="visually-hidden">Search projects</span>
+            <input type="search" id="work-search" placeholder="Search by name, city, or keyword…" autocomplete="off" />
+          </label>
+          <div class="work-filter-chips" id="work-filter-chips" role="group" aria-label="Filter by category">
+            <button type="button" class="work-chip is-active" data-filter="all">All</button>
+            <button type="button" class="work-chip" data-filter="residential">Residential</button>
+            <button type="button" class="work-chip" data-filter="commercial">Commercial</button>
+            <button type="button" class="work-chip" data-filter="interior">Interior</button>
+            <button type="button" class="work-chip" data-filter="hospitality">Hospitality</button>
+            <button type="button" class="work-chip" data-filter="office">Office</button>
+            <button type="button" class="work-chip" data-filter="villa">Villa</button>
+          </div>
+          <div class="work-toolbar-row">
+            <select id="work-category" aria-label="Category">
+              <option value="all">All categories</option>
+              <option value="residential">Residential</option>
+              <option value="commercial">Commercial</option>
+              <option value="interior">Interior</option>
+              <option value="architecture">Architecture</option>
+              <option value="renovation">Renovation</option>
+              <option value="hospitality">Hospitality</option>
+              <option value="office">Office</option>
+              <option value="villa">Villa</option>
+              <option value="mixed-use">Mixed Use</option>
+            </select>
+            <select id="work-type" aria-label="Project type">
+              <option value="">All types</option>
+              <option value="residential">Residential</option>
+              <option value="commercial">Commercial</option>
+              <option value="interior">Interior</option>
+              <option value="architecture">Architecture</option>
+              <option value="renovation">Renovation</option>
+              <option value="hospitality">Hospitality</option>
+              <option value="mixed-use">Mixed Use</option>
+            </select>
+            <select id="work-sort" aria-label="Sort projects">
+              <option value="featured" selected>Featured first</option>
+              <option value="latest">Latest</option>
+              <option value="oldest">Oldest</option>
+            </select>
+          </div>
         </div>
-        <div class="work-archive" aria-live="polite"></div>
+        <p class="work-results-meta" id="work-results-meta" aria-live="polite"></p>
+        <div class="work-archive" id="work-archive" aria-live="polite"></div>
+        <nav class="work-pagination" id="work-pagination" aria-label="Projects pagination"></nav>
       </div>
     </section>
 
@@ -98,8 +138,8 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="archevo-logo.png" alt="Archevo Design" class="footer-logo" width="120" height="40" loading="lazy" />
-        <p class="site-footer-blurb">Archevo Infra Edge Pvt Ltd — integrated design, civil construction, interiors, and turnkey delivery from Rajkot, Gujarat.</p>
+        <img src="uploads/branding/archevo-logo.png" alt="SPANGLE Architecture & Interior Design Studio" class="footer-logo" width="120" height="40" loading="lazy" decoding="async" />
+        <p class="site-footer-blurb">SPANGLE Architecture & Interior Design Studio — integrated architecture, civil construction, interiors, and turnkey delivery from Rajkot, Gujarat.</p>
       </div>
       <div class="footer-col">
         <h3>Navigate</h3>
@@ -107,13 +147,14 @@
           <li><a href="studio.html" data-nav-link="studio">Studio</a></li>
           <li><a href="services.html" data-nav-link="services">Services</a></li>
           <li><a href="work.html" data-nav-link="work">Work</a></li>
+          <li><a href="process.html" data-nav-link="process">Process</a></li>
           <li><a href="journal.html" data-nav-link="journal">Journal</a></li>
           <li><a href="contact.html" data-nav-link="contact">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h3>Services</h3>
-        <ul>
+        <ul id="site-footer-services-list">
           <li><a href="services.html">Plan approvals</a></li>
           <li><a href="services.html">Interiors</a></li>
           <li><a href="services.html">Civil construction</a></li>
@@ -130,18 +171,41 @@
       </div>
     </div>
     <div class="footer-bar">
-      <p class="site-footer-copy">&copy; 2026 Archevo Design · Archevo Infra Edge Pvt Ltd</p>
-      <p class="footer-dev-credit">Developed by <a href="https://www.linkedin.com/in/parthiv-kapadiya-b808a5344/" rel="noopener noreferrer" target="_blank" aria-label="Parthiv Kapadiya on LinkedIn">Parthiv Kapadiya</a></p>
+      <div class="footer-bar-inner">
+        <p class="site-footer-copy">&copy; 2026 SPANGLE Architecture & Interior Design Studio · SPANGLE Architecture & Interior Design Studio</p>
+        <p class="footer-agency-credit">Digital experience by <a href="developer.html">Parthiv Kapadiya</a></p>
+        <button type="button" class="footer-studio-link" id="admin-access-open" aria-haspopup="dialog">CMS</button>
+      </div>
     </div>
   </footer>
+  <div class="admin-access-modal" id="admin-access-modal" role="dialog" aria-modal="true" aria-labelledby="admin-access-title" hidden>
+    <div class="admin-access-backdrop" data-admin-access-close></div>
+    <div class="admin-access-panel">
+      <button type="button" class="admin-access-close" data-admin-access-close aria-label="Close">&times;</button>
+      <p class="admin-access-eyebrow">SPANGLE Architecture & Interior Design Studio</p>
+      <h2 id="admin-access-title">Content studio</h2>
+      <p class="admin-access-lead">Sign in to update copy, imagery, and portfolio projects.</p>
+      <p class="admin-access-error" id="admin-access-error" hidden></p>
+      <form id="admin-access-form">
+        <label>Email<input type="text" name="email" required autocomplete="username" autocapitalize="off" spellcheck="false" /></label>
+        <label>Password<input type="password" name="password" required autocomplete="current-password" /></label>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+    </div>
+  </div>
+  <link rel="stylesheet" href="css/admin-access.css?v=8" />
+  <script src="js/admin-access.js?v=8" defer></script>
 
-  <script src="js/spangle-env.js"></script>
+  <script src="js/spangle-env.js?v=8"></script>
   <script src="api/site-data.js.php"></script>
-  <script src="site.js" defer></script>
-  <script src="js/motion.js" defer></script>
-  <script src="js/ux.js" defer></script>
-  <script src="js/content-bridge.js" defer></script>
-  <script src="js/work-page.js" defer></script>
-  <script src="js/page-content.js" defer></script>
+  <script src="site.js?v=8" defer></script>
+  <script src="js/motion.js?v=8" defer></script>
+  <script src="js/ux.js?v=8" defer></script>
+  <link rel="stylesheet" href="css/conversion-ux.css?v=9" />
+  <script src="js/content-bridge.js?v=9" defer></script>
+  <script src="js/consultation-modal.js?v=9" defer></script>
+  <link rel="stylesheet" href="css/work-projects.css?v=9" />
+  <script src="js/work-projects.js?v=9" defer></script>
+  <script src="js/page-content.js?v=8" defer></script>
 </body>
 </html>

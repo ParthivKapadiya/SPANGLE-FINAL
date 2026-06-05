@@ -1,8 +1,11 @@
 {
+  "name": "Parthiv Kapadiya",
+  "role": "Web developer · Full-stack",
+  "location": "Gujarat, India",
   "email": "",
-  "emailLabel": "",
-  "linkedin": "",
+  "emailLabel": "Email",
+  "linkedin": "https://www.linkedin.com/in/parthiv-kapadiya-b808a5344/",
   "github": "",
   "portfolio": "",
-  "portfolioLabel": ""
+  "portfolioLabel": "Portfolio"
 }

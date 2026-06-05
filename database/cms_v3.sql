@@ -1,0 +1,65 @@
+-- Archevo CMS v3 extensions (also applied via includes/cmsMigrate.php)
+
+ALTER TABLE admins ADD COLUMN IF NOT EXISTS email VARCHAR(254) NULL UNIQUE AFTER username;
+ALTER TABLE admins ADD COLUMN IF NOT EXISTS role VARCHAR(40) NOT NULL DEFAULT 'admin' AFTER display_name;
+
+CREATE TABLE IF NOT EXISTS password_reset_tokens (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  admin_id INT UNSIGNED NOT NULL,
+  token_hash CHAR(64) NOT NULL,
+  expires_at DATETIME NOT NULL,
+  used_at DATETIME NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_reset_admin (admin_id),
+  CONSTRAINT fk_reset_admin FOREIGN KEY (admin_id) REFERENCES admins(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+ALTER TABLE projects
+  ADD COLUMN IF NOT EXISTS area_label VARCHAR(120) NULL AFTER location,
+  ADD COLUMN IF NOT EXISTS completion_year SMALLINT UNSIGNED NULL AFTER area_label,
+  ADD COLUMN IF NOT EXISTS project_type VARCHAR(60) NOT NULL DEFAULT 'residential' AFTER category,
+  ADD COLUMN IF NOT EXISTS services_provided TEXT NULL AFTER body_html,
+  ADD COLUMN IF NOT EXISTS client_testimonial TEXT NULL AFTER services_provided,
+  ADD COLUMN IF NOT EXISTS seo_title VARCHAR(200) NULL,
+  ADD COLUMN IF NOT EXISTS seo_description VARCHAR(320) NULL,
+  ADD COLUMN IF NOT EXISTS is_featured TINYINT(1) NOT NULL DEFAULT 0,
+  ADD COLUMN IF NOT EXISTS created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  ADD COLUMN IF NOT EXISTS updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
+
+CREATE TABLE IF NOT EXISTS project_images (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  project_id INT UNSIGNED NOT NULL,
+  image_path VARCHAR(500) NOT NULL,
+  caption VARCHAR(300) NULL,
+  sort_order INT NOT NULL DEFAULT 0,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_project_images_project (project_id, sort_order),
+  CONSTRAINT fk_project_images_project FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS media_assets (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  file_path VARCHAR(500) NOT NULL,
+  file_name VARCHAR(255) NOT NULL,
+  mime_type VARCHAR(120) NULL,
+  file_size INT UNSIGNED NULL,
+  alt_text VARCHAR(300) NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_media_path (file_path(191))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+ALTER TABLE contact_messages
+  ADD COLUMN IF NOT EXISTS subject VARCHAR(200) NULL AFTER phone,
+  ADD COLUMN IF NOT EXISTS status ENUM('new','contacted','closed') NOT NULL DEFAULT 'new' AFTER is_read;
+
+ALTER TABLE testimonials
+  ADD COLUMN IF NOT EXISTS author_photo VARCHAR(500) NULL AFTER author_role,
+  ADD COLUMN IF NOT EXISTS rating TINYINT UNSIGNED NULL DEFAULT 5 AFTER author_photo;
+
+ALTER TABLE team_members
+  ADD COLUMN IF NOT EXISTS linkedin_url VARCHAR(500) NULL,
+  ADD COLUMN IF NOT EXISTS instagram_url VARCHAR(500) NULL;
+
+ALTER TABLE journal_posts
+  ADD COLUMN IF NOT EXISTS seo_title VARCHAR(200) NULL,
+  ADD COLUMN IF NOT EXISTS seo_description VARCHAR(320) NULL;

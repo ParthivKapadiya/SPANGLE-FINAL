@@ -2,29 +2,29 @@
     "version": 2,
     "source": "mysql",
     "publicBase": "http://localhost/Applications/XAMPP/xamppfiles/htdocs/SPANGLE_FINAL/scripts",
-    "siteName": "Archevo Design",
+    "siteName": "SPANGLE Architecture & Interior Design Studio",
     "tagline": "Integrated Design & Build Solutions",
     "branding": {
-        "logo": "archevo-logo-light.png",
-        "logoLight": "archevo-logo-light.png",
-        "logoDark": "archevo-logo-dark.png",
-        "brandName": "ARCHEVO DESIGN",
+        "logo": "uploads/branding/archevo-logo-light.png",
+        "logoLight": "uploads/branding/archevo-logo-light.png",
+        "logoDark": "uploads/branding/archevo-logo-dark.png",
+        "brandName": "SPANGLE",
         "brandLine": "Integrated Design & Build",
-        "footerBlurbHtml": "<p>Archevo Infra Edge Pvt Ltd — end-to-end architecture, civil construction, interiors, and turnkey project management from Rajkot, Gujarat.</p>",
-        "footerCopyright": "© 2026 Archevo Design · Archevo Infra Edge Pvt Ltd"
+        "footerBlurbHtml": "<p>SPANGLE Architecture & Interior Design Studio — end-to-end architecture, civil construction, interiors, and turnkey project management from Rajkot, Gujarat.</p>",
+        "footerCopyright": "© 2026 SPANGLE Architecture & Interior Design Studio · SPANGLE Architecture & Interior Design Studio"
     },
     "contact": {
         "phoneE164": "+916359351513",
         "phoneDisplay": "+91 63593 51513",
-        "email": "archevodesign6@gmail.com",
+        "email": "hello@spangle.studio",
         "addressLine": "1113, RK Supreme, Nanamava Circle, Opp. Twin Star, 150 Ft. Ring Rd, Rajkot, Gujarat",
         "whatsappDigits": "916359351513",
-        "whatsappPrefill": "Hello Archevo Design — I would like to discuss a project.",
+        "whatsappPrefill": "Hello SPANGLE Architecture & Interior Design Studio — I would like to discuss a project.",
         "contactSectionTitle": "Rajkot · Gujarat",
         "contactSectionLead": "Call, email, or visit by appointment. Site meetings across Saurashtra and Gujarat are scheduled in advance.",
-        "contactPageTitle": "Archevo Design · Rajkot",
+        "contactPageTitle": "SPANGLE Architecture & Interior Design Studio · Rajkot",
         "contactPageLead": "Reach Jay Rathod and the studio team for new projects, plan approvals, interiors, or turnkey delivery.",
-        "websiteUrl": "https://www.archevoinfra.com"
+        "websiteUrl": "https://spangle.page.gd"
     },
     "social": {
         "instagram": "https://www.instagram.com/archevo._.design/",
@@ -33,10 +33,10 @@
     },
     "maps": {
         "embedUrl": "https://www.google.com/maps?q=1113%2C+RK+Supreme%2C+Nanamava+Circle%2C+Opp.+Twin+Star%2C+150+Ft.+Ring+Rd%2C+Rajkot%2C+Gujarat&output=embed",
-        "title": "Archevo Design · RK Supreme, Nanamava Circle, Rajkot"
+        "title": "SPANGLE Architecture & Interior Design Studio · RK Supreme, Nanamava Circle, Rajkot"
     },
     "seo": {
-        "organizationDescription": "Archevo Design is a premium architecture and interior design studio in Gujarat — residential, commercial, and bespoke spaces crafted with precision.",
+        "organizationDescription": "SPANGLE Architecture & Interior Design Studio is a premium architecture and interior design studio in Gujarat — residential, commercial, and bespoke spaces crafted with precision.",
         "defaultOgImage": "uploads/ENTRY.jpg"
     },
     "copy": {
@@ -94,73 +94,73 @@
         "form_placeholder_message": "Site location, approximate area, timeline, budget band…",
         "form_note_contact": "We respond within two business days. Your details are stored securely for the studio team.",
         "form_submit_text": "Send enquiry",
-        "legal_privacy_html": "<p class=\"section-lead\">Last updated: January 2026. This policy describes how Archevo Design and Archevo Infra Edge Pvt Ltd (“we”) handle information when you use this website or contact us.</p><h2>Information we collect</h2><p>When you submit an enquiry through our website contact form, we collect the details you provide (such as your name, email address, phone number if given, project type if given, and message). Each submission is stored securely on our server and a notification is emailed to our studio team so we can respond. If you contact us directly by email or phone, we receive the information you choose to share.</p><h2>How we use it</h2><p>We use contact information only to respond to enquiries, prepare proposals, and manage projects. We do not sell personal data.</p><h2>Retention</h2><p>Enquiry records are kept for as long as needed to fulfil our contract and legal obligations, then deleted or anonymised according to our internal policy.</p><h2>Your rights</h2><p>Depending on applicable law, you may request access, correction, or deletion of your personal data. Contact <a href=\"mailto:archevodesign6@gmail.com\">archevodesign6@gmail.com</a>.</p><h2>Changes</h2><p>We may update this page periodically. Continued use of the site after changes constitutes acceptance of the updated policy.</p>",
-        "legal_terms_html": "<p class=\"section-lead\">By using this website you agree to these terms. Content, images, and text are owned by Archevo Infra Edge Pvt Ltd unless otherwise credited.</p><p>Information on this site is for general guidance and does not constitute a contract until agreed in writing. We reserve the right to update these terms at any time.</p>",
-        "seo_home_title": "Archevo Design | Architecture & Interior Design · Rajkot",
-        "seo_home_description": "Archevo Design — integrated design, civil construction, interiors, and turnkey delivery across Gujarat.",
-        "seo_studio_title": "Studio | Archevo Design",
-        "seo_studio_description": "Meet Archevo Design — philosophy, team, and integrated design & build in Rajkot, Gujarat.",
-        "seo_services_title": "Services | Archevo Design",
-        "seo_services_description": "Plan approvals, interiors, civil construction, and turnkey projects from Archevo Design.",
-        "seo_work_title": "Work | Archevo Design",
-        "seo_work_description": "Selected residential, commercial, and retail projects by Archevo Design.",
-        "seo_process_title": "Process | Archevo Design",
-        "seo_process_description": "How Archevo Design moves from brief to handover — clear phases and accountability.",
-        "seo_journal_title": "Journal | Archevo Design",
-        "seo_journal_description": "Ideas on materiality, process, and the culture of space from Archevo Design.",
-        "seo_contact_title": "Contact | Archevo Design",
-        "seo_contact_description": "Contact Archevo Design in Rajkot for architecture and interior design enquiries.",
-        "seo_privacy_title": "Privacy | Archevo Design",
-        "seo_privacy_description": "Privacy policy for Archevo Infra Edge Pvt Ltd website.",
-        "seo_terms_title": "Terms | Archevo Design",
-        "seo_terms_description": "Terms of use for the Archevo Design website.",
-        "seo_thanks_title": "Thank you | Archevo Design",
-        "seo_thanks_description": "Thank you for contacting Archevo Design."
+        "legal_privacy_html": "<p class=\"section-lead\">Last updated: January 2026. This policy describes how SPANGLE Architecture & Interior Design Studio and SPANGLE Architecture & Interior Design Studio (“we”) handle information when you use this website or contact us.</p><h2>Information we collect</h2><p>When you submit an enquiry through our website contact form, we collect the details you provide (such as your name, email address, phone number if given, project type if given, and message). Each submission is stored securely on our server and a notification is emailed to our studio team so we can respond. If you contact us directly by email or phone, we receive the information you choose to share.</p><h2>How we use it</h2><p>We use contact information only to respond to enquiries, prepare proposals, and manage projects. We do not sell personal data.</p><h2>Retention</h2><p>Enquiry records are kept for as long as needed to fulfil our contract and legal obligations, then deleted or anonymised according to our internal policy.</p><h2>Your rights</h2><p>Depending on applicable law, you may request access, correction, or deletion of your personal data. Contact <a href=\"mailto:hello@spangle.studio\">hello@spangle.studio</a>.</p><h2>Changes</h2><p>We may update this page periodically. Continued use of the site after changes constitutes acceptance of the updated policy.</p>",
+        "legal_terms_html": "<p class=\"section-lead\">By using this website you agree to these terms. Content, images, and text are owned by SPANGLE Architecture & Interior Design Studio unless otherwise credited.</p><p>Information on this site is for general guidance and does not constitute a contract until agreed in writing. We reserve the right to update these terms at any time.</p>",
+        "seo_home_title": "SPANGLE Architecture & Interior Design Studio | Architecture & Interior Design · Rajkot",
+        "seo_home_description": "SPANGLE Architecture & Interior Design Studio — integrated design, civil construction, interiors, and turnkey delivery across Gujarat.",
+        "seo_studio_title": "Studio | SPANGLE Architecture & Interior Design Studio",
+        "seo_studio_description": "Meet SPANGLE Architecture & Interior Design Studio — philosophy, team, and integrated design & build in Rajkot, Gujarat.",
+        "seo_services_title": "Services | SPANGLE Architecture & Interior Design Studio",
+        "seo_services_description": "Plan approvals, interiors, civil construction, and turnkey projects from SPANGLE Architecture & Interior Design Studio.",
+        "seo_work_title": "Work | SPANGLE Architecture & Interior Design Studio",
+        "seo_work_description": "Selected residential, commercial, and retail projects by SPANGLE Architecture & Interior Design Studio.",
+        "seo_process_title": "Process | SPANGLE Architecture & Interior Design Studio",
+        "seo_process_description": "How SPANGLE Architecture & Interior Design Studio moves from brief to handover — clear phases and accountability.",
+        "seo_journal_title": "Journal | SPANGLE Architecture & Interior Design Studio",
+        "seo_journal_description": "Ideas on materiality, process, and the culture of space from SPANGLE Architecture & Interior Design Studio.",
+        "seo_contact_title": "Contact | SPANGLE Architecture & Interior Design Studio",
+        "seo_contact_description": "Contact SPANGLE Architecture & Interior Design Studio in Rajkot for architecture and interior design enquiries.",
+        "seo_privacy_title": "Privacy | SPANGLE Architecture & Interior Design Studio",
+        "seo_privacy_description": "Privacy policy for SPANGLE Architecture & Interior Design Studio website.",
+        "seo_terms_title": "Terms | SPANGLE Architecture & Interior Design Studio",
+        "seo_terms_description": "Terms of use for the SPANGLE Architecture & Interior Design Studio website.",
+        "seo_thanks_title": "Thank you | SPANGLE Architecture & Interior Design Studio",
+        "seo_thanks_description": "Thank you for contacting SPANGLE Architecture & Interior Design Studio."
     },
     "legal": {
-        "privacyHtml": "<p class=\"section-lead\">Last updated: January 2026. This policy describes how Archevo Design and Archevo Infra Edge Pvt Ltd (“we”) handle information when you use this website or contact us.</p><h2>Information we collect</h2><p>When you submit an enquiry through our website contact form, we collect the details you provide (such as your name, email address, phone number if given, project type if given, and message). Each submission is stored securely on our server and a notification is emailed to our studio team so we can respond. If you contact us directly by email or phone, we receive the information you choose to share.</p><h2>How we use it</h2><p>We use contact information only to respond to enquiries, prepare proposals, and manage projects. We do not sell personal data.</p><h2>Retention</h2><p>Enquiry records are kept for as long as needed to fulfil our contract and legal obligations, then deleted or anonymised according to our internal policy.</p><h2>Your rights</h2><p>Depending on applicable law, you may request access, correction, or deletion of your personal data. Contact <a href=\"mailto:archevodesign6@gmail.com\">archevodesign6@gmail.com</a>.</p><h2>Changes</h2><p>We may update this page periodically. Continued use of the site after changes constitutes acceptance of the updated policy.</p>",
-        "termsHtml": "<p class=\"section-lead\">By using this website you agree to these terms. Content, images, and text are owned by Archevo Infra Edge Pvt Ltd unless otherwise credited.</p><p>Information on this site is for general guidance and does not constitute a contract until agreed in writing. We reserve the right to update these terms at any time.</p>"
+        "privacyHtml": "<p class=\"section-lead\">Last updated: January 2026. This policy describes how SPANGLE Architecture & Interior Design Studio and SPANGLE Architecture & Interior Design Studio (“we”) handle information when you use this website or contact us.</p><h2>Information we collect</h2><p>When you submit an enquiry through our website contact form, we collect the details you provide (such as your name, email address, phone number if given, project type if given, and message). Each submission is stored securely on our server and a notification is emailed to our studio team so we can respond. If you contact us directly by email or phone, we receive the information you choose to share.</p><h2>How we use it</h2><p>We use contact information only to respond to enquiries, prepare proposals, and manage projects. We do not sell personal data.</p><h2>Retention</h2><p>Enquiry records are kept for as long as needed to fulfil our contract and legal obligations, then deleted or anonymised according to our internal policy.</p><h2>Your rights</h2><p>Depending on applicable law, you may request access, correction, or deletion of your personal data. Contact <a href=\"mailto:hello@spangle.studio\">hello@spangle.studio</a>.</p><h2>Changes</h2><p>We may update this page periodically. Continued use of the site after changes constitutes acceptance of the updated policy.</p>",
+        "termsHtml": "<p class=\"section-lead\">By using this website you agree to these terms. Content, images, and text are owned by SPANGLE Architecture & Interior Design Studio unless otherwise credited.</p><p>Information on this site is for general guidance and does not constitute a contract until agreed in writing. We reserve the right to update these terms at any time.</p>"
     },
     "seoPages": {
         "home": {
-            "title": "Archevo Design | Architecture & Interior Design · Rajkot",
-            "description": "Archevo Design — integrated design, civil construction, interiors, and turnkey delivery across Gujarat."
+            "title": "SPANGLE Architecture & Interior Design Studio | Architecture & Interior Design · Rajkot",
+            "description": "SPANGLE Architecture & Interior Design Studio — integrated design, civil construction, interiors, and turnkey delivery across Gujarat."
         },
         "studio": {
-            "title": "Studio | Archevo Design",
-            "description": "Meet Archevo Design — philosophy, team, and integrated design & build in Rajkot, Gujarat."
+            "title": "Studio | SPANGLE Architecture & Interior Design Studio",
+            "description": "Meet SPANGLE Architecture & Interior Design Studio — philosophy, team, and integrated design & build in Rajkot, Gujarat."
         },
         "services": {
-            "title": "Services | Archevo Design",
-            "description": "Plan approvals, interiors, civil construction, and turnkey projects from Archevo Design."
+            "title": "Services | SPANGLE Architecture & Interior Design Studio",
+            "description": "Plan approvals, interiors, civil construction, and turnkey projects from SPANGLE Architecture & Interior Design Studio."
         },
         "work": {
-            "title": "Work | Archevo Design",
-            "description": "Selected residential, commercial, and retail projects by Archevo Design."
+            "title": "Work | SPANGLE Architecture & Interior Design Studio",
+            "description": "Selected residential, commercial, and retail projects by SPANGLE Architecture & Interior Design Studio."
         },
         "process": {
-            "title": "Process | Archevo Design",
-            "description": "How Archevo Design moves from brief to handover — clear phases and accountability."
+            "title": "Process | SPANGLE Architecture & Interior Design Studio",
+            "description": "How SPANGLE Architecture & Interior Design Studio moves from brief to handover — clear phases and accountability."
         },
         "journal": {
-            "title": "Journal | Archevo Design",
-            "description": "Ideas on materiality, process, and the culture of space from Archevo Design."
+            "title": "Journal | SPANGLE Architecture & Interior Design Studio",
+            "description": "Ideas on materiality, process, and the culture of space from SPANGLE Architecture & Interior Design Studio."
         },
         "contact": {
-            "title": "Contact | Archevo Design",
-            "description": "Contact Archevo Design in Rajkot for architecture and interior design enquiries."
+            "title": "Contact | SPANGLE Architecture & Interior Design Studio",
+            "description": "Contact SPANGLE Architecture & Interior Design Studio in Rajkot for architecture and interior design enquiries."
         },
         "privacy": {
-            "title": "Privacy | Archevo Design",
-            "description": "Privacy policy for Archevo Infra Edge Pvt Ltd website."
+            "title": "Privacy | SPANGLE Architecture & Interior Design Studio",
+            "description": "Privacy policy for SPANGLE Architecture & Interior Design Studio website."
         },
         "terms": {
-            "title": "Terms | Archevo Design",
-            "description": "Terms of use for the Archevo Design website."
+            "title": "Terms | SPANGLE Architecture & Interior Design Studio",
+            "description": "Terms of use for the SPANGLE Architecture & Interior Design Studio website."
         },
         "thanks": {
-            "title": "Thank you | Archevo Design",
-            "description": "Thank you for contacting Archevo Design."
+            "title": "Thank you | SPANGLE Architecture & Interior Design Studio",
+            "description": "Thank you for contacting SPANGLE Architecture & Interior Design Studio."
         }
     },
     "home": {
@@ -187,9 +187,9 @@
         ],
         "aboutEyebrow": "Practice",
         "aboutTitle": "Architecture with intention",
-        "aboutLeadHtml": "<p class=\"section-lead\">Archevo Infra Edge Pvt Ltd is a full-service studio for architecture, interiors, and delivery. We work from first sketch through site administration — one accountable team, aligned incentives, and drawings that contractors can actually build.</p><p class=\"section-lead\">Our work favours honest materials, generous daylight, and envelopes tuned for Gujarat’s climate. The result feels calm, durable, and unmistakably yours.</p>",
+        "aboutLeadHtml": "<p class=\"section-lead\">SPANGLE Architecture & Interior Design Studio is a full-service studio for architecture, interiors, and delivery. We work from first sketch through site administration — one accountable team, aligned incentives, and drawings that contractors can actually build.</p><p class=\"section-lead\">Our work favours honest materials, generous daylight, and envelopes tuned for Gujarat’s climate. The result feels calm, durable, and unmistakably yours.</p>",
         "aboutImage": "uploads/1228_HARESHBHAI_LIVING_5.jpg",
-        "aboutImageAlt": "Archevo Design interior project · Rajkot",
+        "aboutImageAlt": "SPANGLE Architecture & Interior Design Studio interior project · Rajkot",
         "aboutCaption": "Client project · Rajkot",
         "galleryEyebrow": "Gallery",
         "galleryTitle": "Project gallery",
@@ -199,7 +199,7 @@
         "projectsIntro": "Explore client projects — each album opens a full visual case study.",
         "capabilitiesEyebrow": "What we do",
         "capabilitiesTitle": "Integrated design & build solutions",
-        "capabilitiesIntro": "At Archevo Infra Edge Pvt Ltd, we blend structural expertise with aesthetic precision — functional, compliant, and beautifully designed spaces from brief to handover.",
+        "capabilitiesIntro": "At SPANGLE Architecture & Interior Design Studio, we blend structural expertise with aesthetic precision — functional, compliant, and beautifully designed spaces from brief to handover.",
         "processEyebrow": "Process",
         "processTitle": "How we move from brief to keys",
         "processIntro": "Clear phases, shared tools, and sign-off moments — so you always know what happens next.",
@@ -371,7 +371,7 @@
         },
         {
             "src": "uploads/1523-HARSHITBHAI-5_ER.jpg.jpeg",
-            "alt": "1523 HARSHITBHAI 5 ER.jpg"
+            "alt": "uploads/1523 HARSHITBHAI 5 ER.jpg"
         },
         {
             "src": "uploads/1228-HARESHBHAI_BED_ROOM-2.jpg",
@@ -741,7 +741,7 @@
         },
         {
             "slug": "085-jiteshbhai-kosamba-5-jpg",
-            "title": "Jiteshbhai Kosamba-5.jpg",
+            "title": "uploads/Jiteshbhai Kosamba-5.jpg",
             "location": "Gujarat, India",
             "category": "residential",
             "summary": "1 visual from this commission.",
@@ -1065,7 +1065,7 @@
         },
         {
             "slug": "1515-gauravbhai-1-er-jpg",
-            "title": "Gauravbhai-1_er.jpg",
+            "title": "uploads/Gauravbhai-1_er.jpg",
             "location": "Gujarat, India",
             "category": "residential",
             "summary": "1 visual from this commission.",
@@ -1077,7 +1077,7 @@
         },
         {
             "slug": "1523-harshitbhai-5-er-jpg",
-            "title": "Harshitbhai-5_er.jpg",
+            "title": "uploads/Harshitbhai-5_er.jpg",
             "location": "Gujarat, India",
             "category": "residential",
             "summary": "1 visual from this commission.",
@@ -2117,12 +2117,12 @@
     "pages": {
         "studio": {
             "kicker": "Rajkot · Gujarat",
-            "title": "Archevo Infra Edge Pvt Ltd",
+            "title": "SPANGLE Architecture & Interior Design Studio",
             "lead": "Integrated design and build — civil engineering, plan approvals, interiors, and turnkey project management from Rajkot.",
             "heroImage": "uploads/1212-ARVINDBHAI%20PARMAR_FRONT-2.jpg",
             "philosophyEyebrow": "Philosophy",
             "philosophyTitle": "From design vision to built reality",
-            "philosophyLead1": "Archevo Infra Edge Pvt Ltd offers end-to-end services across civil engineering, plan sanctioning, interior design, and turnkey project management — one accountable team for homes, workplaces, and developments in Gujarat.",
+            "philosophyLead1": "SPANGLE Architecture & Interior Design Studio offers end-to-end services across civil engineering, plan sanctioning, interior design, and turnkey project management — one accountable team for homes, workplaces, and developments in Gujarat.",
             "philosophyLead2": "We execute with integrity, intelligence, and innovation — coordinating authorities, contractors, and vendors so you have a single point of contact from drawing board to keys.",
             "philosophyImage": "uploads/1228_HARESHBHAI_LIVING_3.jpg",
             "valuesEyebrow": "In the studio",
@@ -2167,7 +2167,7 @@
         "services": {
             "kicker": "What we do",
             "title": "Integrated design & build solutions",
-            "lead": "At Archevo Infra Edge Pvt Ltd, we blend structural expertise with aesthetic precision — functional, compliant, and beautifully designed spaces from brief to handover.",
+            "lead": "At SPANGLE Architecture & Interior Design Studio, we blend structural expertise with aesthetic precision — functional, compliant, and beautifully designed spaces from brief to handover.",
             "heroImage": "uploads/054-KANTILAL-3D-6.jpg",
             "items": [
                 {

@@ -2,7 +2,7 @@
   'use strict';
 
   var STORAGE_KEY = 'spangle_site_data_v1';
-  var DEFAULT_BASE = 'https://www.archevoinfra.com';
+  var DEFAULT_BASE = 'https://spangle.page.gd';
 
   function isLocalHost() {
     var h = (window.location && window.location.hostname) || '';
@@ -24,9 +24,68 @@
       .replace(/"/g, '&quot;');
   }
 
+  function responsiveImgAttrs(p, defaults) {
+    defaults = defaults || {};
+    var attrs =
+      ' src="' +
+      esc(p.src || defaults.src || '') +
+      '" alt="' +
+      esc(p.alt || defaults.alt || '') +
+      '" loading="' +
+      esc(p.loading || defaults.loading || 'lazy') +
+      '" decoding="async"';
+    if (p.width || defaults.width) attrs += ' width="' + esc(String(p.width || defaults.width)) + '"';
+    if (p.height || defaults.height) attrs += ' height="' + esc(String(p.height || defaults.height)) + '"';
+    if (p.srcset) attrs += ' srcset="' + esc(p.srcset) + '"';
+    if (p.sizes) attrs += ' sizes="' + esc(p.sizes) + '"';
+    if (p.src || defaults.src) {
+      attrs += ' data-rimg-primary="' + esc(p.src || defaults.src) + '"';
+    }
+    return attrs;
+  }
+
+  /** If srcset variants 404 (not uploaded), retry main src then optional fallback. */
+  function attachResponsiveImgFallback(img, primarySrc, fallbackRel) {
+    if (!img || img.getAttribute('data-rimg-bound')) return;
+    img.setAttribute('data-rimg-bound', '1');
+    var primary = String(primarySrc || img.getAttribute('data-rimg-primary') || img.getAttribute('src') || '').trim();
+    if (primary) img.setAttribute('data-rimg-primary', primary);
+    var fallback = fallbackRel ? mediaSrc(fallbackRel, window.__SPANGLE_SITE__ || {}) : '';
+    img.addEventListener('error', function onRimgErr() {
+      var step = img.getAttribute('data-rimg-step') || '0';
+      if (step === '0' && img.hasAttribute('srcset')) {
+        img.removeAttribute('srcset');
+        img.removeAttribute('sizes');
+        img.setAttribute('data-rimg-step', '1');
+        var main = img.getAttribute('data-rimg-primary') || '';
+        if (main) {
+          img.src = main;
+          return;
+        }
+      }
+      if (step === '2' || img.getAttribute('data-proj-fb')) return;
+      if (fallback) {
+        img.setAttribute('data-proj-fb', '1');
+        img.setAttribute('data-rimg-step', '2');
+        img.src = fallback;
+      }
+    });
+  }
+
+  function normalizeUploadPath(path) {
+    var p = String(path || '').trim().replace(/\\/g, '/');
+    if (!p || /^https?:\/\//i.test(p)) return p;
+    if (/^uploads\//i.test(p)) return p;
+    var base = p.split('/').pop() || p;
+    if (/^(archevo-logo|archevo-icon)/i.test(base)) {
+      return 'uploads/branding/' + base;
+    }
+    return 'uploads/' + p.replace(/^\//, '');
+  }
+
   function mediaSrc(path, data) {
     if (!path) return '';
-    var p = String(path).trim();
+    var p = normalizeUploadPath(path);
     if (/^https?:\/\//i.test(p)) return p;
     var b = baseUrl(data || window.__SPANGLE_SITE__ || {}).replace(/\/$/, '');
     var parts = p.split('/').map(function (seg) {
@@ -120,6 +179,15 @@
     if (b && /localhost|127\.0\.0\.1/i.test(b)) {
       b = '';
     }
+    if (b && typeof window !== 'undefined' && window.location && window.location.hostname) {
+      try {
+        if (new URL(b).hostname !== window.location.hostname) {
+          b = '';
+        }
+      } catch (e) {
+        b = '';
+      }
+    }
     if (!b && typeof window !== 'undefined' && window.location && /^https?:/i.test(window.location.protocol)) {
       b = (
         window.location.origin +
@@ -129,7 +197,7 @@
     return b || DEFAULT_BASE;
   }
 
-  /** Always link to static journal article pages (avoids broken journal-post.php / cached 301s). */
+  /** CMS journal articles — served by journal-post.php from the database. */
   function journalArticleHref(post) {
     var slug = '';
     var url = '';
@@ -139,31 +207,24 @@
     } else {
       slug = String(post || '').trim();
     }
-    if (url.indexOf('journal-post') !== -1 || url.indexOf('Applications') !== -1 || url.indexOf('xamppfiles') !== -1) {
-      var m = url.match(/[?&]slug=([a-z0-9-]+)/i);
-      if (m) slug = m[1];
-      url = '';
-    }
-    if (/^https?:\/\//i.test(url) || url.indexOf('/') === 0) {
-      url = '';
-    }
+    var fromQuery = url.match(/[?&]slug=([a-z0-9-]+)/i);
+    if (fromQuery) slug = fromQuery[1];
     if (!slug && url) {
-      slug = url.replace(/\?.*$/, '').replace(/\.html$/i, '');
+      slug = url.replace(/\?.*$/, '').replace(/\.html$/i, '').replace(/^.*\//, '');
     }
-    if (!slug) return 'journal.html';
-    var file = /\.html/i.test(slug) ? slug : slug + '.html';
-    return file.indexOf('?v=3') !== -1 ? file : file + '?v=3';
+    slug = slug.replace(/[^a-z0-9-]/gi, '').toLowerCase();
+    if (!slug || slug === 'journal') return 'journal.html';
+    return 'journal-post.php?slug=' + encodeURIComponent(slug);
   }
 
   function journalSlugFromHref(href) {
     var h = String(href || '').trim();
     if (!h) return '';
-    if (h.indexOf('journal-post') !== -1 || h.indexOf('Applications') !== -1 || h.indexOf('xamppfiles') !== -1) {
-      var q = h.match(/[?&]slug=([a-z0-9-]+)/i);
-      return q ? q[1] : '';
-    }
-    var m = h.match(/(journal-[a-z0-9-]+)(?:\.html)?/i);
-    return m ? m[1] : '';
+    var q = h.match(/[?&]slug=([a-z0-9-]+)/i);
+    if (q) return q[1];
+    var m = h.match(/(?:^|\/)([a-z0-9-]+)\.html(?:\?|$)/i);
+    if (m && m[1] && m[1] !== 'journal') return m[1];
+    return '';
   }
 
   function fixJournalCardLinks() {
@@ -171,28 +232,6 @@
       var slug = journalSlugFromHref(a.getAttribute('href') || '');
       if (slug) a.setAttribute('href', journalArticleHref(slug));
     });
-  }
-
-  function initJournalLinkGuard() {
-    if (window.__spangleJournalLinkGuard) return;
-    window.__spangleJournalLinkGuard = true;
-    document.addEventListener('click', function (e) {
-      var a = e.target.closest('.blog-card-link, .journal-row-img, .journal-row h2 a, .journal-row .text-link');
-      if (!a) return;
-      var h = a.getAttribute('href') || '';
-      var slug = journalSlugFromHref(h);
-      if (!slug) return;
-      var target = journalArticleHref(slug);
-      if (
-        h.indexOf('journal-post') !== -1 ||
-        h.indexOf('Applications') !== -1 ||
-        h.indexOf('xamppfiles') !== -1 ||
-        h.indexOf('v=3') === -1
-      ) {
-        e.preventDefault();
-        window.location.assign(target);
-      }
-    }, true);
   }
 
   function categoryLabel(cat) {
@@ -210,7 +249,7 @@
     var email = c.email || '';
     var addr = c.addressLine || '';
     var waDigits = String(c.whatsappDigits || '').replace(/\D/g, '');
-    var waMsg = encodeURIComponent(c.whatsappPrefill || 'Hello Archevo Design');
+    var waMsg = encodeURIComponent(c.whatsappPrefill || 'Hello SPANGLE Architecture & Interior Design Studio');
     var waHref = waDigits ? 'https://wa.me/' + waDigits + '?text=' + waMsg : '';
 
     $$('a[href^="tel:"]').forEach(function (a) {
@@ -291,7 +330,7 @@
     script.textContent = JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
-      name: data.siteName || 'Archevo Design',
+      name: data.siteName || 'SPANGLE Architecture & Interior Design Studio',
       description: (data.seo && data.seo.organizationDescription) || '',
       url: b,
       image: (data.seo && data.seo.defaultOgImage) || '',
@@ -322,9 +361,15 @@
     a.href = waHref;
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
-    a.setAttribute('aria-label', 'Chat on WhatsApp');
+    a.setAttribute('aria-label', 'Chat with SPANGLE on WhatsApp');
     a.innerHTML = '<span class="whatsapp-fab-inner"><i class="fab fa-whatsapp" aria-hidden="true"></i></span>';
     document.body.appendChild(a);
+    setInterval(function () {
+      a.classList.add('is-pulse');
+      setTimeout(function () {
+        a.classList.remove('is-pulse');
+      }, 1200);
+    }, 15000);
   }
 
   function applyMaps(data) {
@@ -393,14 +438,25 @@
     var highlights = data.projects.filter(function (p) {
       return p.homeHighlight;
     });
-    if (!highlights.length) highlights = data.projects.slice(0, 4);
+    if (!highlights.length) {
+      highlights = data.projects.slice(0, 4);
+    }
+
+    var home = data.home || {};
+    var limit = parseInt(home.projectsLimit, 10);
+    if (!limit || limit < 4) limit = 8;
+    if (limit > 12) limit = 12;
+    highlights = highlights.slice(0, limit);
+
+    var count = highlights.length;
+    grid.className = 'project-grid project-grid--count-' + count;
 
     var layoutClass = function (layout, idx, total) {
       var L = String(layout || '').toLowerCase();
       if (L === 'lg' || L === 'wide') return L;
       if (total <= 4) {
         if (idx === 0) return 'lg';
-        if (idx === 3) return 'wide';
+        if (idx === 3 && total === 4) return 'wide';
       }
       return '';
     };
@@ -410,14 +466,22 @@
         var cat = categoryLabel(p.category);
         var extra = layoutClass(p.homeLayout, idx, highlights.length);
         var cls = 'project-tile' + (extra === 'lg' ? ' project-tile-lg' : extra === 'wide' ? ' project-tile-wide' : '');
-        var img = esc(mediaSrc(p.heroImage || '', data));
+        var imgSrc = mediaSrc(p.heroImage || '', data);
         var title = esc(p.title);
         var loc = esc(p.location);
         var link = esc(p.linkUrl || 'work.html');
         var sum = esc(p.summary || '');
+        var imgAttrs = responsiveImgAttrs({
+          src: imgSrc,
+          alt: p.title,
+          srcset: p.heroSrcset || '',
+          sizes: p.heroSizes || '(max-width: 900px) 100vw, 50vw',
+          width: 640,
+          height: 480,
+        });
         return (
           '<a href="' + link + '" class="' + cls + '" title="' + esc(sum) + '">' +
-          '<img src="' + img + '" alt="' + title + '" loading="lazy" width="900" height="600" />' +
+          '<img' + imgAttrs + ' />' +
           '<div class="project-meta">' +
           '<span class="project-cat">' + cat + '</span>' +
           '<h3>' + title + '</h3>' +
@@ -429,14 +493,8 @@
 
     grid.innerHTML = html;
 
-    var LOCAL_PROJECT_FALLBACK = 'uploads/ENTRY.jpg';
     $$('#home-project-grid img').forEach(function (img) {
-      img.addEventListener('error', function onProjImgErr() {
-        img.removeEventListener('error', onProjImgErr);
-        if (img.getAttribute('data-proj-fb')) return;
-        img.setAttribute('data-proj-fb', '1');
-        img.src = LOCAL_PROJECT_FALLBACK;
-      });
+      attachResponsiveImgFallback(img, img.getAttribute('data-rimg-primary'), 'uploads/ENTRY.jpg');
     });
   }
 
@@ -507,6 +565,7 @@
   function renderWorkArchive(data) {
     var arch = $('.work-archive');
     if (!arch || !data.projects || !data.projects.length) return;
+    if (document.querySelector('[data-work-projects]')) return;
 
     var seen = { residential: false, commercial: false, retail: false };
     var html = data.projects
@@ -535,15 +594,8 @@
 
     document.dispatchEvent(new CustomEvent('spangle:work-archive-rendered'));
 
-    var LOCAL_PROJECT_FALLBACK = 'uploads/ENTRY.jpg';
     $$('.work-archive img').forEach(function (img) {
-      img.addEventListener('error', function onProjImgErr() {
-        img.removeEventListener('error', onProjImgErr);
-        if (img.getAttribute('data-proj-fb')) return;
-        if (/^https?:\/\//i.test(img.src || '')) return;
-        img.setAttribute('data-proj-fb', '1');
-        img.src = LOCAL_PROJECT_FALLBACK;
-      });
+      attachResponsiveImgFallback(img, img.getAttribute('data-rimg-primary'), 'uploads/ENTRY.jpg');
     });
   }
 
@@ -565,11 +617,11 @@
       var img = document.createElement('img');
       img.className = 'hero-slide' + (i === 0 ? ' active' : '');
       img.src = mediaSrc(s.src, data);
-      img.alt = s.alt || '';
+      img.alt = '';
       img.width = 1920;
       img.height = 1080;
       img.decoding = 'async';
-      img.setAttribute('aria-hidden', i === 0 ? 'false' : 'true');
+      img.setAttribute('aria-hidden', 'true');
       if (i === 0) img.setAttribute('fetchpriority', 'high');
       var next = slides[(i + 1) % slides.length];
       if (next && next.src) img.setAttribute('data-hero-fallback', next.src);
@@ -592,7 +644,7 @@
     if (cap && h.aboutCaption) cap.textContent = h.aboutCaption;
   }
 
-  function homeServicesList(data) {
+  function servicesList(data) {
     if (data.pages && data.pages.services && data.pages.services.items && data.pages.services.items.length) {
       return data.pages.services.items;
     }
@@ -604,17 +656,47 @@
 
   function renderHomeServices(data) {
     var grid = $('#home-service-grid');
-    var list = homeServicesList(data);
+    var list = servicesList(data);
     if (!grid || !list.length) return;
     grid.innerHTML = list
       .map(function (s) {
+        var imgSrc = s.image ? mediaSrc(s.image, data) : '';
+        var fbSrc = mediaSrc('uploads/ENTRY.jpg', data);
         return (
           '<article class="service-card">' +
+          (imgSrc
+            ? '<div class="service-card-img"><img src="' +
+              esc(imgSrc) +
+              '" alt="" loading="lazy" decoding="async" data-rimg-primary="' +
+              esc(imgSrc) +
+              '" data-img-fallback="' +
+              esc(fbSrc) +
+              '" /></div>'
+            : '') +
+          '<div class="service-card-body">' +
           '<span class="service-num">' + esc(s.number || '') + '</span>' +
           '<h3>' + esc(s.title) + '</h3>' +
           '<p>' + esc(s.shortDescription || '') + '</p>' +
-          '</article>'
+          '</div></article>'
         );
+      })
+      .join('');
+    $$('#home-service-grid img').forEach(function (img) {
+      attachResponsiveImgFallback(
+        img,
+        img.getAttribute('data-rimg-primary'),
+        'uploads/ENTRY.jpg'
+      );
+    });
+  }
+
+  function renderFooterServices(data) {
+    var listEl = $('#site-footer-services-list');
+    var list = servicesList(data);
+    if (!listEl || !list.length) return;
+    listEl.innerHTML = list
+      .map(function (s) {
+        return '<li><a href="services.html">' + esc(s.title) + '</a></li>';
       })
       .join('');
   }
@@ -632,7 +714,7 @@
       var logoUrl = mediaSrc(b.logo, data);
       $$('.footer-logo').forEach(function (img) {
         img.setAttribute('src', logoUrl);
-        img.setAttribute('alt', b.brandName || 'Archevo Design');
+        img.setAttribute('alt', b.brandName || 'SPANGLE Architecture & Interior Design Studio');
       });
       $$('link[rel="icon"], link[rel="apple-touch-icon"]').forEach(function (link) {
         link.setAttribute('href', faviconUrl || logoUrl);
@@ -642,8 +724,8 @@
         link.setAttribute('href', faviconUrl);
       });
     }
-    var lightUrl = b.logoLight ? mediaSrc(b.logoLight, data) : 'archevo-logo-light.png';
-    var darkUrl = b.logoDark ? mediaSrc(b.logoDark, data) : 'archevo-logo-dark.png';
+    var lightUrl = b.logoLight ? mediaSrc(b.logoLight, data) : mediaSrc('uploads/branding/archevo-logo-light.png', data);
+    var darkUrl = b.logoDark ? mediaSrc(b.logoDark, data) : mediaSrc('uploads/branding/archevo-logo-dark.png', data);
     $$('.brand-logo-full--light').forEach(function (img) {
       img.setAttribute('src', lightUrl);
     });
@@ -677,13 +759,13 @@
   function applyHomeSections(data) {
     var h = data.home || {};
     var svc = (data.pages && data.pages.services) || {};
-    if (svc.kicker) {
+    if (!h.capabilitiesEyebrow && svc.kicker) {
       h.capabilitiesEyebrow = svc.kicker;
     }
-    if (svc.title) {
+    if (!h.capabilitiesTitle && svc.title) {
       h.capabilitiesTitle = svc.title;
     }
-    if (svc.lead) {
+    if (!h.capabilitiesIntro && svc.lead) {
       h.capabilitiesIntro = svc.lead;
     }
     var map = [
@@ -879,7 +961,31 @@
     $$('.site-form-submit').forEach(function (el) { if (c.form_submit_text) el.textContent = c.form_submit_text; });
   }
 
+  window.SpangleContent = {
+    attachResponsiveImgFallback: attachResponsiveImgFallback,
+    mediaSrc: mediaSrc,
+  };
+
+  function loadConversionAssets() {
+    var v = 'v=9';
+    if (!$('link[href*="conversion-ux.css"]')) {
+      var css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = 'css/conversion-ux.css?' + v;
+      document.head.appendChild(css);
+    }
+    ['js/consultation-modal.js', 'js/stats-counter.js'].forEach(function (src) {
+      var file = src.split('/').pop();
+      if ($('script[src*="' + file + '"]')) return;
+      var s = document.createElement('script');
+      s.src = src + '?' + v;
+      s.defer = true;
+      document.body.appendChild(s);
+    });
+  }
+
   function init() {
+    loadConversionAssets();
     loadJson().then(function (data) {
       if (!data) return;
       window.__SPANGLE_SITE__ = data;
@@ -902,6 +1008,7 @@
       renderHeroSlides(data);
       applyAboutImage(data);
       renderHomeServices(data);
+      renderFooterServices(data);
       renderHomeProjects(data);
       renderGallery(data);
       renderProcessList('#site-home-process-list', data.processSteps, 'home');
@@ -910,15 +1017,12 @@
       renderTeam(data);
       renderJournalTeaser(data);
       fixJournalCardLinks();
-      initJournalLinkGuard();
       renderWorkArchive(data);
 
       document.dispatchEvent(new CustomEvent('spangle:site-data', { detail: data }));
       document.dispatchEvent(new CustomEvent('spangle:content-updated'));
     });
   }
-
-  initJournalLinkGuard();
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

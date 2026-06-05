@@ -18,5 +18,5 @@ return [
     'username' => 'pkapadiya257@rku.ac.in',
     'password' => 'zwiq lfyu gikn tbkm',
     'from_email' => 'pkapadiya257@rku.ac.in',
-    'from_name' => 'Archevo Design Website',
+    'from_name' => 'SPANGLE Architecture & Interior Design Studio Website',
 ];
