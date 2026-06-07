@@ -311,13 +311,58 @@ function cms_fix_hero_slide_alts(PDO $pdo): void
     }
 }
 
+function cms_hero_headline_setting_keys(): array
+{
+    return [
+        'home_hero_headline_1',
+        'home_hero_headline_2',
+        'home_hero_headline_3',
+        'home_hero_headline_4',
+        'home_hero_headline_5',
+    ];
+}
+
+/** @return list<string> */
+function cms_hero_headlines_from_settings(array $settings): array
+{
+    $lines = [];
+    foreach (cms_hero_headline_setting_keys() as $key) {
+        $line = trim((string) ($settings[$key] ?? ''));
+        if ($line !== '') {
+            $lines[] = $line;
+        }
+    }
+
+    return $lines;
+}
+
 function cms_seed_home_page_defaults(PDO $pdo): void
 {
     $defaults = [
-        'home_hero_eyebrow' => 'Rajkot · Gujarat · Since 2016',
+        'home_hero_eyebrow' => 'Rajkot · Gujarat · Since 2010',
         'home_hero_title_main' => 'Designing Spaces That Define',
         'home_hero_title_highlight' => 'Generations',
+        'home_hero_headline_1' => 'Architecture That Outlives Generations',
+        'home_hero_headline_2' => 'Designing Legacies In Concrete And Light',
+        'home_hero_headline_3' => 'Where Vision Becomes Landmark',
+        'home_hero_headline_4' => 'Spaces Built To Inspire',
+        'home_hero_headline_5' => 'Designing Spaces That Define Generations',
         'home_hero_lead' => 'Architecture, Interiors & Design-Build Solutions Crafted For Modern Living.',
+        'home_hero_tag_1' => 'Architecture',
+        'home_hero_tag_2' => 'Interiors',
+        'home_hero_tag_3' => 'Civil Construction',
+        'home_hero_tag_4' => 'Turnkey Projects',
+        'home_hero_avatar_1' => 'SK',
+        'home_hero_avatar_2' => 'RP',
+        'home_hero_avatar_3' => 'AM',
+        'home_hero_avatar_4' => 'HV',
+        'home_hero_avatar_5' => '+',
+        'home_hero_social_text' => 'Trusted by 150+ Clients Across Gujarat',
+        'home_hero_preview_kicker' => 'Featured Project',
+        'home_hero_preview_title' => 'Entry & Foyer',
+        'home_hero_preview_meta' => 'Rajkot, Gujarat · Residential',
+        'home_hero_preview_url' => 'work.html',
+        'home_hero_preview_image' => 'uploads/ENTRY.jpg',
         'home_about_eyebrow' => 'Practice',
         'home_about_title' => 'Architecture with intention',
         'home_capabilities_eyebrow' => 'What we do',
@@ -359,17 +404,30 @@ function cms_seed_home_page_defaults(PDO $pdo): void
 
 function cms_sync_plain_home_fields(PDO $pdo): void
 {
-    $keys = [
-        'home_hero_title_html', 'home_hero_title_main', 'home_hero_title_highlight',
-        'home_about_lead_html', 'home_about_paragraph_1', 'home_about_paragraph_2',
-        'footer_blurb_html', 'footer_blurb_1', 'footer_blurb_2',
-    ];
+    $keys = array_merge(
+        [
+            'home_hero_title_html', 'home_hero_title_main', 'home_hero_title_highlight',
+            'home_about_lead_html', 'home_about_paragraph_1', 'home_about_paragraph_2',
+            'footer_blurb_html', 'footer_blurb_1', 'footer_blurb_2',
+        ],
+        cms_hero_headline_setting_keys()
+    );
     $s = settings_get_many($pdo, $keys);
 
     if (trim((string) ($s['home_hero_title_main'] ?? '')) === '' && trim((string) ($s['home_hero_title_html'] ?? '')) !== '') {
         $hero = cms_parse_hero_title_html((string) $s['home_hero_title_html']);
         setting_set($pdo, 'home_hero_title_main', $hero['main']);
         setting_set($pdo, 'home_hero_title_highlight', $hero['highlight']);
+    }
+
+    if (trim((string) ($s['home_hero_headline_1'] ?? '')) === '') {
+        $main = trim((string) ($s['home_hero_title_main'] ?? ''));
+        $highlight = trim((string) ($s['home_hero_title_highlight'] ?? ''));
+        if ($main !== '') {
+            setting_set($pdo, 'home_hero_headline_1', $highlight !== '' ? $main . ' ' . $highlight : $main);
+        } elseif (trim((string) ($s['home_hero_title_html'] ?? '')) !== '') {
+            setting_set($pdo, 'home_hero_headline_1', trim(strip_tags((string) $s['home_hero_title_html'])));
+        }
     }
 
     if (trim((string) ($s['home_about_paragraph_1'] ?? '')) === '' && trim((string) ($s['home_about_lead_html'] ?? '')) !== '') {

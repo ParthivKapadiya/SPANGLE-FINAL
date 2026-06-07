@@ -54,7 +54,7 @@ require __DIR__ . '/includes/layout.php';
   <div class="adm-quick-actions adm-quick-actions--inline">
     <a href="projects.php?action=new" class="adm-btn adm-btn-primary"><i class="fa-solid fa-plus"></i> Add project</a>
     <a href="contact-page.php" class="adm-btn adm-btn-ghost"><i class="fa-solid fa-envelope"></i> Edit contact</a>
-    <a href="home.php" class="adm-btn adm-btn-ghost"><i class="fa-solid fa-house"></i> Edit homepage</a>
+    <a href="home/index.php" class="adm-btn adm-btn-ghost"><i class="fa-solid fa-house"></i> Edit home page</a>
     <a href="../index.html" target="_blank" rel="noopener" class="adm-btn adm-btn-ghost"><i class="fa-solid fa-arrow-up-right-from-square"></i> View website</a>
   </div>
 </div>
@@ -142,7 +142,7 @@ require __DIR__ . '/includes/layout.php';
       <h2 style="margin:0;">Recent activity</h2>
     </div>
     <?php if (!$activity): ?>
-      <p class="adm-hint">CMS saves will appear here. Try editing the <a href="footer.php">footer</a> or <a href="home.php">homepage</a>.</p>
+      <p class="adm-hint">CMS saves will appear here. Try editing the <a href="footer.php">footer</a> or <a href="home/index.php">home page</a>.</p>
     <?php else: ?>
       <ul class="adm-activity-feed">
         <?php foreach ($activity as $item): ?>

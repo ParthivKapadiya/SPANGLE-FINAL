@@ -911,3 +911,62 @@ body.adm-app {
   transform: translateY(-2px);
   box-shadow: 0 12px 36px rgba(17, 19, 24, 0.1);
 }
+
+.adm-home-hub {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.adm-home-hub-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.15rem 1.2rem;
+  border-radius: var(--adm-radius);
+  background: var(--adm-surface);
+  border: 1px solid var(--adm-line);
+  box-shadow: var(--adm-shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  min-height: 148px;
+  text-decoration: none;
+  color: var(--adm-text);
+}
+
+.adm-home-hub-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(143, 111, 66, 0.45);
+  box-shadow: 0 14px 36px rgba(17, 19, 24, 0.12);
+}
+
+.adm-home-hub-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 999px;
+  background: var(--adm-accent-soft);
+  color: var(--adm-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.adm-home-hub-icon {
+  color: var(--adm-accent);
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.adm-home-hub-card strong {
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+}
+
+.adm-home-hub-card > span:last-child {
+  font-size: 0.82rem;
+  color: var(--adm-muted);
+  line-height: 1.5;
+}

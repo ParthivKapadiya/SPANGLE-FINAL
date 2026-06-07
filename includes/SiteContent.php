@@ -43,6 +43,11 @@ final class SiteContent
             'map_embed_url', 'map_title',
             'seo_description', 'seo_og_image',
             'home_hero_eyebrow', 'home_hero_title_html', 'home_hero_title_main', 'home_hero_title_highlight', 'home_hero_lead', 'home_hero_video_url',
+            'home_hero_headline_1', 'home_hero_headline_2', 'home_hero_headline_3', 'home_hero_headline_4', 'home_hero_headline_5',
+            'home_hero_tag_1', 'home_hero_tag_2', 'home_hero_tag_3', 'home_hero_tag_4',
+            'home_hero_avatar_1', 'home_hero_avatar_2', 'home_hero_avatar_3', 'home_hero_avatar_4', 'home_hero_avatar_5',
+            'home_hero_social_text',
+            'home_hero_preview_kicker', 'home_hero_preview_title', 'home_hero_preview_meta', 'home_hero_preview_url', 'home_hero_preview_image',
             'home_about_eyebrow', 'home_about_title', 'home_about_lead_html', 'home_about_paragraph_1', 'home_about_paragraph_2',
             'home_about_image', 'home_about_image_alt', 'home_about_caption',
             'footer_blurb_1', 'footer_blurb_2',
@@ -56,6 +61,13 @@ final class SiteContent
             'home_journal_eyebrow', 'home_journal_title',
             'home_gallery_limit',
             'home_cta_eyebrow', 'home_cta_title', 'home_cta_lead', 'home_cta_btn_text', 'home_cta_btn_url',
+            'home_why_eyebrow', 'home_why_title', 'home_why_intro',
+            'home_why_1_title', 'home_why_1_text', 'home_why_2_title', 'home_why_2_text',
+            'home_why_3_title', 'home_why_3_text', 'home_why_4_title', 'home_why_4_text',
+            'home_why_5_title', 'home_why_5_text', 'home_why_6_title', 'home_why_6_text',
+            'home_pillar_1_title', 'home_pillar_1_text', 'home_pillar_2_title', 'home_pillar_2_text',
+            'home_pillar_3_title', 'home_pillar_3_text', 'home_pillar_4_title', 'home_pillar_4_text',
+            'home_impact_eyebrow', 'home_impact_title',
             'studio_kicker', 'studio_title', 'studio_lead', 'studio_hero_image',
             'studio_philosophy_eyebrow', 'studio_philosophy_title', 'studio_philosophy_lead_1', 'studio_philosophy_lead_2', 'studio_philosophy_image',
             'studio_values_eyebrow', 'studio_values_title', 'studio_values_html', 'studio_pullquote',
@@ -91,6 +103,10 @@ final class SiteContent
             'journal_faq_q3', 'journal_faq_a3', 'journal_faq_q4', 'journal_faq_a4',
         ];
         $keys = array_merge($keys, array_keys(cms_copy_setting_keys()));
+        foreach (cms_nav_item_definitions() as $def) {
+            $keys[] = $def['setting_label'];
+            $keys[] = $def['setting_href'];
+        }
         $s = settings_get_many($pdo, $keys);
         $copy = cms_build_copy_array($s);
 
@@ -237,8 +253,12 @@ final class SiteContent
                 'logoLight' => public_upload_url($s['site_logo_light'] ?? 'uploads/branding/archevo-logo-light.png'),
                 'logoDark' => public_upload_url($s['site_logo_dark'] ?? 'uploads/branding/archevo-logo-dark.png'),
                 'favicon' => public_upload_url($s['site_favicon'] ?? 'uploads/branding/archevo-icon.png'),
-                'brandName' => $s['brand_name'] ?? 'Archevo Infra Edge Pvt. Ltd.',
-                'brandLine' => $s['brand_line'] ?? 'Architecture & Interiors',
+                'brandName' => trim((string) ($s['site_name'] ?? '')) !== ''
+                    ? $s['site_name']
+                    : ($s['brand_name'] ?? 'Archevo Infra Edge Pvt. Ltd.'),
+                'brandLine' => trim((string) ($s['tagline'] ?? '')) !== ''
+                    ? $s['tagline']
+                    : ($s['brand_line'] ?? 'Architecture & Interiors'),
                 'footerBlurbHtml' => cms_resolve_footer_blurb_html($s),
                 'footerCopyright' => $s['footer_copyright'] ?? '',
                 'footerAgencyCredit' => $s['footer_agency_credit'] ?? '',
@@ -295,8 +315,30 @@ final class SiteContent
             'home' => [
                 'heroEyebrow' => $s['home_hero_eyebrow'] ?? '',
                 'heroTitleHtml' => cms_resolve_hero_title_html($s),
+                'heroHeadlines' => cms_hero_headlines_from_settings($s),
                 'heroLead' => $s['home_hero_lead'] ?? '',
                 'heroVideoUrl' => trim((string) ($s['home_hero_video_url'] ?? '')),
+                'heroTags' => array_values(array_filter([
+                    trim((string) ($s['home_hero_tag_1'] ?? '')),
+                    trim((string) ($s['home_hero_tag_2'] ?? '')),
+                    trim((string) ($s['home_hero_tag_3'] ?? '')),
+                    trim((string) ($s['home_hero_tag_4'] ?? '')),
+                ])),
+                'heroAvatars' => array_values(array_filter([
+                    trim((string) ($s['home_hero_avatar_1'] ?? '')),
+                    trim((string) ($s['home_hero_avatar_2'] ?? '')),
+                    trim((string) ($s['home_hero_avatar_3'] ?? '')),
+                    trim((string) ($s['home_hero_avatar_4'] ?? '')),
+                    trim((string) ($s['home_hero_avatar_5'] ?? '')),
+                ])),
+                'heroSocialText' => trim((string) ($s['home_hero_social_text'] ?? '')),
+                'heroPreview' => [
+                    'kicker' => trim((string) ($s['home_hero_preview_kicker'] ?? '')),
+                    'title' => trim((string) ($s['home_hero_preview_title'] ?? '')),
+                    'meta' => trim((string) ($s['home_hero_preview_meta'] ?? '')),
+                    'url' => trim((string) ($s['home_hero_preview_url'] ?? '')),
+                    'image' => public_upload_url(trim((string) ($s['home_hero_preview_image'] ?? ''))),
+                ],
                 'stats' => $stats,
                 'aboutEyebrow' => $s['home_about_eyebrow'] ?? '',
                 'aboutTitle' => $s['home_about_title'] ?? '',
@@ -330,6 +372,29 @@ final class SiteContent
                 'ctaLead' => $s['home_cta_lead'] ?? '',
                 'ctaBtnText' => $s['home_cta_btn_text'] ?? '',
                 'ctaBtnUrl' => $s['home_cta_btn_url'] ?? 'contact.html',
+                'whyEyebrow' => $s['home_why_eyebrow'] ?? '',
+                'whyTitle' => $s['home_why_title'] ?? '',
+                'whyIntro' => $s['home_why_intro'] ?? '',
+                'whyCards' => array_values(array_filter(array_map(static function (int $i) use ($s): ?array {
+                    $title = trim((string) ($s['home_why_' . $i . '_title'] ?? ''));
+                    $text = trim((string) ($s['home_why_' . $i . '_text'] ?? ''));
+                    if ($title === '' && $text === '') {
+                        return null;
+                    }
+
+                    return ['title' => $title, 'text' => $text];
+                }, range(1, 6)))),
+                'pillars' => array_values(array_filter(array_map(static function (int $i) use ($s): ?array {
+                    $title = trim((string) ($s['home_pillar_' . $i . '_title'] ?? ''));
+                    $text = trim((string) ($s['home_pillar_' . $i . '_text'] ?? ''));
+                    if ($title === '' && $text === '') {
+                        return null;
+                    }
+
+                    return ['title' => $title, 'text' => $text];
+                }, range(1, 4)))),
+                'impactEyebrow' => $s['home_impact_eyebrow'] ?? '',
+                'impactTitle' => $s['home_impact_title'] ?? '',
             ],
             'testimonials' => $testimonials,
             'team' => $team,

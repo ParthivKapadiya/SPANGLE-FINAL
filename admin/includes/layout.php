@@ -24,6 +24,7 @@ $navSections = [
     [
         'label' => 'Global',
         'items' => [
+            ['id' => 'header', 'label' => 'Header', 'icon' => 'fa-bars', 'href' => 'header.php'],
             ['id' => 'settings', 'label' => 'Global settings', 'icon' => 'fa-gear', 'href' => 'settings.php'],
             ['id' => 'seo', 'label' => 'SEO & analytics', 'icon' => 'fa-magnifying-glass', 'href' => 'seo.php'],
             ['id' => 'footer', 'label' => 'Footer', 'icon' => 'fa-shoe-prints', 'href' => 'footer.php'],
@@ -32,11 +33,9 @@ $navSections = [
         ],
     ],
     [
-        'label' => 'Homepage',
+        'label' => 'Home page',
         'items' => [
-            ['id' => 'home', 'label' => 'Homepage', 'icon' => 'fa-house', 'href' => 'home.php'],
-            ['id' => 'gallery', 'label' => 'Home gallery', 'icon' => 'fa-camera', 'href' => 'gallery.php'],
-            ['id' => 'testimonials', 'label' => 'Testimonials', 'icon' => 'fa-quote-left', 'href' => 'testimonials.php'],
+            ['id' => 'home', 'label' => 'All sections', 'icon' => 'fa-house', 'href' => 'home/index.php'],
         ],
     ],
     [
@@ -73,7 +72,7 @@ $navSections = [
   <meta name="robots" content="noindex, nofollow" />
   <title><?= e($pageTitle) ?> · <?= e($brand['short']) ?> Studio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/admin.css?v=6" />
+  <link rel="stylesheet" href="<?= e(admin_asset('assets/admin.css')) ?>" />
 </head>
 <body class="adm-app" id="adm-app">
   <div class="adm-sidebar-backdrop" id="adm-sidebar-backdrop" hidden aria-hidden="true"></div>
@@ -90,7 +89,7 @@ $navSections = [
       <?php foreach ($navSections as $section): ?>
         <p class="adm-nav-section"><?= e($section['label']) ?></p>
         <?php foreach ($section['items'] as $item): ?>
-          <a href="<?= e($item['href']) ?>" class="adm-nav-link<?= $activeNav === $item['id'] ? ' is-active' : '' ?>" data-nav-label="<?= e(strtolower($item['label'] . ' ' . $section['label'])) ?>">
+          <a href="<?= e(admin_href($item['href'])) ?>" class="adm-nav-link<?= $activeNav === $item['id'] ? ' is-active' : '' ?>" data-nav-label="<?= e(strtolower($item['label'] . ' ' . $section['label'])) ?>">
             <i class="fa-solid <?= e($item['icon']) ?>"></i>
             <span><?= e($item['label']) ?></span>
             <?php if (!empty($item['badge'])): ?>
@@ -101,8 +100,8 @@ $navSections = [
       <?php endforeach; ?>
     </nav>
     <div class="adm-sidebar-foot">
-      <a href="../index.html" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> View website</a>
-      <a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign out</a>
+      <a href="<?= e(admin_href('../index.html')) ?>" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> View website</a>
+      <a href="<?= e(admin_href('logout.php')) ?>"><i class="fa-solid fa-right-from-bracket"></i> Sign out</a>
     </div>
   </aside>
   <div class="adm-shell">
@@ -114,7 +113,7 @@ $navSections = [
       </div>
       <div class="adm-topbar-actions">
         <?php if ($newInquiries > 0): ?>
-          <a href="contacts.php?status=new" class="adm-topbar-pill adm-topbar-pill--alert">
+          <a href="<?= e(admin_href('contacts.php?status=new')) ?>" class="adm-topbar-pill adm-topbar-pill--alert">
             <i class="fa-solid fa-inbox" aria-hidden="true"></i>
             <?= (int) $newInquiries ?> new
           </a>

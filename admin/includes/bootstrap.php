@@ -83,3 +83,37 @@ function admin_inquiry_source_badge(?string $source): string
 
     return '<span class="' . e($class) . '">' . e(ucfirst($source)) . '</span>';
 }
+
+/** Relative path prefix from the current admin script to /admin/ (e.g. "../" inside /admin/home/). */
+function admin_base(): string
+{
+    $script = str_replace('\\', '/', (string) ($_SERVER['SCRIPT_NAME'] ?? ''));
+    $marker = '/admin/';
+    $pos = strrpos($script, $marker);
+    if ($pos === false) {
+        return '';
+    }
+
+    $relative = substr($script, $pos + strlen($marker));
+    $dir = str_replace('\\', '/', dirname($relative));
+    if ($dir === '.' || $dir === '/') {
+        return '';
+    }
+
+    $depth = substr_count(trim($dir, '/'), '/') + 1;
+
+    return str_repeat('../', $depth);
+}
+
+function admin_href(string $path): string
+{
+    return admin_base() . ltrim($path, '/');
+}
+
+function admin_asset(string $path, int $version = 8): string
+{
+    $href = admin_href($path);
+    $sep = str_contains($href, '?') ? '&' : '?';
+
+    return $href . $sep . 'v=' . $version;
+}

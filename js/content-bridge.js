@@ -83,28 +83,39 @@
     return 'uploads/' + p.replace(/^\//, '');
   }
 
-  function mediaSrc(path, data) {
+  function publicMediaPath(path) {
     if (!path) return '';
     var p = normalizeUploadPath(path);
     if (/^https?:\/\//i.test(p)) return p;
+    return p
+      .split('/')
+      .map(function (seg) {
+        if (!seg) return seg;
+        try {
+          return encodeURIComponent(decodeURIComponent(seg));
+        } catch (e) {
+          return encodeURIComponent(seg);
+        }
+      })
+      .join('/');
+  }
+
+  function mediaSrc(path, data) {
+    if (!path) return '';
+    var p = publicMediaPath(path);
+    if (/^https?:\/\//i.test(p)) return p;
     var b = baseUrl(data || window.__SPANGLE_SITE__ || {}).replace(/\/$/, '');
-    var parts = p.split('/').map(function (seg) {
-      try {
-        return encodeURIComponent(decodeURIComponent(seg));
-      } catch (e) {
-        return encodeURIComponent(seg);
-      }
-    });
-    return b + '/' + parts.join('/');
+    if (!b) return p;
+    return b + '/' + p.replace(/^\//, '');
   }
 
   function appBase() {
     var scripts = document.getElementsByTagName('script');
     for (var i = scripts.length - 1; i >= 0; i--) {
       var src = scripts[i].getAttribute('src') || '';
-      if (src.indexOf('content-bridge') !== -1 || src.indexOf('site-data.js') !== -1) {
+      if (src.indexOf('content-bridge') !== -1) {
         try {
-          return new URL(src, window.location.href).href.replace(/\/(js\/content-bridge\.js|api\/site-data\.js\.php)(\?.*)?$/i, '');
+          return new URL(src, window.location.href).href.replace(/\/js\/content-bridge\.js(\?.*)?$/i, '');
         } catch (e) {
           break;
         }
@@ -391,27 +402,50 @@
 
   function applyHomeCopy(data) {
     var h = data.home || {};
-    var eyebrow = $('.site-hero-eyebrow');
-    if (eyebrow && h.heroEyebrow) eyebrow.textContent = h.heroEyebrow;
-    var title = $('.site-hero-title');
-    if (title && h.heroTitleHtml) {
-      title.innerHTML = h.heroTitleHtml;
-      if (window.SpangleHero && window.SpangleHero.setHeadlines) {
-        var titlePlain = title.textContent ? title.textContent.replace(/\s+/g, ' ').trim() : '';
-        if (titlePlain) {
-          var headlinePool = window.SpangleHero.getDefaultHeadlines
-            ? window.SpangleHero.getDefaultHeadlines()
-            : [];
-          var mergedHeadlines = [titlePlain];
-          headlinePool.forEach(function (line) {
-            if (line !== titlePlain) mergedHeadlines.push(line);
-          });
-          window.SpangleHero.setHeadlines(mergedHeadlines);
+    if (window.SpangleHero && window.SpangleHero.applyHeroContent) {
+      window.SpangleHero.applyHeroContent(data);
+    } else {
+      var eyebrow = $('.site-hero-eyebrow');
+      if (eyebrow && h.heroEyebrow) eyebrow.textContent = h.heroEyebrow;
+      var title = $('.site-hero-title');
+      if (title && h.heroHeadlines && h.heroHeadlines.length) {
+        title.textContent = h.heroHeadlines[0];
+      } else if (title && h.heroTitleHtml) {
+        title.innerHTML = h.heroTitleHtml;
+      }
+      if (window.SpangleHero && window.SpangleHero.setHeadlines && h.heroHeadlines && h.heroHeadlines.length) {
+        window.SpangleHero.setHeadlines(h.heroHeadlines);
+      }
+      var lead = $('.site-hero-lead');
+      if (lead && h.heroLead) lead.textContent = h.heroLead;
+      if (h.heroTags && h.heroTags.length) {
+        var tagList = $('.site-hero-tags');
+        if (tagList) {
+          tagList.innerHTML = h.heroTags
+            .map(function (tag) {
+              return '<li><i class="fa-solid fa-check" aria-hidden="true"></i> ' + esc(tag) + '</li>';
+            })
+            .join('');
+        }
+      }
+      if (h.heroAvatars && h.heroAvatars.length) {
+        var avatars = $('.site-hero-avatars');
+        if (avatars) {
+          avatars.innerHTML = h.heroAvatars
+            .map(function (avatar) {
+              return '<span class="hero-avatar">' + esc(avatar) + '</span>';
+            })
+            .join('');
+        }
+      }
+      var socialText = $('.site-hero-social-text');
+      if (socialText && h.heroSocialText) socialText.textContent = h.heroSocialText;
+      if (h.stats && h.stats.length) {
+        if (window.SpangleHero && window.SpangleHero.renderImpactPanel) {
+          window.SpangleHero.renderImpactPanel(h.stats);
         }
       }
     }
-    var lead = $('.site-hero-lead');
-    if (lead && h.heroLead) lead.textContent = h.heroLead;
 
     if (h.stats && h.stats.length) {
       var stats = $$('.stats-bar .stat');
@@ -449,6 +483,45 @@
     if (pt && h.projectsTitle) pt.textContent = h.projectsTitle;
     var pi = $('.site-projects-intro');
     if (pi && h.projectsIntro) pi.textContent = h.projectsIntro;
+
+    if (h.whyEyebrow) {
+      var wyE = $('.site-why-eyebrow');
+      if (wyE) wyE.textContent = h.whyEyebrow;
+    }
+    if (h.whyTitle) {
+      var wyT = $('.site-why-title');
+      if (wyT) wyT.textContent = h.whyTitle;
+    }
+    if (h.whyIntro) {
+      var wyI = $('.site-why-intro');
+      if (wyI) wyI.textContent = h.whyIntro;
+    }
+    if (h.whyCards && h.whyCards.length) {
+      var whyGrid = $('#site-why-grid');
+      if (whyGrid) {
+        whyGrid.innerHTML = h.whyCards.map(function (card) {
+          return '<article class="home-why-card home-reveal"><h3>' + esc(card.title) + '</h3><p>' + esc(card.text) + '</p></article>';
+        }).join('');
+      }
+    }
+
+    if (h.pillars && h.pillars.length) {
+      var pillarGrid = $('#site-about-pillars');
+      if (pillarGrid) {
+        pillarGrid.innerHTML = h.pillars.map(function (pillar) {
+          return '<article class="home-pillar home-reveal"><h3>' + esc(pillar.title) + '</h3><p>' + esc(pillar.text) + '</p></article>';
+        }).join('');
+      }
+    }
+
+    if (h.impactEyebrow) {
+      var imE = $('.site-impact-eyebrow');
+      if (imE) imE.textContent = h.impactEyebrow;
+    }
+    if (h.impactTitle) {
+      var imT = $('.site-impact-title');
+      if (imT) imT.textContent = h.impactTitle;
+    }
   }
 
   function renderHomeProjects(data) {
@@ -649,8 +722,9 @@
     var anchor = slider.querySelector('.hero-scrim') || slider.firstChild;
     slides.forEach(function (s, i) {
       var img = document.createElement('img');
+      var slideSrc = publicMediaPath(s.src);
       img.className = 'hero-slide' + (i === 0 ? ' active' : '');
-      img.src = mediaSrc(s.src, data);
+      img.src = slideSrc;
       img.alt = s.alt || s.description || 'Archevo Design architecture and interior project';
       img.width = 1920;
       img.height = 1080;
@@ -659,7 +733,7 @@
       img.setAttribute('aria-hidden', i === 0 ? 'false' : 'true');
       if (i === 0) img.setAttribute('fetchpriority', 'high');
       var next = slides[(i + 1) % slides.length];
-      if (next && next.src) img.setAttribute('data-hero-fallback', next.src);
+      if (next && next.src) img.setAttribute('data-hero-fallback', publicMediaPath(next.src));
       slider.insertBefore(img, anchor);
     });
 
@@ -753,8 +827,8 @@
   function applyBranding(data) {
     var b = data.branding || {};
     var siteName = data.siteName || 'Archevo Design';
-    var brandLabel = b.brandName || 'Archevo Infra Edge Pvt. Ltd.';
-    var brandLine = b.brandLine || 'Architecture & Interiors';
+    var brandLabel = b.brandName || siteName || 'Archevo Infra Edge Pvt. Ltd.';
+    var brandLine = b.brandLine || data.tagline || 'Architecture & Interiors';
     var logoPath = b.logoLight || b.logo || b.logoDark || '';
     var faviconUrl = b.favicon ? mediaSrc(b.favicon, data) : '';
     var hasArchevoInDom = $$('.brand-logo-mark, .brand-logo-full--light, .brand-logo-full--dark').some(function (img) {
@@ -1085,6 +1159,7 @@
   window.SpangleContent = {
     attachResponsiveImgFallback: attachResponsiveImgFallback,
     mediaSrc: mediaSrc,
+    publicMediaPath: publicMediaPath,
   };
 
   function loadConversionAssets() {
@@ -1167,6 +1242,11 @@
 
       document.dispatchEvent(new CustomEvent('spangle:site-data', { detail: data }));
       document.dispatchEvent(new CustomEvent('spangle:content-updated'));
+      window.setTimeout(function () {
+        if (window.SpangleHero && window.SpangleHero.applyHeroContent) {
+          window.SpangleHero.applyHeroContent(data);
+        }
+      }, 0);
     });
   }
 

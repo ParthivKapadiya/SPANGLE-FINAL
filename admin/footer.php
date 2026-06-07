@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/includes/bootstrap.php';
-require_once SPANGLE_ROOT . '/includes/cmsNavigation.php';
 require_once SPANGLE_ROOT . '/includes/cmsPlainFields.php';
 
 admin_require_auth();
@@ -13,14 +12,9 @@ $keys = [
     'social_instagram', 'social_facebook', 'social_youtube', 'social_linkedin',
     'whatsapp_digits',
 ];
-$navKeys = [];
-foreach (cms_nav_item_definitions() as $def) {
-    $navKeys[] = $def['setting_label'];
-    $navKeys[] = $def['setting_href'];
-}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
-    foreach (array_merge($keys, $navKeys) as $key) {
+    foreach ($keys as $key) {
         if (!isset($_POST[$key])) {
             continue;
         }
@@ -32,12 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
     setting_set($pdo, 'footer_blurb_2', $footer2);
     setting_set($pdo, 'footer_blurb_html', cms_build_footer_blurb_html($footer1, $footer2));
     content_sync_site_json($pdo);
-    admin_log_activity($pdo, 'save', 'footer', null, 'Footer & navigation links updated');
+    admin_log_activity($pdo, 'save', 'footer', null, 'Footer updated');
     admin_flash_set('success', 'Footer saved. Changes appear on the website shortly.');
     redirect('footer.php');
 }
 
-$s = settings_get_many($pdo, array_merge($keys, $navKeys, ['footer_blurb_html']));
+$s = settings_get_many($pdo, array_merge($keys, ['footer_blurb_html']));
 if (trim((string) ($s['footer_blurb_1'] ?? '')) === '' && trim((string) ($s['footer_blurb_html'] ?? '')) !== '') {
     $footer = cms_parse_footer_blurb_html((string) $s['footer_blurb_html']);
     $s['footer_blurb_1'] = $footer['paragraph1'];
@@ -45,7 +39,7 @@ if (trim((string) ($s['footer_blurb_1'] ?? '')) === '' && trim((string) ($s['foo
 }
 
 $pageTitle = 'Footer';
-$pageDescription = 'Footer copy, copyright, navigation links, and social icons — no code required.';
+$pageDescription = 'Footer copy, copyright, and social icons.';
 $activeNav = 'footer';
 require __DIR__ . '/includes/layout.php';
 ?>
@@ -75,21 +69,8 @@ require __DIR__ . '/includes/layout.php';
   </div>
 
   <div class="adm-card adm-settings-section adm-glass">
-    <h2>Navigate column</h2>
-    <p class="adm-hint">Footer and header share the same menu labels and links.</p>
-    <?php foreach (cms_nav_item_definitions() as $id => $def): ?>
-      <div class="adm-field adm-field-row">
-        <div>
-          <label><?= e($def['label']) ?> label</label>
-          <input type="text" name="<?= e($def['setting_label']) ?>" value="<?= e($s[$def['setting_label']] ?? $def['label']) ?>" />
-        </div>
-        <div>
-          <label>Link</label>
-          <input type="text" name="<?= e($def['setting_href']) ?>" value="<?= e($s[$def['setting_href']] ?? $def['href']) ?>" />
-        </div>
-      </div>
-    <?php endforeach; ?>
-    <p class="adm-hint">Services column is populated automatically from your <a href="services.php">service blocks</a>.</p>
+    <h2>Navigation menu</h2>
+    <p class="adm-hint">Header menu labels and links are managed in the <a href="header.php">Header module</a>.</p>
   </div>
 
   <div class="adm-card adm-settings-section adm-glass">

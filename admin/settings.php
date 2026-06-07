@@ -11,11 +11,9 @@ admin_require_auth();
 
 $fieldGroups = [
     'brand' => [
-        'title' => 'Brand identity',
-        'hint' => 'Company name and tagline shown in the header and browser title.',
+        'title' => 'Site details',
+        'hint' => 'General company info and live URL. Logo, name, tagline, and menu are managed in the Header module.',
         'fields' => [
-            'site_name' => 'Company / studio name',
-            'tagline' => 'Tagline (under logo)',
             'site_description' => 'Company description',
             'public_base' => 'Live website URL (for images & links)',
         ],
@@ -58,9 +56,6 @@ $fieldGroups = [
 ];
 
 $logoFields = [
-    'site_logo' => 'Main logo path',
-    'site_logo_light' => 'Logo for dark backgrounds',
-    'site_logo_dark' => 'Logo for light backgrounds',
     'site_favicon' => 'Favicon path',
 ];
 
@@ -86,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
         setting_set($pdo, $key, $value);
     }
     admin_log_activity($pdo, 'save', 'settings', null, 'Global settings updated');
-    foreach (['site_logo', 'site_logo_light', 'site_logo_dark', 'site_favicon'] as $imgKey) {
+    foreach (['site_favicon'] as $imgKey) {
         if (!empty($_FILES[$imgKey]['name'])) {
             $up = Upload::image($appConfig, 'general', $_FILES[$imgKey]);
             if ($up['ok']) {
@@ -109,7 +104,7 @@ if (trim((string) ($s['whatsapp_prefill'] ?? '')) === '') {
 }
 
 $pageTitle = 'Global settings';
-$pageDescription = 'Branding, logos, company info, contact, WhatsApp, and social links.';
+$pageDescription = 'Contact details, WhatsApp, social links, maps, and favicon.';
 $activeNav = 'settings';
 require __DIR__ . '/includes/layout.php';
 ?>
@@ -136,17 +131,17 @@ require __DIR__ . '/includes/layout.php';
   <?php endforeach; ?>
 
   <div class="adm-card adm-settings-section adm-glass">
-    <h2>Footer &amp; navigation</h2>
-    <p class="adm-hint">Footer copy, copyright, and menu links are managed in the <a href="footer.php">Footer module</a>.</p>
+    <h2>Header &amp; footer</h2>
+    <p class="adm-hint">Logo, company name, tagline, and navigation menu are managed in the <a href="header.php">Header module</a>. Footer copy and copyright are in the <a href="footer.php">Footer module</a>.</p>
   </div>
 
   <div class="adm-card adm-settings-section adm-glass">
-    <h2>Logo &amp; favicon</h2>
-    <p class="adm-hint">Upload Archevo Design branding images. Paths update automatically after upload.</p>
-    <?php foreach (['site_logo' => 'Main logo', 'site_logo_light' => 'Light logo (header)', 'site_logo_dark' => 'Dark logo', 'site_favicon' => 'Favicon'] as $key => $label): ?>
+    <h2>Favicon</h2>
+    <p class="adm-hint">Small icon shown in the browser tab.</p>
+    <?php foreach (['site_favicon' => 'Favicon'] as $key => $label): ?>
       <div class="adm-field">
         <label><?= e($label) ?></label>
-        <?php if (!empty($s[$key])): ?><p><img src="../<?= e($s[$key]) ?>" alt="" style="max-height:48px;border-radius:6px;" /></p><?php endif; ?>
+        <?php if (!empty($s[$key])): ?><p><img src="../<?= e($s[$key]) ?>" alt="" style="max-height:32px;border-radius:4px;" /></p><?php endif; ?>
         <input type="hidden" name="<?= e($key) ?>" value="<?= e($s[$key] ?? '') ?>" />
         <input type="file" name="<?= e($key) ?>" accept="image/*" />
         <?php if (!empty($s[$key])): ?><p class="adm-hint"><?= e($s[$key]) ?></p><?php endif; ?>

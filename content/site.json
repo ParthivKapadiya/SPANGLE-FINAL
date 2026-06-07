@@ -2,15 +2,15 @@
     "version": 2,
     "source": "mysql",
     "publicBase": "http://localhost/SPANGLE_FINAL",
-    "siteName": "Archevo Design",
-    "tagline": "Archevoinfraedge.pvt.ltd",
+    "siteName": "Archevoinfraedge.pvt.ltdd",
+    "tagline": "Architecture & Interiorr",
     "branding": {
         "logo": "uploads/branding/archevo-logo.png",
         "logoLight": "uploads/branding/archevo-logo-light.png",
         "logoDark": "uploads/branding/archevo-logo-dark.png",
         "favicon": "uploads/branding/archevo-icon.png",
-        "brandName": "Archevo Infra Edge Pvt. Ltd.",
-        "brandLine": "Architecture & Interiors",
+        "brandName": "Archevoinfraedge.pvt.ltdd",
+        "brandLine": "Architecture & Interiorr",
         "footerBlurbHtml": "<p>Archevo Design — end-to-end architecture, civil construction, interiors, and turnkey project management from Rajkot, Gujarat.</p>",
         "footerCopyright": "© 2026 Archevo Design",
         "footerAgencyCredit": ""
@@ -32,11 +32,11 @@
             "label": "Process",
             "href": "process.html"
         },
-        "journal": {
-            "label": "Journal",
-            "href": "journal.html"
-        },
         "contact": {
+            "label": "Contact",
+            "href": "contact.html"
+        },
+        "enquire": {
             "label": "Enquire",
             "href": "contact.html"
         }
@@ -51,7 +51,7 @@
         "contactSectionTitle": "Rajkot · Gujarat",
         "contactSectionLead": "Call, email, or visit by appointment. Site meetings across Saurashtra and Gujarat are scheduled in advance.",
         "contactPageTitle": "Archevo Design · Rajkot",
-        "contactPageLead": "Reach Jay P. Rathood and the studio team for new projects, plan approvals, interiors, or turnkey delivery.",
+        "contactPageLead": "Reach Jay Rathod and the studio team for new projects, plan approvals, interiors, or turnkey delivery.",
         "websiteUrl": "https://www.archevoinfra.com"
     },
     "social": {
@@ -250,9 +250,37 @@
     },
     "home": {
         "heroEyebrow": "Rajkot · Gujarat · Since 2010",
-        "heroTitleHtml": "Designing Spaces That Define <em>Generations</em>",
+        "heroTitleHtml": "Designing Spaces That Define Generations",
+        "heroHeadlines": [
+            "Designing Spaces That Define Generations",
+            "Designing Legacies In Concrete And Light",
+            "Where Vision Becomes Landmark",
+            "Spaces Built To Inspire",
+            "Designing Spaces That Define Generations"
+        ],
         "heroLead": "Architecture, Interiors & Design-Build Solutions Crafted For Modern Living.",
         "heroVideoUrl": "",
+        "heroTags": [
+            "Architecture",
+            "Interiors",
+            "Civil Construction",
+            "Turnkey Projects"
+        ],
+        "heroAvatars": [
+            "SK",
+            "RP",
+            "AM",
+            "HV",
+            "+"
+        ],
+        "heroSocialText": "Trusted by 150+ Clients Across Gujarat",
+        "heroPreview": {
+            "kicker": "Featured Project",
+            "title": "Entry & Foyer",
+            "meta": "Rajkot, Gujarat · Residential",
+            "url": "work.html",
+            "image": "uploads/ENTRY.jpg"
+        },
         "stats": [
             {
                 "value": "150+",
@@ -302,7 +330,14 @@
         "ctaTitle": "Reserve a studio conversation",
         "ctaLead": "Share your site, timeline, and ambitions — we respond with a clear path and indicative scope.",
         "ctaBtnText": "Plan your space",
-        "ctaBtnUrl": "contact.html"
+        "ctaBtnUrl": "contact.html",
+        "whyEyebrow": "",
+        "whyTitle": "",
+        "whyIntro": "",
+        "whyCards": [],
+        "pillars": [],
+        "impactEyebrow": "",
+        "impactTitle": ""
     },
     "testimonials": [
         {
@@ -328,7 +363,7 @@
     ],
     "team": [
         {
-            "name": "Jay P. Rathood",
+            "name": "Jay Rathod",
             "role": "Director",
             "bio": "Leads project direction, client relationships, and overall delivery for Archevo Infra Edge across Gujarat.",
             "image": "",
@@ -468,12 +503,12 @@
             "alt": "Bedroom interior design"
         },
         {
-            "src": "uploads/LIVING_ROOM_2-1.jpg",
-            "alt": "Living room interior"
-        },
-        {
             "src": "uploads/054-KANTILAL-3D-6.jpg",
             "alt": "3D visualization — interior concept"
+        },
+        {
+            "src": "uploads/LIVING_ROOM_2-1.jpg",
+            "alt": "Living room interior"
         }
     ],
     "gallery": [

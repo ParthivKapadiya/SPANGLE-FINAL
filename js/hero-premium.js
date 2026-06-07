@@ -18,6 +18,7 @@
     'Designing Legacies In Concrete And Light',
     'Where Vision Becomes Landmark',
     'Spaces Built To Inspire',
+    'Designing Spaces That Define Generations',
   ];
 
   var headlines = DEFAULT_HEADLINES.slice();
@@ -237,6 +238,10 @@
     }, prefersReducedMotion() ? 0 : 320);
   }
 
+  function headlineRotationMs() {
+    return 3000;
+  }
+
   function startHeadlineRotation() {
     if (!headlineEl || headlines.length < 2 || prefersReducedMotion()) {
       if (headlineEl && headlines[0]) {
@@ -249,7 +254,7 @@
     headlineTimer = window.setInterval(function () {
       headlineIndex = (headlineIndex + 1) % headlines.length;
       showHeadline(headlineIndex);
-    }, 5200);
+    }, headlineRotationMs());
   }
 
   function setHeadlines(list) {
@@ -288,21 +293,23 @@
       if (i === 0) return;
       var src = img.getAttribute('src');
       if (!src) return;
-      img.removeAttribute('src');
       img.dataset.lazySrc = src;
+      img.removeAttribute('src');
     });
     function loadNext(index) {
-      var slide = slides[index];
+      var currentSlides = slider.querySelectorAll('img.hero-slide');
+      var slide = currentSlides[index];
       if (!slide || slide.getAttribute('src')) return;
       var lazy = slide.dataset.lazySrc;
       if (lazy) slide.setAttribute('src', lazy);
     }
     document.addEventListener('spangle:hero-slide-change', function (e) {
       var idx = e.detail && e.detail.index;
-      if (typeof idx === 'number') {
-        loadNext((idx + 1) % slides.length);
-        loadNext((idx + 2) % slides.length);
-      }
+      if (typeof idx !== 'number') return;
+      var total = slider.querySelectorAll('img.hero-slide').length;
+      if (!total) return;
+      loadNext((idx + 1) % total);
+      loadNext((idx + 2) % total);
     });
   }
 
@@ -370,11 +377,73 @@
   }
 
   function escHtml(str) {
+    return escText(str);
+  }
+
+  function escText(str) {
     return String(str || '')
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;');
+  }
+
+  function applyHeroContent(data) {
+    data = data || window.__SPANGLE_SITE__ || {};
+    var home = data.home || {};
+
+    if (home.heroEyebrow) {
+      var eyebrow = document.querySelector('.site-hero-eyebrow');
+      if (eyebrow) eyebrow.textContent = home.heroEyebrow;
+    }
+
+    if (home.heroLead) {
+      var lead = document.querySelector('.site-hero-lead');
+      if (lead) lead.textContent = home.heroLead;
+    }
+
+    if (home.heroHeadlines && home.heroHeadlines.length) {
+      setHeadlines(home.heroHeadlines);
+      var seoTitle = document.querySelector('.site-hero-title');
+      if (seoTitle) seoTitle.textContent = home.heroHeadlines[0];
+    } else if (home.heroTitleHtml) {
+      var cmsLine = stripHtml(home.heroTitleHtml);
+      if (cmsLine) {
+        setHeadlines([cmsLine]);
+        var seo = document.querySelector('.site-hero-title');
+        if (seo) seo.textContent = cmsLine;
+      }
+    }
+
+    if (home.heroTags && home.heroTags.length) {
+      var tagList = document.querySelector('.site-hero-tags');
+      if (tagList) {
+        tagList.innerHTML = home.heroTags
+          .map(function (tag) {
+            return '<li><i class="fa-solid fa-check" aria-hidden="true"></i> ' + escText(tag) + '</li>';
+          })
+          .join('');
+      }
+    }
+
+    if (home.heroAvatars && home.heroAvatars.length) {
+      var avatars = document.querySelector('.site-hero-avatars');
+      if (avatars) {
+        avatars.innerHTML = home.heroAvatars
+          .map(function (avatar) {
+            return '<span class="hero-avatar">' + escText(avatar) + '</span>';
+          })
+          .join('');
+      }
+    }
+
+    if (home.heroSocialText) {
+      var socialText = document.querySelector('.site-hero-social-text');
+      if (socialText) socialText.textContent = home.heroSocialText;
+    }
+
+    if (home.stats && home.stats.length) renderImpactPanel(home.stats);
+    renderProjectPreview(data.projects, data);
   }
 
   var PREVIEW_FALLBACKS = [
@@ -402,15 +471,13 @@
 
   function resolveMedia(path, data) {
     if (!path) return '';
-    var p = String(path).trim().replace(/\\/g, '/');
+    if (window.SpangleContent && window.SpangleContent.publicMediaPath) {
+      return window.SpangleContent.publicMediaPath(path);
+    }
+    var p = String(path || '').trim().replace(/\\/g, '/');
     if (/^https?:\/\//i.test(p)) return p;
     if (!/^uploads\//i.test(p)) p = 'uploads/' + p.replace(/^\//, '');
-    p = encodePathSegments(p);
-    var base = data && data.publicBase ? String(data.publicBase).replace(/\/$/, '') : '';
-    if (!base || base.indexOf('localhostapi') !== -1 || base.indexOf('localhostscripts') !== -1) {
-      return p;
-    }
-    return base + '/' + p;
+    return encodePathSegments(p);
   }
 
   function cleanSlideAlt(alt) {
@@ -468,15 +535,16 @@
 
   function getSlideImageUrl(index, data) {
     data = data || window.__SPANGLE_SITE__ || {};
+    var cmsSlides = data.heroSlides || [];
+    if (cmsSlides[index] && cmsSlides[index].src) {
+      return resolveMedia(cmsSlides[index].src, data);
+    }
     var domSlides = document.querySelectorAll('#hero-slider img.hero-slide');
     var dom = domSlides[index];
     if (dom) {
-      if (dom.currentSrc && dom.currentSrc.indexOf('data:') !== 0) return dom.currentSrc;
-      if (dom.src && dom.src.indexOf('data:') !== 0 && !dom.src.endsWith('/')) return dom.src;
       if (dom.dataset.lazySrc) return resolveMedia(dom.dataset.lazySrc, data);
+      if (dom.getAttribute('src')) return resolveMedia(dom.getAttribute('src'), data);
     }
-    var cms = (data.heroSlides || [])[index];
-    if (cms && cms.src) return resolveMedia(cms.src, data);
     return resolveMedia(PREVIEW_FALLBACKS[index % PREVIEW_FALLBACKS.length], data);
   }
 
@@ -493,6 +561,7 @@
   }
 
   function buildPreviewCard(opts) {
+    var kicker = opts.kicker || 'Featured Project';
     var img = opts.img
       ? '<img src="' +
         escHtml(opts.img) +
@@ -508,11 +577,13 @@
       img +
       '</div>' +
       '<div class="hero-preview-body">' +
-      '<p class="hero-preview-kicker">Featured Project</p>' +
-      '<p class="hero-preview-title">' +
+      '<p class="hero-preview-kicker site-hero-preview-kicker">' +
+      escHtml(kicker) +
+      '</p>' +
+      '<p class="hero-preview-title site-hero-preview-title">' +
       escHtml(opts.title) +
       '</p>' +
-      '<p class="hero-preview-meta">' +
+      '<p class="hero-preview-meta site-hero-preview-meta">' +
       escHtml(opts.meta) +
       '</p>' +
       '</div></a>'
@@ -521,7 +592,8 @@
 
   function wirePreviewImage(root, data) {
     var img = root && root.querySelector('.hero-preview-thumb img');
-    if (!img || img.getAttribute('data-preview-wired')) return;
+    if (!img) return;
+    if (img.getAttribute('data-preview-wired') === '1') return;
     img.setAttribute('data-preview-wired', '1');
     var step = 0;
     img.addEventListener('error', function () {
@@ -536,6 +608,7 @@
     if (!root) return;
     data = data || window.__SPANGLE_SITE__ || {};
     var projects = data.projects || [];
+    var cmsPreview = (data.home && data.home.heroPreview) || {};
 
     var slide = getSlideSourceAt(index, data);
     if (!slide || !slide.src) {
@@ -544,17 +617,20 @@
 
     var img = slide.src;
     var matched = findProjectForImage(slide.src, projects);
-    var title = cleanSlideAlt(slide.alt);
-    var href = 'work.html';
-    var meta = 'Rajkot, Gujarat · Residential';
+    var title = cmsPreview.title || cleanSlideAlt(slide.alt);
+    var href = cmsPreview.url || 'work.html';
+    var meta = cmsPreview.meta || 'Rajkot, Gujarat · Residential';
+    var kicker = cmsPreview.kicker || 'Featured Project';
 
     if (matched) {
-      if (isUsableProjectTitle(matched.title)) title = matched.title;
-      href = matched.linkUrl || href;
-      meta = [matched.location, matched.area || '', formatProjectType(matched)].filter(Boolean).join(' · ') || meta;
+      if (!cmsPreview.title && isUsableProjectTitle(matched.title)) title = matched.title;
+      if (!cmsPreview.url) href = matched.linkUrl || href;
+      if (!cmsPreview.meta) {
+        meta = [matched.location, matched.area || '', formatProjectType(matched)].filter(Boolean).join(' · ') || meta;
+      }
     }
 
-    root.innerHTML = buildPreviewCard({ img: img, href: href, title: title, meta: meta });
+    root.innerHTML = buildPreviewCard({ img: img, href: href, title: title, meta: meta, kicker: kicker });
     wirePreviewImage(root, data);
   }
 
@@ -613,20 +689,7 @@
   function onSiteData(e) {
     var data = (e && e.detail) || window.__SPANGLE_SITE__;
     if (!data) return;
-
-    if (data.home && data.home.heroTitleHtml) {
-      var cmsLine = stripHtml(data.home.heroTitleHtml);
-      if (cmsLine) {
-        var merged = [cmsLine];
-        DEFAULT_HEADLINES.forEach(function (h) {
-          if (h !== cmsLine) merged.push(h);
-        });
-        setHeadlines(merged);
-      }
-    }
-
-    if (data.home && data.home.stats) renderImpactPanel(data.home.stats);
-    renderProjectPreview(data.projects, data);
+    applyHeroContent(data);
 
     if (video && data.home && data.home.heroVideoUrl) {
       video.setAttribute('data-src', data.home.heroVideoUrl);
@@ -640,6 +703,7 @@
   });
   document.addEventListener('spangle:hero-slide-change', onHeroSlideChange);
   document.addEventListener('spangle:hero-slides-rendered', function () {
+    lazyHeroSlides();
     renderPreviewAtIndex(getActiveSlideIndex(), window.__SPANGLE_SITE__);
   });
 
@@ -648,19 +712,22 @@
   initLuxuryCursor();
   initCtaInteractions();
   initScrollLuxury();
-  lazyHeroSlides();
   observeImpactStats();
-  startHeadlineRotation();
-
-  if (window.__SPANGLE_SITE__) onSiteData({ detail: window.__SPANGLE_SITE__ });
 
   window.SpangleHero = {
     renderGlassStats: renderGlassStats,
     renderImpactPanel: renderImpactPanel,
     renderProjectPreview: renderProjectPreview,
+    applyHeroContent: applyHeroContent,
     setHeadlines: setHeadlines,
     getDefaultHeadlines: function () {
       return DEFAULT_HEADLINES.slice();
     },
   };
+
+  if (window.__SPANGLE_SITE__) {
+    applyHeroContent(window.__SPANGLE_SITE__);
+  } else {
+    startHeadlineRotation();
+  }
 })();
