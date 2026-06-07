@@ -2,14 +2,14 @@
     "version": 2,
     "source": "mysql",
     "publicBase": "http://localhost/SPANGLE_FINAL",
-    "siteName": "Archevoinfraedge.pvt.ltdd",
+    "siteName": "Archevoinfraedge.pvt.ltd",
     "tagline": "Architecture & Interiorr",
     "branding": {
         "logo": "uploads/branding/archevo-logo.png",
         "logoLight": "uploads/branding/archevo-logo-light.png",
         "logoDark": "uploads/branding/archevo-logo-dark.png",
         "favicon": "uploads/branding/archevo-icon.png",
-        "brandName": "Archevoinfraedge.pvt.ltdd",
+        "brandName": "Archevoinfraedge.pvt.ltd",
         "brandLine": "Architecture & Interiorr",
         "footerBlurbHtml": "<p>Archevo Design — end-to-end architecture, civil construction, interiors, and turnkey project management from Rajkot, Gujarat.</p>",
         "footerCopyright": "© 2026 Archevo Design",
@@ -250,7 +250,7 @@
     },
     "home": {
         "heroEyebrow": "Rajkot · Gujarat · Since 2010",
-        "heroTitleHtml": "Designing Spaces That Define Generations",
+        "heroTitleHtml": "Designing Spaces That Define Generations <em>Generations</em>",
         "heroHeadlines": [
             "Designing Spaces That Define Generations",
             "Designing Legacies In Concrete And Light",
