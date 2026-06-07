@@ -11,8 +11,6 @@ $stats = [
     'gallery' => (int) $pdo->query('SELECT COUNT(*) FROM gallery_items WHERE is_active = 1')->fetchColumn(),
     'inquiries' => (int) $pdo->query('SELECT COUNT(*) FROM contact_messages')->fetchColumn(),
     'testimonials' => (int) $pdo->query('SELECT COUNT(*) FROM testimonials WHERE is_active = 1')->fetchColumn(),
-    'journal' => (int) $pdo->query('SELECT COUNT(*) FROM journal_posts WHERE is_active = 1')->fetchColumn(),
-    'team' => (int) $pdo->query('SELECT COUNT(*) FROM team_members WHERE is_active = 1')->fetchColumn(),
     'media' => (int) $pdo->query('SELECT COUNT(*) FROM media_assets')->fetchColumn(),
 ];
 
@@ -37,7 +35,6 @@ $gaId = trim((string) (settings_get_many($pdo, ['analytics_ga_id'])['analytics_g
 
 $statCards = [
     ['key' => 'projects', 'href' => 'projects.php', 'label' => 'Published projects', 'icon' => 'fa-folder-open'],
-    ['key' => 'journal', 'href' => 'journal.php', 'label' => 'Journal articles', 'icon' => 'fa-newspaper'],
     ['key' => 'inquiries', 'href' => 'contacts.php', 'label' => 'Total inquiries', 'icon' => 'fa-inbox'],
     ['key' => 'media', 'href' => 'media.php', 'label' => 'Media assets', 'icon' => 'fa-images'],
 ];
@@ -56,7 +53,7 @@ require __DIR__ . '/includes/layout.php';
   </div>
   <div class="adm-quick-actions adm-quick-actions--inline">
     <a href="projects.php?action=new" class="adm-btn adm-btn-primary"><i class="fa-solid fa-plus"></i> Add project</a>
-    <a href="journal.php?action=new" class="adm-btn adm-btn-ghost"><i class="fa-solid fa-pen"></i> Add article</a>
+    <a href="contact-page.php" class="adm-btn adm-btn-ghost"><i class="fa-solid fa-envelope"></i> Edit contact</a>
     <a href="home.php" class="adm-btn adm-btn-ghost"><i class="fa-solid fa-house"></i> Edit homepage</a>
     <a href="../index.html" target="_blank" rel="noopener" class="adm-btn adm-btn-ghost"><i class="fa-solid fa-arrow-up-right-from-square"></i> View website</a>
   </div>
@@ -177,7 +174,6 @@ require __DIR__ . '/includes/layout.php';
   <div class="adm-mini-stats">
     <span><strong><?= $stats['gallery'] ?></strong> gallery images</span>
     <span><strong><?= $stats['testimonials'] ?></strong> testimonials</span>
-    <span><strong><?= $stats['team'] ?></strong> team members</span>
     <span><strong><?= $stats['projects_draft'] ?></strong> draft projects</span>
   </div>
 </div>

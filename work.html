@@ -14,21 +14,21 @@
   <link rel="stylesheet" href="fonts/fonts.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css?v=8" />
-  <link rel="stylesheet" href="css/header-lux.css?v=27" />
-  <link rel="stylesheet" href="css/work-premium.css?v=3" />
+  <link rel="stylesheet" href="css/header-lux.css?v=28" />
+  <link rel="stylesheet" href="css/work-premium.css?v=5" />
 </head>
 <body class="page-sub page-work">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header is-top" id="site-header" data-header role="banner">
     <div class="header-inner">
-      <a href="index.html" class="brand brand--full brand--lux" aria-label="Archevo Design home">
+      <a href="index.html" class="brand brand--full brand--lux" aria-label="Archevo Infra Edge Pvt. Ltd. home">
         <span class="brand-full">
           <img src="uploads/branding/archevo-logo-light.png" alt="" width="67" height="76" class="brand-logo-full brand-logo-full--light brand-logo-mark" decoding="async" />
           <img src="uploads/branding/archevo-logo-dark.png" alt="" width="67" height="76" class="brand-logo-full brand-logo-full--dark brand-logo-mark" decoding="async" />
         </span>
         <span class="brand-text">
-          <span class="brand-name site-brand-name">Archevo Design</span>
+          <span class="brand-name site-brand-name">Archevo Infra Edge Pvt. Ltd.</span>
           <span class="brand-line site-brand-line">Architecture &amp; Interiors</span>
         </span>
       </a>
@@ -38,8 +38,8 @@
           <li><a href="services.html" data-nav-link="services">Services</a></li>
           <li><a href="work.html" data-nav-link="work">Work</a></li>
           <li><a href="process.html" data-nav-link="process">Process</a></li>
-          <li><a href="journal.html" data-nav-link="journal">Journal</a></li>
-          <li><a class="nav-cta" href="contact.html" data-nav-link="contact" data-consult-open>Enquire</a></li>
+          <li><a href="contact.html" data-nav-link="contact">Contact</a></li>
+          <li><a class="nav-cta" href="contact.html" data-nav-link="enquire" data-consult-open>Enquire</a></li>
         </ul>
       </nav>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open menu"><span class="nav-toggle-bar" aria-hidden="true"></span><span class="nav-toggle-bar" aria-hidden="true"></span></button>
@@ -52,8 +52,7 @@
           <li><a href="services.html" data-nav-link="services">Services</a></li>
           <li><a href="work.html" data-nav-link="work">Work</a></li>
           <li><a href="process.html" data-nav-link="process">Process</a></li>
-          <li><a href="journal.html" data-nav-link="journal">Journal</a></li>
-          <li><a href="contact.html" data-nav-link="contact">Enquire</a></li>
+          <li><a href="contact.html" data-nav-link="contact">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -108,7 +107,7 @@
         <header class="wrk-section-head wrk-section-head--center wrk-reveal">
           <p class="section-eyebrow">Archive</p>
           <h2 class="section-title">The complete portfolio</h2>
-          <p class="section-intro">Search, filter, and explore every commission — residential, commercial, hospitality, and interiors.</p>
+          <p class="section-intro">Search, filter, and explore every commission — residential, commercial, and interiors.</p>
         </header>
 
         <div class="wrk-filter-bar" id="wrk-filter-bar">
@@ -123,9 +122,11 @@
               <button type="button" class="work-chip wrk-chip site-work-filter" data-filter="residential">Residential</button>
               <button type="button" class="work-chip wrk-chip site-work-filter" data-filter="commercial">Commercial</button>
               <button type="button" class="work-chip wrk-chip site-work-filter" data-filter="interior">Interior</button>
-              <button type="button" class="work-chip wrk-chip site-work-filter" data-filter="hospitality">Hospitality</button>
-              <button type="button" class="work-chip wrk-chip site-work-filter" data-filter="office">Office</button>
-              <button type="button" class="work-chip wrk-chip site-work-filter" data-filter="villa">Villa</button>
+              <button type="button" class="work-chip wrk-chip site-work-filter" data-filter="industrial">Industrial</button>
+            </div>
+            <div class="wrk-space-panel" id="work-space-chips" hidden>
+              <p class="wrk-space-panel__label" id="work-space-label">Filter by room type</p>
+              <div class="work-filter-chips wrk-chips wrk-chips--spaces" id="work-space-chips-inner" role="group" aria-labelledby="work-space-label"></div>
             </div>
             <div class="work-toolbar-row wrk-toolbar-row">
               <select id="work-category" aria-label="Category">
@@ -133,11 +134,9 @@
                 <option value="residential">Residential</option>
                 <option value="commercial">Commercial</option>
                 <option value="interior">Interior</option>
+                <option value="industrial">Industrial</option>
                 <option value="architecture">Architecture</option>
                 <option value="renovation">Renovation</option>
-                <option value="hospitality">Hospitality</option>
-                <option value="office">Office</option>
-                <option value="villa">Villa</option>
                 <option value="mixed-use">Mixed Use</option>
               </select>
               <select id="work-type" aria-label="Project type">
@@ -145,9 +144,9 @@
                 <option value="residential">Residential</option>
                 <option value="commercial">Commercial</option>
                 <option value="interior">Interior</option>
+                <option value="industrial">Industrial</option>
                 <option value="architecture">Architecture</option>
                 <option value="renovation">Renovation</option>
-                <option value="hospitality">Hospitality</option>
                 <option value="mixed-use">Mixed Use</option>
               </select>
               <select id="work-sort" aria-label="Sort projects">
@@ -252,9 +251,7 @@
           <li><a href="studio.html" data-nav-link="studio">Studio</a></li>
           <li><a href="services.html" data-nav-link="services">Services</a></li>
           <li><a href="work.html" data-nav-link="work">Work</a></li>
-          <li><a href="process.html" data-nav-link="process">Process</a></li>
-          <li><a href="journal.html" data-nav-link="journal">Journal</a></li>
-          <li><a href="contact.html" data-nav-link="contact">Contact</a></li>
+          <li><a href="process.html" data-nav-link="process">Process</a></li>          <li><a href="contact.html" data-nav-link="contact">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -310,9 +307,9 @@
   <link rel="stylesheet" href="css/conversion-ux.css?v=9" />
   <script src="js/content-bridge.js?v=9" defer></script>
   <script src="js/consultation-modal.js?v=9" defer></script>
-  <link rel="stylesheet" href="css/work-projects.css?v=10" />
-  <script src="js/work-projects.js?v=11" defer></script>
+  <link rel="stylesheet" href="css/work-projects.css?v=15" />
+  <script src="js/work-projects.js?v=18" defer></script>
   <script src="js/page-content.js?v=8" defer></script>
-  <script src="js/work-premium.js?v=2" defer></script>
+  <script src="js/work-premium.js?v=7" defer></script>
 </body>
 </html>

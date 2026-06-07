@@ -240,6 +240,10 @@ function cms_run_v4_migrations(PDO $pdo): void
     cms_add_column_if_missing($pdo, 'projects', 'show_on_home', 'TINYINT(1) NOT NULL DEFAULT 0 AFTER is_featured');
 
     foreach ([
+        'nav_contact_label' => 'Contact',
+        'nav_contact_href' => 'contact.html',
+        'nav_enquire_label' => 'Enquire',
+        'nav_enquire_href' => 'contact.html',
         'analytics_ga_id' => 'Google Analytics measurement ID',
         'analytics_gsc_meta' => 'Google Search Console verification meta content',
         'footer_agency_credit' => 'Footer agency credit line',
@@ -255,6 +259,14 @@ function cms_run_v4_migrations(PDO $pdo): void
             }
         } catch (Throwable $e) {
         }
+    }
+
+    try {
+        $pdo->exec("UPDATE site_settings SET setting_value = 'Contact' WHERE setting_key = 'nav_contact_label' AND setting_value IN ('', 'Enquire', 'ENQUIRE')");
+        $pdo->exec("UPDATE site_settings SET setting_value = 'Enquire' WHERE setting_key = 'nav_enquire_label' AND (setting_value = '' OR setting_value IS NULL)");
+        $pdo->exec("UPDATE site_settings SET setting_value = 'contact.html' WHERE setting_key = 'nav_enquire_href' AND (setting_value = '' OR setting_value IS NULL)");
+        $pdo->exec("UPDATE site_settings SET setting_value = 'contact.html' WHERE setting_key = 'nav_contact_href' AND (setting_value = '' OR setting_value = 'journal.html')");
+    } catch (Throwable $e) {
     }
 }
 

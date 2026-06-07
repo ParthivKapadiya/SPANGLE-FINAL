@@ -349,6 +349,16 @@ body.page-work .page-hero {
   object-fit: cover;
   min-height: 280px;
   transition: transform 1.2s var(--wrk-ease);
+  cursor: zoom-in;
+}
+
+.wrk-featured__media[data-work-open],
+#wrk-featured-card [data-work-open] {
+  cursor: pointer;
+}
+
+.wrk-featured__media .wrk-card__hover {
+  z-index: 2;
 }
 
 .wrk-featured:hover .wrk-featured__media img {
@@ -497,6 +507,46 @@ body.page-work .page-hero {
   display: none;
 }
 
+.wrk-space-panel {
+  display: none;
+  margin-top: 0.65rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(8, 7, 6, 0.08);
+}
+
+.wrk-space-panel.is-visible {
+  display: block;
+}
+
+.wrk-space-panel[hidden] {
+  display: none !important;
+}
+
+.wrk-space-panel__label {
+  margin: 0 0 0.55rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(8, 7, 6, 0.55);
+}
+
+.wrk-chips--spaces {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.wrk-chip--space {
+  font-size: 0.68rem !important;
+  padding: 0.45rem 0.95rem !important;
+}
+
+.wrk-chip__count {
+  opacity: 0.72;
+  font-weight: 500;
+}
+
 .wrk-chip {
   flex: 0 0 auto;
   scroll-snap-align: start;
@@ -576,7 +626,8 @@ body.page-work .page-hero {
   transition: opacity 0.25s ease;
 }
 
-.work-archive.wrk-masonry .wrk-card {
+.work-archive.wrk-masonry .wrk-card,
+.work-archive.wrk-masonry article.work-card {
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -590,7 +641,9 @@ body.page-work .page-hero {
 }
 
 .work-archive.wrk-masonry .wrk-card:hover,
-.work-archive.wrk-masonry .wrk-card:focus-visible {
+.work-archive.wrk-masonry .wrk-card:focus-visible,
+.work-archive.wrk-masonry article.work-card:hover,
+.work-archive.wrk-masonry article.work-card:focus-visible {
   box-shadow: 0 20px 48px rgba(8, 7, 6, 0.14) !important;
   transform: translateY(-4px) !important;
 }
@@ -656,7 +709,9 @@ body.page-work .page-hero {
 }
 
 .work-archive.wrk-masonry .wrk-card:hover .wrk-card__hover,
-.work-archive.wrk-masonry .wrk-card:focus-visible .wrk-card__hover {
+.work-archive.wrk-masonry .wrk-card:focus-visible .wrk-card__hover,
+.work-archive.wrk-masonry article.work-card:hover .wrk-card__hover,
+.work-archive.wrk-masonry article.work-card:focus-visible .wrk-card__hover {
   opacity: 1;
 }
 

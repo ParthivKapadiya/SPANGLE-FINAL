@@ -213,7 +213,7 @@
     var scope = p.servicesProvided || typeLabel(p.projectType);
     var story = p.summary || '';
     card.innerHTML =
-      '<div class="wrk-featured__media">' +
+      '<div class="wrk-featured__media" data-work-open tabindex="0" role="button" aria-label="Explore project images and details">' +
       '<img src="' +
       esc(mediaSrc(p.heroImage)) +
       '" alt="' +
@@ -221,7 +221,9 @@
       '" loading="eager" width="900" height="600" decoding="async" />' +
       '<span class="wrk-featured__badge">' +
       esc(typeLabel(p.projectType)) +
-      '</span></div>' +
+      '</span>' +
+      '<div class="wrk-card__hover"><span class="wrk-card__cta">Explore project <span aria-hidden="true">→</span></span></div>' +
+      '</div>' +
       '<div class="wrk-featured__copy">' +
       (meta.length ? '<ul class="wrk-featured__meta">' + meta.join('') + '</ul>' : '') +
       '<h3 class="wrk-featured__title">' +
@@ -236,6 +238,25 @@
       '" class="wrk-featured__cta">View case study <span aria-hidden="true">→</span></a>' +
       '</div>';
     card.classList.add('wrk-reveal');
+    card.setAttribute('data-featured-slug', p.slug || '');
+    bindFeaturedGallery(card, p.slug);
+  }
+
+  function bindFeaturedGallery(card, slug) {
+    if (!card || !slug) return;
+    var trigger = card.querySelector('[data-work-open]');
+    if (!trigger) return;
+    function openFeaturedGallery(e) {
+      if (!window.SpangleWorkProjects || !window.SpangleWorkProjects.openGallery) return;
+      e.preventDefault();
+      e.stopPropagation();
+      window.SpangleWorkProjects.openGallery(slug);
+    }
+    trigger.addEventListener('click', openFeaturedGallery);
+    trigger.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      openFeaturedGallery(e);
+    });
   }
 
   function renderImpact(data) {
@@ -268,12 +289,14 @@
   }
 
   var CATEGORIES = [
+    { filter: 'bedroom', label: 'Bedroom', icon: 'fa-bed' },
+    { filter: 'living', label: 'Living', icon: 'fa-couch' },
+    { filter: 'kitchen', label: 'Kitchen', icon: 'fa-kitchen-set' },
+    { filter: 'mandir', label: 'Temple & Mandir', icon: 'fa-place-of-worship' },
+    { filter: 'bathroom', label: 'Bathroom', icon: 'fa-bath' },
     { filter: 'residential', label: 'Residential', icon: 'fa-house' },
     { filter: 'commercial', label: 'Commercial', icon: 'fa-building' },
-    { filter: 'villa', label: 'Villa', icon: 'fa-landmark' },
-    { filter: 'office', label: 'Office', icon: 'fa-briefcase' },
-    { filter: 'hospitality', label: 'Hospitality', icon: 'fa-hotel' },
-    { filter: 'interior', label: 'Interiors', icon: 'fa-couch' },
+    { filter: 'interior', label: 'Interiors', icon: 'fa-paint-roller' },
     { filter: 'architecture', label: 'Architecture', icon: 'fa-drafting-compass' },
   ];
 
@@ -293,7 +316,8 @@
     window.SpangleWorkProjects.setFilter({ category: filter, scroll: false });
     var n = window.SpangleWorkProjects.getFiltered().length;
     window.SpangleWorkProjects.setFilter({
-      category: prev.category,
+      parent: prev.parent || 'all',
+      space: prev.space || '',
       type: prev.type,
       sort: prev.sort,
       search: prev.search,
@@ -308,10 +332,18 @@
     if (!grid) return;
     grid.innerHTML = CATEGORIES.map(function (cat) {
       var sample = projects.find(function (p) {
+        var hay = ((p.title || '') + ' ' + (p.slug || '')).toLowerCase();
+        if (cat.filter === 'bedroom') return /\bbedroom\b|\bbed[\s_-]*room\b|diyabedroom/i.test(hay);
+        if (cat.filter === 'mandir') return /\bmandir\b|\btemple\b|\bpooja\b/i.test(hay);
+        if (cat.filter === 'living') return /\bliving\b|\blounge\b/i.test(hay);
+        if (cat.filter === 'kitchen') return /\bkitchen\b/i.test(hay);
+        if (cat.filter === 'bathroom') return /\bbath(room)?\b|\bwash(room)?\b/i.test(hay);
+        if (cat.filter === 'office') return /\boffice\b/i.test(hay);
         return (p.projectType || '').toLowerCase() === cat.filter || (cat.filter === 'villa' && /\bvilla\b/i.test(p.title || ''));
       });
       var img = sample && sample.heroImage ? mediaSrc(sample.heroImage) : '';
       var count = countByCategory(projects, cat.filter);
+      if (!count) return '';
       return (
         '<button type="button" class="wrk-cat-card wrk-reveal" data-filter="' +
         esc(cat.filter) +

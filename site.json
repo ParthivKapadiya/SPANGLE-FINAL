@@ -8,7 +8,7 @@
         "logo": "uploads/branding/archevo-logo-light.png",
         "logoLight": "uploads/branding/archevo-logo-light.png",
         "logoDark": "uploads/branding/archevo-logo-dark.png",
-        "brandName": "Archevo Design",
+        "brandName": "Archevo Infra Edge Pvt. Ltd.",
         "brandLine": "Integrated Design & Build",
         "footerBlurbHtml": "<p>Archevo Design — end-to-end architecture, civil construction, interiors, and turnkey project management from Rajkot, Gujarat.</p>",
         "footerCopyright": "© 2026 Archevo Design · Archevo Infra Edge Pvt Ltd"
@@ -23,7 +23,7 @@
         "contactSectionTitle": "Rajkot · Gujarat",
         "contactSectionLead": "Call, email, or visit by appointment. Site meetings across Saurashtra and Gujarat are scheduled in advance.",
         "contactPageTitle": "Archevo Design · Rajkot",
-        "contactPageLead": "Reach Jay Rathod and the studio team for new projects, plan approvals, interiors, or turnkey delivery.",
+        "contactPageLead": "Reach Jay P. Rathood and the studio team for new projects, plan approvals, interiors, or turnkey delivery.",
         "websiteUrl": "https://www.archevoinfra.com"
     },
     "social": {
@@ -241,7 +241,7 @@
     ],
     "team": [
         {
-            "name": "Jay Rathod",
+            "name": "Jay P. Rathood",
             "role": "Director",
             "bio": "Leads project direction, client relationships, and overall delivery for Archevo Infra Edge across Gujarat.",
             "image": "",

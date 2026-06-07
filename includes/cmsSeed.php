@@ -21,7 +21,7 @@ function cms_seed_defaults(PDO $pdo): void
     }
 
     $team = [
-        ['Jay Rathod', 'Director', 'Leads project direction, client relationships, and overall delivery for Archevo Infra Edge across Gujarat.', 'JR'],
+        ['Jay P. Rathood', 'Director', 'Leads project direction, client relationships, and overall delivery for Archevo Infra Edge across Gujarat.', 'JR'],
         ['Kishan Tank', 'Director', 'Oversees design, interiors, and site coordination — from drawings and 3D through execution.', 'KT'],
         ['Jignesh Sekhva', 'Engineer', 'Technical drawings, structural coordination, and on-site engineering support for civil and approval work.', 'JS'],
     ];
@@ -77,10 +77,10 @@ function cms_seed_defaults(PDO $pdo): void
         'nav_work_href' => 'work.html',
         'nav_process_label' => 'Process',
         'nav_process_href' => 'process.html',
-        'nav_journal_label' => 'Journal',
-        'nav_journal_href' => 'journal.html',
-        'nav_contact_label' => 'Enquire',
+        'nav_contact_label' => 'Contact',
         'nav_contact_href' => 'contact.html',
+        'nav_enquire_label' => 'Enquire',
+        'nav_enquire_href' => 'contact.html',
         'footer_blurb_html' => '<p>Archevo Design — end-to-end architecture, civil construction, interiors, and turnkey project management from Rajkot, Gujarat.</p>',
         'footer_copyright' => '© 2026 Archevo Design · Archevo Infra Edge Pvt Ltd',
         'home_capabilities_eyebrow' => 'Capabilities',

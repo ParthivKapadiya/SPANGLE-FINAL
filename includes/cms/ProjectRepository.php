@@ -10,6 +10,7 @@ final class ProjectRepository
         'residential',
         'commercial',
         'interior',
+        'industrial',
         'architecture',
         'renovation',
         'hospitality',

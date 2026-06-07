@@ -237,7 +237,7 @@ final class SiteContent
                 'logoLight' => public_upload_url($s['site_logo_light'] ?? 'uploads/branding/archevo-logo-light.png'),
                 'logoDark' => public_upload_url($s['site_logo_dark'] ?? 'uploads/branding/archevo-logo-dark.png'),
                 'favicon' => public_upload_url($s['site_favicon'] ?? 'uploads/branding/archevo-icon.png'),
-                'brandName' => $s['brand_name'] ?? 'Archevo Design',
+                'brandName' => $s['brand_name'] ?? 'Archevo Infra Edge Pvt. Ltd.',
                 'brandLine' => $s['brand_line'] ?? 'Architecture & Interiors',
                 'footerBlurbHtml' => cms_resolve_footer_blurb_html($s),
                 'footerCopyright' => $s['footer_copyright'] ?? '',

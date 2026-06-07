@@ -11,14 +11,14 @@ require_once dirname(__DIR__) . '/includes/bootstrap.php';
 
 $pdo = Database::connection($GLOBALS['configDb']);
 
-setting_set($pdo, 'contact_page_lead', 'Reach Jay Rathod and the studio team for new projects, plan approvals, interiors, or turnkey delivery.');
+setting_set($pdo, 'contact_page_lead', 'Reach Jay P. Rathood and the studio team for new projects, plan approvals, interiors, or turnkey delivery.');
 setting_set($pdo, 'home_awards_eyebrow', 'Studio');
 setting_set($pdo, 'home_awards_title', 'Why clients work with us');
 setting_set($pdo, 'home_testimonials_title', 'What clients say');
 
 $pdo->exec('DELETE FROM team_members');
 $team = [
-    ['Jay Rathod', 'Director', 'Leads project direction, client relationships, and overall delivery for Archevo Infra Edge across Gujarat.', 'JR', 1],
+    ['Jay P. Rathood', 'Director', 'Leads project direction, client relationships, and overall delivery for Archevo Infra Edge across Gujarat.', 'JR', 1],
     ['Kishan Tank', 'Director', 'Oversees design, interiors, and site coordination — from drawings and 3D through execution.', 'KT', 2],
     ['Jignesh Sekhva', 'Engineer', 'Technical drawings, structural coordination, and on-site engineering support for civil and approval work.', 'JS', 3],
 ];

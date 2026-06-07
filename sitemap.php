@@ -19,8 +19,7 @@ $static = [
     ['loc' => '/services.html', 'priority' => '0.85', 'freq' => 'monthly'],
     ['loc' => '/work.html', 'priority' => '0.9', 'freq' => 'weekly'],
     ['loc' => '/process.html', 'priority' => '0.75', 'freq' => 'monthly'],
-    ['loc' => '/journal.html', 'priority' => '0.75', 'freq' => 'weekly'],
-    ['loc' => '/contact.html', 'priority' => '0.85', 'freq' => 'monthly'],
+    ['loc' => '/contact.html', 'priority' => '0.9', 'freq' => 'monthly'],
     ['loc' => '/privacy.html', 'priority' => '0.3', 'freq' => 'yearly'],
     ['loc' => '/terms.html', 'priority' => '0.3', 'freq' => 'yearly'],
 ];

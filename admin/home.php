@@ -44,10 +44,6 @@ $textKeys = [
     'home_testimonials_title' => 'Testimonials block — title',
     'home_awards_eyebrow' => 'Studio highlights — label',
     'home_awards_title' => 'Studio highlights — title',
-    'home_team_eyebrow' => 'Team block — label',
-    'home_team_title' => 'Team block — title',
-    'home_journal_eyebrow' => 'Journal block — label',
-    'home_journal_title' => 'Journal block — title',
     'home_cta_eyebrow' => 'Bottom call-to-action — label',
     'home_cta_title' => 'Bottom call-to-action — title',
     'home_cta_lead' => 'Bottom call-to-action — text',
@@ -63,8 +59,6 @@ $textKeys = [
     'home_link_work_url' => 'Link after Projects — URL',
     'home_link_process_text' => 'Link after Process — text',
     'home_link_process_url' => 'Link after Process — URL',
-    'home_link_journal_text' => 'Link after Journal — text',
-    'home_link_journal_url' => 'Link after Journal — URL',
 ];
 
 $linkKeys = [
@@ -72,7 +66,6 @@ $linkKeys = [
     'home_link_services_text', 'home_link_services_url',
     'home_link_work_text', 'home_link_work_url',
     'home_link_process_text', 'home_link_process_url',
-    'home_link_journal_text', 'home_link_journal_url',
     'home_hero_btn_primary_text', 'home_hero_btn_primary_url',
     'home_hero_btn_secondary_text', 'home_hero_btn_secondary_url',
 ];
@@ -252,15 +245,13 @@ require __DIR__ . '/includes/layout.php';
 ?>
 
 <p class="adm-hint adm-card" style="margin-bottom:1rem;">
-  <strong>Tip:</strong> Service cards, project tiles, gallery photos, team, testimonials, and blog teasers are managed under
+  <strong>Tip:</strong> Service cards, project tiles, gallery photos, and testimonials are managed under
   <a href="services-page.php" class="adm-btn adm-btn-sm adm-btn-ghost">Services page</a>,
   <a href="services.php" class="adm-btn adm-btn-sm adm-btn-ghost">Service blocks</a>,
   <a href="projects.php" class="adm-btn adm-btn-sm adm-btn-ghost">Projects</a> (also pick <strong>Featured commissions</strong> below),
   <a href="gallery.php" class="adm-btn adm-btn-sm adm-btn-ghost">Home gallery</a>,
-  <a href="team.php" class="adm-btn adm-btn-sm adm-btn-ghost">Team</a>,
   <a href="testimonials.php" class="adm-btn adm-btn-sm adm-btn-ghost">Testimonials</a>,
   <a href="studio.php" class="adm-btn adm-btn-sm adm-btn-ghost">Studio page</a> (highlights), and
-  <a href="journal.php" class="adm-btn adm-btn-sm adm-btn-ghost">Blog</a>, and
   <a href="process.php" class="adm-btn adm-btn-sm adm-btn-ghost">Process page</a>.
   Phone, email, and address are under <a href="settings.php" class="adm-btn adm-btn-sm adm-btn-ghost">Site settings</a>.
 </p>
@@ -436,8 +427,6 @@ require __DIR__ . '/includes/layout.php';
       'Gallery on home page' => ['home_gallery_eyebrow', 'home_gallery_title', 'home_gallery_intro', 'home_gallery_limit'],
       'Process on home page' => ['home_process_eyebrow', 'home_process_title', 'home_process_intro', 'home_link_process_text', 'home_link_process_url'],
       'Testimonials' => ['home_testimonials_eyebrow', 'home_testimonials_title'],
-      'Team' => ['home_team_eyebrow', 'home_team_title'],
-      'Journal teaser' => ['home_journal_eyebrow', 'home_journal_title', 'home_link_journal_text', 'home_link_journal_url'],
       'Bottom invitation' => ['home_cta_eyebrow', 'home_cta_title', 'home_cta_lead', 'home_cta_btn_text', 'home_cta_btn_url'],
       'Contact on home page' => ['contact_section_title', 'contact_section_lead'],
   ];

@@ -753,7 +753,7 @@
   function applyBranding(data) {
     var b = data.branding || {};
     var siteName = data.siteName || 'Archevo Design';
-    var brandLabel = b.brandName || 'Archevo Design';
+    var brandLabel = b.brandName || 'Archevo Infra Edge Pvt. Ltd.';
     var brandLine = b.brandLine || 'Architecture & Interiors';
     var logoPath = b.logoLight || b.logo || b.logoDark || '';
     var faviconUrl = b.favicon ? mediaSrc(b.favicon, data) : '';
@@ -1058,6 +1058,7 @@
       if (f === 'residential' && c.work_filter_residential) btn.textContent = c.work_filter_residential;
       if (f === 'commercial' && c.work_filter_commercial) btn.textContent = c.work_filter_commercial;
       if (f === 'retail' && c.work_filter_retail) btn.textContent = c.work_filter_retail;
+      if (f === 'industrial' && c.work_filter_industrial) btn.textContent = c.work_filter_industrial;
     });
 
     setText('.site-thanks-eyebrow', 'thanks_eyebrow');
@@ -1161,8 +1162,6 @@
       renderProcessList('#site-home-process-list', data.processSteps, 'home');
       renderTestimonials(data);
       renderAwards(data);
-      renderTeam(data);
-      renderJournalTeaser(data);
       fixJournalCardLinks();
       renderWorkArchive(data);
 

@@ -34,17 +34,17 @@ function cms_nav_item_definitions(): array
             'setting_label' => 'nav_process_label',
             'setting_href' => 'nav_process_href',
         ],
-        'journal' => [
-            'label' => 'Journal',
-            'href' => 'journal.html',
-            'setting_label' => 'nav_journal_label',
-            'setting_href' => 'nav_journal_href',
-        ],
         'contact' => [
-            'label' => 'Enquire',
+            'label' => 'Contact',
             'href' => 'contact.html',
             'setting_label' => 'nav_contact_label',
             'setting_href' => 'nav_contact_href',
+        ],
+        'enquire' => [
+            'label' => 'Enquire',
+            'href' => 'contact.html',
+            'setting_label' => 'nav_enquire_label',
+            'setting_href' => 'nav_enquire_href',
         ],
     ];
 }

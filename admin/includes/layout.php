@@ -43,13 +43,11 @@ $navSections = [
         'label' => 'Pages',
         'items' => [
             ['id' => 'studio', 'label' => 'Studio', 'icon' => 'fa-building', 'href' => 'studio.php'],
-            ['id' => 'team', 'label' => 'Team', 'icon' => 'fa-users', 'href' => 'team.php'],
             ['id' => 'services-page', 'label' => 'Services page', 'icon' => 'fa-briefcase', 'href' => 'services-page.php'],
             ['id' => 'services', 'label' => 'Service blocks', 'icon' => 'fa-list-check', 'href' => 'services.php'],
             ['id' => 'work-page', 'label' => 'Work page', 'icon' => 'fa-layer-group', 'href' => 'work-page.php'],
             ['id' => 'projects', 'label' => 'Projects', 'icon' => 'fa-folder-open', 'href' => 'projects.php'],
             ['id' => 'process', 'label' => 'Process', 'icon' => 'fa-diagram-project', 'href' => 'process.php'],
-            ['id' => 'journal', 'label' => 'Journal', 'icon' => 'fa-newspaper', 'href' => 'journal.php'],
             ['id' => 'contact-page', 'label' => 'Contact', 'icon' => 'fa-envelope', 'href' => 'contact-page.php'],
         ],
     ],

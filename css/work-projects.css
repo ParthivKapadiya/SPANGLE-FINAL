@@ -237,3 +237,322 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+/* —— Work project viewer (images + readable details) —— */
+body.work-gallery-open {
+  overflow: hidden;
+}
+
+.work-card[data-work-open] {
+  cursor: pointer;
+}
+
+.wrk-card__open-hint {
+  margin: 0.85rem 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold, #9a7b4f);
+}
+
+.work-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.work-viewer[hidden] {
+  display: none;
+}
+
+.work-viewer__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 5, 5, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.work-viewer__sheet {
+  position: relative;
+  z-index: 1;
+  width: min(1280px, 100%);
+  max-height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background: #f3f0ea;
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.work-viewer__close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  z-index: 5;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(8, 7, 6, 0.12);
+  border-radius: 50%;
+  background: #fff;
+  color: #080706;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.work-viewer__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  min-height: min(92vh, 860px);
+  max-height: 100vh;
+}
+
+.work-viewer__visual {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  background: #080706;
+  color: #f5f2ec;
+  min-height: 0;
+}
+
+.work-viewer__stage {
+  flex: 1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 0;
+}
+
+.work-viewer__visual.is-single .work-viewer__stage {
+  grid-template-columns: 1fr;
+}
+
+.work-viewer__nav[hidden],
+.work-viewer__thumbs[hidden],
+.work-viewer__counter[hidden] {
+  display: none !important;
+}
+
+.work-viewer__figure {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  height: 100%;
+}
+
+.work-viewer__figure img {
+  max-width: 100%;
+  max-height: min(58vh, 640px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+.work-viewer__nav {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(245, 242, 236, 0.25);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f5f2ec;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.work-viewer__nav:hover:not(:disabled),
+.work-viewer__nav:focus-visible:not(:disabled) {
+  background: rgba(196, 165, 116, 0.22);
+  border-color: #c4a574;
+}
+
+.work-viewer__nav:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.work-viewer__counter {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 236, 0.55);
+}
+
+.work-viewer__thumbs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.15rem;
+  scrollbar-width: thin;
+}
+
+.work-viewer__thumbs.is-many {
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: min(168px, 28vh);
+  align-content: flex-start;
+}
+
+.work-viewer__thumbs.is-many .work-viewer__thumb {
+  width: 68px;
+  height: 50px;
+}
+
+.work-viewer__thumb {
+  flex: 0 0 auto;
+  width: 76px;
+  height: 56px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.65;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.work-viewer__thumb.is-active,
+.work-viewer__thumb:hover,
+.work-viewer__thumb:focus-visible {
+  opacity: 1;
+  border-color: #c4a574;
+}
+
+.work-viewer__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 1 !important;
+}
+
+.work-viewer__content {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  padding-top: clamp(2.5rem, 4vw, 3rem);
+  overflow-y: auto;
+  color: #080706;
+}
+
+.work-viewer__eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9a7b4f;
+}
+
+.work-viewer__title {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.work-viewer__subtitle {
+  margin: 0 0 1.25rem;
+  font-size: 0.88rem;
+  color: rgba(8, 7, 6, 0.62);
+}
+
+.work-viewer__facts {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+  border-top: 1px solid rgba(8, 7, 6, 0.08);
+  border-bottom: 1px solid rgba(8, 7, 6, 0.08);
+  padding-block: 1rem;
+}
+
+.work-viewer__facts li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.82rem;
+}
+
+.work-viewer__facts span {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(8, 7, 6, 0.5);
+}
+
+.work-viewer__facts strong {
+  font-weight: 600;
+  text-align: right;
+}
+
+.work-viewer__story {
+  display: grid;
+  gap: 1.15rem;
+  margin-bottom: 1.5rem;
+}
+
+.work-viewer__block h3 {
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9a7b4f;
+}
+
+.work-viewer__block p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(8, 7, 6, 0.82);
+}
+
+.work-viewer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  padding-top: 0.5rem;
+  position: sticky;
+  bottom: 0;
+  background: linear-gradient(180deg, transparent, #f3f0ea 24%);
+  padding-bottom: 0.25rem;
+}
+
+@media (max-width: 900px) {
+  .work-viewer__sheet {
+    max-height: 100vh;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .work-viewer__layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    min-height: 0;
+    max-height: 100vh;
+  }
+
+  .work-viewer__visual {
+    flex: 0 0 auto;
+  }
+
+  .work-viewer__figure img {
+    max-height: 42vh;
+  }
+
+  .work-viewer__content {
+    flex: 1;
+    min-height: 0;
+  }
+}

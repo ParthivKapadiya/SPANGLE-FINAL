@@ -1,18 +1,19 @@
 {
     "version": 2,
     "source": "mysql",
-    "publicBase": "http://localhost",
+    "publicBase": "http://localhost/SPANGLE_FINAL",
     "siteName": "Archevo Design",
-    "tagline": "Architecture & Interiors",
+    "tagline": "Archevoinfraedge.pvt.ltd",
     "branding": {
         "logo": "uploads/branding/archevo-logo.png",
         "logoLight": "uploads/branding/archevo-logo-light.png",
         "logoDark": "uploads/branding/archevo-logo-dark.png",
         "favicon": "uploads/branding/archevo-icon.png",
-        "brandName": "Archevo Design",
+        "brandName": "Archevo Infra Edge Pvt. Ltd.",
         "brandLine": "Architecture & Interiors",
         "footerBlurbHtml": "<p>Archevo Design — end-to-end architecture, civil construction, interiors, and turnkey project management from Rajkot, Gujarat.</p>",
-        "footerCopyright": "© 2026 Archevo Design"
+        "footerCopyright": "© 2026 Archevo Design",
+        "footerAgencyCredit": ""
     },
     "navigation": {
         "studio": {
@@ -50,13 +51,18 @@
         "contactSectionTitle": "Rajkot · Gujarat",
         "contactSectionLead": "Call, email, or visit by appointment. Site meetings across Saurashtra and Gujarat are scheduled in advance.",
         "contactPageTitle": "Archevo Design · Rajkot",
-        "contactPageLead": "Reach Jay Rathod and the studio team for new projects, plan approvals, interiors, or turnkey delivery.",
+        "contactPageLead": "Reach Jay P. Rathood and the studio team for new projects, plan approvals, interiors, or turnkey delivery.",
         "websiteUrl": "https://www.archevoinfra.com"
     },
     "social": {
         "instagram": "https://www.instagram.com/archevo._.design/",
         "facebook": "https://www.facebook.com/share/1D1tnk6xVr/",
+        "linkedin": "",
         "youtube": ""
+    },
+    "analytics": {
+        "gaId": "",
+        "gscMeta": ""
     },
     "maps": {
         "embedUrl": "https://www.google.com/maps?q=1113%2C+RK+Supreme%2C+Nanamava+Circle%2C+Opp.+Twin+Star%2C+150+Ft.+Ring+Rd%2C+Rajkot%2C+Gujarat&output=embed",
@@ -93,11 +99,28 @@
         "services_cta_btn_url": "contact.html",
         "services_cta_btn2_text": "Get project estimate",
         "services_cta_btn2_url": "contact.html",
-        "services_faq_eyebrow": "",
-        "services_faq_title": "",
+        "services_faq_eyebrow": "Questions",
+        "services_faq_title": "Before you enquire",
         "work_cta_text": "Discuss a commission with the studio.",
         "work_cta_btn_text": "Start a project",
         "work_cta_btn_url": "contact.html",
+        "work_cta_final_eyebrow": "Next project",
+        "work_cta_final_title": "Ready To Build Something Exceptional?",
+        "work_cta_final_sub": "Architecture.\nInteriors.\nConstruction.\nTurnkey Delivery.",
+        "work_cta_final_btn_text": "Start Your Project",
+        "work_cta_final_btn2_text": "Book Consultation",
+        "work_featured_eyebrow": "Featured commission",
+        "work_stats_eyebrow": "Experience",
+        "work_stats_title": "Built on measurable impact",
+        "work_categories_eyebrow": "Disciplines",
+        "work_categories_title": "Explore by category",
+        "work_testimonials_eyebrow": "Clients",
+        "work_testimonials_title": "Trusted for execution & design",
+        "work_timeline_eyebrow": "Growth",
+        "work_timeline_title": "A decade of delivery",
+        "work_timeline_intro": "Projects completed year by year — evidence of sustained practice and expanding scope.",
+        "work_trust_eyebrow": "Why Archevo",
+        "work_trust_title": "Why clients choose Archevo",
         "work_filter_all": "All",
         "work_filter_residential": "Residential",
         "work_filter_commercial": "Commercial",
@@ -305,7 +328,7 @@
     ],
     "team": [
         {
-            "name": "Jay Rathod",
+            "name": "Jay P. Rathood",
             "role": "Director",
             "bio": "Leads project direction, client relationships, and overall delivery for Archevo Infra Edge across Gujarat.",
             "image": "",
@@ -583,6 +606,7 @@
             "title": "1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1.jpg\" alt=\"1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1.jpg",
@@ -594,13 +618,15 @@
             "isFeatured": true,
             "sortOrder": 0,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "02-bedroom-1",
             "title": "02 Bedroom 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 02 Bedroom 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/02%20BEDROOM%201.jpg\" alt=\"02 Bedroom 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/02%20BEDROOM%201.jpg",
@@ -612,13 +638,15 @@
             "isFeatured": true,
             "sortOrder": 1,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "02-bedroom-2",
             "title": "02 Bedroom 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 02 Bedroom 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/02%20BEDROOM%202.jpg\" alt=\"02 Bedroom 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/02%20BEDROOM%202.jpg",
@@ -630,13 +658,15 @@
             "isFeatured": true,
             "sortOrder": 2,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "02-bedroom-3",
             "title": "02 Bedroom 3",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 02 Bedroom 3.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/02%20BEDROOM%203.jpg\" alt=\"02 Bedroom 3\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/02%20BEDROOM%203.jpg",
@@ -648,13 +678,15 @@
             "isFeatured": true,
             "sortOrder": 3,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "02-bedroom-4",
             "title": "02 Bedroom 4",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 02 Bedroom 4.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/02%20BEDROOM%204.jpg\" alt=\"02 Bedroom 4\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/02%20BEDROOM%204.jpg",
@@ -666,13 +698,15 @@
             "isFeatured": true,
             "sortOrder": 4,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "2",
             "title": "2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/2.jpg\" alt=\"2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/2.jpg",
@@ -684,13 +718,15 @@
             "isFeatured": true,
             "sortOrder": 5,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "3",
             "title": "3",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 3.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/3.jpg\" alt=\"3\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/3.jpg",
@@ -702,13 +738,15 @@
             "isFeatured": true,
             "sortOrder": 6,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "4",
             "title": "4",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 4.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/4.jpg\" alt=\"4\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/4.jpg",
@@ -720,13 +758,15 @@
             "isFeatured": true,
             "sortOrder": 7,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "043-dharmeshbhai-3",
             "title": "043 Dharmeshbhai 3",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 043 Dharmeshbhai 3.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/043-DHARMESHBHAI-3.jpg\" alt=\"Dharmeshbhai\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/043-DHARMESHBHAI-3.jpg",
@@ -738,13 +778,15 @@
             "isFeatured": false,
             "sortOrder": 8,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "054-kantilal-3d-5",
             "title": "054 Kantilal 3d 5",
             "location": "Gujarat, India",
             "category": "commercial",
+            "projectType": "commercial",
             "summary": "Interior & architecture visual — 054 Kantilal 3d 5.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/054-KANTILAL-3D-5.jpg\" alt=\"Kantilal-3d\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/054-KANTILAL-3D-5.jpg",
@@ -756,13 +798,15 @@
             "isFeatured": false,
             "sortOrder": 9,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "054-kantilal-3d-6",
             "title": "054 Kantilal 3d 6",
             "location": "Gujarat, India",
             "category": "commercial",
+            "projectType": "commercial",
             "summary": "Interior & architecture visual — 054 Kantilal 3d 6.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/054-KANTILAL-3D-6.jpg\" alt=\"Kantilal-3d\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/054-KANTILAL-3D-6.jpg",
@@ -774,13 +818,15 @@
             "isFeatured": false,
             "sortOrder": 10,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "058-prakashbhai-tank-3d-2",
             "title": "058 Prakashbhai Tank 3d 2",
             "location": "Gujarat, India",
             "category": "commercial",
+            "projectType": "commercial",
             "summary": "Interior & architecture visual — 058 Prakashbhai Tank 3d 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/058-PRAKASHBHAI%20TANK-3D-2.jpg\" alt=\"Prakashbhai Tank-3d\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/058-PRAKASHBHAI%20TANK-3D-2.jpg",
@@ -792,13 +838,15 @@
             "isFeatured": false,
             "sortOrder": 11,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "066-upendrasinh-3d-3",
             "title": "066 Upendrasinh 3d 3",
             "location": "Gujarat, India",
             "category": "commercial",
+            "projectType": "commercial",
             "summary": "Interior & architecture visual — 066 Upendrasinh 3d 3.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/066-UPENDRASINH-3D-3.jpg\" alt=\"Upendrasinh-3d\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/066-UPENDRASINH-3D-3.jpg",
@@ -810,13 +858,15 @@
             "isFeatured": false,
             "sortOrder": 12,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "085-jiteshbhai-kosamba-5-jpg",
             "title": "085 Jiteshbhai Kosamba 5.jpg",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 085 Jiteshbhai Kosamba 5.jpg.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/085-JITESHBHAI%20KOSAMBA-5.jpg.jpeg\" alt=\"Jiteshbhai Kosamba-5.jpg\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/085-JITESHBHAI%20KOSAMBA-5.jpg.jpeg",
@@ -828,13 +878,15 @@
             "isFeatured": false,
             "sortOrder": 13,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "747-1",
             "title": "747 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 747 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/747-1.jpg\" alt=\"1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/747-1.jpg",
@@ -846,13 +898,15 @@
             "isFeatured": false,
             "sortOrder": 14,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "985-3",
             "title": "985 3",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 985 3.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/985-3.jpg\" alt=\"3\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/985-3.jpg",
@@ -864,13 +918,15 @@
             "isFeatured": false,
             "sortOrder": 15,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1002-6",
             "title": "1002 6",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1002 6.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1002-6.jpg\" alt=\"6\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1002-6.jpg",
@@ -882,13 +938,15 @@
             "isFeatured": false,
             "sortOrder": 16,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1071-sanjaysinh-jadeja-4",
             "title": "1071 Sanjaysinh Jadeja 4",
             "location": "Gujarat, India",
             "category": "commercial",
+            "projectType": "commercial",
             "summary": "Interior & architecture visual — 1071 Sanjaysinh Jadeja 4.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1071-SANJAYSINH%20JADEJA_4.jpg\" alt=\"Sanjaysinh Jadeja\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1071-SANJAYSINH%20JADEJA_4.jpg",
@@ -900,13 +958,15 @@
             "isFeatured": false,
             "sortOrder": 17,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1090-maheshbhai-jadav-2",
             "title": "1090 Maheshbhai Jadav 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1090 Maheshbhai Jadav 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1090-MAHESHBHAI%20JADAV-2.jpg\" alt=\"Maheshbhai Jadav\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1090-MAHESHBHAI%20JADAV-2.jpg",
@@ -918,13 +978,15 @@
             "isFeatured": false,
             "sortOrder": 18,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1128-floor-aunty-mandir",
             "title": "1128 Floor Aunty Mandir",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1128 Floor Aunty Mandir.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1128-FLOOR_AUNTY_MANDIR.jpg\" alt=\"Floor_aunty_mandir\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1128-FLOOR_AUNTY_MANDIR.jpg",
@@ -936,13 +998,15 @@
             "isFeatured": false,
             "sortOrder": 19,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1134-jiteshbhai-1",
             "title": "1134 Jiteshbhai 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1134 Jiteshbhai 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1134-JITESHBHAI-1.jpg\" alt=\"Jiteshbhai\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1134-JITESHBHAI-1.jpg",
@@ -954,13 +1018,15 @@
             "isFeatured": false,
             "sortOrder": 20,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1138-jiteshbhai-chauhan-kharod-1",
             "title": "1138 Jiteshbhai Chauhan (kharod) 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1138 Jiteshbhai Chauhan (kharod) 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1138-JITESHBHAI%20CHAUHAN%20%28KHAROD%29-1.jpg\" alt=\"Jiteshbhai Chauhan (kharod)\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1138-JITESHBHAI%20CHAUHAN%20%28KHAROD%29-1.jpg",
@@ -972,13 +1038,15 @@
             "isFeatured": false,
             "sortOrder": 21,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1159-visalbhai-rampariya-5",
             "title": "1159 Visalbhai Rampariya 5",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1159 Visalbhai Rampariya 5.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1159-VISALBHAI%20RAMPARIYA-5.jpg\" alt=\"Visalbhai Rampariya\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1159-VISALBHAI%20RAMPARIYA-5.jpg",
@@ -990,13 +1058,15 @@
             "isFeatured": false,
             "sortOrder": 22,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1184-rajeshbhai-chothani-1",
             "title": "1184 Rajeshbhai Chothani 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1184 Rajeshbhai Chothani 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1184-RAJESHBHAI%20CHOTHANI-1.jpg\" alt=\"Rajeshbhai Chothani\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1184-RAJESHBHAI%20CHOTHANI-1.jpg",
@@ -1008,13 +1078,15 @@
             "isFeatured": false,
             "sortOrder": 23,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1186-yash-vegad-1",
             "title": "1186 Yash Vegad 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1186 Yash Vegad 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1186-YASH%20VEGAD-1.jpg\" alt=\"Yash Vegad\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1186-YASH%20VEGAD-1.jpg",
@@ -1026,13 +1098,15 @@
             "isFeatured": false,
             "sortOrder": 24,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1204-vinodbhai-vaghela-3",
             "title": "1204 Vinodbhai Vaghela 3",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1204 Vinodbhai Vaghela 3.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1204-VINODBHAI%20VAGHELA-3.jpg\" alt=\"Vinodbhai Vaghela\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1204-VINODBHAI%20VAGHELA-3.jpg",
@@ -1044,13 +1118,15 @@
             "isFeatured": false,
             "sortOrder": 25,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1208-kantibhai-parmar-1",
             "title": "1208 Kantibhai Parmar 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1208 Kantibhai Parmar 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1208-KANTIBHAI%20PARMAR-1.jpg\" alt=\"Kantibhai Parmar\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1208-KANTIBHAI%20PARMAR-1.jpg",
@@ -1062,13 +1138,15 @@
             "isFeatured": false,
             "sortOrder": 26,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1212-arvindbhai-parmar-back-2",
             "title": "1212 Arvindbhai Parmar Back 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1212 Arvindbhai Parmar Back 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1212-ARVINDBHAI%20PARMAR_BACK-2.jpg\" alt=\"Arvindbhai Parmar_back\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1212-ARVINDBHAI%20PARMAR_BACK-2.jpg",
@@ -1080,13 +1158,15 @@
             "isFeatured": false,
             "sortOrder": 27,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1212-arvindbhai-parmar-front-2",
             "title": "1212 Arvindbhai Parmar Front 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1212 Arvindbhai Parmar Front 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1212-ARVINDBHAI%20PARMAR_FRONT-2.jpg\" alt=\"Arvindbhai Parmar_front\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1212-ARVINDBHAI%20PARMAR_FRONT-2.jpg",
@@ -1098,13 +1178,15 @@
             "isFeatured": false,
             "sortOrder": 28,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1213-sanjaysinh-jadeja-plot-54-2",
             "title": "1213 Sanjaysinh Jadeja Plot 54 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1213 Sanjaysinh Jadeja Plot 54 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1213-SANJAYSINH%20JADEJA_PLOT-54-2.jpg\" alt=\"Sanjaysinh Jadeja_plot\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1213-SANJAYSINH%20JADEJA_PLOT-54-2.jpg",
@@ -1116,13 +1198,15 @@
             "isFeatured": false,
             "sortOrder": 29,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1213-sanjaysinh-jadeja-plot-62-1",
             "title": "1213 Sanjaysinh Jadeja Plot 62 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1213 Sanjaysinh Jadeja Plot 62 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1213-SANJAYSINH%20JADEJA_PLOT-62-1.jpg\" alt=\"Sanjaysinh Jadeja_plot\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1213-SANJAYSINH%20JADEJA_PLOT-62-1.jpg",
@@ -1134,13 +1218,15 @@
             "isFeatured": false,
             "sortOrder": 30,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1213-sanjaysinh-jadeja-plot-62-2",
             "title": "1213 Sanjaysinh Jadeja Plot 62 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1213 Sanjaysinh Jadeja Plot 62 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1213-SANJAYSINH%20JADEJA_PLOT-62-2.jpg\" alt=\"Sanjaysinh Jadeja_plot\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1213-SANJAYSINH%20JADEJA_PLOT-62-2.jpg",
@@ -1152,13 +1238,15 @@
             "isFeatured": false,
             "sortOrder": 31,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1224-vinodbhai-vaghela-ghanteshwar-2",
             "title": "1224 Vinodbhai Vaghela (ghanteshwar) 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1224 Vinodbhai Vaghela (ghanteshwar) 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1224-VINODBHAI%20VAGHELA%20%28GHANTESHWAR%29-2.jpg\" alt=\"Vinodbhai Vaghela (ghanteshwar)\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1224-VINODBHAI%20VAGHELA%20%28GHANTESHWAR%29-2.jpg",
@@ -1170,13 +1258,15 @@
             "isFeatured": false,
             "sortOrder": 32,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-diyabedroom-3",
             "title": "1228 Diyabedroom 3",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Diyabedroom 3.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-DIYABEDROOM_3.jpg\" alt=\"Diyabedroom\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228-DIYABEDROOM_3.jpg",
@@ -1188,13 +1278,15 @@
             "isFeatured": false,
             "sortOrder": 33,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-diyabedroom-wordrob",
             "title": "1228 Diyabedroom Wordrob",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Diyabedroom Wordrob.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-DIYABEDROOM_WORDROB.jpg\" alt=\"Diyabedroom_wordrob\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228-DIYABEDROOM_WORDROB.jpg",
@@ -1206,13 +1298,15 @@
             "isFeatured": false,
             "sortOrder": 34,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-foram-bed-room-1",
             "title": "1228 Foram Bed Room 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Foram Bed Room 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-FORAM_BED_ROOM-1.jpg\" alt=\"Foram_bed_room\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228-FORAM_BED_ROOM-1.jpg",
@@ -1224,13 +1318,15 @@
             "isFeatured": false,
             "sortOrder": 35,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-foram-bed-room-2",
             "title": "1228 Foram Bed Room 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Foram Bed Room 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-FORAM_BED_ROOM-2.jpg\" alt=\"Foram_bed_room\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228-FORAM_BED_ROOM-2.jpg",
@@ -1242,13 +1338,15 @@
             "isFeatured": false,
             "sortOrder": 36,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-hareshbhai-bed-room-1",
             "title": "1228 Hareshbhai Bed Room 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Hareshbhai Bed Room 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-HARESHBHAI_BED_ROOM-1.jpg\" alt=\"Hareshbhai_bed_room\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228-HARESHBHAI_BED_ROOM-1.jpg",
@@ -1260,13 +1358,15 @@
             "isFeatured": false,
             "sortOrder": 37,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-hareshbhai-bed-room-2",
             "title": "1228 Hareshbhai Bed Room 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Hareshbhai Bed Room 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-HARESHBHAI_BED_ROOM-2.jpg\" alt=\"Hareshbhai_bed_room\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228-HARESHBHAI_BED_ROOM-2.jpg",
@@ -1278,13 +1378,15 @@
             "isFeatured": false,
             "sortOrder": 38,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-mandir-2",
             "title": "1228 Mandir 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Mandir 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-MANDIR-2.jpg\" alt=\"Mandir\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228-MANDIR-2.jpg",
@@ -1296,13 +1398,15 @@
             "isFeatured": false,
             "sortOrder": 39,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-paryul-bed-room-1",
             "title": "1228 Paryul Bed Room 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Paryul Bed Room 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-PARYUL_BED_ROOM-1.jpg\" alt=\"Paryul_bed_room\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228-PARYUL_BED_ROOM-1.jpg",
@@ -1314,13 +1418,15 @@
             "isFeatured": false,
             "sortOrder": 40,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-paryul-bed-room-2",
             "title": "1228 Paryul Bed Room 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Paryul Bed Room 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-PARYUL_BED_ROOM-2.jpg\" alt=\"Paryul_bed_room\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228-PARYUL_BED_ROOM-2.jpg",
@@ -1332,13 +1438,15 @@
             "isFeatured": false,
             "sortOrder": 41,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-paryul-front-view",
             "title": "1228 Paryul Front View",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Paryul Front View.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228-PARYUL_FRONT_VIEW.jpg\" alt=\"Paryul_front_view\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228-PARYUL_FRONT_VIEW.jpg",
@@ -1350,13 +1458,15 @@
             "isFeatured": false,
             "sortOrder": 42,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-hareshbhai-living-1",
             "title": "1228 Hareshbhai Living 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Hareshbhai Living 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_1.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228_HARESHBHAI_LIVING_1.jpg",
@@ -1368,13 +1478,15 @@
             "isFeatured": false,
             "sortOrder": 43,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-hareshbhai-living-2",
             "title": "1228 Hareshbhai Living 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Hareshbhai Living 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_2.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228_HARESHBHAI_LIVING_2.jpg",
@@ -1386,13 +1498,15 @@
             "isFeatured": false,
             "sortOrder": 44,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-hareshbhai-living-3",
             "title": "1228 Hareshbhai Living 3",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Hareshbhai Living 3.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_3.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228_HARESHBHAI_LIVING_3.jpg",
@@ -1404,13 +1518,15 @@
             "isFeatured": false,
             "sortOrder": 45,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-hareshbhai-living-4",
             "title": "1228 Hareshbhai Living 4",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Hareshbhai Living 4.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_4.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228_HARESHBHAI_LIVING_4.jpg",
@@ -1422,13 +1538,15 @@
             "isFeatured": false,
             "sortOrder": 46,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-hareshbhai-living-5",
             "title": "1228 Hareshbhai Living 5",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Hareshbhai Living 5.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_5.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228_HARESHBHAI_LIVING_5.jpg",
@@ -1440,13 +1558,15 @@
             "isFeatured": false,
             "sortOrder": 47,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-hareshbhai-living-6",
             "title": "1228 Hareshbhai Living 6",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Hareshbhai Living 6.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_6.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228_HARESHBHAI_LIVING_6.jpg",
@@ -1458,13 +1578,15 @@
             "isFeatured": false,
             "sortOrder": 48,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-hareshbhai-living-7",
             "title": "1228 Hareshbhai Living 7",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Hareshbhai Living 7.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_7.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228_HARESHBHAI_LIVING_7.jpg",
@@ -1476,13 +1598,15 @@
             "isFeatured": false,
             "sortOrder": 49,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1228-hareshbhai-living-8",
             "title": "1228 Hareshbhai Living 8",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1228 Hareshbhai Living 8.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1228_HARESHBHAI_LIVING_8.jpg\" alt=\"Hareshbhai_living\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1228_HARESHBHAI_LIVING_8.jpg",
@@ -1494,13 +1618,15 @@
             "isFeatured": false,
             "sortOrder": 50,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1450-manojbhai-4",
             "title": "1450 Manojbhai 4",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1450 Manojbhai 4.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1450-MANOJBHAI-4.jpg\" alt=\"Manojbhai\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1450-MANOJBHAI-4.jpg",
@@ -1512,13 +1638,15 @@
             "isFeatured": false,
             "sortOrder": 51,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1456-mansukhbhai-sakariya-1",
             "title": "1456 Mansukhbhai Sakariya 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1456 Mansukhbhai Sakariya 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1456-MANSUKHBHAI%20SAKARIYA-1.jpg\" alt=\"Mansukhbhai Sakariya\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1456-MANSUKHBHAI%20SAKARIYA-1.jpg",
@@ -1530,13 +1658,15 @@
             "isFeatured": false,
             "sortOrder": 52,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1466-maheshbhai-rathod-1",
             "title": "1466 Maheshbhai Rathod 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1466 Maheshbhai Rathod 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1466-MAHESHBHAI%20RATHOD-1.jpg\" alt=\"Maheshbhai Rathod\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1466-MAHESHBHAI%20RATHOD-1.jpg",
@@ -1548,13 +1678,15 @@
             "isFeatured": false,
             "sortOrder": 53,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1466-maheshbhai-rathod-4",
             "title": "1466 Maheshbhai Rathod 4",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1466 Maheshbhai Rathod 4.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1466-MAHESHBHAI%20RATHOD-4.jpg\" alt=\"Maheshbhai Rathod\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1466-MAHESHBHAI%20RATHOD-4.jpg",
@@ -1566,13 +1698,15 @@
             "isFeatured": false,
             "sortOrder": 54,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1474-sanjaysinh-jadeja-20-11-2025-7",
             "title": "1474 Sanjaysinh Jadeja (20 11 2025) 7",
             "location": "Gujarat, India",
             "category": "commercial",
+            "projectType": "commercial",
             "summary": "Interior & architecture visual — 1474 Sanjaysinh Jadeja (20 11 2025) 7.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1474-SANJAYSINH%20JADEJA%20%2820-11-2025%29-7.jpg\" alt=\"Sanjaysinh Jadeja (20-11-2025)\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1474-SANJAYSINH%20JADEJA%20%2820-11-2025%29-7.jpg",
@@ -1584,13 +1718,15 @@
             "isFeatured": false,
             "sortOrder": 55,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1489-pareshbhai-ladumor-3",
             "title": "1489 Pareshbhai Ladumor 3",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1489 Pareshbhai Ladumor 3.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1489-PARESHBHAI%20LADUMOR-3.jpg\" alt=\"Pareshbhai Ladumor\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1489-PARESHBHAI%20LADUMOR-3.jpg",
@@ -1602,13 +1738,15 @@
             "isFeatured": false,
             "sortOrder": 56,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1489-pareshbhai-ladumor-3-er",
             "title": "1489 Pareshbhai Ladumor 3 Er",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1489 Pareshbhai Ladumor 3 Er.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1489-PARESHBHAI%20LADUMOR-3_ER.jpg\" alt=\"Pareshbhai Ladumor-3_er\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1489-PARESHBHAI%20LADUMOR-3_ER.jpg",
@@ -1620,13 +1758,15 @@
             "isFeatured": false,
             "sortOrder": 57,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1515-gauravbhai-1",
             "title": "1515 Gauravbhai 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1515 Gauravbhai 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1515-GAURAVBHAI-1.jpg\" alt=\"Gauravbhai\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1515-GAURAVBHAI-1.jpg",
@@ -1638,13 +1778,15 @@
             "isFeatured": false,
             "sortOrder": 58,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1515-gauravbhai-1-er-jpg",
             "title": "1515 Gauravbhai 1 Er.jpg",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1515 Gauravbhai 1 Er.jpg.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1515-GAURAVBHAI-1_ER.jpg.jpeg\" alt=\"Gauravbhai-1_er.jpg\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1515-GAURAVBHAI-1_ER.jpg.jpeg",
@@ -1656,13 +1798,15 @@
             "isFeatured": false,
             "sortOrder": 59,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1523-harshitbhai-5-er-jpg",
             "title": "1523 Harshitbhai 5 Er.jpg",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1523 Harshitbhai 5 Er.jpg.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1523-HARSHITBHAI-5_ER.jpg.jpeg\" alt=\"Harshitbhai-5_er.jpg\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1523-HARSHITBHAI-5_ER.jpg.jpeg",
@@ -1674,13 +1818,15 @@
             "isFeatured": false,
             "sortOrder": 60,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "1551-kishorbhai-chotaliya-2-er",
             "title": "1551 Kishorbhai Chotaliya 2 Er",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 1551 Kishorbhai Chotaliya 2 Er.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1551-KISHORBHAI%20CHOTALIYA-2_ER.jpg\" alt=\"Kishorbhai Chotaliya-2_er\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1551-KISHORBHAI%20CHOTALIYA-2_ER.jpg",
@@ -1692,13 +1838,15 @@
             "isFeatured": false,
             "sortOrder": 61,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "2005-naimishbhai-rupareliya-2",
             "title": "2005 Naimishbhai Rupareliya 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 2005 Naimishbhai Rupareliya 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/2005-NAIMISHBHAI%20RUPARELIYA-2.jpg\" alt=\"Naimishbhai Rupareliya\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/2005-NAIMISHBHAI%20RUPARELIYA-2.jpg",
@@ -1710,13 +1858,15 @@
             "isFeatured": false,
             "sortOrder": 62,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "2005-naimishbhai-rupareliya-6",
             "title": "2005 Naimishbhai Rupareliya 6",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 2005 Naimishbhai Rupareliya 6.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/2005-NAIMISHBHAI%20RUPARELIYA-6.jpg\" alt=\"Naimishbhai Rupareliya\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/2005-NAIMISHBHAI%20RUPARELIYA-6.jpg",
@@ -1728,13 +1878,15 @@
             "isFeatured": false,
             "sortOrder": 63,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "2013-rajbha-parmar-3",
             "title": "2013 Rajbha Parmar 3",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 2013 Rajbha Parmar 3.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/2013-RAJBHA%20PARMAR-3.jpg\" alt=\"Rajbha Parmar\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/2013-RAJBHA%20PARMAR-3.jpg",
@@ -1746,13 +1898,15 @@
             "isFeatured": false,
             "sortOrder": 64,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "2015-ashishbhai-mehta-1",
             "title": "2015 Ashishbhai Mehta 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — 2015 Ashishbhai Mehta 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/2015-ASHISHBHAI%20MEHTA-1.jpg\" alt=\"Ashishbhai Mehta\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/2015-ASHISHBHAI%20MEHTA-1.jpg",
@@ -1764,13 +1918,15 @@
             "isFeatured": false,
             "sortOrder": 65,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "camera-01-1",
             "title": "Camera 01 (1)",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Camera 01 (1).",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/camera%2001%20%281%29.jpg\" alt=\"Camera 01 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/camera%2001%20%281%29.jpg",
@@ -1782,13 +1938,15 @@
             "isFeatured": false,
             "sortOrder": 66,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "camera-01",
             "title": "Camera 01",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Camera 01.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/camera%2001.jpg\" alt=\"Camera 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/camera%2001.jpg",
@@ -1800,13 +1958,15 @@
             "isFeatured": false,
             "sortOrder": 67,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "devanshi-bedroom-1",
             "title": "Devanshi Bedroom 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Devanshi Bedroom 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/DEVANSHI_BEDROOM_1.jpg\" alt=\"Devanshi Bedroom 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/DEVANSHI_BEDROOM_1.jpg",
@@ -1818,13 +1978,15 @@
             "isFeatured": false,
             "sortOrder": 68,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "devanshi-bedroom-2",
             "title": "Devanshi Bedroom 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Devanshi Bedroom 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/DEVANSHI_BEDROOM_2.jpg\" alt=\"Devanshi Bedroom 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/DEVANSHI_BEDROOM_2.jpg",
@@ -1836,13 +1998,15 @@
             "isFeatured": false,
             "sortOrder": 69,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "dining-01",
             "title": "Dining 01",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Dining 01.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/DINING%2001.jpg\" alt=\"Dining 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/DINING%2001.jpg",
@@ -1854,13 +2018,15 @@
             "isFeatured": false,
             "sortOrder": 70,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "entrance-1",
             "title": "Entrance 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Entrance 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/ENTRANCE_1.jpg\" alt=\"Entrance 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/ENTRANCE_1.jpg",
@@ -1872,13 +2038,15 @@
             "isFeatured": false,
             "sortOrder": 71,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "entry",
             "title": "Entry",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Entry.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/ENTRY.jpg\" alt=\"Entry\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/ENTRY.jpg",
@@ -1890,13 +2058,15 @@
             "isFeatured": false,
             "sortOrder": 72,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "finnle-editing-rajnikbhai",
             "title": "Finnle Editing Rajnikbhai",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Finnle Editing Rajnikbhai.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/Finnle%20Editing%20Rajnikbhai.jpg\" alt=\"Finnle Editing Rajnikbhai\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/Finnle%20Editing%20Rajnikbhai.jpg",
@@ -1908,13 +2078,15 @@
             "isFeatured": false,
             "sortOrder": 73,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "forma-1",
             "title": "Forma 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Forma 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/FORMA_1.jpg\" alt=\"Forma 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/FORMA_1.jpg",
@@ -1926,13 +2098,15 @@
             "isFeatured": false,
             "sortOrder": 74,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "forma-2",
             "title": "Forma 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Forma 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/FORMA_2.jpg\" alt=\"Forma 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/FORMA_2.jpg",
@@ -1944,13 +2118,15 @@
             "isFeatured": false,
             "sortOrder": 75,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "gf-bedroom-01",
             "title": "Gf Bedroom 01",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Gf Bedroom 01.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/GF%20BEDROOM%2001.jpg\" alt=\"Gf Bedroom 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/GF%20BEDROOM%2001.jpg",
@@ -1962,13 +2138,15 @@
             "isFeatured": false,
             "sortOrder": 76,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "gf-bedroom-02",
             "title": "Gf Bedroom 02",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Gf Bedroom 02.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/GF%20BEDROOM%2002.jpg\" alt=\"Gf Bedroom 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/GF%20BEDROOM%2002.jpg",
@@ -1980,13 +2158,15 @@
             "isFeatured": false,
             "sortOrder": 77,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "gf-bedroom-03",
             "title": "Gf Bedroom 03",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Gf Bedroom 03.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/GF%20BEDROOM%2003.jpg\" alt=\"Gf Bedroom 03\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/GF%20BEDROOM%2003.jpg",
@@ -1998,13 +2178,15 @@
             "isFeatured": false,
             "sortOrder": 78,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "gf-bedroom-04",
             "title": "Gf Bedroom 04",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Gf Bedroom 04.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/GF%20BEDROOM%2004.jpg\" alt=\"Gf Bedroom 04\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/GF%20BEDROOM%2004.jpg",
@@ -2016,13 +2198,15 @@
             "isFeatured": false,
             "sortOrder": 79,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "girishbhai",
             "title": "Girishbhai",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Girishbhai.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/girishbhai.jpg\" alt=\"Girishbhai\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/girishbhai.jpg",
@@ -2034,13 +2218,15 @@
             "isFeatured": false,
             "sortOrder": 80,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "hareshbhai-bed-room-1",
             "title": "Hareshbhai Bed Room 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Hareshbhai Bed Room 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/HARESHBHAI_BED_ROOM_1.jpg\" alt=\"Hareshbhai Bed Room 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/HARESHBHAI_BED_ROOM_1.jpg",
@@ -2052,13 +2238,15 @@
             "isFeatured": false,
             "sortOrder": 81,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "hareshbhai-bed-room-2",
             "title": "Hareshbhai Bed Room 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Hareshbhai Bed Room 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/HARESHBHAI_BED_ROOM_2.jpg\" alt=\"Hareshbhai Bed Room 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/HARESHBHAI_BED_ROOM_2.jpg",
@@ -2070,13 +2258,15 @@
             "isFeatured": false,
             "sortOrder": 82,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-002-01-01",
             "title": "Ip 002 01 01",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 002 01 01.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-01_01.jpg\" alt=\"Ip 002 01 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-002-01_01.jpg",
@@ -2088,13 +2278,15 @@
             "isFeatured": false,
             "sortOrder": 83,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-002-01-02",
             "title": "Ip 002 01 02",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 002 01 02.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-01_02.jpg\" alt=\"Ip 002 01 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-002-01_02.jpg",
@@ -2106,13 +2298,15 @@
             "isFeatured": false,
             "sortOrder": 84,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-002-01-03",
             "title": "Ip 002 01 03",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 002 01 03.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-01_03.jpg\" alt=\"Ip 002 01 03\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-002-01_03.jpg",
@@ -2124,13 +2318,15 @@
             "isFeatured": false,
             "sortOrder": 85,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-002-01-04",
             "title": "Ip 002 01 04",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 002 01 04.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-01_04.jpg\" alt=\"Ip 002 01 04\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-002-01_04.jpg",
@@ -2142,13 +2338,15 @@
             "isFeatured": false,
             "sortOrder": 86,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-002-01-05",
             "title": "Ip 002 01 05",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 002 01 05.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-01_05.jpg\" alt=\"Ip 002 01 05\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-002-01_05.jpg",
@@ -2160,13 +2358,15 @@
             "isFeatured": false,
             "sortOrder": 87,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-002-01-06",
             "title": "Ip 002 01 06",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 002 01 06.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-01_06.jpg\" alt=\"Ip 002 01 06\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-002-01_06.jpg",
@@ -2178,13 +2378,15 @@
             "isFeatured": false,
             "sortOrder": 88,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-002-02-01",
             "title": "Ip 002 02 01",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 002 02 01.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-02-01.jpg\" alt=\"Ip 002 02 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-002-02-01.jpg",
@@ -2196,13 +2398,15 @@
             "isFeatured": false,
             "sortOrder": 89,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-002-02-02",
             "title": "Ip 002 02 02",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 002 02 02.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-02-02.jpg\" alt=\"Ip 002 02 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-002-02-02.jpg",
@@ -2214,13 +2418,15 @@
             "isFeatured": false,
             "sortOrder": 90,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-002-02-03",
             "title": "Ip 002 02 03",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 002 02 03.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-02-03.jpg\" alt=\"Ip 002 02 03\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-002-02-03.jpg",
@@ -2232,13 +2438,15 @@
             "isFeatured": false,
             "sortOrder": 91,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-002-02-04",
             "title": "Ip 002 02 04",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 002 02 04.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-02-04.jpg\" alt=\"Ip 002 02 04\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-002-02-04.jpg",
@@ -2250,13 +2458,15 @@
             "isFeatured": false,
             "sortOrder": 92,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-002-03-01",
             "title": "Ip 002 03 01",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 002 03 01.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-03-01.jpg\" alt=\"Ip 002 03 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-002-03-01.jpg",
@@ -2268,13 +2478,15 @@
             "isFeatured": false,
             "sortOrder": 93,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-002-03-02",
             "title": "Ip 002 03 02",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 002 03 02.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-03-02.jpg\" alt=\"Ip 002 03 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-002-03-02.jpg",
@@ -2286,13 +2498,15 @@
             "isFeatured": false,
             "sortOrder": 94,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-002-03-03",
             "title": "Ip 002 03 03",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 002 03 03.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-03-03.jpg\" alt=\"Ip 002 03 03\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-002-03-03.jpg",
@@ -2304,13 +2518,15 @@
             "isFeatured": false,
             "sortOrder": 95,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-002-05-01",
             "title": "Ip 002 05 01",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 002 05 01.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-05-01.jpg\" alt=\"Ip 002 05 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-002-05-01.jpg",
@@ -2322,13 +2538,15 @@
             "isFeatured": false,
             "sortOrder": 96,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-002-05-02",
             "title": "Ip 002 05 02",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 002 05 02.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-002-05-02.jpg\" alt=\"Ip 002 05 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-002-05-02.jpg",
@@ -2340,13 +2558,15 @@
             "isFeatured": false,
             "sortOrder": 97,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-005-sidharth-siyani-1",
             "title": "Ip 005 Sidharth Siyani 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 005 Sidharth Siyani 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-005-SIDHARTH%20SIYANI-1.jpg\" alt=\"Ip 005 Sidharth Siyani 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-005-SIDHARTH%20SIYANI-1.jpg",
@@ -2358,13 +2578,15 @@
             "isFeatured": false,
             "sortOrder": 98,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-005-sidharth-siyani-2",
             "title": "Ip 005 Sidharth Siyani 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 005 Sidharth Siyani 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-005-SIDHARTH%20SIYANI-2.jpg\" alt=\"Ip 005 Sidharth Siyani 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-005-SIDHARTH%20SIYANI-2.jpg",
@@ -2376,13 +2598,15 @@
             "isFeatured": false,
             "sortOrder": 99,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-005-sidharth-siyani-3",
             "title": "Ip 005 Sidharth Siyani 3",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 005 Sidharth Siyani 3.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-005-SIDHARTH%20SIYANI-3.jpg\" alt=\"Ip 005 Sidharth Siyani 3\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-005-SIDHARTH%20SIYANI-3.jpg",
@@ -2394,13 +2618,15 @@
             "isFeatured": false,
             "sortOrder": 100,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "ip-005-sidharth-siyani-4",
             "title": "Ip 005 Sidharth Siyani 4",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Ip 005 Sidharth Siyani 4.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/IP-005-SIDHARTH%20SIYANI-4.jpg\" alt=\"Ip 005 Sidharth Siyani 4\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/IP-005-SIDHARTH%20SIYANI-4.jpg",
@@ -2412,13 +2638,15 @@
             "isFeatured": false,
             "sortOrder": 101,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "kitchen-01",
             "title": "Kitchen 01",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Kitchen 01.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/KITCHEN%2001.jpg\" alt=\"Kitchen 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/KITCHEN%2001.jpg",
@@ -2430,13 +2658,15 @@
             "isFeatured": false,
             "sortOrder": 102,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "kitchen-02",
             "title": "Kitchen 02",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Kitchen 02.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/KITCHEN%2002.jpg\" alt=\"Kitchen 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/KITCHEN%2002.jpg",
@@ -2448,13 +2678,15 @@
             "isFeatured": false,
             "sortOrder": 103,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "kitchen-03",
             "title": "Kitchen 03",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Kitchen 03.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/KITCHEN%2003.jpg\" alt=\"Kitchen 03\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/KITCHEN%2003.jpg",
@@ -2466,13 +2698,15 @@
             "isFeatured": false,
             "sortOrder": 104,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-01",
             "title": "Living 01",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living 01.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING%2001.jpg\" alt=\"Living 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING%2001.jpg",
@@ -2484,13 +2718,15 @@
             "isFeatured": false,
             "sortOrder": 105,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-02",
             "title": "Living 02",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living 02.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING%2002.jpg\" alt=\"Living 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING%2002.jpg",
@@ -2502,13 +2738,15 @@
             "isFeatured": false,
             "sortOrder": 106,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-03",
             "title": "Living 03",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living 03.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING%2003.jpg\" alt=\"Living 03\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING%2003.jpg",
@@ -2520,13 +2758,15 @@
             "isFeatured": false,
             "sortOrder": 107,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-04",
             "title": "Living 04",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living 04.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING%2004.jpg\" alt=\"Living 04\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING%2004.jpg",
@@ -2538,13 +2778,15 @@
             "isFeatured": false,
             "sortOrder": 108,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-05",
             "title": "Living 05",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living 05.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING%2005.jpg\" alt=\"Living 05\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING%2005.jpg",
@@ -2556,13 +2798,15 @@
             "isFeatured": false,
             "sortOrder": 109,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-1-1",
             "title": "Living Room 1 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 1 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_1-1.jpg\" alt=\"Living Room 1 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_1-1.jpg",
@@ -2574,13 +2818,15 @@
             "isFeatured": false,
             "sortOrder": 110,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-1",
             "title": "Living Room 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_1.jpg\" alt=\"Living Room 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_1.jpg",
@@ -2592,13 +2838,15 @@
             "isFeatured": false,
             "sortOrder": 111,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-2-1",
             "title": "Living Room 2 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 2 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_2-1.jpg\" alt=\"Living Room 2 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_2-1.jpg",
@@ -2610,13 +2858,15 @@
             "isFeatured": false,
             "sortOrder": 112,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-2",
             "title": "Living Room 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_2.jpg\" alt=\"Living Room 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_2.jpg",
@@ -2628,13 +2878,15 @@
             "isFeatured": false,
             "sortOrder": 113,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-3-1",
             "title": "Living Room 3 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 3 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_3-1.jpg\" alt=\"Living Room 3 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_3-1.jpg",
@@ -2646,13 +2898,15 @@
             "isFeatured": false,
             "sortOrder": 114,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-3",
             "title": "Living Room 3",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 3.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_3.jpg\" alt=\"Living Room 3\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_3.jpg",
@@ -2664,13 +2918,15 @@
             "isFeatured": false,
             "sortOrder": 115,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-4-1",
             "title": "Living Room 4 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 4 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_4-1.jpg\" alt=\"Living Room 4 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_4-1.jpg",
@@ -2682,13 +2938,15 @@
             "isFeatured": false,
             "sortOrder": 116,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-4",
             "title": "Living Room 4",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 4.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_4.jpg\" alt=\"Living Room 4\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_4.jpg",
@@ -2700,13 +2958,15 @@
             "isFeatured": false,
             "sortOrder": 117,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-5-1",
             "title": "Living Room 5 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 5 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_5-1.jpg\" alt=\"Living Room 5 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_5-1.jpg",
@@ -2718,13 +2978,15 @@
             "isFeatured": false,
             "sortOrder": 118,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-5",
             "title": "Living Room 5",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 5.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_5.jpg\" alt=\"Living Room 5\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_5.jpg",
@@ -2736,13 +2998,15 @@
             "isFeatured": false,
             "sortOrder": 119,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-6-1",
             "title": "Living Room 6 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 6 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_6-1.jpg\" alt=\"Living Room 6 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_6-1.jpg",
@@ -2754,13 +3018,15 @@
             "isFeatured": false,
             "sortOrder": 120,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-6",
             "title": "Living Room 6",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 6.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_6.jpg\" alt=\"Living Room 6\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_6.jpg",
@@ -2772,13 +3038,15 @@
             "isFeatured": false,
             "sortOrder": 121,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-7-1",
             "title": "Living Room 7 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 7 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_7-1.jpg\" alt=\"Living Room 7 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_7-1.jpg",
@@ -2790,13 +3058,15 @@
             "isFeatured": false,
             "sortOrder": 122,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-7",
             "title": "Living Room 7",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 7.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_7.jpg\" alt=\"Living Room 7\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_7.jpg",
@@ -2808,13 +3078,15 @@
             "isFeatured": false,
             "sortOrder": 123,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-8-1",
             "title": "Living Room 8 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 8 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_8-1.jpg\" alt=\"Living Room 8 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_8-1.jpg",
@@ -2826,13 +3098,15 @@
             "isFeatured": false,
             "sortOrder": 124,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "living-room-8",
             "title": "Living Room 8",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Living Room 8.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/LIVING_ROOM_8.jpg\" alt=\"Living Room 8\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/LIVING_ROOM_8.jpg",
@@ -2844,13 +3118,15 @@
             "isFeatured": false,
             "sortOrder": 125,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "mandir-01",
             "title": "Mandir 01",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Mandir 01.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/MANDIR%2001.jpg\" alt=\"Mandir 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/MANDIR%2001.jpg",
@@ -2862,13 +3138,15 @@
             "isFeatured": false,
             "sortOrder": 126,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "master-bedroom-01",
             "title": "Master Bedroom 01",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Master Bedroom 01.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/MASTER%20BEDROOM%2001.jpg\" alt=\"Master Bedroom 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/MASTER%20BEDROOM%2001.jpg",
@@ -2880,13 +3158,15 @@
             "isFeatured": false,
             "sortOrder": 127,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "master-bedroom-02",
             "title": "Master Bedroom 02",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Master Bedroom 02.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/MASTER%20BEDROOM%2002.jpg\" alt=\"Master Bedroom 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/MASTER%20BEDROOM%2002.jpg",
@@ -2898,13 +3178,15 @@
             "isFeatured": false,
             "sortOrder": 128,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "master-bedroom-03",
             "title": "Master Bedroom 03",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Master Bedroom 03.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/MASTER%20BEDROOM%2003.jpg\" alt=\"Master Bedroom 03\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/MASTER%20BEDROOM%2003.jpg",
@@ -2916,13 +3198,15 @@
             "isFeatured": false,
             "sortOrder": 129,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "retail-jewellery-showcase",
             "title": "Jewellery showroom",
             "location": "Rajkot, Gujarat",
-            "category": "retail",
+            "category": "commercial",
+            "projectType": "commercial",
             "summary": "Luxury retail interior with display lighting and bespoke joinery.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Jewellery showroom\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Jewellery showroom\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Jewellery showroom\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/retail/retail-jewellery-showroom.jpg",
@@ -2934,13 +3218,15 @@
             "isFeatured": false,
             "sortOrder": 130,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "master-bedroom-04",
             "title": "Master Bedroom 04",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Master Bedroom 04.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/MASTER%20BEDROOM%2004.jpg\" alt=\"Master Bedroom 04\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/MASTER%20BEDROOM%2004.jpg",
@@ -2952,13 +3238,15 @@
             "isFeatured": false,
             "sortOrder": 130,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "retail-fashion-boutique",
             "title": "Fashion boutique",
             "location": "Ahmedabad, Gujarat",
-            "category": "retail",
+            "category": "commercial",
+            "projectType": "commercial",
             "summary": "Boutique fit-out — merchandising walls, trial rooms, and brand-led atmosphere.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Fashion boutique\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Fashion boutique\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/retail/retail-fashion-boutique.jpg",
@@ -2970,13 +3258,15 @@
             "isFeatured": false,
             "sortOrder": 131,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "mukeshbhai-bedroom-1",
             "title": "Mukeshbhai Bedroom 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Mukeshbhai Bedroom 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/MUKESHBHAI_BEDROOM_1.jpg\" alt=\"Mukeshbhai Bedroom 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/MUKESHBHAI_BEDROOM_1.jpg",
@@ -2988,13 +3278,15 @@
             "isFeatured": false,
             "sortOrder": 131,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "retail-furniture-showroom",
             "title": "Furniture showroom",
             "location": "Surat, Gujarat",
-            "category": "retail",
+            "category": "commercial",
+            "projectType": "commercial",
             "summary": "Open-plan showroom zoning with feature displays and customer circulation.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Furniture showroom\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Furniture showroom\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/retail/retail-furniture-showroom.jpg",
@@ -3006,13 +3298,15 @@
             "isFeatured": false,
             "sortOrder": 132,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "mukeshbhai-bedroom-2",
             "title": "Mukeshbhai Bedroom 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Mukeshbhai Bedroom 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/MUKESHBHAI_BEDROOM_2.jpg\" alt=\"Mukeshbhai Bedroom 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/MUKESHBHAI_BEDROOM_2.jpg",
@@ -3024,13 +3318,15 @@
             "isFeatured": false,
             "sortOrder": 132,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "retail-cafe-lounge",
             "title": "Café & retail lounge",
             "location": "Vadodara, Gujarat",
-            "category": "retail",
+            "category": "commercial",
+            "projectType": "commercial",
             "summary": "Hybrid café-retail concept — hospitality finishes with product display.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Café &amp; retail lounge\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Café &amp; retail lounge\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/retail/retail-cafe-lounge.jpg",
@@ -3042,13 +3338,15 @@
             "isFeatured": false,
             "sortOrder": 133,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "paryul-1",
             "title": "Paryul 1",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Paryul 1.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/PARYUL_1.jpg\" alt=\"Paryul 1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/PARYUL_1.jpg",
@@ -3060,13 +3358,15 @@
             "isFeatured": false,
             "sortOrder": 133,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "retail-electronics-store",
             "title": "Electronics retail",
             "location": "Rajkot, Gujarat",
-            "category": "retail",
+            "category": "commercial",
+            "projectType": "commercial",
             "summary": "Clean-lined retail shell with modular fixtures and accent lighting.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Electronics retail\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Electronics retail\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/retail/retail-electronics-store.jpg",
@@ -3078,13 +3378,15 @@
             "isFeatured": false,
             "sortOrder": 134,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "paryul-2",
             "title": "Paryul 2",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Paryul 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/PARYUL_2.jpg\" alt=\"Paryul 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/PARYUL_2.jpg",
@@ -3096,13 +3398,15 @@
             "isFeatured": false,
             "sortOrder": 134,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "retail-cosmetics-counter",
             "title": "Cosmetics counter",
             "location": "Gandhinagar, Gujarat",
-            "category": "retail",
+            "category": "commercial",
+            "projectType": "commercial",
             "summary": "Premium beauty retail — illuminated counters and material-rich surfaces.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Cosmetics counter\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Cosmetics counter\" loading=\"lazy\" decoding=\"async\" /></figure><figure class=\"project-photo\"><img src=\"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80\" alt=\"Cosmetics counter\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/retail/retail-cosmetics-counter.jpg",
@@ -3114,13 +3418,15 @@
             "isFeatured": false,
             "sortOrder": 135,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "passage-01",
             "title": "Passage 01",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Passage 01.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/PASSAGE%2001.jpg\" alt=\"Passage 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/PASSAGE%2001.jpg",
@@ -3132,13 +3438,15 @@
             "isFeatured": false,
             "sortOrder": 135,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "retail-cafe-lounge-2",
             "title": "Retail Cafe Lounge",
             "location": "Gujarat, India",
             "category": "commercial",
+            "projectType": "commercial",
             "summary": "Interior & architecture visual — Retail Cafe Lounge.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/retail/retail-cafe-lounge.jpg\" alt=\"Retail Cafe Lounge\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/retail/retail-cafe-lounge.jpg",
@@ -3150,13 +3458,15 @@
             "isFeatured": false,
             "sortOrder": 136,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "retail-cosmetics-counter-2",
             "title": "Retail Cosmetics Counter",
             "location": "Gujarat, India",
             "category": "commercial",
+            "projectType": "commercial",
             "summary": "Interior & architecture visual — Retail Cosmetics Counter.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/retail/retail-cosmetics-counter.jpg\" alt=\"Retail Cosmetics Counter\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/retail/retail-cosmetics-counter.jpg",
@@ -3168,13 +3478,15 @@
             "isFeatured": false,
             "sortOrder": 137,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "retail-electronics-store-2",
             "title": "Retail Electronics Store",
             "location": "Gujarat, India",
             "category": "commercial",
+            "projectType": "commercial",
             "summary": "Interior & architecture visual — Retail Electronics Store.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/retail/retail-electronics-store.jpg\" alt=\"Retail Electronics Store\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/retail/retail-electronics-store.jpg",
@@ -3186,13 +3498,15 @@
             "isFeatured": false,
             "sortOrder": 138,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "retail-fashion-boutique-2",
             "title": "Retail Fashion Boutique",
             "location": "Gujarat, India",
             "category": "commercial",
+            "projectType": "commercial",
             "summary": "Interior & architecture visual — Retail Fashion Boutique.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/retail/retail-fashion-boutique.jpg\" alt=\"Retail Fashion Boutique\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/retail/retail-fashion-boutique.jpg",
@@ -3204,13 +3518,15 @@
             "isFeatured": false,
             "sortOrder": 139,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "retail-furniture-showroom-2",
             "title": "Retail Furniture Showroom",
             "location": "Gujarat, India",
             "category": "commercial",
+            "projectType": "commercial",
             "summary": "Interior & architecture visual — Retail Furniture Showroom.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/retail/retail-furniture-showroom.jpg\" alt=\"Retail Furniture Showroom\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/retail/retail-furniture-showroom.jpg",
@@ -3222,13 +3538,15 @@
             "isFeatured": false,
             "sortOrder": 140,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "retail-jewellery-showroom",
             "title": "Retail Jewellery Showroom",
             "location": "Gujarat, India",
             "category": "commercial",
+            "projectType": "commercial",
             "summary": "Interior & architecture visual — Retail Jewellery Showroom.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/retail/retail-jewellery-showroom.jpg\" alt=\"Retail Jewellery Showroom\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/retail/retail-jewellery-showroom.jpg",
@@ -3240,13 +3558,15 @@
             "isFeatured": false,
             "sortOrder": 141,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "stair-case-storage-01",
             "title": "Stair Case Storage 01",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Stair Case Storage 01.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/STAIR%20CASE%20STORAGE%2001.jpg\" alt=\"Stair Case Storage 01\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/STAIR%20CASE%20STORAGE%2001.jpg",
@@ -3258,13 +3578,15 @@
             "isFeatured": false,
             "sortOrder": 142,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "stair-case-storage-02",
             "title": "Stair Case Storage 02",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — Stair Case Storage 02.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/STAIR%20CASE%20STORAGE%2002.jpg\" alt=\"Stair Case Storage 02\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/STAIR%20CASE%20STORAGE%2002.jpg",
@@ -3276,13 +3598,15 @@
             "isFeatured": false,
             "sortOrder": 143,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         },
         {
             "slug": "view-02-night",
             "title": "View 02 Night",
             "location": "Gujarat, India",
             "category": "residential",
+            "projectType": "residential",
             "summary": "Interior & architecture visual — View 02 Night.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/View%2002-night.jpg\" alt=\"View 02 Night\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/View%2002-night.jpg",
@@ -3294,7 +3618,8 @@
             "isFeatured": false,
             "sortOrder": 144,
             "area": "",
-            "year": null
+            "year": null,
+            "servicesProvided": ""
         }
     ],
     "servicesHome": [
@@ -3394,7 +3719,22 @@
             "kicker": "Portfolio",
             "title": "Selected work",
             "lead": "Residential, commercial, and retail — conceived as one coherent story from street to detail.",
-            "heroImage": "uploads/1523-HARSHITBHAI-5_ER.jpg.jpeg"
+            "heroImage": "uploads/1523-HARSHITBHAI-5_ER.jpg.jpeg",
+            "featuredEyebrow": "Featured commission",
+            "statsEyebrow": "Experience",
+            "statsTitle": "Built on measurable impact",
+            "categoriesEyebrow": "Disciplines",
+            "categoriesTitle": "Explore by category",
+            "testimonialsEyebrow": "Clients",
+            "testimonialsTitle": "Trusted for execution & design",
+            "timelineEyebrow": "Growth",
+            "timelineTitle": "A decade of delivery",
+            "timelineIntro": "Projects completed year by year — evidence of sustained practice and expanding scope.",
+            "trustEyebrow": "Why Archevo",
+            "trustTitle": "Why clients choose Archevo",
+            "ctaEyebrow": "Next project",
+            "ctaTitle": "Ready To Build Something Exceptional?",
+            "ctaSub": "Architecture.\nInteriors.\nConstruction.\nTurnkey Delivery."
         },
         "contact": {
             "heroKicker": "Enquiries",
@@ -3642,9 +3982,34 @@
                 }
             ],
             "faq": {
-                "eyebrow": "",
-                "title": "",
-                "items": []
+                "eyebrow": "Questions",
+                "title": "Before you enquire",
+                "items": [
+                    {
+                        "q": "How much does a typical project cost?",
+                        "a": "Cost depends on site, scope, and finish level. After an initial consultation and site study, we provide a phased estimate aligned to your brief and timeline."
+                    },
+                    {
+                        "q": "How long does the full process take?",
+                        "a": "Timelines vary by project type — approvals, construction, and interiors each have distinct phases. We share a milestone calendar at engagement so you know what happens next."
+                    },
+                    {
+                        "q": "Do you handle plan approvals and sanctions?",
+                        "a": "Yes. We prepare drawings for local plan sanctioning and coordinate with authorities so compliance is handled within the studio — not passed back to you."
+                    },
+                    {
+                        "q": "Can you manage construction on site?",
+                        "a": "Yes. Our civil and project management teams supervise quality, vendors, RFIs, and snag lists through handover — protecting design intent on site."
+                    },
+                    {
+                        "q": "What is included in a turnkey package?",
+                        "a": "Design, approvals, construction, interiors, procurement, and handover under one contract — single point of contact from brief to keys."
+                    },
+                    {
+                        "q": "Do you offer interior design only?",
+                        "a": "Yes. We deliver spatial planning, materials, joinery drawings, FF&E, and execution supervision as a standalone interior engagement or integrated with architecture."
+                    }
+                ]
             },
             "ctaSecondary": {
                 "text": "Get project estimate",

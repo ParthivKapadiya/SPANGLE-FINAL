@@ -4,7 +4,8 @@ DirectoryIndex index.html index.php
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  # Journal articles are served by journal-post.php (CMS); no redirect to .html
+  RewriteRule ^journal\.html$ contact.html [R=301,L]
+  RewriteRule ^journal-post\.php$ contact.html [R=301,L]
   RewriteRule ^(config|includes|database)/ - [F,L]
   RewriteRule ^php/ - [F,L]
 </IfModule>

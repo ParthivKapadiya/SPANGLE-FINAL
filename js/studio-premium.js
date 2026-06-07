@@ -198,7 +198,7 @@
     var block = document.getElementById('founder');
     if (!block) return;
     var team = data.team || [];
-    var founder = team[0] || { name: 'Jay Rathod', role: 'Director', bio: '' };
+    var founder = team[0] || { name: 'Jay P. Rathood', role: 'Director', bio: '' };
 
     var portrait = $('#studio-founder-portrait');
     var quote = $('.site-studio-pullquote');
