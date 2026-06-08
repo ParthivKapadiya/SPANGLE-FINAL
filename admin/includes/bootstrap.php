@@ -28,6 +28,35 @@ function admin_slugify(string $text): string
     return trim($text, '-') ?: 'item';
 }
 
+/** Ensure slug is unique within projects (appends -2, -3, … when taken). */
+function admin_unique_slug(PDO $pdo, string $slug, string $table, int $excludeId = 0): string
+{
+    $allowed = ['projects'];
+    if (!in_array($table, $allowed, true)) {
+        throw new InvalidArgumentException('Invalid slug table');
+    }
+
+    $slug = admin_slugify($slug);
+    $base = $slug;
+    $n = 2;
+    while (true) {
+        $sql = "SELECT 1 FROM {$table} WHERE slug = ?";
+        $params = [$slug];
+        if ($excludeId > 0) {
+            $sql .= ' AND id != ?';
+            $params[] = $excludeId;
+        }
+        $sql .= ' LIMIT 1';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+        if (!$stmt->fetchColumn()) {
+            return $slug;
+        }
+        $slug = $base . '-' . $n;
+        $n++;
+    }
+}
+
 function admin_require_auth(): void
 {
     Auth::requireAdmin();

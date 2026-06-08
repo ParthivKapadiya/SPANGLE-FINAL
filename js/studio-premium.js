@@ -112,27 +112,25 @@
       .join('');
   }
 
-  function renderWhyGrid() {
+  function renderWhyGrid(data) {
     var grid = $('#studio-why-grid');
-    if (!grid || grid.children.length) return;
-    var items = [
-      ['01', 'Integrated Design + Build', 'Architecture, engineering, interiors, and site execution aligned from day one — not stitched together later.'],
-      ['02', 'Civil Engineering Expertise', 'Structural thinking and buildability embedded in every drawing — fewer surprises on site.'],
-      ['03', 'Interior Design Excellence', 'Space planning, materials, and atmosphere composed with the same rigour as the shell.'],
-      ['04', 'Turnkey Delivery', 'One accountable studio from brief to keys — procurement, labour, and handover under one roof.'],
-      ['05', 'Plan Approval Support', 'Drawings and submissions prepared for local sanctioning requirements across Gujarat.'],
-      ['06', 'Single Point Responsibility', 'One director-led team — no disappearing contractors, no lost accountability mid-project.'],
-    ];
-    grid.innerHTML = items
-      .map(function (row) {
+    if (!grid) return;
+    data = data || window.__SPANGLE_SITE__ || {};
+    var page = (data.pages && data.pages.studio) || {};
+    var cards = page.whyCards || (data.pages && data.pages.home && data.pages.home.whyCards) || [];
+    if (!cards.length) return;
+
+    grid.innerHTML = cards
+      .map(function (card, index) {
+        var num = String(index + 1).padStart(2, '0');
         return (
           '<article class="studio-why-item studio-reveal">' +
           '<span class="studio-why-item__num">' +
-          row[0] +
+          num +
           '</span><h3>' +
-          esc(row[1]) +
+          esc(card.title || '') +
           '</h3><p>' +
-          esc(row[2]) +
+          esc(card.text || '') +
           '</p></article>'
         );
       })
@@ -181,99 +179,6 @@
           '</h3><p>' +
           esc(row[1]) +
           '</p></article>'
-        );
-      })
-      .join('');
-  }
-
-  function founderPortraitSrc(founder, page, data) {
-    if (founder && founder.image) return mediaSrc(founder.image, data);
-    if (page && page.philosophyImage) return mediaSrc(page.philosophyImage, data);
-    if (page && page.heroImage) return mediaSrc(page.heroImage, data);
-    if (page && page.stripImages && page.stripImages[0]) return mediaSrc(page.stripImages[0], data);
-    return 'uploads/1228_HARESHBHAI_LIVING_3.jpg';
-  }
-
-  function renderFounder(data, page) {
-    var block = document.getElementById('founder');
-    if (!block) return;
-    var team = data.team || [];
-    var founder = team[0] || { name: 'Jay P. Rathood', role: 'Director', bio: '' };
-
-    var portrait = $('#studio-founder-portrait');
-    var quote = $('.site-studio-pullquote');
-    var quoteText = (page && page.pullquote) || (quote && quote.textContent) || '';
-    var src = founderPortraitSrc(founder, page, data);
-    var alt = founder.name + ', ' + (founder.role || 'Director') + ' at Archevo Design';
-
-    if (portrait) {
-      var img = portrait.querySelector('.studio-founder__photo');
-      if (img) {
-        img.setAttribute('src', src);
-        img.setAttribute('alt', alt);
-      } else {
-        portrait.innerHTML =
-          '<img src="' +
-          esc(src) +
-          '" class="studio-founder__photo site-studio-philosophy-image" alt="' +
-          esc(alt) +
-          '" loading="lazy" decoding="async" data-img-fallback="uploads/1212-ARVINDBHAI%20PARMAR_FRONT-2.jpg" />' +
-          '<p class="studio-founder__caption"><span id="studio-founder-caption-name">' +
-          esc(founder.name) +
-          '</span> · <span id="studio-founder-caption-role">' +
-          esc(founder.role || 'Director') +
-          '</span></p>';
-      }
-    }
-
-    var q = $('#studio-founder-quote');
-    if (q && quoteText) q.textContent = quoteText.replace(/^["“]|["”]$/g, '');
-
-    var name = $('#studio-founder-name');
-    var role = $('#studio-founder-role');
-    var bio = $('#studio-founder-bio');
-    var capName = $('#studio-founder-caption-name');
-    var capRole = $('#studio-founder-caption-role');
-    if (name) name.textContent = founder.name;
-    if (role) role.textContent = founder.role;
-    if (bio && founder.bio) bio.textContent = founder.bio;
-    if (capName) capName.textContent = founder.name;
-    if (capRole) capRole.textContent = founder.role || 'Director';
-  }
-
-  function renderTeam(data) {
-    var grid = $('#studio-team-grid');
-    if (!grid || !data.team || !data.team.length) return;
-
-    var eyebrow = $('.site-team-eyebrow');
-    var title = $('.site-team-title');
-    if (eyebrow && data.home && data.home.teamEyebrow) eyebrow.textContent = data.home.teamEyebrow;
-    if (title && data.home && data.home.teamTitle) title.textContent = data.home.teamTitle;
-
-    grid.innerHTML = data.team
-      .map(function (m) {
-        var avatar = m.image
-          ? '<img src="' + esc(mediaSrc(m.image, data)) + '" alt="" loading="lazy" decoding="async" />'
-          : '<div class="team-avatar" role="img" aria-label="' + esc(m.name) + '">' + esc(m.initials || m.name.charAt(0)) + '</div>';
-        var links = '';
-        if (m.linkedin) {
-          links =
-            '<div class="studio-team-card__links"><a href="' +
-            esc(m.linkedin) +
-            '" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></div>';
-        }
-        return (
-          '<article class="studio-team-card studio-reveal">' +
-          avatar +
-          '<h3>' +
-          esc(m.name) +
-          '</h3><p class="team-role">' +
-          esc(m.role) +
-          '</p><p>' +
-          esc(m.bio) +
-          '</p>' +
-          links +
-          '</article>'
         );
       })
       .join('');
@@ -337,24 +242,18 @@
   function renderCulture(page, data) {
     var grid = $('#studio-culture-grid');
     if (!grid) return;
-    var images = (page && page.stripImages) || [];
-    images = images.filter(Boolean);
-    if (!images.length) {
-      var strip = $('.site-studio-strip');
-      if (strip) {
-        strip.querySelectorAll('img').forEach(function (img) {
-          if (img.getAttribute('src')) images.push(img.getAttribute('src'));
-        });
-      }
-    }
+    var images = ((page && page.stripImages) || []).filter(Boolean);
+    var captions = ((page && page.stripCaptions) || []).filter(function (caption) {
+      return caption != null;
+    });
     if (!images.length) images = CULTURE_FALLBACKS.slice();
-    images = images.slice(0, 3);
+    images = images.slice(0, 6);
 
     grid.innerHTML = images
       .map(function (src, i) {
         var url = mediaSrc(src);
         var fallback = mediaSrc(CULTURE_ERROR_FALLBACKS[i % CULTURE_ERROR_FALLBACKS.length]);
-        var label = CULTURE_LABELS[i % CULTURE_LABELS.length];
+        var label = (captions[i] || '').trim() || CULTURE_LABELS[i % CULTURE_LABELS.length];
         return (
           '<figure class="studio-reveal is-in">' +
           '<img src="' +
@@ -403,14 +302,41 @@
     }
   }
 
-  function renderTrust(data) {
-    var track = $('#studio-trust-track');
-    if (!track || !data.testimonials || !data.testimonials.length) return;
+  function renderTrustBadges(page) {
+    var meta = $('#studio-trust-badges');
+    if (!meta || !page || !page.trustBadges || !page.trustBadges.length) return;
 
-    var eyebrow = $('.site-testimonials-eyebrow');
-    var title = $('.site-testimonials-title');
-    if (eyebrow && data.home && data.home.testimonialsEyebrow) eyebrow.textContent = data.home.testimonialsEyebrow;
-    if (title && data.home && data.home.testimonialsTitle) title.textContent = data.home.testimonialsTitle;
+    meta.innerHTML = page.trustBadges
+      .filter(function (badge) {
+        return badge.value || badge.label;
+      })
+      .map(function (badge) {
+        var icon = badge.icon || 'fa-solid fa-star';
+        return (
+          '<div class="studio-trust-badge"><i class="' +
+          esc(icon) +
+          '" aria-hidden="true"></i><div><strong>' +
+          esc(badge.value) +
+          '</strong><span>' +
+          esc(badge.label) +
+          '</span></div></div>'
+        );
+      })
+      .join('');
+  }
+
+  function renderTrust(data, page) {
+    var track = $('#studio-trust-track');
+    if (!track) return;
+
+    var eyebrow = $('.site-studio-testimonials-eyebrow');
+    var title = $('.site-studio-testimonials-title');
+    if (eyebrow && page && page.testimonialsEyebrow) eyebrow.textContent = page.testimonialsEyebrow;
+    if (title && page && page.testimonialsTitle) title.textContent = page.testimonialsTitle;
+
+    renderTrustBadges(page);
+
+    if (!data.testimonials || !data.testimonials.length) return;
 
     track.innerHTML = data.testimonials
       .slice(0, 4)
@@ -564,17 +490,16 @@
     var page = data.pages && data.pages.studio;
     applyHeroMedia(page, data);
     renderHeroStats(data);
-    renderWhyGrid();
+    renderWhyGrid(data);
     renderValues(data);
-    renderFounder(data, page);
-    renderTeam(data);
     renderProcess(data);
     renderCulture(page, data);
     renderImpact(data);
-    renderTrust(data);
-    if (page && page.philosophyImage) {
+    renderTrust(data, page);
+    if (page) {
       var storyImg = $('#studio-story-image');
-      if (storyImg) storyImg.setAttribute('src', mediaSrc(page.philosophyImage, data));
+      var storySrc = page.storyImage || page.philosophyImage;
+      if (storyImg && storySrc) storyImg.setAttribute('src', mediaSrc(storySrc, data));
     }
     animateCounters();
     initRevealFallback();

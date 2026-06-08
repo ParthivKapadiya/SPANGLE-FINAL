@@ -91,8 +91,20 @@ foreach ($settings as $k => $v) {
 $pdo->exec('DELETE FROM home_stats');
 $sort = 0;
 foreach ($home['stats'] ?? [] as $stat) {
-    $stmt = $pdo->prepare('INSERT INTO home_stats (stat_value, stat_label, sort_order) VALUES (?, ?, ?)');
-    $stmt->execute([$stat['value'] ?? '', $stat['label'] ?? '', $sort++]);
+    $icon = trim((string) ($stat['icon'] ?? ''));
+    if ($icon === '' && trim((string) ($stat['value'] ?? '')) !== '') {
+        $icon = 'fa-solid fa-chart-line';
+    }
+    $stmt = $pdo->prepare('INSERT INTO home_stats (stat_value, stat_label, stat_icon, sort_order) VALUES (?, ?, ?, ?)');
+    $stmt->execute([$stat['value'] ?? '', $stat['label'] ?? '', $icon !== '' ? $icon : null, $sort++]);
+}
+$trustStripDefaults = [
+    ['', 'Government Approval Support', 'fa-solid fa-landmark'],
+    ['', 'Turnkey Execution', 'fa-solid fa-key'],
+];
+$stmt = $pdo->prepare('INSERT INTO home_stats (stat_value, stat_label, stat_icon, sort_order) VALUES (?, ?, ?, ?)');
+foreach ($trustStripDefaults as $row) {
+    $stmt->execute([$row[0], $row[1], $row[2], $sort++]);
 }
 
 $pdo->exec('DELETE FROM hero_slides');

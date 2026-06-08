@@ -32,7 +32,7 @@ home_admin_render_back();
     home_admin_render_field('contact_section_lead', 'Intro paragraph', $s, 'textarea');
     ?>
     <?php home_admin_card_link('settings.php', 'Phone, email & address', 'Managed in Global settings.'); ?>
-    <?php home_admin_card_link('contact-page.php', 'Full contact page', 'Edit the dedicated Contact page content.'); ?>
+    <?php home_admin_card_link('contact/index.php', 'Full contact page', 'Edit the dedicated Contact page content.'); ?>
   </div>
   <?php home_admin_render_save('Save contact section'); ?>
 </form>

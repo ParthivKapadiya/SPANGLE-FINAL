@@ -160,6 +160,43 @@
     });
   }
 
+  function setText(sel, value) {
+    var el = $(sel);
+    if (el && value) el.textContent = value;
+  }
+
+  function applySectionHeadings(page) {
+    if (!page) return;
+    setText('.site-services-ecosystem-eyebrow', page.ecosystemEyebrow);
+    setText('.site-services-ecosystem-title', page.ecosystemTitle);
+    setText('.site-services-ecosystem-intro', page.ecosystemIntro);
+    setText('.site-services-compare-eyebrow', page.compare && page.compare.eyebrow);
+    setText('.site-services-compare-title', page.compare && page.compare.title);
+    setText('.site-services-compare-intro', page.compare && page.compare.intro);
+    setText('.site-services-process-eyebrow', page.processEyebrow);
+    setText('.site-services-process-title', page.processTitle);
+    setText('.site-services-process-intro', page.processIntro);
+    setText('.site-services-impact-eyebrow', page.impactEyebrow);
+    setText('.site-services-impact-title', page.impactTitle);
+    setText('.site-services-cases-eyebrow', page.casesEyebrow);
+    setText('.site-services-cases-title', page.casesTitle);
+    setText('.site-services-cases-intro', page.casesIntro);
+    var casesLink = $('.site-services-cases-link');
+    if (casesLink) {
+      if (page.casesLinkText) {
+        casesLink.innerHTML = esc(page.casesLinkText) + ' <span aria-hidden="true">→</span>';
+      }
+      if (page.casesLinkUrl) casesLink.setAttribute('href', page.casesLinkUrl);
+    }
+    var processLink = $('.site-services-process-link');
+    if (processLink) {
+      if (page.processLinkText) {
+        processLink.innerHTML = esc(page.processLinkText) + ' <span aria-hidden="true">→</span>';
+      }
+      if (page.processLinkUrl) processLink.setAttribute('href', page.processLinkUrl);
+    }
+  }
+
   function applyHero(page) {
     if (!page) return;
     var k = $('.svc-hero__kicker.site-page-kicker');
@@ -236,9 +273,11 @@
     flow.innerHTML = nodes;
   }
 
-  function renderServiceDetails(items) {
+  function renderServiceDetails(items, page) {
     var section = $('#svc-detail-section');
     if (!section || !items || !items.length) return;
+    var linkText = (page && page.detailLinkText) || 'View related work';
+    var linkUrl = (page && page.detailLinkUrl) || 'work.html';
 
     section.innerHTML = items
       .map(function (s, i) {
@@ -275,7 +314,11 @@
           '<p>' +
           esc(s.shortDescription || s.detailLead1 || '') +
           '</p></div></div>' +
-          '<a href="work.html" class="text-link">View related work <span aria-hidden="true">→</span></a>' +
+          '<a href="' +
+          esc(linkUrl) +
+          '" class="text-link">' +
+          esc(linkText) +
+          ' <span aria-hidden="true">→</span></a>' +
           '</div>' +
           '<div class="svc-detail__visual">' +
           badge +
@@ -294,45 +337,62 @@
     bindLazyImages(section);
   }
 
-  function renderCompare(data) {
+  var COMPARE_US_FALLBACK = [
+    'Single studio for design, approvals, build & interiors',
+    'Director-led accountability through handover',
+    'Drawings prepared for local plan sanctioning',
+    'Transparent phases with shared documentation',
+    '3D visualization before work begins on site',
+  ];
+
+  var COMPARE_THEM_FALLBACK = [
+    'Separate architect, contractor & interior vendors',
+    'Accountability gaps between design and site',
+    'Approval paperwork handled by the client',
+    'Scope changes without clear sign-off',
+    'Decisions made on site without prior study',
+  ];
+
+  function renderCompare(page, data) {
     var wrap = $('#svc-compare');
     if (!wrap) return;
-    var brand = (data && data.siteName) || 'Archevo Design';
+    var cmp = (page && page.compare) || {};
+    var usTitle = cmp.usTitle || (data && data.siteName) || 'Archevo Design';
+    var themTitle = cmp.themTitle || 'Traditional approach';
+    var usItems = cmp.usItems && cmp.usItems.length ? cmp.usItems : COMPARE_US_FALLBACK;
+    var themItems = cmp.themItems && cmp.themItems.length ? cmp.themItems : COMPARE_THEM_FALLBACK;
     wrap.innerHTML =
       '<div class="svc-compare-col svc-compare-col--us svc-reveal">' +
       '<h3>' +
-      esc(brand) +
-      '</h3>' +
-      '<ul>' +
-      '<li><i class="fa-solid fa-check" aria-hidden="true"></i> Single studio for design, approvals, build &amp; interiors</li>' +
-      '<li><i class="fa-solid fa-check" aria-hidden="true"></i> Director-led accountability through handover</li>' +
-      '<li><i class="fa-solid fa-check" aria-hidden="true"></i> Drawings prepared for local plan sanctioning</li>' +
-      '<li><i class="fa-solid fa-check" aria-hidden="true"></i> Transparent phases with shared documentation</li>' +
-      '<li><i class="fa-solid fa-check" aria-hidden="true"></i> 3D visualization before work begins on site</li>' +
+      esc(usTitle) +
+      '</h3><ul>' +
+      usItems
+        .map(function (text) {
+          return '<li><i class="fa-solid fa-check" aria-hidden="true"></i> ' + esc(text) + '</li>';
+        })
+        .join('') +
       '</ul></div>' +
       '<div class="svc-compare-col svc-compare-col--them svc-reveal">' +
-      '<h3>Traditional approach</h3>' +
-      '<ul>' +
-      '<li><i class="fa-solid fa-minus" aria-hidden="true"></i> Separate architect, contractor &amp; interior vendors</li>' +
-      '<li><i class="fa-solid fa-minus" aria-hidden="true"></i> Accountability gaps between design and site</li>' +
-      '<li><i class="fa-solid fa-minus" aria-hidden="true"></i> Approval paperwork handled by the client</li>' +
-      '<li><i class="fa-solid fa-minus" aria-hidden="true"></i> Scope changes without clear sign-off</li>' +
-      '<li><i class="fa-solid fa-minus" aria-hidden="true"></i> Decisions made on site without prior study</li>' +
+      '<h3>' +
+      esc(themTitle) +
+      '</h3><ul>' +
+      themItems
+        .map(function (text) {
+          return '<li><i class="fa-solid fa-minus" aria-hidden="true"></i> ' + esc(text) + '</li>';
+        })
+        .join('') +
       '</ul></div>';
   }
 
   function renderProcess(data) {
     var track = $('#svc-process-track');
     if (!track) return;
-    var cms = (data.processSteps || []).filter(function (s) {
+    var steps = (data.processSteps || []).filter(function (s) {
       return !s.context || s.context === 'both' || s.context === 'page';
     });
-    var steps = PROCESS_FALLBACK.map(function (fb, i) {
-      if (cms[i]) {
-        return { title: cms[i].title, description: cms[i].description };
-      }
-      return fb;
-    });
+    if (!steps.length) {
+      steps = PROCESS_FALLBACK.slice();
+    }
     track.style.setProperty('--process-steps', String(steps.length));
     track.innerHTML = steps
       .map(function (s, i) {
@@ -356,8 +416,10 @@
     if (!grid) return;
     var stats = (data.home && data.home.stats) || [];
     if (!stats.length) return;
-    if (bg && data.pages && data.pages.services && data.pages.services.heroImage) {
-      bg.style.backgroundImage = "url('" + mediaSrc(data.pages.services.heroImage).replace(/'/g, '%27') + "')";
+    var page = data.pages && data.pages.services;
+    var impactSrc = (page && (page.impactImage || page.heroImage)) || '';
+    if (bg && impactSrc) {
+      bg.style.backgroundImage = "url('" + mediaSrc(impactSrc).replace(/'/g, '%27') + "')";
     }
     grid.innerHTML = stats
       .slice(0, 4)
@@ -416,13 +478,13 @@
     bindLazyImages(grid);
   }
 
-  function renderTestimonials(data) {
+  function renderTestimonials(data, page) {
     var track = $('#svc-trust-track');
     if (!track || !data.testimonials || !data.testimonials.length) return;
-    var te = $('.site-testimonials-eyebrow');
-    var tt = $('.site-testimonials-title');
-    if (te && data.home && data.home.testimonialsEyebrow) te.textContent = data.home.testimonialsEyebrow;
-    if (tt && data.home && data.home.testimonialsTitle) tt.textContent = data.home.testimonialsTitle;
+    var te = $('.site-services-testimonials-eyebrow');
+    var tt = $('.site-services-testimonials-title');
+    if (te && page && page.testimonialsEyebrow) te.textContent = page.testimonialsEyebrow;
+    if (tt && page && page.testimonialsTitle) tt.textContent = page.testimonialsTitle;
     track.innerHTML = data.testimonials
       .slice(0, 4)
       .map(function (t) {
@@ -484,6 +546,16 @@
     });
   }
 
+  function applyConsultOpen(el, url) {
+    if (!el) return;
+    var href = String(url || el.getAttribute('href') || '').trim() || 'contact.html';
+    if (href === '#' || href === 'contact.html' || href.indexOf('contact') !== -1) {
+      el.setAttribute('data-consult-open', '');
+    } else {
+      el.removeAttribute('data-consult-open');
+    }
+  }
+
   function applyCta(copy, page) {
     copy = copy || {};
     page = page || {};
@@ -502,14 +574,21 @@
       btn2.textContent = page.ctaSecondary.text;
       btn2.setAttribute('href', page.ctaSecondary.url || 'contact.html');
       btn2.hidden = false;
+      applyConsultOpen(btn2, page.ctaSecondary.url || 'contact.html');
+    } else if (btn2 && copy.services_cta_btn2_text) {
+      btn2.textContent = copy.services_cta_btn2_text;
+      btn2.setAttribute('href', copy.services_cta_btn2_url || 'contact.html');
+      btn2.hidden = false;
+      applyConsultOpen(btn2, copy.services_cta_btn2_url || 'contact.html');
     }
     if (sub && (copy.services_cta_sub || (page && page.ctaSub))) {
       sub.textContent = copy.services_cta_sub || page.ctaSub;
     }
+    applyConsultOpen(btn, copy.services_cta_btn_url);
   }
 
   function animateCounters() {
-    $$('[data-count]').forEach(function (el) {
+    $$('.svc-hero-stat [data-count], .svc-impact-stat [data-count]').forEach(function (el) {
       var raw = el.getAttribute('data-count') || '';
       var match = raw.match(/([\d,.]+)/);
       if (!match) return;
@@ -634,16 +713,17 @@
     if (!data) return;
     var page = data.pages && data.pages.services;
     applyHero(page);
+    applySectionHeadings(page);
     renderHeroStats(data);
     if (page && page.items) {
       renderEcosystem(page.items);
-      renderServiceDetails(page.items);
+      renderServiceDetails(page.items, page);
     }
-    renderCompare(data);
+    renderCompare(page, data);
     renderProcess(data);
     renderImpact(data);
     renderCaseStudies(data);
-    renderTestimonials(data);
+    renderTestimonials(data, page);
     renderFaq(page);
     applyCta(data.copy, page);
     animateCounters();

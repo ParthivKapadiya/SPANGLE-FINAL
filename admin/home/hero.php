@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
 }
 
 $s = settings_get_many($pdo, array_merge($keys, ['home_hero_preview_image']));
-$stats = home_admin_ensure_stats($pdo);
+$stats = home_admin_hero_stats($pdo);
 $heroSlides = $pdo->query('SELECT id, image_path, alt_text, sort_order, is_active FROM hero_slides ORDER BY sort_order ASC, id ASC')->fetchAll(PDO::FETCH_ASSOC);
 
 require dirname(__DIR__) . '/includes/layout.php';

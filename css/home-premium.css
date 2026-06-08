@@ -273,18 +273,29 @@ body.home .project-tile:hover {
 body.home .project-tile .project-hover {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 1.1rem;
   background: linear-gradient(180deg, transparent 30%, rgba(4, 3, 3, 0.88) 100%);
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.45s var(--home-ease);
 }
 
 body.home .project-tile:hover .project-hover {
   opacity: 1;
+  pointer-events: auto;
+}
+
+body.home .project-tile .project-meta {
+  transition: opacity 0.35s var(--home-ease);
+}
+
+body.home .project-tile:hover .project-meta {
+  opacity: 0;
+  visibility: hidden;
 }
 
 body.home .project-metrics {

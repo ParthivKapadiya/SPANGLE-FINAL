@@ -7,7 +7,8 @@ declare(strict_types=1);
  *
  *   cp config/mail.local.example.php config/mail.local.php
  *
- * Put your real email and App Password in mail.local.php only (not in this file).
+ * Used for: enquiry form notifications + admin password reset emails.
+ * Put real credentials in mail.local.php only (never commit that file).
  * Gmail / Google Workspace: smtp.gmail.com, port 587, encryption tls.
  */
 return [
@@ -15,8 +16,8 @@ return [
     'host' => 'smtp.gmail.com',
     'port' => 587,
     'encryption' => 'tls',
-    'username' => 'pkapadiya257@rku.ac.in',
-    'password' => 'zwiq lfyu gikn tbkm',
-    'from_email' => 'pkapadiya257@rku.ac.in',
+    'username' => 'your-email@gmail.com',
+    'password' => 'your-app-password',
+    'from_email' => 'your-email@gmail.com',
     'from_name' => 'Archevo Design Website',
 ];

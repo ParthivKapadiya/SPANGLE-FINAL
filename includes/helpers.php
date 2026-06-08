@@ -119,17 +119,6 @@ function site_base_url(): string
     return rtrim($scheme . '://' . $host . $dir, '/');
 }
 
-/** Public URL for a journal article (dynamic PHP page from database). */
-function journal_public_url(string $slug): string
-{
-    $slug = preg_replace('/[^a-z0-9-]+/', '', strtolower(trim($slug)));
-    if ($slug === '') {
-        return 'journal.html';
-    }
-
-    return 'journal-post.php?slug=' . rawurlencode($slug);
-}
-
 function e(?string $value): string
 {
     return htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
@@ -217,6 +206,21 @@ function content_sync_site_json(PDO $pdo): void
 {
     require_once SPANGLE_ROOT . '/includes/SiteContent.php';
     SiteContent::exportSiteJson($pdo);
+}
+
+function home_gallery_limit_min(): int
+{
+    return 4;
+}
+
+function home_gallery_limit_max(): int
+{
+    return 24;
+}
+
+function home_gallery_limit_clamp(int $value): int
+{
+    return max(home_gallery_limit_min(), min(home_gallery_limit_max(), $value));
 }
 
 function settings_get_many(PDO $pdo, array $keys): array

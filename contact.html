@@ -5,14 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | Archevo Design</title>
   <meta name="description" content="Contact Archevo Design in Rajkot — architecture and interior design enquiries, appointments, and new projects." />
-  <link rel="canonical" href="https://www.archevoinfra.com/contact.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Contact | Archevo Design" />
-  <meta property="og:description" content="Contact Archevo Design in Rajkot — architecture and interior design enquiries, appointments, and new projects." />
-  <meta property="og:url" content="https://www.archevoinfra.com/contact.html" />
-  <meta property="og:image" content="https://www.archevoinfra.com/uploads/1228_HARESHBHAI_LIVING_3.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://www.archevoinfra.com/uploads/1228_HARESHBHAI_LIVING_3.jpg" />
   <link rel="icon" href="uploads/branding/archevo-logo.png" type="image/png" />
   <link rel="stylesheet" href="fonts/fonts.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -55,29 +47,43 @@
           <li><a href="work.html" data-nav-link="work">Work</a></li>
           <li><a href="process.html" data-nav-link="process">Process</a></li>
           <li><a href="contact.html" data-nav-link="contact">Contact</a></li>
+          <li><a href="contact.html" data-nav-link="enquire" data-consult-open>Enquire</a></li>
         </ul>
       </div>
     </div>
   </header>
 
   <main id="main">
+    <section class="page-hero site-page-hero page-hero--compact" aria-labelledby="page-title" style="background-image: url('uploads/ENTRY.jpg');">
+      <div class="page-hero-inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true"> / </span>
+          <span aria-current="page">Contact</span>
+        </nav>
+        <p class="page-kicker site-page-kicker">Get in touch</p>
+        <h1 id="page-title" class="page-hero-title site-page-hero-title">Contact the studio</h1>
+        <p class="page-hero-lead site-page-hero-lead">Call, email, or send a quick enquiry — we respond within two business days.</p>
+      </div>
+    </section>
+
     <section class="section section-contact fade-slide" id="contact">
       <div class="container">
         <div id="enquiry-status-banner" class="enquiry-status-banner" role="alert" hidden></div>
       </div>
       <div class="container contact-grid">
         <div>
-          <p class="section-eyebrow">Contact</p>
-          <h1 class="section-title site-contact-section-title">Rajkot · Gujarat</h1>
-          <p class="section-lead site-contact-section-lead">Call, email, or visit by appointment. Site meetings across Saurashtra and Gujarat are scheduled in advance.</p>
+          <p class="section-eyebrow">Studio details</p>
+          <h2 class="section-title site-contact-page-title">Archevo Design · Rajkot</h2>
+          <p class="section-lead site-contact-page-lead">Reach the studio team for new projects, plan approvals, interiors, or turnkey delivery.</p>
+          <div class="site-contact-hours"></div>
           <div class="contact-quick-actions">
-            <a href="tel:+916359351513" class="btn btn-ghost"><i class="fas fa-phone" aria-hidden="true"></i> Call Studio</a>
+            <a href="tel:+916359351513" class="btn btn-ghost"><i class="fas fa-phone" aria-hidden="true"></i> Call studio</a>
             <a href="#" class="btn btn-ghost site-whatsapp-link"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
-            <a href="#contact-form" class="btn btn-primary">Quick Inquiry</a>
           </div>
           <ul class="contact-list">
-            <li><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+916359351513">+91 63593 51513</a></li>
-            <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:archevodesign6@gmail.com">archevodesign6@gmail.com</a></li>
+            <li><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+916359351513" class="site-phone-link">+91 63593 51513</a></li>
+            <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:archevodesign6@gmail.com" class="site-email-link">archevodesign6@gmail.com</a></li>
             <li><i class="fas fa-globe" aria-hidden="true"></i> <a href="https://www.archevoinfra.com" class="site-website-link" target="_blank" rel="noopener noreferrer">www.archevoinfra.com</a></li>
             <li class="site-whatsapp-row"><i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="#" class="site-whatsapp-link">WhatsApp</a></li>
             <li><i class="fas fa-location-dot" aria-hidden="true"></i> <span class="site-address-text">1113, RK Supreme, Nanamava Circle, Opp. Twin Star, 150 Ft. Ring Rd, Rajkot, Gujarat</span></li>
@@ -87,24 +93,24 @@
             <a href="https://www.facebook.com/share/1D1tnk6xVr/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           </div>
         </div>
-        <form class="contact-form enquiry-form" id="contact-form" action="api/submit-contact.php" method="POST" accept-charset="UTF-8">
+        <form class="contact-form enquiry-form" id="cnt-enquiry-form" action="api/submit-contact.php" method="POST" accept-charset="UTF-8">
           <input type="hidden" name="form_source" value="contact" />
           <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <label class="field">
             <span class="site-form-label-name">Name</span>
-            <input type="text" class="site-form-input-name" id="enquiry-name-contact" name="name" autocomplete="name" placeholder="Your name" required />
+            <input type="text" class="site-form-input-name" name="name" autocomplete="name" placeholder="Your name" required />
           </label>
           <label class="field">
             <span class="site-form-label-email">Email</span>
-            <input type="email" class="site-form-input-email" id="enquiry-email-contact" name="email" autocomplete="email" placeholder="you@email.com" required />
+            <input type="email" class="site-form-input-email" name="email" autocomplete="email" placeholder="you@email.com" required />
           </label>
           <label class="field">
             <span class="site-form-label-phone">Phone</span>
-            <input type="tel" class="site-form-input-phone" id="enquiry-phone-contact" name="phone" autocomplete="tel" placeholder="+91 …" />
+            <input type="tel" class="site-form-input-phone" name="phone" autocomplete="tel" placeholder="+91 …" />
           </label>
           <div class="field-row">
             <label class="field">
-              <span class="site-form-label-project">Project type</span>
+              <span>Project type</span>
               <select name="project_type" class="site-form-input-project-type">
                 <option value="">Select type</option>
                 <option value="residential">Residential</option>
@@ -126,7 +132,7 @@
           </div>
           <label class="field field-full">
             <span class="site-form-label-message">Message</span>
-            <textarea class="site-form-input-message" id="enquiry-message-contact" name="message" rows="4" placeholder="Site location, approximate area, timeline, budget band…" required></textarea>
+            <textarea class="site-form-input-message" name="message" rows="4" placeholder="Project type, location, timeline…" required></textarea>
           </label>
           <p class="form-note site-form-note">We respond within two business days. Your details are stored securely for the studio team.</p>
           <button type="submit" class="btn btn-primary site-form-submit">Send enquiry</button>
@@ -174,7 +180,7 @@
     </div>
     <div class="footer-bar">
       <div class="footer-bar-inner">
-        <p class="site-footer-copy">&copy; 2026 Archevo Design · Archevo Design</p>
+        <p class="site-footer-copy">&copy; 2026 Archevo Design · Archevo Infra Edge Pvt Ltd</p>
         <p class="footer-agency-credit">Digital experience by <a href="developer.html">Parthiv Kapadiya</a></p>
         <button type="button" class="footer-studio-link" id="admin-access-open" aria-haspopup="dialog">CMS</button>
       </div>
@@ -204,7 +210,7 @@
   <script src="site.js?v=8" defer></script>
   <script src="js/motion.js?v=8" defer></script>
   <script src="js/ux.js?v=8" defer></script>
-  <script src="js/content-bridge.js?v=8" defer></script>
-  <script src="js/page-content.js?v=8" defer></script>
+  <script src="js/content-bridge.js?v=10" defer></script>
+  <script src="js/page-content.js?v=12" defer></script>
 </body>
 </html>

@@ -34,10 +34,11 @@
   }
 
   /* —— Trust strip —— */
-  var TRUST_EXTRAS = [
-    { icon: 'fa-solid fa-landmark', label: 'Government Approval Support' },
-    { icon: 'fa-solid fa-key', label: 'Turnkey Execution' },
-  ];
+  function trustStripIcon(row) {
+    if (row && row.icon) return row.icon;
+    if (row && row.value) return 'fa-solid fa-chart-line';
+    return 'fa-solid fa-award';
+  }
 
   function renderTrustStrip(data) {
     var track = $('#home-trust-track');
@@ -45,15 +46,14 @@
 
     var items = [];
     var stats = (data && data.home && data.home.stats) || [];
-    stats.slice(0, 4).forEach(function (row) {
+    stats.slice(0, 6).forEach(function (row, index) {
+      if (!row || !row.label) return;
+      var isCredential = index >= 4;
       items.push({
-        icon: 'fa-solid fa-chart-line',
-        value: row.value || '',
+        icon: trustStripIcon(row),
+        value: isCredential ? '' : (row.value || ''),
         label: row.label || '',
       });
-    });
-    TRUST_EXTRAS.forEach(function (x) {
-      items.push({ icon: x.icon, value: '', label: x.label });
     });
 
     function itemHtml(it) {
@@ -78,15 +78,10 @@
     var grid = $('#home-impact-grid');
     if (!grid) return;
     var stats = (data && data.home && data.home.stats) || [];
-    var extra = [
-      { value: '150+', label: 'Clients' },
-      { value: 'Gujarat', label: 'Primary Region' },
-    ];
     var rows = stats.slice(0, 4);
-    while (rows.length < 4 && extra.length) rows.push(extra.shift());
 
     grid.innerHTML = rows
-      .slice(0, 5)
+      .slice(0, 4)
       .map(function (row) {
         return (
           '<div class="home-impact-stat home-reveal">' +

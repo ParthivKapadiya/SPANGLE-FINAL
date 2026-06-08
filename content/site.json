@@ -3,14 +3,14 @@
     "source": "mysql",
     "publicBase": "http://localhost/SPANGLE_FINAL",
     "siteName": "Archevoinfraedge.pvt.ltd",
-    "tagline": "Architecture & Interiorr",
+    "tagline": "Architecture & Interior",
     "branding": {
         "logo": "uploads/branding/archevo-logo.png",
         "logoLight": "uploads/branding/archevo-logo-light.png",
         "logoDark": "uploads/branding/archevo-logo-dark.png",
         "favicon": "uploads/branding/archevo-icon.png",
         "brandName": "Archevoinfraedge.pvt.ltd",
-        "brandLine": "Architecture & Interiorr",
+        "brandLine": "Architecture & Interior",
         "footerBlurbHtml": "<p>Archevo Design — end-to-end architecture, civil construction, interiors, and turnkey project management from Rajkot, Gujarat.</p>",
         "footerCopyright": "© 2026 Archevo Design",
         "footerAgencyCredit": ""
@@ -51,7 +51,7 @@
         "contactSectionTitle": "Rajkot · Gujarat",
         "contactSectionLead": "Call, email, or visit by appointment. Site meetings across Saurashtra and Gujarat are scheduled in advance.",
         "contactPageTitle": "Archevo Design · Rajkot",
-        "contactPageLead": "Reach Jay Rathod and the studio team for new projects, plan approvals, interiors, or turnkey delivery.",
+        "contactPageLead": "Reach Jay P. Rathood and the studio team for new projects, plan approvals, interiors, or turnkey delivery.",
         "websiteUrl": "https://www.archevoinfra.com"
     },
     "social": {
@@ -86,11 +86,11 @@
         "home_link_work_url": "work.html",
         "home_link_process_text": "Detailed methodology",
         "home_link_process_url": "process.html",
-        "home_link_journal_text": "View journal",
-        "home_link_journal_url": "journal.html",
         "studio_cta_text": "See how we translate intent into drawings, models, and built work.",
         "studio_cta_btn_text": "Our process",
         "studio_cta_btn_url": "process.html",
+        "studio_cta_btn2_text": "View our work",
+        "studio_cta_btn2_url": "work.html",
         "services_cta_eyebrow": "Brief us",
         "services_cta_title": "Tell us about your site",
         "services_cta_lead": "Share your site, scope, and timeline — we will recommend design-only, approval support, or full turnkey delivery.",
@@ -106,7 +106,7 @@
         "work_cta_btn_url": "contact.html",
         "work_cta_final_eyebrow": "Next project",
         "work_cta_final_title": "Ready To Build Something Exceptional?",
-        "work_cta_final_sub": "Architecture.\nInteriors.\nConstruction.\nTurnkey Delivery.",
+        "work_cta_final_sub": "Architecture.\r\nInteriors.\r\nConstruction.\r\nTurnkey Delivery.",
         "work_cta_final_btn_text": "Start Your Project",
         "work_cta_final_btn2_text": "Book Consultation",
         "work_featured_eyebrow": "Featured commission",
@@ -133,27 +133,8 @@
         "process_cta_btn_url": "contact.html",
         "process_cta_btn2_text": "Discuss your project",
         "process_cta_btn2_url": "contact.html",
-        "process_faq_eyebrow": "",
-        "process_faq_title": "",
-        "journal_stat_readers": "12K+",
-        "journal_newsletter_title": "Join The Design Conversation",
-        "journal_newsletter_lead": "Architecture insights, project stories, design trends, and material knowledge — delivered with care.",
-        "journal_cta_eyebrow": "Work with us",
-        "journal_cta_title": "Let's Create Better Spaces Together",
-        "journal_cta_sub": "Architecture · Interiors · Construction · Ideas That Inspire",
-        "journal_cta_text": "For press, collaborations, or speaking invitations, reach the studio directly.",
-        "journal_cta_btn_text": "Contact us",
-        "journal_cta_btn_url": "contact.html",
-        "journal_cta_btn2_text": "Contact the studio",
-        "journal_cta_btn2_url": "contact.html",
-        "journal_faq_q1": "How often do you publish new articles?",
-        "journal_faq_a1": "We publish when we have meaningful insights from practice — typically monthly, with deeper essays on materials, process, and project lessons.",
-        "journal_faq_q2": "Can I republish or cite your articles?",
-        "journal_faq_a2": "Yes, with attribution and a link to the original. For syndication or press use, contact the studio directly.",
-        "journal_faq_q3": "Who writes the journal?",
-        "journal_faq_a3": "Articles are authored by our founders, architects, and design team — grounded in real projects and site experience.",
-        "journal_faq_q4": "How do I subscribe to updates?",
-        "journal_faq_a4": "Use the newsletter form on this page or enquire via contact — we share insights, project stories, and material knowledge.",
+        "process_faq_eyebrow": "Questions",
+        "process_faq_title": "About our process",
         "contact_cta_title": "Let's Build Your Vision Together",
         "contact_cta_sub": "Architecture · Interiors · Construction · Turnkey Delivery",
         "contact_cta_btn_text": "Book consultation",
@@ -191,8 +172,6 @@
         "seo_work_description": "Selected residential, commercial, and retail projects by Archevo Design.",
         "seo_process_title": "Process | Archevo Design",
         "seo_process_description": "How Archevo Design moves from brief to handover — clear phases and accountability.",
-        "seo_journal_title": "Journal | Archevo Design",
-        "seo_journal_description": "Ideas on materiality, process, and the culture of space from Archevo Design.",
         "seo_contact_title": "Contact | Archevo Design",
         "seo_contact_description": "Contact Archevo Design in Rajkot for architecture and interior design enquiries.",
         "seo_privacy_title": "Privacy | Archevo Design",
@@ -227,10 +206,6 @@
             "title": "Process | Archevo Design",
             "description": "How Archevo Design moves from brief to handover — clear phases and accountability."
         },
-        "journal": {
-            "title": "Journal | Archevo Design",
-            "description": "Ideas on materiality, process, and the culture of space from Archevo Design."
-        },
         "contact": {
             "title": "Contact | Archevo Design",
             "description": "Contact Archevo Design in Rajkot for architecture and interior design enquiries."
@@ -250,7 +225,7 @@
     },
     "home": {
         "heroEyebrow": "Rajkot · Gujarat · Since 2010",
-        "heroTitleHtml": "Designing Spaces That Define Generations <em>Generations</em>",
+        "heroTitleHtml": "Designing Spaces That Define <em>Generations</em>",
         "heroHeadlines": [
             "Designing Spaces That Define Generations",
             "Designing Legacies In Concrete And Light",
@@ -284,25 +259,39 @@
         "stats": [
             {
                 "value": "150+",
-                "label": "Projects completed"
+                "label": "Projects completed",
+                "icon": "fa-solid fa-chart-line"
             },
             {
                 "value": "16",
-                "label": "Years experience"
+                "label": "Years experience",
+                "icon": "fa-solid fa-chart-line"
             },
             {
                 "value": "2M+",
-                "label": "Sq ft delivered"
+                "label": "Sq ft delivered",
+                "icon": "fa-solid fa-chart-line"
             },
             {
                 "value": "98%",
-                "label": "Client satisfaction"
+                "label": "Client satisfaction",
+                "icon": "fa-solid fa-chart-line"
+            },
+            {
+                "value": "",
+                "label": "Government Approval Support",
+                "icon": "fa-solid fa-landmark"
+            },
+            {
+                "value": "",
+                "label": "Turnkey Execution",
+                "icon": "fa-solid fa-key"
             }
         ],
         "aboutEyebrow": "Practice",
         "aboutTitle": "Architecture with intention",
         "aboutLeadHtml": "<p class=\"section-lead\">Archevo Infra Edge Pvt Ltd is a full-service studio for architecture, interiors, and delivery. We work from first sketch through site administration — one accountable team, aligned incentives, and drawings that contractors can actually build.</p><p class=\"section-lead\">Our work favours honest materials, generous daylight, and envelopes tuned for Gujarat’s climate. The result feels calm, durable, and unmistakably yours.</p>",
-        "aboutImage": "uploads/1228_HARESHBHAI_LIVING_5.jpg",
+        "aboutImage": "uploads/about/20260607_214119_ddef4943.jpg",
         "aboutImageAlt": "Archevo Design interior project · Rajkot",
         "aboutCaption": "Client project · Rajkot",
         "galleryEyebrow": "Gallery",
@@ -311,7 +300,7 @@
         "projectsEyebrow": "Selected work",
         "projectsTitle": "Featured commissions",
         "projectsIntro": "Explore client projects — each album opens a full visual case study.",
-        "projectsLimit": 8,
+        "projectsLimit": 9,
         "capabilitiesEyebrow": "What we do",
         "capabilitiesTitle": "Integrated design & build",
         "capabilitiesIntro": "From foundation to finish — structural expertise, compliant approvals, interiors, and one-point project management.",
@@ -320,24 +309,69 @@
         "processIntro": "Clear phases, shared tools, and sign-off moments — so you always know what happens next.",
         "testimonialsEyebrow": "Clients",
         "testimonialsTitle": "What clients say",
-        "awardsEyebrow": "Studio",
-        "awardsTitle": "Why clients work with us",
-        "teamEyebrow": "People",
-        "teamTitle": "Leadership",
-        "journalEyebrow": "Journal",
-        "journalTitle": "Latest insights",
+        "awardsEyebrow": "In the studio",
+        "awardsTitle": "Three disciplines, one table",
         "ctaEyebrow": "Next project",
         "ctaTitle": "Reserve a studio conversation",
         "ctaLead": "Share your site, timeline, and ambitions — we respond with a clear path and indicative scope.",
+        "ctaSub": "",
         "ctaBtnText": "Plan your space",
         "ctaBtnUrl": "contact.html",
-        "whyEyebrow": "",
-        "whyTitle": "",
-        "whyIntro": "",
-        "whyCards": [],
-        "pillars": [],
-        "impactEyebrow": "",
-        "impactTitle": ""
+        "whyEyebrow": "Why Archevo",
+        "whyTitle": "Design intelligence. Build discipline.",
+        "whyIntro": "A single studio for vision, approvals, construction, and interiors — not a patchwork of contractors.",
+        "whyCards": [
+            {
+                "title": "Single Point Responsibility",
+                "text": "One team owns design, coordination, and delivery — so accountability never disappears mid-project.",
+                "icon": "fa-solid fa-layer-group"
+            },
+            {
+                "title": "Design + Construction",
+                "text": "Architecture, engineering, and site execution aligned from day one — not translated through layers of vendors.",
+                "icon": "fa-solid fa-compass-drafting"
+            },
+            {
+                "title": "Transparent Budgeting",
+                "text": "Scope, materials, and milestones defined early — with clarity before work begins on site.",
+                "icon": "fa-solid fa-scale-balanced"
+            },
+            {
+                "title": "On-Time Delivery",
+                "text": "Structured phases, site discipline, and proactive coordination to protect your timeline.",
+                "icon": "fa-solid fa-clock"
+            },
+            {
+                "title": "Professional Team",
+                "text": "Directors, designers, and engineers working as one studio — not a revolving door of subcontractors.",
+                "icon": "fa-solid fa-people-group"
+            },
+            {
+                "title": "Approval Assistance",
+                "text": "Drawings and submissions prepared for local plan-sanctioning requirements across Gujarat.",
+                "icon": "fa-solid fa-file-circle-check"
+            }
+        ],
+        "pillars": [
+            {
+                "title": "Mission",
+                "text": "Shape enduring spaces that elevate how people live, work, and gather — with clarity from first sketch to final handover."
+            },
+            {
+                "title": "Vision",
+                "text": "Be Western India's most trusted integrated architecture and design-build studio for landmark residential and commercial work."
+            },
+            {
+                "title": "Philosophy",
+                "text": "Quiet luxury, honest materials, and light as architecture — designed for Gujarat's climate and contemporary life."
+            },
+            {
+                "title": "Execution",
+                "text": "One accountable team for drawings, approvals, civil work, interiors, and turnkey delivery — fewer gaps, fewer surprises."
+            }
+        ],
+        "impactEyebrow": "Impact",
+        "impactTitle": "Built at scale. Trusted at home."
     },
     "testimonials": [
         {
@@ -390,7 +424,7 @@
     "awards": [
         {
             "icon": "fas fa-map-location-dot",
-            "title": "Rajkot & Saurashtra",
+            "title": "Rajkot & Gujarat",
             "subtitle": "On-ground experience across Gujarat — not a distant design-only studio."
         },
         {
@@ -433,48 +467,30 @@
             "title": "Close-out",
             "description": "Styling, documentation, and photography — space ready to live in.",
             "context": "both"
-        }
-    ],
-    "journalPosts": [
-        {
-            "slug": "journal-materiality",
-            "title": "Materiality in Indian light",
-            "excerpt": "How finishes behave under harsh sun and monsoon.",
-            "category": "Materials",
-            "readMinutes": 5,
-            "bodyHtml": "",
-            "image": "uploads/054-KANTILAL-3D-5.jpg",
-            "url": "journal-post.php?slug=journal-materiality"
         },
         {
-            "slug": "journal-quiet-luxury",
-            "title": "Quiet luxury interiors",
-            "excerpt": "Restraint, texture, and light as the real ornament.",
-            "category": "Interiors",
-            "readMinutes": 6,
-            "bodyHtml": "",
-            "image": "uploads/1228_HARESHBHAI_LIVING_3.jpg",
-            "url": "journal-post.php?slug=journal-quiet-luxury"
+            "label": "V",
+            "title": "Approvals",
+            "description": "Plan sanctioning, authority coordination, and compliance documentation.",
+            "context": "page"
         },
         {
-            "slug": "journal-sustainable",
-            "title": "Sustainable architecture in 2026",
-            "excerpt": "Passive cooling, honest materials, and long-life envelopes.",
-            "category": "Sustainability",
-            "readMinutes": 8,
-            "bodyHtml": "",
-            "image": "uploads/LIVING%2002.jpg",
-            "url": "journal-post.php?slug=journal-sustainable"
+            "label": "VI",
+            "title": "Construction",
+            "description": "Site administration, quality checks, and vendor coordination on site.",
+            "context": "page"
         },
         {
-            "slug": "journal-workplaces",
-            "title": "Workplaces that perform",
-            "excerpt": "Acoustics, focus zones, and hospitality moments for teams.",
-            "category": "Lifestyle",
-            "readMinutes": 7,
-            "bodyHtml": "",
-            "image": "uploads/1071-SANJAYSINH%20JADEJA_4.jpg",
-            "url": "journal-post.php?slug=journal-workplaces"
+            "label": "VII",
+            "title": "Interior execution",
+            "description": "Joinery, finishes, FF&E, and styling aligned with the design intent.",
+            "context": "page"
+        },
+        {
+            "label": "VIII",
+            "title": "Handover",
+            "description": "Snag resolution, documentation, and keys — space ready to occupy.",
+            "context": "page"
         }
     ],
     "heroSlides": [
@@ -512,11 +528,6 @@
         }
     ],
     "gallery": [
-        {
-            "src": "uploads/1228_HARESHBHAI_LIVING_5.jpg",
-            "alt": "Hareshbhai_living",
-            "caption": "Hareshbhai_living"
-        },
         {
             "src": "uploads/1213-SANJAYSINH%20JADEJA_PLOT-54-2.jpg",
             "alt": "Sanjaysinh Jadeja_plot",
@@ -575,11 +586,6 @@
     ],
     "homeGallery": [
         {
-            "src": "uploads/1228_HARESHBHAI_LIVING_5.jpg",
-            "alt": "Hareshbhai_living",
-            "caption": "Hareshbhai_living"
-        },
-        {
             "src": "uploads/1213-SANJAYSINH%20JADEJA_PLOT-54-2.jpg",
             "alt": "Sanjaysinh Jadeja_plot",
             "caption": "Sanjaysinh Jadeja_plot"
@@ -637,26 +643,6 @@
     ],
     "projects": [
         {
-            "slug": "1",
-            "title": "1",
-            "location": "Gujarat, India",
-            "category": "residential",
-            "projectType": "residential",
-            "summary": "Interior & architecture visual — 1.",
-            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1.jpg\" alt=\"1\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
-            "heroImage": "uploads/1.jpg",
-            "heroSrcset": "",
-            "heroSizes": "",
-            "linkUrl": "project.php?slug=1",
-            "homeHighlight": true,
-            "homeLayout": "lg",
-            "isFeatured": true,
-            "sortOrder": 0,
-            "area": "",
-            "year": null,
-            "servicesProvided": ""
-        },
-        {
             "slug": "02-bedroom-1",
             "title": "02 Bedroom 1",
             "location": "Gujarat, India",
@@ -680,8 +666,8 @@
             "slug": "02-bedroom-2",
             "title": "02 Bedroom 2",
             "location": "Gujarat, India",
-            "category": "residential",
-            "projectType": "residential",
+            "category": "architecture",
+            "projectType": "architecture",
             "summary": "Interior & architecture visual — 02 Bedroom 2.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/02%20BEDROOM%202.jpg\" alt=\"02 Bedroom 2\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/02%20BEDROOM%202.jpg",
@@ -797,6 +783,46 @@
             "servicesProvided": ""
         },
         {
+            "slug": "1",
+            "title": "1",
+            "location": "Gujarat, India",
+            "category": "interior",
+            "projectType": "interior",
+            "summary": "Interior & architecture visual — 1.",
+            "bodyHtml": "",
+            "heroImage": "uploads/1.jpg",
+            "heroSrcset": "",
+            "heroSizes": "",
+            "linkUrl": "project.php?slug=1",
+            "homeHighlight": false,
+            "homeLayout": "lg",
+            "isFeatured": true,
+            "sortOrder": 15,
+            "area": "",
+            "year": null,
+            "servicesProvided": ""
+        },
+        {
+            "slug": "085-jiteshbhai-kosamba-5-jpg",
+            "title": "085 Jiteshbhai Kosamba 5.jpg",
+            "location": "Gujarat, India",
+            "category": "residential",
+            "projectType": "residential",
+            "summary": "Interior & architecture visual — 085 Jiteshbhai Kosamba 5.jpg.",
+            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/085-JITESHBHAI%20KOSAMBA-5.jpg.jpeg\" alt=\"Jiteshbhai Kosamba-5.jpg\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
+            "heroImage": "uploads/085-JITESHBHAI%20KOSAMBA-5.jpg.jpeg",
+            "heroSrcset": "",
+            "heroSizes": "",
+            "linkUrl": "project.php?slug=085-jiteshbhai-kosamba-5-jpg",
+            "homeHighlight": true,
+            "homeLayout": "",
+            "isFeatured": false,
+            "sortOrder": 0,
+            "area": "",
+            "year": null,
+            "servicesProvided": ""
+        },
+        {
             "slug": "043-dharmeshbhai-3",
             "title": "043 Dharmeshbhai 3",
             "location": "Gujarat, India",
@@ -808,7 +834,7 @@
             "heroSrcset": "",
             "heroSizes": "",
             "linkUrl": "project.php?slug=043-dharmeshbhai-3",
-            "homeHighlight": false,
+            "homeHighlight": true,
             "homeLayout": "",
             "isFeatured": false,
             "sortOrder": 8,
@@ -820,8 +846,8 @@
             "slug": "054-kantilal-3d-5",
             "title": "054 Kantilal 3d 5",
             "location": "Gujarat, India",
-            "category": "commercial",
-            "projectType": "commercial",
+            "category": "architecture",
+            "projectType": "architecture",
             "summary": "Interior & architecture visual — 054 Kantilal 3d 5.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/054-KANTILAL-3D-5.jpg\" alt=\"Kantilal-3d\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/054-KANTILAL-3D-5.jpg",
@@ -897,26 +923,6 @@
             "servicesProvided": ""
         },
         {
-            "slug": "085-jiteshbhai-kosamba-5-jpg",
-            "title": "085 Jiteshbhai Kosamba 5.jpg",
-            "location": "Gujarat, India",
-            "category": "residential",
-            "projectType": "residential",
-            "summary": "Interior & architecture visual — 085 Jiteshbhai Kosamba 5.jpg.",
-            "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/085-JITESHBHAI%20KOSAMBA-5.jpg.jpeg\" alt=\"Jiteshbhai Kosamba-5.jpg\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
-            "heroImage": "uploads/085-JITESHBHAI%20KOSAMBA-5.jpg.jpeg",
-            "heroSrcset": "",
-            "heroSizes": "",
-            "linkUrl": "project.php?slug=085-jiteshbhai-kosamba-5-jpg",
-            "homeHighlight": false,
-            "homeLayout": "",
-            "isFeatured": false,
-            "sortOrder": 13,
-            "area": "",
-            "year": null,
-            "servicesProvided": ""
-        },
-        {
             "slug": "747-1",
             "title": "747 1",
             "location": "Gujarat, India",
@@ -980,8 +986,8 @@
             "slug": "1071-sanjaysinh-jadeja-4",
             "title": "1071 Sanjaysinh Jadeja 4",
             "location": "Gujarat, India",
-            "category": "commercial",
-            "projectType": "commercial",
+            "category": "interior",
+            "projectType": "interior",
             "summary": "Interior & architecture visual — 1071 Sanjaysinh Jadeja 4.",
             "bodyHtml": "<div class=\"project-gallery-grid\"><figure class=\"project-photo\"><img src=\"uploads/1071-SANJAYSINH%20JADEJA_4.jpg\" alt=\"Sanjaysinh Jadeja\" loading=\"lazy\" decoding=\"async\" /></figure></div>",
             "heroImage": "uploads/1071-SANJAYSINH%20JADEJA_4.jpg",
@@ -3666,7 +3672,7 @@
             "detailTitle": "Plan sanctioning & authority approvals",
             "detailLead1": "Architectural drawing preparation and documentation aligned to your plot and programme.",
             "detailLead2": "Liaison with municipal and town-planning authorities; compliance with local development control rules.",
-            "image": "uploads/054-KANTILAL-3D-6.jpg"
+            "image": "uploads/general/20260607_220127_5bbe4b49.jpg"
         },
         {
             "number": "02",
@@ -3697,36 +3703,6 @@
             "detailLead1": "From design brief to handover: procurement, labour management, and vendor coordination.",
             "detailLead2": "A single accountable team for design, approvals, build, and interior completion.",
             "image": "uploads/LIVING_ROOM_2-1.jpg"
-        },
-        {
-            "number": "05",
-            "title": "Consulting civil engineering",
-            "shortDescription": "Structural advice, site feasibility, and buildability reviews.",
-            "eyebrow": "05 — Engineering",
-            "detailTitle": "Consulting civil engineer",
-            "detailLead1": "Structural and civil engineering consultation for new builds and renovations.",
-            "detailLead2": "Feasibility studies, BOQs, and coordination with architects and contractors.",
-            "image": "uploads/058-PRAKASHBHAI%20TANK-3D-2.jpg"
-        },
-        {
-            "number": "06",
-            "title": "Building plan & NA layouts",
-            "shortDescription": "Plan approval support, layouts, and land survey.",
-            "eyebrow": "06 — Planning",
-            "detailTitle": "Building plan approval & NA layouts",
-            "detailLead1": "Building plan approval pathways and documentation for residential and commercial plots.",
-            "detailLead2": "NA layouts, land survey, and plot planning support across Gujarat.",
-            "image": "uploads/1213-SANJAYSINH%20JADEJA_PLOT-62-1.jpg"
-        },
-        {
-            "number": "07",
-            "title": "3D design & visualization",
-            "shortDescription": "Concept renders and presentation models for client sign-off.",
-            "eyebrow": "07 — Visualization",
-            "detailTitle": "3D designing & visualization",
-            "detailLead1": "Photorealistic 3D renders and walkthroughs for architecture and interior schemes.",
-            "detailLead2": "Material and lighting studies before work starts on site — fewer surprises at execution.",
-            "image": "uploads/066-UPENDRASINH-3D-3.jpg"
         }
     ],
     "pages": {
@@ -3734,21 +3710,179 @@
             "kicker": "Rajkot · Gujarat",
             "title": "Archevo Infra Edge Pvt Ltd",
             "lead": "Integrated design and build — civil engineering, plan approvals, interiors, and turnkey project management from Rajkot.",
-            "heroImage": "uploads/1212-ARVINDBHAI%20PARMAR_FRONT-2.jpg",
+            "heroImage": "uploads/general/20260608_000036_f2ed4839.jpg",
+            "storyEyebrow": "Our story",
+            "storyTitle": "From foundation to future",
+            "storyIntro": "A Rajkot-born studio built on patience, precision, and the belief that great architecture must survive Tuesday mornings — not only opening photographs.",
+            "storyImage": "uploads/general/20260608_000655_83f9076f.jpg",
+            "timeline": [
+                {
+                    "year": "2010 · Foundation",
+                    "title": "Roots in Rajkot",
+                    "text": "Archevo Design began as a practice committed to integrated architecture and civil delivery — one team accountable from drawing board to handover."
+                },
+                {
+                    "year": "Growth",
+                    "title": "Design + build under one roof",
+                    "text": "Archevo Design offers end-to-end services across civil engineering, plan sanctioning, interior design, and turnkey project management — one accountable team for homes, workplaces, and developments in Gujarat."
+                },
+                {
+                    "year": "Milestone",
+                    "title": "150+ commissions delivered",
+                    "text": "Residential, commercial, and retail projects across Saurashtra — each shaped by climate logic, honest materials, and build discipline."
+                },
+                {
+                    "year": "Visionn",
+                    "title": "Quiet luxury, lasting spaces",
+                    "text": "We favour envelopes tuned for Gujarat, generous daylight, and interiors composed with the same rigour as structure."
+                },
+                {
+                    "year": "Forward",
+                    "title": "Western India's trusted studio",
+                    "text": "We execute with integrity, intelligence, and innovation — coordinating authorities, contractors, and vendors so you have a single point of contact from drawing board to keys."
+                }
+            ],
             "philosophyEyebrow": "Philosophy",
             "philosophyTitle": "From design vision to built reality",
-            "philosophyLead1": "Archevo Infra Edge Pvt Ltd offers end-to-end services across civil engineering, plan sanctioning, interior design, and turnkey project management — one accountable team for homes, workplaces, and developments in Gujarat.",
+            "philosophyLead1": "Archevo Design offers end-to-end services across civil engineering, plan sanctioning, interior design, and turnkey project management — one accountable team for homes, workplaces, and developments in Gujarat.",
             "philosophyLead2": "We execute with integrity, intelligence, and innovation — coordinating authorities, contractors, and vendors so you have a single point of contact from drawing board to keys.",
-            "philosophyImage": "uploads/1228_HARESHBHAI_LIVING_3.jpg",
+            "philosophyImage": "uploads/general/20260608_113209_523de22f.jpg",
+            "pillars": [
+                {
+                    "title": "Design thinking",
+                    "text": "Every commission begins with clarity — brief, site, budget, and the life that will unfold inside the space.",
+                    "icon": "fa-solid fa-brain"
+                },
+                {
+                    "title": "Human-centred",
+                    "text": "Layouts, light, and circulation composed for how people actually live, work, and gather — not for catalogue spreads.",
+                    "icon": "fa-solid fa-users"
+                },
+                {
+                    "title": "Functionality",
+                    "text": "Structure-first thinking so the shell supports daily life — compliant, buildable, and efficient on site.",
+                    "icon": "fa-solid fa-cubes"
+                },
+                {
+                    "title": "Beauty",
+                    "text": "Atmosphere, proportion, and tactile sequences — composed like a slow conversation between material and light.",
+                    "icon": "fa-solid fa-gem"
+                },
+                {
+                    "title": "Sustainability",
+                    "text": "Climate-responsive envelopes, durable finishes, and decisions that reduce waste across the project lifecycle.",
+                    "icon": "fa-solid fa-leaf"
+                },
+                {
+                    "title": "Construction intelligence",
+                    "text": "Drawings contractors can build, site rhythm directors can hold, and clients can trust through handover.",
+                    "icon": "fa-solid fa-helmet-safety"
+                }
+            ],
+            "whyEyebrow": "Why Archevo Design",
+            "whyTitle": "Not just another architecture firm",
+            "whyIntro": "Integrated design, civil expertise, and turnkey delivery — one studio, one contract, one point of accountability.",
+            "whyCards": [
+                {
+                    "title": "Single Point Responsibility",
+                    "text": "One team owns design, coordination, and delivery — so accountability never disappears mid-project.",
+                    "icon": "fa-solid fa-layer-group"
+                },
+                {
+                    "title": "Design + Construction",
+                    "text": "Architecture, engineering, and site execution aligned from day one — not translated through layers of vendors.",
+                    "icon": "fa-solid fa-compass-drafting"
+                },
+                {
+                    "title": "Transparent Budgeting",
+                    "text": "Scope, materials, and milestones defined early — with clarity before work begins on site.",
+                    "icon": "fa-solid fa-scale-balanced"
+                },
+                {
+                    "title": "On-Time Delivery",
+                    "text": "Structured phases, site discipline, and proactive coordination to protect your timeline.",
+                    "icon": "fa-solid fa-clock"
+                },
+                {
+                    "title": "Professional Team",
+                    "text": "Directors, designers, and engineers working as one studio — not a revolving door of subcontractors.",
+                    "icon": "fa-solid fa-people-group"
+                },
+                {
+                    "title": "Approval Assistance",
+                    "text": "Drawings and submissions prepared for local plan-sanctioning requirements across Gujarat.",
+                    "icon": "fa-solid fa-file-circle-check"
+                }
+            ],
             "valuesEyebrow": "In the studio",
             "valuesTitle": "Three disciplines, one table",
-            "valuesHtml": "<div class=\"value-card\"><h3>Rajkot &amp; Saurashtra</h3><p>On-ground experience across Gujarat — not a distant design-only studio.</p></div><div class=\"value-card\"><h3>Approvals support</h3><p>Drawings and submissions prepared for local plan-sanctioning requirements.</p></div><div class=\"value-card\"><h3>Referral-led work</h3><p>A large share of new projects come from past clients and word of mouth.</p></div><div class=\"value-card\"><h3>Turnkey under one roof</h3><p>Design, civil, and interiors coordinated by one accountable team.</p></div>",
+            "valuesHtml": "<div class=\"value-card\"><h3>Rajkot &amp; Gujarat</h3><p>On-ground experience across Gujarat — not a distant design-only studio.</p></div><div class=\"value-card\"><h3>Approvals support</h3><p>Drawings and submissions prepared for local plan-sanctioning requirements.</p></div><div class=\"value-card\"><h3>Referral-led work</h3><p>A large share of new projects come from past clients and word of mouth.</p></div><div class=\"value-card\"><h3>Turnkey under one roof</h3><p>Design, civil, and interiors coordinated by one accountable team.</p></div>",
             "pullquote": "From design vision to built reality — we execute with integrity, intelligence, and innovation.",
+            "processEyebrow": "How we work",
+            "processTitle": "From discovery to handover",
+            "processIntro": "Clear phases, shared tools, and sign-off moments — so you always know what happens next.",
+            "cultureEyebrow": "Studio culture",
+            "cultureTitle": "Behind the work",
+            "cultureIntro": "Site visits, design reviews, material selection, and the quiet discipline that turns drawings into built reality.",
+            "stripCaptions": [
+                "Site visits",
+                "Design reviews",
+                "Material selection",
+                "Personalization"
+            ],
             "stripImages": [
                 "uploads/1213-SANJAYSINH%20JADEJA_PLOT-62-1.jpg",
                 "uploads/1228_HARESHBHAI_LIVING_4.jpg",
-                "uploads/058-PRAKASHBHAI%20TANK-3D-2.jpg"
-            ]
+                "uploads/058-PRAKASHBHAI%20TANK-3D-2.jpg",
+                "uploads/general/20260608_121920_02445f1c.jpg"
+            ],
+            "impactEyebrow": "Project impact",
+            "impactTitle": "Built with purpose",
+            "testimonialsEyebrow": "Clients",
+            "testimonialsTitle": "What clients say",
+            "trustBadges": [
+                {
+                    "value": "4.9",
+                    "label": "Client satisfaction",
+                    "icon": "fa-solid fa-star"
+                },
+                {
+                    "value": "85%",
+                    "label": "Referral-led projects",
+                    "icon": "fa-solid fa-handshake"
+                },
+                {
+                    "value": "150+",
+                    "label": "Successful deliveries",
+                    "icon": "fa-solid fa-award"
+                }
+            ],
+            "compareEyebrow": "The difference",
+            "compareTitle": "Archevo Design vs traditional contractors",
+            "compareUsTitle": "Archevo Design",
+            "compareThemTitle": "Traditional approach",
+            "compareUsItems": [
+                "Single studio for design, approvals, build & interiors",
+                "Director-led accountability through handover",
+                "Drawings prepared for local plan sanctioning",
+                "Transparent phases with shared documentation",
+                "3D visualization before work begins on site"
+            ],
+            "compareThemItems": [
+                "Separate architect, contractor & interior vendors",
+                "Accountability gaps between design and site",
+                "Approval paperwork handled by the client",
+                "Scope changes without clear sign-off",
+                "Decisions made on site without prior study"
+            ],
+            "ctaEyebrow": "Next project",
+            "ctaTitle": "Let's Create Something Meaningful Together",
+            "ctaSub": "Architecture · Interiors · Construction · Delivered With Purpose",
+            "ctaText": "See how we translate intent into drawings, models, and built work.",
+            "ctaBtnText": "Our process",
+            "ctaBtnUrl": "process.html",
+            "ctaBtn2Text": "View our work",
+            "ctaBtn2Url": "work.html"
         },
         "work": {
             "kicker": "Portfolio",
@@ -3769,7 +3903,7 @@
             "trustTitle": "Why clients choose Archevo",
             "ctaEyebrow": "Next project",
             "ctaTitle": "Ready To Build Something Exceptional?",
-            "ctaSub": "Architecture.\nInteriors.\nConstruction.\nTurnkey Delivery."
+            "ctaSub": "Architecture.\r\nInteriors.\r\nConstruction.\r\nTurnkey Delivery."
         },
         "contact": {
             "heroKicker": "Enquiries",
@@ -3802,8 +3936,7 @@
                 "Commercial",
                 "Interior Design",
                 "Construction",
-                "Turnkey",
-                "Renovation"
+                "Turnkey"
             ],
             "budgetRanges": [
                 "₹10L – ₹25L",
@@ -3813,8 +3946,6 @@
             ],
             "reasons": [
                 "New Home Design",
-                "Villa Design",
-                "Office Design",
                 "Interior Design",
                 "Construction",
                 "Turnkey Solutions"
@@ -3898,44 +4029,33 @@
             "timelineEyebrow": "Timeline",
             "timelineTitle": "From brief to keys",
             "faq": {
-                "eyebrow": "",
-                "title": "",
-                "items": []
-            },
-            "ctaSecondary": {
-                "text": "Discuss your project",
-                "url": "contact.html"
-            }
-        },
-        "journal": {
-            "kicker": "Journal",
-            "title": "Ideas from the studio",
-            "lead": "Notes on materiality, process, and the culture of space — for clients and collaborators.",
-            "heroImage": "uploads/1228_HARESHBHAI_LIVING_4.jpg",
-            "newsletterTitle": "Join The Design Conversation",
-            "newsletterLead": "Architecture insights, project stories, design trends, and material knowledge — delivered with care.",
-            "faq": {
+                "eyebrow": "Questions",
+                "title": "About our process",
                 "items": [
                     {
-                        "q": "How often do you publish new articles?",
-                        "a": "We publish when we have meaningful insights from practice — typically monthly, with deeper essays on materials, process, and project lessons."
+                        "q": "How long does a project take?",
+                        "a": "Timelines depend on scope — residential builds typically run 12–18 months turnkey; interiors may complete in 4–8 months. We share a milestone calendar at engagement."
                     },
                     {
-                        "q": "Can I republish or cite your articles?",
-                        "a": "Yes, with attribution and a link to the original. For syndication or press use, contact the studio directly."
+                        "q": "When are approvals required?",
+                        "a": "Plan sanctioning follows schematic lock. We prepare drawings and coordinate with local authorities so compliance stays within the studio."
                     },
                     {
-                        "q": "Who writes the journal?",
-                        "a": "Articles are authored by our founders, architects, and design team — grounded in real projects and site experience."
+                        "q": "How often will I receive updates?",
+                        "a": "Weekly site reports during construction, shared documentation at every phase gate, and director access for key decisions."
                     },
                     {
-                        "q": "How do I subscribe to updates?",
-                        "a": "Use the newsletter form on this page or enquire via contact — we share insights, project stories, and material knowledge."
+                        "q": "Can you manage turnkey projects?",
+                        "a": "Yes. Design, approvals, construction, interiors, and handover under one contract — single point of contact throughout."
+                    },
+                    {
+                        "q": "What if changes are needed mid-project?",
+                        "a": "Changes are documented with scope, cost, and timeline impact before work proceeds — no surprises on site."
                     }
                 ]
             },
             "ctaSecondary": {
-                "text": "Contact the studio",
+                "text": "Discuss your project",
                 "url": "contact.html"
             }
         },
@@ -3943,7 +4063,7 @@
             "kicker": "What we do",
             "title": "Integrated design & build solutions",
             "lead": "At Archevo Infra Edge Pvt Ltd, we blend structural expertise with aesthetic precision — functional, compliant, and beautifully designed spaces from brief to handover.",
-            "heroImage": "uploads/054-KANTILAL-3D-6.jpg",
+            "heroImage": "uploads/general/20260608_153927_f901f6d9.jpg",
             "items": [
                 {
                     "number": "01",
@@ -3953,7 +4073,7 @@
                     "detailTitle": "Plan sanctioning & authority approvals",
                     "detailLead1": "Architectural drawing preparation and documentation aligned to your plot and programme.",
                     "detailLead2": "Liaison with municipal and town-planning authorities; compliance with local development control rules.",
-                    "image": "uploads/054-KANTILAL-3D-6.jpg"
+                    "image": "uploads/general/20260607_220127_5bbe4b49.jpg"
                 },
                 {
                     "number": "02",
@@ -4013,7 +4133,7 @@
                     "detailTitle": "3D designing & visualization",
                     "detailLead1": "Photorealistic 3D renders and walkthroughs for architecture and interior schemes.",
                     "detailLead2": "Material and lighting studies before work starts on site — fewer surprises at execution.",
-                    "image": "uploads/066-UPENDRASINH-3D-3.jpg"
+                    "image": "uploads/general/20260607_220404_699871cf.jpg"
                 }
             ],
             "faq": {
@@ -4049,7 +4169,49 @@
             "ctaSecondary": {
                 "text": "Get project estimate",
                 "url": "contact.html"
-            }
+            },
+            "ecosystemEyebrow": "Integrated delivery",
+            "ecosystemTitle": "One studio. Every solution.",
+            "ecosystemIntro": "Architecture, interiors, civil construction, approvals, and turnkey project management — connected under one accountable team from Rajkot, Gujarat.",
+            "compare": {
+                "eyebrow": "The difference",
+                "title": "Why clients choose us",
+                "intro": "Integrated design, civil expertise, and turnkey delivery — one studio, one contract, one point of accountability.",
+                "usTitle": "Archevo Design",
+                "themTitle": "Traditional approach",
+                "usItems": [
+                    "Single studio for design, approvals, build & interiors",
+                    "Director-led accountability through handover",
+                    "Drawings prepared for local plan sanctioning",
+                    "Transparent phases with shared documentation",
+                    "3D visualization before work begins on site"
+                ],
+                "themItems": [
+                    "Separate architect, contractor & interior vendors",
+                    "Accountability gaps between design and site",
+                    "Approval paperwork handled by the client",
+                    "Scope changes without clear sign-off",
+                    "Decisions made on site without prior study"
+                ]
+            },
+            "processEyebrow": "How we work",
+            "processTitle": "From consultation to handover",
+            "processIntro": "Clear phases, shared tools, and sign-off moments — so you always know what happens next.",
+            "impactEyebrow": "Results",
+            "impactTitle": "Built with purpose",
+            "casesEyebrow": "Selected work",
+            "casesTitle": "Projects that prove the process",
+            "casesIntro": "Real commissions across residential, commercial, and turnkey delivery — each shaped by discipline, clarity, and craft.",
+            "testimonialsEyebrow": "Clients",
+            "testimonialsTitle": "What clients say",
+            "ctaSub": "Architecture · Interiors · Construction · Turnkey Delivery",
+            "detailLinkText": "View related work",
+            "detailLinkUrl": "work.html",
+            "casesLinkText": "View all work",
+            "casesLinkUrl": "work.html",
+            "processLinkText": "Full process",
+            "processLinkUrl": "process.html",
+            "impactImage": "uploads/general/20260608_160126_10c7146d.jpg"
         }
     }
 }

@@ -89,7 +89,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
         }
         content_sync_site_json($pdo);
         admin_flash_set('success', 'Timeline step saved.');
-        redirect('process.php');
+        $return = trim((string) ($_POST['return'] ?? ''));
+        redirect($return === 'services/process.php' ? $return : 'process.php');
     }
 
     if ($postAction === 'save_page') {
@@ -131,14 +132,25 @@ if ($action === 'edit_step' || $action === 'new_step') {
         $row = $stmt->fetch(PDO::FETCH_ASSOC) ?: $row;
     }
     $pageTitle = $id > 0 ? 'Edit timeline step' : 'Add timeline step';
-    $pageDescription = 'Shown on the Process page timeline (and home page if set to “Both”).';
+    $pageDescription = 'Shown on the Services page, Process page timeline, and Home page (when set to Home).';
+    $returnTo = trim((string) ($_GET['return'] ?? ''));
+    if ($returnTo !== 'services/process.php') {
+        $returnTo = '';
+    }
     $activeNav = 'process';
     require __DIR__ . '/includes/layout.php';
-    ?>
+    if ($returnTo !== ''): ?>
+      <p class="adm-hint adm-card" style="margin-bottom:1rem;">
+        <a href="<?= e(admin_href($returnTo)) ?>" class="adm-btn adm-btn-sm adm-btn-ghost"><i class="fa-solid fa-arrow-left"></i> Back to Services → Process</a>
+      </p>
+    <?php endif; ?>
     <form method="post" class="adm-card">
       <?= csrf_field() ?>
       <input type="hidden" name="action" value="save_step" />
       <input type="hidden" name="id" value="<?= (int) $row['id'] ?>" />
+      <?php if ($returnTo !== ''): ?>
+        <input type="hidden" name="return" value="<?= e($returnTo) ?>" />
+      <?php endif; ?>
       <div class="adm-field">
         <label>Step label</label>
         <input type="text" name="step_label" value="<?= e($row['step_label']) ?>" placeholder="e.g. Phase 01 or I" required />
@@ -149,16 +161,17 @@ if ($action === 'edit_step' || $action === 'new_step') {
       <div class="adm-field">
         <label>Show on</label>
         <select name="context">
-          <option value="page"<?= ($row['context'] ?? '') === 'page' ? ' selected' : '' ?>>Process page only</option>
+          <option value="page"<?= ($row['context'] ?? '') === 'page' ? ' selected' : '' ?>>Services &amp; Process pages</option>
           <option value="home"<?= ($row['context'] ?? '') === 'home' ? ' selected' : '' ?>>Home page only</option>
-          <option value="both"<?= ($row['context'] ?? '') === 'both' ? ' selected' : '' ?>>Home and Process page</option>
+          <option value="both"<?= ($row['context'] ?? '') === 'both' ? ' selected' : '' ?>>Home, Services &amp; Process</option>
         </select>
+        <p class="adm-hint">Services and Process pages share the same steps. Home shows steps set to Home or Both.</p>
       </div>
       <div class="adm-field"><label>Order</label><input type="number" name="sort_order" value="<?= (int) $row['sort_order'] ?>" style="width:6rem;" /></div>
       <div class="adm-field"><label><input type="checkbox" name="is_active" value="1"<?= !empty($row['is_active']) ? ' checked' : '' ?> /> Visible on website</label></div>
       <div class="adm-actions">
         <button type="submit" class="adm-btn adm-btn-primary">Save step</button>
-        <a href="process.php" class="adm-btn adm-btn-ghost">Back to Process page</a>
+        <a href="process.php<?= $returnTo !== '' ? '?return=' . rawurlencode($returnTo) : '' ?>" class="adm-btn adm-btn-ghost">Cancel</a>
       </div>
     </form>
     <?php
@@ -282,7 +295,8 @@ require __DIR__ . '/includes/layout.php';
 
 <div class="adm-card" style="margin-top:1.5rem;">
   <div class="adm-actions" style="margin-bottom:1rem;">
-    <h2 style="margin:0;">Timeline steps</h2>
+    <h2>Timeline steps</h2>
+    <p class="adm-hint">These steps appear on the Services page, Process page, and Home page (depending on “Show on”). Edit them under <a href="services/process.php">Services page → Process preview</a> or below.</p>
     <a href="process.php?action=new_step" class="adm-btn adm-btn-primary adm-btn-sm">Add timeline step</a>
   </div>
   <?php if (!$steps): ?>

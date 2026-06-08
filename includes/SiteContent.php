@@ -13,7 +13,10 @@ final class SiteContent
         cms_run_migrations($pdo);
 
         require_once SPANGLE_ROOT . '/includes/cmsCopyKeys.php';
+        require_once SPANGLE_ROOT . '/includes/cmsStudioSections.php';
+        require_once SPANGLE_ROOT . '/includes/cmsServicesSections.php';
         require_once SPANGLE_ROOT . '/includes/cmsPlainFields.php';
+        cms_seed_services_section_settings($pdo);
         require_once SPANGLE_ROOT . '/includes/cmsNavigation.php';
         require_once SPANGLE_ROOT . '/includes/cms/ProjectRepository.php';
 
@@ -51,28 +54,64 @@ final class SiteContent
             'home_about_eyebrow', 'home_about_title', 'home_about_lead_html', 'home_about_paragraph_1', 'home_about_paragraph_2',
             'home_about_image', 'home_about_image_alt', 'home_about_caption',
             'footer_blurb_1', 'footer_blurb_2',
-            'home_gallery_eyebrow', 'home_gallery_title', 'home_gallery_intro',
+            'home_gallery_eyebrow', 'home_gallery_title', 'home_gallery_intro', 'home_gallery_limit',
             'home_projects_eyebrow', 'home_projects_title', 'home_projects_intro', 'home_projects_limit',
             'home_capabilities_eyebrow', 'home_capabilities_title', 'home_capabilities_intro',
             'home_process_eyebrow', 'home_process_title', 'home_process_intro',
             'home_testimonials_eyebrow', 'home_testimonials_title',
             'home_awards_eyebrow', 'home_awards_title',
-            'home_team_eyebrow', 'home_team_title',
-            'home_journal_eyebrow', 'home_journal_title',
-            'home_gallery_limit',
-            'home_cta_eyebrow', 'home_cta_title', 'home_cta_lead', 'home_cta_btn_text', 'home_cta_btn_url',
+            'home_cta_eyebrow', 'home_cta_title', 'home_cta_lead', 'home_cta_sub',
+            'home_cta_btn_text', 'home_cta_btn_url',
             'home_why_eyebrow', 'home_why_title', 'home_why_intro',
-            'home_why_1_title', 'home_why_1_text', 'home_why_2_title', 'home_why_2_text',
-            'home_why_3_title', 'home_why_3_text', 'home_why_4_title', 'home_why_4_text',
-            'home_why_5_title', 'home_why_5_text', 'home_why_6_title', 'home_why_6_text',
+            'home_why_1_title', 'home_why_1_text', 'home_why_1_icon', 'home_why_2_title', 'home_why_2_text', 'home_why_2_icon',
+            'home_why_3_title', 'home_why_3_text', 'home_why_3_icon', 'home_why_4_title', 'home_why_4_text', 'home_why_4_icon',
+            'home_why_5_title', 'home_why_5_text', 'home_why_5_icon', 'home_why_6_title', 'home_why_6_text', 'home_why_6_icon',
             'home_pillar_1_title', 'home_pillar_1_text', 'home_pillar_2_title', 'home_pillar_2_text',
             'home_pillar_3_title', 'home_pillar_3_text', 'home_pillar_4_title', 'home_pillar_4_text',
             'home_impact_eyebrow', 'home_impact_title',
             'studio_kicker', 'studio_title', 'studio_lead', 'studio_hero_image',
+            'studio_story_eyebrow', 'studio_story_title', 'studio_story_intro', 'studio_story_image',
+            'studio_timeline_1_year', 'studio_timeline_1_title', 'studio_timeline_1_text',
+            'studio_timeline_2_year', 'studio_timeline_2_title', 'studio_timeline_2_text',
+            'studio_timeline_3_year', 'studio_timeline_3_title', 'studio_timeline_3_text',
+            'studio_timeline_4_year', 'studio_timeline_4_title', 'studio_timeline_4_text',
+            'studio_timeline_5_year', 'studio_timeline_5_title', 'studio_timeline_5_text',
             'studio_philosophy_eyebrow', 'studio_philosophy_title', 'studio_philosophy_lead_1', 'studio_philosophy_lead_2', 'studio_philosophy_image',
+            'studio_pillar_1_title', 'studio_pillar_1_text', 'studio_pillar_1_icon',
+            'studio_pillar_2_title', 'studio_pillar_2_text', 'studio_pillar_2_icon',
+            'studio_pillar_3_title', 'studio_pillar_3_text', 'studio_pillar_3_icon',
+            'studio_pillar_4_title', 'studio_pillar_4_text', 'studio_pillar_4_icon',
+            'studio_pillar_5_title', 'studio_pillar_5_text', 'studio_pillar_5_icon',
+            'studio_pillar_6_title', 'studio_pillar_6_text', 'studio_pillar_6_icon',
+            'studio_why_eyebrow', 'studio_why_title', 'studio_why_intro',
             'studio_values_eyebrow', 'studio_values_title', 'studio_values_html', 'studio_pullquote',
+            'studio_process_eyebrow', 'studio_process_title', 'studio_process_intro',
+            'studio_culture_eyebrow', 'studio_culture_title', 'studio_culture_intro',
+            'studio_culture_caption_1', 'studio_culture_caption_2', 'studio_culture_caption_3',
+            'studio_culture_caption_4', 'studio_culture_caption_5', 'studio_culture_caption_6',
             'studio_strip_image_1', 'studio_strip_image_2', 'studio_strip_image_3',
+            'studio_strip_image_4', 'studio_strip_image_5', 'studio_strip_image_6',
+            'studio_impact_eyebrow', 'studio_impact_title',
+            'studio_testimonials_eyebrow', 'studio_testimonials_title',
+            'studio_trust_badge_1_value', 'studio_trust_badge_1_label', 'studio_trust_badge_1_icon',
+            'studio_trust_badge_2_value', 'studio_trust_badge_2_label', 'studio_trust_badge_2_icon',
+            'studio_trust_badge_3_value', 'studio_trust_badge_3_label', 'studio_trust_badge_3_icon',
+            'studio_compare_eyebrow', 'studio_compare_title', 'studio_compare_us_title', 'studio_compare_them_title',
+            'studio_compare_us_1', 'studio_compare_us_2', 'studio_compare_us_3', 'studio_compare_us_4', 'studio_compare_us_5',
+            'studio_compare_them_1', 'studio_compare_them_2', 'studio_compare_them_3', 'studio_compare_them_4', 'studio_compare_them_5',
+            'studio_cta_eyebrow', 'studio_cta_title', 'studio_cta_sub', 'studio_cta_text',
+            'studio_cta_btn_text', 'studio_cta_btn_url', 'studio_cta_btn2_text', 'studio_cta_btn2_url',
             'services_kicker', 'services_title', 'services_lead', 'services_hero_image',
+            'services_ecosystem_eyebrow', 'services_ecosystem_title', 'services_ecosystem_intro',
+            'services_compare_eyebrow', 'services_compare_title', 'services_compare_intro',
+            'services_process_eyebrow', 'services_process_title', 'services_process_intro',
+            'services_impact_eyebrow', 'services_impact_title',
+            'services_cases_eyebrow', 'services_cases_title', 'services_cases_intro',
+            'services_detail_link_text', 'services_detail_link_url',
+            'services_cases_link_text', 'services_cases_link_url',
+            'services_process_link_text', 'services_process_link_url',
+            'services_impact_image',
+            'services_testimonials_eyebrow', 'services_testimonials_title',
             'services_cta_sub', 'services_cta_btn2_text', 'services_cta_btn2_url',
             'services_faq_eyebrow', 'services_faq_title',
             'services_faq_q1', 'services_faq_a1', 'services_faq_q2', 'services_faq_a2',
@@ -95,12 +134,6 @@ final class SiteContent
             'process_faq_q1', 'process_faq_a1', 'process_faq_q2', 'process_faq_a2',
             'process_faq_q3', 'process_faq_a3', 'process_faq_q4', 'process_faq_a4',
             'process_faq_q5', 'process_faq_a5',
-            'journal_kicker', 'journal_title', 'journal_lead', 'journal_hero_image',
-            'journal_stat_readers', 'journal_newsletter_title', 'journal_newsletter_lead',
-            'journal_cta_eyebrow', 'journal_cta_title', 'journal_cta_sub',
-            'journal_cta_btn2_text', 'journal_cta_btn2_url',
-            'journal_faq_q1', 'journal_faq_a1', 'journal_faq_q2', 'journal_faq_a2',
-            'journal_faq_q3', 'journal_faq_a3', 'journal_faq_q4', 'journal_faq_a4',
         ];
         $keys = array_merge($keys, array_keys(cms_copy_setting_keys()));
         foreach (cms_nav_item_definitions() as $def) {
@@ -111,12 +144,16 @@ final class SiteContent
         $copy = cms_build_copy_array($s);
 
         $stats = [];
-        $stmt = $pdo->query('SELECT stat_value, stat_label FROM home_stats ORDER BY sort_order ASC, id ASC');
+        $stmt = $pdo->query('SELECT stat_value, stat_label, stat_icon FROM home_stats ORDER BY sort_order ASC, id ASC');
         foreach ($stmt->fetchAll() as $row) {
-            $stats[] = ['value' => $row['stat_value'], 'label' => $row['stat_label']];
+            $stats[] = [
+                'value' => $row['stat_value'],
+                'label' => $row['stat_label'],
+                'icon' => trim((string) ($row['stat_icon'] ?? '')),
+            ];
         }
 
-        $homeGalleryLimit = max(4, min(24, (int) ($s['home_gallery_limit'] ?? 12)));
+        $homeGalleryLimit = home_gallery_limit_clamp((int) ($s['home_gallery_limit'] ?? 12));
         $homeGallery = [];
         $stmt = $pdo->prepare(
             'SELECT image_path, alt_text, caption FROM gallery_items
@@ -171,7 +208,6 @@ final class SiteContent
         $team = [];
         $awards = [];
         $processSteps = [];
-        $journalPosts = [];
         try {
             foreach ($pdo->query('SELECT quote, author_name, author_role FROM testimonials WHERE is_active = 1 ORDER BY sort_order ASC, id ASC')->fetchAll() as $row) {
                 $testimonials[] = ['quote' => $row['quote'], 'authorName' => $row['author_name'], 'authorRole' => $row['author_role'] ?? ''];
@@ -197,18 +233,6 @@ final class SiteContent
                     'context' => $row['context'] ?? 'both',
                 ];
             }
-            foreach ($pdo->query('SELECT slug, title, excerpt, category, read_minutes, body_html, image_path FROM journal_posts WHERE is_active = 1 ORDER BY sort_order ASC, id ASC')->fetchAll() as $row) {
-                $journalPosts[] = [
-                    'slug' => $row['slug'],
-                    'title' => $row['title'],
-                    'excerpt' => $row['excerpt'] ?? '',
-                    'category' => $row['category'] ?? '',
-                    'readMinutes' => $row['read_minutes'] !== null ? (int) $row['read_minutes'] : null,
-                    'bodyHtml' => $row['body_html'] ?? '',
-                    'image' => public_upload_url((string) ($row['image_path'] ?? '')),
-                    'url' => journal_public_url((string) $row['slug']),
-                ];
-            }
         } catch (Throwable $e) {
             // tables may not exist yet
         }
@@ -223,12 +247,13 @@ final class SiteContent
         }
 
         $servicesPage = [];
+        $servicesHome = [];
         $stmt = $pdo->query(
-            'SELECT number_label, title, short_description, eyebrow, detail_title, detail_lead_1, detail_lead_2, image_path
+            'SELECT number_label, title, short_description, eyebrow, detail_title, detail_lead_1, detail_lead_2, image_path, show_on_home
              FROM services WHERE is_active = 1 ORDER BY sort_order ASC, id ASC'
         );
         foreach ($stmt->fetchAll() as $row) {
-            $servicesPage[] = [
+            $item = [
                 'number' => $row['number_label'],
                 'title' => $row['title'],
                 'shortDescription' => $row['short_description'],
@@ -238,9 +263,11 @@ final class SiteContent
                 'detailLead2' => $row['detail_lead_2'],
                 'image' => public_upload_url((string) ($row['image_path'] ?? '')),
             ];
+            $servicesPage[] = $item;
+            if (!empty($row['show_on_home'])) {
+                $servicesHome[] = $item;
+            }
         }
-        // Same list drives home cards, services.html blocks, and footer links.
-        $servicesHome = $servicesPage;
 
         return [
             'version' => 2,
@@ -306,7 +333,6 @@ final class SiteContent
                 'services' => ['title' => $copy['seo_services_title'] ?? '', 'description' => $copy['seo_services_description'] ?? ''],
                 'work' => ['title' => $copy['seo_work_title'] ?? '', 'description' => $copy['seo_work_description'] ?? ''],
                 'process' => ['title' => $copy['seo_process_title'] ?? '', 'description' => $copy['seo_process_description'] ?? ''],
-                'journal' => ['title' => $copy['seo_journal_title'] ?? '', 'description' => $copy['seo_journal_description'] ?? ''],
                 'contact' => ['title' => $copy['seo_contact_title'] ?? '', 'description' => $copy['seo_contact_description'] ?? ''],
                 'privacy' => ['title' => $copy['seo_privacy_title'] ?? '', 'description' => $copy['seo_privacy_description'] ?? ''],
                 'terms' => ['title' => $copy['seo_terms_title'] ?? '', 'description' => $copy['seo_terms_description'] ?? ''],
@@ -363,27 +389,16 @@ final class SiteContent
                 'testimonialsTitle' => $s['home_testimonials_title'] ?? '',
                 'awardsEyebrow' => $s['home_awards_eyebrow'] ?? ($s['studio_values_eyebrow'] ?? ''),
                 'awardsTitle' => $s['home_awards_title'] ?? ($s['studio_values_title'] ?? ''),
-                'teamEyebrow' => $s['home_team_eyebrow'] ?? '',
-                'teamTitle' => $s['home_team_title'] ?? '',
-                'journalEyebrow' => $s['home_journal_eyebrow'] ?? '',
-                'journalTitle' => $s['home_journal_title'] ?? '',
                 'ctaEyebrow' => $s['home_cta_eyebrow'] ?? '',
                 'ctaTitle' => $s['home_cta_title'] ?? '',
                 'ctaLead' => $s['home_cta_lead'] ?? '',
+                'ctaSub' => $s['home_cta_sub'] ?? '',
                 'ctaBtnText' => $s['home_cta_btn_text'] ?? '',
                 'ctaBtnUrl' => $s['home_cta_btn_url'] ?? 'contact.html',
                 'whyEyebrow' => $s['home_why_eyebrow'] ?? '',
                 'whyTitle' => $s['home_why_title'] ?? '',
                 'whyIntro' => $s['home_why_intro'] ?? '',
-                'whyCards' => array_values(array_filter(array_map(static function (int $i) use ($s): ?array {
-                    $title = trim((string) ($s['home_why_' . $i . '_title'] ?? ''));
-                    $text = trim((string) ($s['home_why_' . $i . '_text'] ?? ''));
-                    if ($title === '' && $text === '') {
-                        return null;
-                    }
-
-                    return ['title' => $title, 'text' => $text];
-                }, range(1, 6)))),
+                'whyCards' => cms_build_why_cards_from_settings($s),
                 'pillars' => array_values(array_filter(array_map(static function (int $i) use ($s): ?array {
                     $title = trim((string) ($s['home_pillar_' . $i . '_title'] ?? ''));
                     $text = trim((string) ($s['home_pillar_' . $i . '_text'] ?? ''));
@@ -393,42 +408,24 @@ final class SiteContent
 
                     return ['title' => $title, 'text' => $text];
                 }, range(1, 4)))),
-                'impactEyebrow' => $s['home_impact_eyebrow'] ?? '',
-                'impactTitle' => $s['home_impact_title'] ?? '',
+                'impactEyebrow' => trim((string) ($s['home_impact_eyebrow'] ?? '')) !== ''
+                    ? trim((string) $s['home_impact_eyebrow'])
+                    : 'Impact',
+                'impactTitle' => trim((string) ($s['home_impact_title'] ?? '')) !== ''
+                    ? trim((string) $s['home_impact_title'])
+                    : 'Built at scale. Trusted at home.',
             ],
             'testimonials' => $testimonials,
             'team' => $team,
             'awards' => $awards,
             'processSteps' => $processSteps,
-            'journalPosts' => $journalPosts,
             'heroSlides' => $heroSlides,
             'gallery' => $homeGallery,
             'homeGallery' => $homeGallery,
             'projects' => $projects,
             'servicesHome' => $servicesHome,
             'pages' => [
-                'studio' => [
-                    'kicker' => $s['studio_kicker'] ?? '',
-                    'title' => $s['studio_title'] ?? '',
-                    'lead' => $s['studio_lead'] ?? '',
-                    'heroImage' => public_upload_url($s['studio_hero_image'] ?? ''),
-                    'philosophyEyebrow' => $s['studio_philosophy_eyebrow'] ?? '',
-                    'philosophyTitle' => $s['studio_philosophy_title'] ?? '',
-                    'philosophyLead1' => $s['studio_philosophy_lead_1'] ?? '',
-                    'philosophyLead2' => $s['studio_philosophy_lead_2'] ?? '',
-                    'philosophyImage' => public_upload_url($s['studio_philosophy_image'] ?? ''),
-                    'valuesEyebrow' => $s['studio_values_eyebrow'] ?? ($s['home_awards_eyebrow'] ?? ''),
-                    'valuesTitle' => $s['studio_values_title'] ?? ($s['home_awards_title'] ?? ''),
-                    'valuesHtml' => $awards
-                        ? cms_studio_values_html_from_awards($awards)
-                        : cms_studio_values_html_from_settings($s),
-                    'pullquote' => $s['studio_pullquote'] ?? '',
-                    'stripImages' => array_values(array_filter([
-                        public_upload_url($s['studio_strip_image_1'] ?? ''),
-                        public_upload_url($s['studio_strip_image_2'] ?? ''),
-                        public_upload_url($s['studio_strip_image_3'] ?? ''),
-                    ])),
-                ],
+                'studio' => cms_build_studio_page_payload($s, $awards),
                 'work' => [
                     'kicker' => $s['work_kicker'] ?? '',
                     'title' => $s['work_title'] ?? '',
@@ -461,7 +458,7 @@ final class SiteContent
                     'steps' => cms_contact_steps_from_settings($s),
                     'projectTypes' => cms_contact_lines_from_setting(
                         (string) ($s['contact_project_types'] ?? ''),
-                        ['Residential', 'Commercial', 'Interior Design', 'Construction', 'Turnkey', 'Renovation']
+                        ['Residential', 'Commercial', 'Interior Design', 'Construction', 'Turnkey']
                     ),
                     'budgetRanges' => cms_contact_lines_from_setting(
                         (string) ($s['contact_budget_ranges'] ?? ''),
@@ -469,7 +466,7 @@ final class SiteContent
                     ),
                     'reasons' => cms_contact_lines_from_setting(
                         (string) ($s['contact_reasons'] ?? ''),
-                        ['New Home Design', 'Villa Design', 'Office Design', 'Interior Design', 'Construction', 'Turnkey Solutions']
+                        ['New Home Design', 'Interior Design', 'Construction', 'Turnkey Solutions']
                     ),
                     'trustPoints' => cms_contact_trust_from_settings($s),
                     'founderQuote' => $s['contact_founder_quote'] ?? '',
@@ -504,31 +501,21 @@ final class SiteContent
                         'url' => $s['process_cta_btn2_url'] ?? 'contact.html',
                     ],
                 ],
-                'journal' => [
-                    'kicker' => $s['journal_kicker'] ?? '',
-                    'title' => $s['journal_title'] ?? '',
-                    'lead' => $s['journal_lead'] ?? '',
-                    'heroImage' => public_upload_url($s['journal_hero_image'] ?? ''),
-                    'newsletterTitle' => $s['journal_newsletter_title'] ?? '',
-                    'newsletterLead' => $s['journal_newsletter_lead'] ?? '',
-                    'faq' => cms_journal_faq_from_settings($s),
-                    'ctaSecondary' => [
-                        'text' => $s['journal_cta_btn2_text'] ?? '',
-                        'url' => $s['journal_cta_btn2_url'] ?? 'contact.html',
+                'services' => array_merge(
+                    [
+                        'kicker' => $s['services_kicker'] ?? '',
+                        'title' => $s['services_title'] ?? '',
+                        'lead' => $s['services_lead'] ?? '',
+                        'heroImage' => public_upload_url($s['services_hero_image'] ?? ''),
+                        'items' => $servicesPage,
+                        'faq' => cms_services_faq_from_settings($s),
+                        'ctaSecondary' => [
+                            'text' => $s['services_cta_btn2_text'] ?? '',
+                            'url' => $s['services_cta_btn2_url'] ?? 'contact.html',
+                        ],
                     ],
-                ],
-                'services' => [
-                    'kicker' => $s['services_kicker'] ?? '',
-                    'title' => $s['services_title'] ?? '',
-                    'lead' => $s['services_lead'] ?? '',
-                    'heroImage' => public_upload_url($s['services_hero_image'] ?? ''),
-                    'items' => $servicesPage,
-                    'faq' => cms_services_faq_from_settings($s),
-                    'ctaSecondary' => [
-                        'text' => $s['services_cta_btn2_text'] ?? '',
-                        'url' => $s['services_cta_btn2_url'] ?? 'contact.html',
-                    ],
-                ],
+                    cms_build_services_page_sections($s)
+                ),
             ],
         ];
     }

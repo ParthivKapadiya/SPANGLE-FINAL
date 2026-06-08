@@ -41,13 +41,13 @@ $navSections = [
     [
         'label' => 'Pages',
         'items' => [
-            ['id' => 'studio', 'label' => 'Studio', 'icon' => 'fa-building', 'href' => 'studio.php'],
-            ['id' => 'services-page', 'label' => 'Services page', 'icon' => 'fa-briefcase', 'href' => 'services-page.php'],
+            ['id' => 'studio', 'label' => 'Studio', 'icon' => 'fa-building', 'href' => 'studio/index.php'],
+            ['id' => 'services-page', 'label' => 'Services page', 'icon' => 'fa-briefcase', 'href' => 'services/index.php'],
             ['id' => 'services', 'label' => 'Service blocks', 'icon' => 'fa-list-check', 'href' => 'services.php'],
             ['id' => 'work-page', 'label' => 'Work page', 'icon' => 'fa-layer-group', 'href' => 'work-page.php'],
             ['id' => 'projects', 'label' => 'Projects', 'icon' => 'fa-folder-open', 'href' => 'projects.php'],
             ['id' => 'process', 'label' => 'Process', 'icon' => 'fa-diagram-project', 'href' => 'process.php'],
-            ['id' => 'contact-page', 'label' => 'Contact', 'icon' => 'fa-envelope', 'href' => 'contact-page.php'],
+            ['id' => 'contact-page', 'label' => 'Contact', 'icon' => 'fa-envelope', 'href' => 'contact/index.php'],
         ],
     ],
     [
@@ -59,6 +59,7 @@ $navSections = [
     [
         'label' => 'Account',
         'items' => [
+            ['id' => 'profile', 'label' => 'My profile', 'icon' => 'fa-user', 'href' => 'profile.php'],
             ['id' => 'password', 'label' => 'Password', 'icon' => 'fa-key', 'href' => 'change-password.php'],
         ],
     ],
@@ -72,7 +73,7 @@ $navSections = [
   <meta name="robots" content="noindex, nofollow" />
   <title><?= e($pageTitle) ?> · <?= e($brand['short']) ?> Studio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="<?= e(admin_asset('assets/admin.css')) ?>" />
+  <link rel="stylesheet" href="<?= e(admin_asset('assets/admin.css', 16)) ?>" />
 </head>
 <body class="adm-app" id="adm-app">
   <div class="adm-sidebar-backdrop" id="adm-sidebar-backdrop" hidden aria-hidden="true"></div>
@@ -119,7 +120,7 @@ $navSections = [
           </a>
         <?php endif; ?>
         <button type="button" class="adm-icon-btn" id="adm-theme-toggle" title="Toggle light/dark mode" aria-label="Toggle theme"><i class="fa-solid fa-sun"></i></button>
-        <span class="adm-user"><?= e(Auth::adminName()) ?></span>
+        <a href="<?= e(admin_href('profile.php')) ?>" class="adm-user" title="My profile"><?= e(Auth::adminName()) ?></a>
       </div>
     </header>
     <?php if ($flash = flash_get()): ?>

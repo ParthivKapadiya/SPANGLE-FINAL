@@ -35,6 +35,10 @@ function cms_seed_defaults(PDO $pdo): void
         ['II', 'Design', 'Schematic through tender-ready drawings, models, and sample boards.', 'both'],
         ['III', 'Delivery', 'Site administration, RFIs, and vendor coordination until handover.', 'both'],
         ['IV', 'Close-out', 'Styling, documentation, and photography — space ready to live in.', 'both'],
+        ['V', 'Approvals', 'Plan sanctioning, authority coordination, and compliance documentation.', 'page'],
+        ['VI', 'Construction', 'Site administration, quality checks, and vendor coordination on site.', 'page'],
+        ['VII', 'Interior execution', 'Joinery, finishes, FF&E, and styling aligned with the design intent.', 'page'],
+        ['VIII', 'Handover', 'Snag resolution, documentation, and keys — space ready to occupy.', 'page'],
     ];
     $stmt = $pdo->prepare('INSERT INTO process_steps (step_label, title, description, context, sort_order) VALUES (?, ?, ?, ?, ?)');
     foreach ($steps as $i => $s) {
@@ -50,17 +54,6 @@ function cms_seed_defaults(PDO $pdo): void
     $stmt = $pdo->prepare('INSERT INTO awards (icon_class, title, subtitle, sort_order) VALUES (?, ?, ?, ?)');
     foreach ($awards as $i => $a) {
         $stmt->execute([$a[0], $a[1], $a[2], $i]);
-    }
-
-    $journal = [
-        ['journal-materiality', 'Materiality in Indian light', 'How finishes behave under harsh sun and monsoon.', 'uploads/054-KANTILAL-3D-5.jpg'],
-        ['journal-sustainable', 'Sustainable architecture in 2026', 'Passive cooling, honest materials, and long-life envelopes.', 'uploads/LIVING 02.jpg'],
-        ['journal-quiet-luxury', 'Quiet luxury interiors', 'Restraint, texture, and light as the real ornament.', 'uploads/1228_HARESHBHAI_LIVING_3.jpg'],
-        ['journal-workplaces', 'Workplaces that perform', 'Acoustics, focus zones, and hospitality moments for teams.', 'uploads/1071-SANJAYSINH JADEJA_4.jpg'],
-    ];
-    $stmt = $pdo->prepare('INSERT INTO journal_posts (slug, title, excerpt, image_path, sort_order) VALUES (?, ?, ?, ?, ?)');
-    foreach ($journal as $i => $j) {
-        $stmt->execute([$j[0], $j[1], $j[2], $j[3], $i]);
     }
 
     $defaults = [
@@ -89,17 +82,16 @@ function cms_seed_defaults(PDO $pdo): void
         'home_process_eyebrow' => 'Process',
         'home_process_title' => 'How we move from brief to keys',
         'home_process_intro' => 'Clear phases, shared tools, and sign-off moments — so you always know what happens next.',
+        'home_impact_eyebrow' => 'Impact',
+        'home_impact_title' => 'Built at scale. Trusted at home.',
         'home_testimonials_eyebrow' => 'Clients',
         'home_testimonials_title' => 'What clients say',
         'home_awards_eyebrow' => 'Studio',
         'home_awards_title' => 'Why clients work with us',
-        'home_team_eyebrow' => 'People',
-        'home_team_title' => 'Leadership',
-        'home_journal_eyebrow' => 'Journal',
-        'home_journal_title' => 'Latest insights',
         'home_cta_eyebrow' => 'Next project',
         'home_cta_title' => 'Reserve a studio conversation',
         'home_cta_lead' => 'Share your site, timeline, and ambitions — we respond with a clear path and indicative scope.',
+        'home_cta_sub' => 'Architecture · Interiors · Construction · Turnkey Delivery',
         'home_cta_btn_text' => 'Plan your space',
         'home_cta_btn_url' => 'contact.html',
         'work_kicker' => 'Portfolio',
@@ -140,10 +132,6 @@ function cms_seed_defaults(PDO $pdo): void
         'process_split_image' => 'uploads/066-UPENDRASINH-3D-3.jpg',
         'process_timeline_eyebrow' => 'Timeline',
         'process_timeline_title' => 'From brief to keys',
-        'journal_kicker' => 'Editorial',
-        'journal_title' => 'Ideas That Shape Better Spaces',
-        'journal_lead' => 'Thoughts on architecture, interiors, and construction — design intelligence from the studio.',
-        'journal_hero_image' => 'uploads/1228_HARESHBHAI_LIVING_4.jpg',
         'studio_values_eyebrow' => 'In the studio',
         'studio_values_title' => 'Three disciplines, one table',
         'studio_values_html' => '<div class="value-card"><h3>Architecture</h3><p>Envelope, structure, and light — the bones of every commission.</p></div><div class="value-card"><h3>Interiors</h3><p>Flow, joinery, and atmosphere — where daily life meets craft.</p></div><div class="value-card"><h3>Delivery</h3><p>Site rhythm and quality control — design intent through handover.</p></div>',

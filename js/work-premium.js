@@ -305,8 +305,6 @@
       return projects.filter(function (p) {
         var cat = (p.projectType || p.category || '').toLowerCase();
         if (filter === 'all') return true;
-        if (filter === 'villa') return /\bvilla\b/i.test((p.title || '') + ' ' + (p.location || ''));
-        if (filter === 'office') return cat === 'commercial' || /\boffice\b/i.test(p.title || '');
         if (filter === 'interior') return cat === 'interior';
         if (filter === 'architecture') return cat === 'architecture';
         return cat === filter;
@@ -338,8 +336,7 @@
         if (cat.filter === 'living') return /\bliving\b|\blounge\b/i.test(hay);
         if (cat.filter === 'kitchen') return /\bkitchen\b/i.test(hay);
         if (cat.filter === 'bathroom') return /\bbath(room)?\b|\bwash(room)?\b/i.test(hay);
-        if (cat.filter === 'office') return /\boffice\b/i.test(hay);
-        return (p.projectType || '').toLowerCase() === cat.filter || (cat.filter === 'villa' && /\bvilla\b/i.test(p.title || ''));
+        return (p.projectType || '').toLowerCase() === cat.filter;
       });
       var img = sample && sample.heroImage ? mediaSrc(sample.heroImage) : '';
       var count = countByCategory(projects, cat.filter);

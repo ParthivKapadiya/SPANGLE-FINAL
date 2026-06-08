@@ -112,6 +112,12 @@ function cms_run_migrations(PDO $pdo): void
 
     cms_run_v3_migrations($pdo);
     cms_run_v4_migrations($pdo);
+    cms_seed_missing_home_impact_settings($pdo);
+    require_once SPANGLE_ROOT . '/includes/cmsStudioSections.php';
+    cms_seed_studio_section_settings($pdo);
+    cms_sync_studio_story_timeline_settings($pdo);
+    cms_seed_services_process_steps($pdo);
+    cms_fix_services_content_typos($pdo);
 
     require_once SPANGLE_ROOT . '/includes/cmsSeed.php';
     cms_seed_defaults($pdo);
@@ -154,8 +160,13 @@ function cms_run_v3_migrations(PDO $pdo): void
     try {
         $pdo->exec('UPDATE projects SET project_type = category WHERE project_type IS NULL OR project_type = ""');
         $pdo->exec("UPDATE projects SET project_type = 'commercial' WHERE category = 'retail'");
+        $pdo->exec("UPDATE projects SET project_type = 'commercial', category = 'commercial' WHERE project_type IN ('retail','hospitality','office','mixed-use') OR category IN ('retail','hospitality','office','mixed-use')");
+        $pdo->exec("UPDATE projects SET project_type = 'residential', category = 'residential' WHERE project_type IN ('renovation','villa') OR category IN ('renovation','villa')");
     } catch (Throwable $e) {
     }
+
+    cms_remove_deprecated_project_categories($pdo);
+    cms_migrate_projects_category_column($pdo);
 
     try {
         $pdo->exec("CREATE TABLE IF NOT EXISTS project_images (
@@ -201,6 +212,7 @@ function cms_run_v3_migrations(PDO $pdo): void
     cms_add_column_if_missing($pdo, 'team_members', 'instagram_url', 'VARCHAR(500) NULL');
     cms_add_column_if_missing($pdo, 'journal_posts', 'seo_title', 'VARCHAR(200) NULL');
     cms_add_column_if_missing($pdo, 'journal_posts', 'seo_description', 'VARCHAR(320) NULL');
+    cms_add_column_if_missing($pdo, 'home_stats', 'stat_icon', 'VARCHAR(80) NULL AFTER stat_label');
 
     try {
         $stmt = $pdo->query('SELECT id, username FROM admins WHERE email IS NULL OR email = ""');
@@ -277,6 +289,190 @@ function cms_add_column_if_missing(PDO $pdo, string $table, string $column, stri
         if (!$has) {
             $pdo->exec("ALTER TABLE `$table` ADD COLUMN `$column` $definition");
         }
+    } catch (Throwable $e) {
+    }
+}
+
+function cms_seed_missing_home_impact_settings(PDO $pdo): void
+{
+    static $done = false;
+    if ($done) {
+        return;
+    }
+    $done = true;
+
+    foreach ([
+        'home_impact_eyebrow' => 'Impact',
+        'home_impact_title' => 'Built at scale. Trusted at home.',
+    ] as $key => $default) {
+        try {
+            $stmt = $pdo->prepare('SELECT setting_value FROM site_settings WHERE setting_key = ? LIMIT 1');
+            $stmt->execute([$key]);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$row || trim((string) ($row['setting_value'] ?? '')) === '') {
+                setting_set($pdo, $key, $default);
+            }
+        } catch (Throwable $e) {
+        }
+    }
+}
+
+function cms_migrate_projects_category_column(PDO $pdo): void
+{
+    static $done = false;
+    if ($done) {
+        return;
+    }
+    $done = true;
+
+    try {
+        $col = $pdo->query("SHOW COLUMNS FROM projects LIKE 'category'")->fetch(PDO::FETCH_ASSOC);
+        if (!$col) {
+            return;
+        }
+        $type = strtolower((string) ($col['Type'] ?? ''));
+        if (!str_starts_with($type, 'enum')) {
+            return;
+        }
+
+        $pdo->exec("ALTER TABLE projects MODIFY category VARCHAR(60) NOT NULL DEFAULT 'residential'");
+        $pdo->exec(
+            "UPDATE projects SET category = project_type
+             WHERE project_type IS NOT NULL AND project_type != ''"
+        );
+        $pdo->exec(
+            "UPDATE projects SET project_type = category
+             WHERE project_type IS NULL OR project_type = ''"
+        );
+    } catch (Throwable $e) {
+    }
+}
+
+function cms_remove_deprecated_project_categories(PDO $pdo): void
+{
+    static $done = false;
+    if ($done) {
+        return;
+    }
+    $done = true;
+
+    $deprecatedLines = [
+        'renovation',
+        'hospitality',
+        'office design',
+        'villa design',
+        'mixed use',
+        'mixed-use',
+    ];
+
+    foreach (['contact_project_types', 'contact_reasons'] as $key) {
+        try {
+            $raw = trim((string) (settings_get_many($pdo, [$key])[$key] ?? ''));
+            if ($raw === '') {
+                continue;
+            }
+            $lines = array_values(array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', $raw) ?: []), static function (string $line) use ($deprecatedLines): bool {
+                return !in_array(strtolower($line), $deprecatedLines, true);
+            }));
+            setting_set($pdo, $key, implode("\n", $lines));
+        } catch (Throwable $e) {
+        }
+    }
+}
+
+/** Ensure eight process steps exist for Services / Process / Studio previews. */
+function cms_seed_services_process_steps(PDO $pdo): void
+{
+    try {
+        $pdo->query('SELECT 1 FROM process_steps LIMIT 1');
+    } catch (Throwable $e) {
+        return;
+    }
+
+    $defaults = [
+        ['I', 'Discovery', 'Site, aspirations, and feasibility — aligned before pencil hits paper.', 'both', 0],
+        ['II', 'Design', 'Schematic through tender-ready drawings, models, and sample boards.', 'both', 1],
+        ['III', 'Delivery', 'Site administration, RFIs, and vendor coordination until handover.', 'both', 2],
+        ['IV', 'Close-out', 'Styling, documentation, and photography — space ready to live in.', 'both', 3],
+        ['V', 'Approvals', 'Plan sanctioning, authority coordination, and compliance documentation.', 'page', 4],
+        ['VI', 'Construction', 'Site administration, quality checks, and vendor coordination on site.', 'page', 5],
+        ['VII', 'Interior execution', 'Joinery, finishes, FF&E, and styling aligned with the design intent.', 'page', 6],
+        ['VIII', 'Handover', 'Snag resolution, documentation, and keys — space ready to occupy.', 'page', 7],
+    ];
+
+    $check = $pdo->prepare('SELECT id FROM process_steps WHERE title = ? LIMIT 1');
+    $insert = $pdo->prepare(
+        'INSERT INTO process_steps (step_label, title, description, context, sort_order, is_active) VALUES (?, ?, ?, ?, ?, 1)'
+    );
+
+    foreach ($defaults as $step) {
+        $check->execute([$step[1]]);
+        if ($check->fetch()) {
+            continue;
+        }
+        $insert->execute([$step[0], $step[1], $step[2], $step[3], $step[4]]);
+    }
+}
+
+/** One-time cleanup of known services-page copy typos in DB + resync site.json. */
+function cms_fix_services_content_typos(PDO $pdo): void
+{
+    try {
+        $flag = settings_get_many($pdo, ['cms_services_typo_fix_v1'])['cms_services_typo_fix_v1'] ?? '';
+        if ($flag === 'done') {
+            return;
+        }
+    } catch (Throwable $e) {
+        return;
+    }
+
+    $stripOneKeys = [
+        'services_kicker', 'services_title', 'services_lead',
+        'services_ecosystem_eyebrow', 'services_ecosystem_title', 'services_ecosystem_intro',
+        'services_process_eyebrow', 'services_process_title', 'services_process_intro',
+        'services_process_link_text', 'services_compare_eyebrow', 'services_compare_title', 'services_compare_intro',
+        'services_impact_eyebrow', 'services_impact_title',
+        'services_cases_eyebrow', 'services_cases_title', 'services_cases_intro',
+        'services_testimonials_eyebrow', 'services_testimonials_title',
+        'services_cta_eyebrow', 'services_cta_title', 'services_cta_sub', 'services_cta_lead',
+        'services_cta_btn_text', 'services_cta_btn2_text',
+        'services_detail_link_text', 'services_cases_link_text',
+        'services_faq_eyebrow', 'services_faq_title',
+    ];
+
+    foreach ($stripOneKeys as $key) {
+        try {
+            $val = trim((string) (settings_get_many($pdo, [$key])[$key] ?? ''));
+            if ($val !== '' && preg_match('/[^\s]1$/', $val)) {
+                setting_set($pdo, $key, substr($val, 0, -1));
+            }
+        } catch (Throwable $e) {
+        }
+    }
+
+    try {
+        $pdo->exec("UPDATE services SET number_label = '01' WHERE number_label = '011'");
+        $textCols = ['title', 'short_description', 'eyebrow', 'detail_title', 'detail_lead_1', 'detail_lead_2'];
+        $replacements = [
+            'approvalss' => 'approvals',
+            'Approvalss' => 'Approvals',
+            'compliance..' => 'compliance.',
+            'programme.s' => 'programme.',
+            'rules.s' => 'rules.',
+        ];
+        foreach ($textCols as $col) {
+            foreach ($replacements as $from => $to) {
+                $pdo->exec(
+                    "UPDATE services SET `$col` = REPLACE(`$col`, " . $pdo->quote($from) . ', ' . $pdo->quote($to) . ") WHERE `$col` LIKE " . $pdo->quote('%' . $from . '%')
+                );
+            }
+        }
+    } catch (Throwable $e) {
+    }
+
+    try {
+        setting_set($pdo, 'cms_services_typo_fix_v1', 'done');
+        content_sync_site_json($pdo);
     } catch (Throwable $e) {
     }
 }

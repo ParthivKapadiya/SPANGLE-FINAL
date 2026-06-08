@@ -329,8 +329,7 @@ final class SyncUploadLibrary
         $settings += self::setSetting($pdo, 'work_hero_image', $heroPick[1]['rel'] ?? $images[0]['rel']) ? 1 : 0;
         $settings += self::setSetting($pdo, 'studio_hero_image', $heroPick[2]['rel'] ?? $images[0]['rel']) ? 1 : 0;
         $settings += self::setSetting($pdo, 'services_hero_image', $heroPick[3]['rel'] ?? $images[0]['rel']) ? 1 : 0;
-        $settings += self::setSetting($pdo, 'journal_hero_image', $heroPick[4]['rel'] ?? $images[0]['rel']) ? 1 : 0;
-        $settings += self::setSetting($pdo, 'contact_hero_image', $heroPick[5]['rel'] ?? $images[0]['rel']) ? 1 : 0;
+        $settings += self::setSetting($pdo, 'contact_hero_image', $heroPick[4]['rel'] ?? $images[0]['rel']) ? 1 : 0;
         $settings += self::setSetting($pdo, 'process_hero_image', $heroPick[6]['rel'] ?? $images[0]['rel']) ? 1 : 0;
         $settings += self::setSetting($pdo, 'seo_og_image', $heroPick[0]['rel'] ?? '') ? 1 : 0;
         self::setSetting($pdo, 'home_gallery_title', 'Project gallery');

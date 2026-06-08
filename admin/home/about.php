@@ -27,15 +27,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
     setting_set($pdo, 'home_about_paragraph_1', $aboutP1);
     setting_set($pdo, 'home_about_paragraph_2', $aboutP2);
     setting_set($pdo, 'home_about_lead_html', cms_build_about_lead_html($aboutP1, $aboutP2));
-    if (!empty($_FILES['home_about_image']['name'])) {
-        $up = Upload::image($appConfig, 'general', $_FILES['home_about_image']);
+
+    $flashType = 'success';
+    $flashMessage = 'About section saved.';
+    $upload = $_FILES['home_about_image'] ?? [];
+    $uploadAttempted = (int) ($upload['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_NO_FILE;
+    if ($uploadAttempted) {
+        $up = Upload::image($appConfig, 'about', $upload);
         if ($up['ok']) {
             setting_set($pdo, 'home_about_image', $up['path']);
             media_register($pdo, $up['path'], basename($up['path']));
+            $flashMessage = 'About section saved. Section photo updated.';
+        } else {
+            $flashType = 'error';
+            $flashMessage = $up['error'] ?? 'Photo upload failed.';
         }
     }
+
     admin_log_activity($pdo, 'save', 'home-about', null, 'Home about section updated');
-    home_admin_sync_and_redirect('about.php', 'About section saved.');
+    content_sync_site_json($pdo);
+    admin_flash_set($flashType, $flashMessage);
+    redirect('about.php');
 }
 
 $s = settings_get_many($pdo, array_merge($keys, ['home_about_paragraph_1', 'home_about_paragraph_2', 'home_about_image', 'home_about_lead_html']));
@@ -43,6 +55,14 @@ if (trim((string) ($s['home_about_paragraph_1'] ?? '')) === '' && trim((string) 
     $about = cms_parse_about_lead_html((string) $s['home_about_lead_html']);
     $s['home_about_paragraph_1'] = $about['paragraph1'];
     $s['home_about_paragraph_2'] = $about['paragraph2'];
+}
+foreach (cms_home_pillar_defaults() as $i => $pillar) {
+    if (trim((string) ($s['home_pillar_' . $i . '_title'] ?? '')) === '') {
+        $s['home_pillar_' . $i . '_title'] = $pillar['title'];
+    }
+    if (trim((string) ($s['home_pillar_' . $i . '_text'] ?? '')) === '') {
+        $s['home_pillar_' . $i . '_text'] = $pillar['text'];
+    }
 }
 
 require dirname(__DIR__) . '/includes/layout.php';
@@ -59,9 +79,13 @@ home_admin_render_back();
     home_admin_render_field('home_about_paragraph_2', 'Second paragraph (optional)', $s, 'textarea');
     ?>
     <div class="adm-field">
-      <label>Section photo</label>
-      <?php if (!empty($s['home_about_image'])): ?><p><img src="../../<?= e($s['home_about_image']) ?>" alt="" style="max-width:240px;border-radius:8px;" /></p><?php endif; ?>
-      <input type="file" name="home_about_image" accept="image/*" />
+      <label for="home_about_image">Section photo</label>
+      <?php if (!empty($s['home_about_image'])): ?>
+        <p><img src="../../<?= e($s['home_about_image']) ?>" alt="" style="max-width:240px;border-radius:8px;" /></p>
+        <p class="adm-hint">Current: <?= e($s['home_about_image']) ?></p>
+      <?php endif; ?>
+      <input type="file" name="home_about_image" id="home_about_image" accept="image/jpeg,image/png,image/webp,image/gif" />
+      <p class="adm-hint">Choose a JPG, PNG, or WEBP (max 5 MB), then click <strong>Save about section</strong> below.</p>
     </div>
     <?php
     home_admin_render_field('home_about_image_alt', 'Image description (accessibility)', $s);
@@ -72,16 +96,12 @@ home_admin_render_back();
   <div class="adm-card adm-settings-section adm-glass">
     <h2>Four pillars</h2>
     <p class="adm-hint">Mission, Vision, Philosophy, and Execution cards beside the story.</p>
-    <?php for ($i = 1; $i <= 4; $i++): ?>
-      <div class="adm-field">
-        <label for="home_pillar_<?= $i ?>_title">Pillar <?= $i ?> — title</label>
-        <input type="text" name="home_pillar_<?= $i ?>_title" id="home_pillar_<?= $i ?>_title" value="<?= e($s['home_pillar_' . $i . '_title'] ?? '') ?>" />
+    <?php foreach (cms_home_pillar_defaults() as $i => $pillar): ?>
+      <div class="adm-field adm-field-row">
+        <input type="text" name="home_pillar_<?= $i ?>_title" id="home_pillar_<?= $i ?>_title" value="<?= e($s['home_pillar_' . $i . '_title'] ?? $pillar['title']) ?>" placeholder="Title" aria-label="<?= e($pillar['title']) ?> title" />
+        <textarea name="home_pillar_<?= $i ?>_text" id="home_pillar_<?= $i ?>_text" rows="2" placeholder="Description" aria-label="<?= e($pillar['title']) ?> description"><?= e($s['home_pillar_' . $i . '_text'] ?? $pillar['text']) ?></textarea>
       </div>
-      <div class="adm-field">
-        <label for="home_pillar_<?= $i ?>_text">Pillar <?= $i ?> — description</label>
-        <textarea name="home_pillar_<?= $i ?>_text" id="home_pillar_<?= $i ?>_text" rows="2"><?= e($s['home_pillar_' . $i . '_text'] ?? '') ?></textarea>
-      </div>
-    <?php endfor; ?>
+    <?php endforeach; ?>
   </div>
   <?php home_admin_render_save('Save about section'); ?>
 </form>

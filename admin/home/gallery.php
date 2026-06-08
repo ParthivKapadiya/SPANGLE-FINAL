@@ -13,12 +13,16 @@ extract(home_admin_page_vars($section));
 $keys = ['home_gallery_eyebrow', 'home_gallery_title', 'home_gallery_intro', 'home_gallery_limit'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
-    home_admin_save_text_fields($pdo, $keys);
+    home_admin_save_text_fields($pdo, ['home_gallery_eyebrow', 'home_gallery_title', 'home_gallery_intro']);
+    if (isset($_POST['home_gallery_limit'])) {
+        setting_set($pdo, 'home_gallery_limit', (string) home_gallery_limit_clamp((int) $_POST['home_gallery_limit']));
+    }
     admin_log_activity($pdo, 'save', 'home-gallery', null, 'Home gallery section updated');
     home_admin_sync_and_redirect('gallery.php', 'Gallery section saved.');
 }
 
 $s = settings_get_many($pdo, $keys);
+$s['home_gallery_limit'] = (string) home_gallery_limit_clamp((int) ($s['home_gallery_limit'] ?? 12));
 
 require dirname(__DIR__) . '/includes/layout.php';
 home_admin_render_back();
@@ -31,8 +35,19 @@ home_admin_render_back();
     home_admin_render_field('home_gallery_eyebrow', 'Small label', $s);
     home_admin_render_field('home_gallery_title', 'Title', $s);
     home_admin_render_field('home_gallery_intro', 'Intro paragraph', $s, 'textarea');
-    home_admin_render_field('home_gallery_limit', 'Max images on home (4–24)', $s, 'number');
     ?>
+    <div class="adm-field">
+      <label for="home_gallery_limit">Max images on home (<?= home_gallery_limit_min() ?>–<?= home_gallery_limit_max() ?>)</label>
+      <input
+        type="number"
+        name="home_gallery_limit"
+        id="home_gallery_limit"
+        value="<?= e((string) ($s['home_gallery_limit'] ?? '12')) ?>"
+        min="<?= home_gallery_limit_min() ?>"
+        max="<?= home_gallery_limit_max() ?>"
+        step="1"
+      />
+    </div>
     <?php home_admin_card_link('gallery.php', 'Manage gallery photos', 'Upload images and choose which appear on the home page.'); ?>
   </div>
   <?php home_admin_render_save('Save gallery section'); ?>

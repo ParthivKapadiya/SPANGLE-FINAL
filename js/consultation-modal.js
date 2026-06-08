@@ -14,7 +14,6 @@
       'Commercial',
       'Interior Design',
       'Architecture',
-      'Renovation',
       'Landscape',
     ];
   }

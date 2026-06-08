@@ -49,8 +49,6 @@
     'interior',
     'industrial',
     'architecture',
-    'renovation',
-    'mixed-use',
   ];
 
   var SPACES_BY_PARENT = {
@@ -59,7 +57,6 @@
     commercial: ['office', 'foyer', '3d', 'front'],
     industrial: ['3d'],
     architecture: ['plot', 'front', 'back'],
-    renovation: ['bedroom', 'living', 'kitchen', 'bathroom', 'dining'],
   };
 
   var SPACE_LABELS = {
@@ -320,16 +317,6 @@
 
   function matchesParentCategory(p, parent) {
     if (parent === 'all') return true;
-    if (parent === 'villa') {
-      return /\bvilla\b/i.test(projectHaystack(p));
-    }
-    if (parent === 'office') {
-      return (
-        detectSpaceType(p) === 'office' ||
-        p.projectType === 'commercial' ||
-        /\boffice\b/i.test(projectHaystack(p))
-      );
-    }
     if (parent === 'interior') {
       if (detectSpaceType(p) === '3d') return false;
       if (p.projectType === 'interior' || /\binterior\b/i.test(projectHaystack(p))) return true;

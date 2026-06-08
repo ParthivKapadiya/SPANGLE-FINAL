@@ -22,6 +22,12 @@ function cms_build_hero_title_html(string $main, string $highlight = ''): string
         return cms_escape($main);
     }
 
+    if (function_exists('str_ends_with') && str_ends_with($main, $highlight)) {
+        $prefix = rtrim(substr($main, 0, -strlen($highlight)));
+
+        return cms_escape($prefix) . ' <em>' . cms_escape($highlight) . '</em>';
+    }
+
     return cms_escape($main) . ' <em>' . cms_escape($highlight) . '</em>';
 }
 
@@ -336,6 +342,139 @@ function cms_hero_headlines_from_settings(array $settings): array
     return $lines;
 }
 
+function cms_home_why_defaults(): array
+{
+    return [
+        'eyebrow' => 'Why Archevo',
+        'title' => 'Design intelligence. Build discipline.',
+        'intro' => 'A single studio for vision, approvals, construction, and interiors — not a patchwork of contractors.',
+        'cards' => [
+            1 => [
+                'title' => 'Single Point Responsibility',
+                'text' => 'One team owns design, coordination, and delivery — so accountability never disappears mid-project.',
+                'icon' => 'fa-solid fa-layer-group',
+            ],
+            2 => [
+                'title' => 'Design + Construction',
+                'text' => 'Architecture, engineering, and site execution aligned from day one — not translated through layers of vendors.',
+                'icon' => 'fa-solid fa-compass-drafting',
+            ],
+            3 => [
+                'title' => 'Transparent Budgeting',
+                'text' => 'Scope, materials, and milestones defined early — with clarity before work begins on site.',
+                'icon' => 'fa-solid fa-scale-balanced',
+            ],
+            4 => [
+                'title' => 'On-Time Delivery',
+                'text' => 'Structured phases, site discipline, and proactive coordination to protect your timeline.',
+                'icon' => 'fa-solid fa-clock',
+            ],
+            5 => [
+                'title' => 'Professional Team',
+                'text' => 'Directors, designers, and engineers working as one studio — not a revolving door of subcontractors.',
+                'icon' => 'fa-solid fa-people-group',
+            ],
+            6 => [
+                'title' => 'Approval Assistance',
+                'text' => 'Drawings and submissions prepared for local plan-sanctioning requirements across Gujarat.',
+                'icon' => 'fa-solid fa-file-circle-check',
+            ],
+        ],
+    ];
+}
+
+/** @return list<array{title: string, text: string, icon: string}> */
+function cms_build_why_cards_from_settings(array $s): array
+{
+    $defaults = cms_home_why_defaults();
+    $cards = [];
+
+    foreach ($defaults['cards'] as $i => $fallback) {
+        $title = trim((string) ($s['home_why_' . $i . '_title'] ?? ''));
+        $text = trim((string) ($s['home_why_' . $i . '_text'] ?? ''));
+        $icon = trim((string) ($s['home_why_' . $i . '_icon'] ?? ''));
+
+        if ($title === '') {
+            $title = $fallback['title'];
+        }
+        if ($text === '') {
+            $text = $fallback['text'];
+        }
+        if ($icon === '') {
+            $icon = $fallback['icon'];
+        }
+
+        if ($title === '' && $text === '') {
+            continue;
+        }
+
+        $cards[] = [
+            'title' => $title,
+            'text' => $text,
+            'icon' => $icon,
+        ];
+    }
+
+    return $cards;
+}
+
+function cms_seed_home_why_defaults(PDO $pdo): void
+{
+    $defaults = cms_home_why_defaults();
+    foreach (['eyebrow' => 'home_why_eyebrow', 'title' => 'home_why_title', 'intro' => 'home_why_intro'] as $field => $key) {
+        $exists = $pdo->prepare('SELECT 1 FROM site_settings WHERE setting_key = ? AND setting_value IS NOT NULL AND setting_value != ""');
+        $exists->execute([$key]);
+        if (!$exists->fetch()) {
+            setting_set($pdo, $key, $defaults[$field]);
+        }
+    }
+    foreach ($defaults['cards'] as $i => $card) {
+        foreach (['title', 'text', 'icon'] as $field) {
+            $key = 'home_why_' . $i . '_' . $field;
+            $exists = $pdo->prepare('SELECT 1 FROM site_settings WHERE setting_key = ? AND setting_value IS NOT NULL AND setting_value != ""');
+            $exists->execute([$key]);
+            if (!$exists->fetch()) {
+                setting_set($pdo, $key, $card[$field]);
+            }
+        }
+    }
+}
+
+function cms_home_pillar_defaults(): array
+{
+    return [
+        1 => [
+            'title' => 'Mission',
+            'text' => 'Shape enduring spaces that elevate how people live, work, and gather — with clarity from first sketch to final handover.',
+        ],
+        2 => [
+            'title' => 'Vision',
+            'text' => "Be Western India's most trusted integrated architecture and design-build studio for landmark residential and commercial work.",
+        ],
+        3 => [
+            'title' => 'Philosophy',
+            'text' => "Quiet luxury, honest materials, and light as architecture — designed for Gujarat's climate and contemporary life.",
+        ],
+        4 => [
+            'title' => 'Execution',
+            'text' => 'One accountable team for drawings, approvals, civil work, interiors, and turnkey delivery — fewer gaps, fewer surprises.',
+        ],
+    ];
+}
+
+function cms_seed_home_pillar_defaults(PDO $pdo): void
+{
+    foreach (cms_home_pillar_defaults() as $i => $pillar) {
+        foreach (['title' => 'home_pillar_' . $i . '_title', 'text' => 'home_pillar_' . $i . '_text'] as $field => $key) {
+            $exists = $pdo->prepare('SELECT 1 FROM site_settings WHERE setting_key = ? AND setting_value IS NOT NULL AND setting_value != ""');
+            $exists->execute([$key]);
+            if (!$exists->fetch()) {
+                setting_set($pdo, $key, $pillar[$field]);
+            }
+        }
+    }
+}
+
 function cms_seed_home_page_defaults(PDO $pdo): void
 {
     $defaults = [
@@ -382,13 +521,10 @@ function cms_seed_home_page_defaults(PDO $pdo): void
         'home_testimonials_title' => 'What clients say',
         'home_awards_eyebrow' => 'Studio',
         'home_awards_title' => 'Why clients work with us',
-        'home_team_eyebrow' => 'People',
-        'home_team_title' => 'Leadership',
-        'home_journal_eyebrow' => 'Journal',
-        'home_journal_title' => 'Latest insights',
         'home_cta_eyebrow' => 'Next project',
         'home_cta_title' => 'Reserve a studio conversation',
         'home_cta_lead' => 'Share your site, timeline, and ambitions — we respond with a clear path and indicative scope.',
+        'home_cta_sub' => 'Architecture · Interiors · Construction · Turnkey Delivery',
         'contact_section_title' => 'Rajkot · Gujarat',
         'contact_section_lead' => 'Call, email, or visit by appointment. Site meetings across Saurashtra and Gujarat are scheduled in advance.',
         'home_gallery_limit' => '12',
@@ -444,6 +580,8 @@ function cms_sync_plain_home_fields(PDO $pdo): void
 
     cms_fix_hero_slide_alts($pdo);
     cms_seed_home_page_defaults($pdo);
+    cms_seed_home_pillar_defaults($pdo);
+    cms_seed_home_why_defaults($pdo);
 }
 
 function cms_services_faq_from_settings(array $s): array
@@ -466,6 +604,9 @@ function cms_services_faq_from_settings(array $s): array
 
 function cms_seed_services_page_defaults(PDO $pdo): void
 {
+    require_once SPANGLE_ROOT . '/includes/cmsServicesSections.php';
+    cms_seed_services_section_settings($pdo);
+
     $defaults = [
         'services_kicker' => 'What we do',
         'services_title' => 'From Vision To Completion.',
@@ -590,83 +731,6 @@ function cms_sync_plain_process_fields(PDO $pdo): void
     cms_seed_process_page_defaults($pdo);
 }
 
-function cms_journal_faq_from_settings(array $s): array
-{
-    $items = [];
-    for ($i = 1; $i <= 4; $i++) {
-        $q = trim((string) ($s['journal_faq_q' . $i] ?? ''));
-        $a = trim((string) ($s['journal_faq_a' . $i] ?? ''));
-        if ($q !== '' && $a !== '') {
-            $items[] = ['q' => $q, 'a' => $a];
-        }
-    }
-
-    return ['items' => $items];
-}
-
-function cms_seed_journal_page_defaults(PDO $pdo): void
-{
-    $defaults = [
-        'journal_kicker' => 'Editorial',
-        'journal_title' => 'Ideas That Shape Better Spaces',
-        'journal_lead' => 'Thoughts on architecture, interiors, and construction — design intelligence from the studio.',
-        'journal_hero_image' => 'uploads/1228_HARESHBHAI_LIVING_4.jpg',
-        'journal_stat_readers' => '12K+',
-        'journal_newsletter_title' => 'Join The Design Conversation',
-        'journal_newsletter_lead' => 'Architecture insights, project stories, design trends, and material knowledge — delivered with care.',
-        'journal_cta_eyebrow' => 'Work with us',
-        'journal_cta_title' => "Let's Create Better Spaces Together",
-        'journal_cta_sub' => 'Architecture · Interiors · Construction · Ideas That Inspire',
-        'journal_cta_text' => 'For press, collaborations, or speaking invitations, reach the studio directly.',
-        'journal_cta_btn_text' => 'Start your project',
-        'journal_cta_btn_url' => 'contact.html',
-        'journal_cta_btn2_text' => 'Contact the studio',
-        'journal_cta_btn2_url' => 'contact.html',
-        'journal_faq_q1' => 'How often do you publish new articles?',
-        'journal_faq_a1' => 'We publish when we have meaningful insights from practice — typically monthly, with deeper essays on materials, process, and project lessons.',
-        'journal_faq_q2' => 'Can I republish or cite your articles?',
-        'journal_faq_a2' => 'Yes, with attribution and a link to the original. For syndication or press use, contact the studio directly.',
-        'journal_faq_q3' => 'Who writes the journal?',
-        'journal_faq_a3' => 'Articles are authored by our founders, architects, and design team — grounded in real projects and site experience.',
-        'journal_faq_q4' => 'How do I subscribe to updates?',
-        'journal_faq_a4' => 'Use the newsletter form on this page or enquire via contact — we share insights, project stories, and material knowledge.',
-    ];
-    foreach ($defaults as $key => $val) {
-        $exists = $pdo->prepare('SELECT 1 FROM site_settings WHERE setting_key = ? AND setting_value IS NOT NULL AND setting_value != ""');
-        $exists->execute([$key]);
-        if (!$exists->fetch()) {
-            setting_set($pdo, $key, $val);
-        }
-    }
-}
-
-function cms_sync_journal_post_categories(PDO $pdo): void
-{
-    $map = [
-        'journal-materiality' => ['Materials', 5],
-        'journal-quiet-luxury' => ['Interiors', 6],
-        'journal-sustainable' => ['Sustainability', 8],
-        'journal-workplaces' => ['Lifestyle', 7],
-        'materiality' => ['Materials', 5],
-        'quiet-luxury' => ['Interiors', 6],
-        'sustainable' => ['Sustainability', 8],
-        'workplaces' => ['Lifestyle', 7],
-    ];
-    $stmt = $pdo->prepare(
-        'UPDATE journal_posts SET category = ?, read_minutes = COALESCE(read_minutes, ?)
-         WHERE slug = ? AND (category IS NULL OR TRIM(category) = "")'
-    );
-    foreach ($map as $slug => [$cat, $mins]) {
-        $stmt->execute([$cat, $mins, $slug]);
-    }
-}
-
-function cms_sync_plain_journal_fields(PDO $pdo): void
-{
-    cms_seed_journal_page_defaults($pdo);
-    cms_sync_journal_post_categories($pdo);
-}
-
 function cms_contact_lines_from_setting(string $raw, array $fallback): array
 {
     $lines = array_values(array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', $raw) ?: [])));
@@ -740,9 +804,9 @@ function cms_seed_contact_page_defaults(PDO $pdo): void
         'contact_step_3_text' => 'We schedule a call or studio visit to clarify goals, constraints, and budget.',
         'contact_step_4_title' => 'Proposal & roadmap',
         'contact_step_4_text' => 'You receive a phased scope, indicative timeline, and next steps to engage.',
-        'contact_project_types' => "Residential\nCommercial\nInterior Design\nConstruction\nTurnkey\nRenovation",
+        'contact_project_types' => "Residential\nCommercial\nInterior Design\nConstruction\nTurnkey",
         'contact_budget_ranges' => "₹10L – ₹25L\n₹25L – ₹50L\n₹50L – ₹1Cr\n₹1Cr+",
-        'contact_reasons' => "New Home Design\nVilla Design\nOffice Design\nInterior Design\nConstruction\nTurnkey Solutions",
+        'contact_reasons' => "New Home Design\nInterior Design\nConstruction\nTurnkey Solutions",
         'contact_trust_1_title' => '150+ projects',
         'contact_trust_1_text' => 'Delivered across residential, commercial, and turnkey engagements.',
         'contact_trust_2_title' => '16+ years',

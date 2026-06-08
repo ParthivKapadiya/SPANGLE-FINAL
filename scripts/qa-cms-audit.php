@@ -67,13 +67,12 @@ $adminModules = [
     'Legal pages' => 'admin/legal.php',
     'Homepage' => 'admin/home.php',
     'Studio' => 'admin/studio.php',
-    'Services page' => 'admin/services-page.php',
+    'Services page' => 'admin/services/index.php',
     'Service blocks' => 'admin/services.php',
     'Work page' => 'admin/work-page.php',
     'Projects' => 'admin/projects.php',
     'Process' => 'admin/process.php',
-    'Journal' => 'admin/journal.php',
-    'Contact' => 'admin/contact-page.php',
+    'Contact' => 'admin/contact/index.php',
     'Team' => 'admin/team.php',
     'Inquiries' => 'admin/contacts.php',
     'Media library' => 'admin/media.php',
@@ -116,7 +115,7 @@ if (is_file($apiPath)) {
 qa('Content binding', 'SiteContent.php in includes/', is_file($root . '/includes/SiteContent.php'));
 
 // Frontend pages
-$pages = ['index.html', 'studio.html', 'services.html', 'work.html', 'process.html', 'journal.html', 'contact.html', 'privacy.html', 'terms.html'];
+$pages = ['index.html', 'studio.html', 'services.html', 'work.html', 'process.html', 'contact.html', 'privacy.html', 'terms.html'];
 foreach ($pages as $page) {
     $html = (string) file_get_contents($root . '/' . $page);
     qa('Frontend', "$page exists & loads CMS bridge", is_file($root . '/' . $page) && (
@@ -138,14 +137,6 @@ foreach ($projectCols as $col) {
     } catch (Throwable $e) {
         qa('Work / Portfolio', "Project column: $col", false);
     }
-}
-
-// Journal
-try {
-    $count = (int) $pdo->query('SELECT COUNT(*) FROM journal_posts')->fetchColumn();
-    qa('Journal', 'Journal posts accessible', true, "$count posts");
-} catch (Throwable $e) {
-    qa('Journal', 'Journal posts accessible', false);
 }
 
 // Media upload dir

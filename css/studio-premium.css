@@ -333,6 +333,10 @@ body.page-studio .page-hero {
   margin-bottom: 3.5rem;
 }
 
+.studio-philosophy__intro .section-intro {
+  margin-top: 0.75rem;
+}
+
 .studio-philosophy__visual {
   border-radius: 2px;
   overflow: hidden;
@@ -505,172 +509,7 @@ body.page-studio .page-hero {
   box-shadow: var(--shadow-lift);
 }
 
-/* —— S6: Founder —— */
-#founder.studio-section--elevated {
-  padding-block: clamp(3.5rem, 8vw, 5.5rem);
-}
-
-.studio-founder {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: clamp(2rem, 5vw, 3.5rem);
-  align-items: stretch;
-}
-
-.studio-founder__portrait {
-  position: relative;
-  min-height: min(68vh, 480px);
-  max-height: 560px;
-  overflow: hidden;
-  border-radius: 2px;
-  box-shadow: var(--shadow);
-  background: var(--deep-soft);
-}
-
-.studio-founder__photo {
-  width: 100%;
-  height: 100%;
-  min-height: min(68vh, 480px);
-  max-height: 560px;
-  object-fit: cover;
-  object-position: center 30%;
-  display: block;
-}
-
-.studio-founder__caption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0;
-  padding: 2.75rem 1.25rem 1.1rem;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #fff;
-  background: linear-gradient(180deg, transparent 0%, rgba(4, 3, 2, 0.82) 100%);
-  pointer-events: none;
-}
-
-.studio-founder__copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-block: 0.5rem;
-}
-
-.studio-founder__copy .section-eyebrow {
-  margin-bottom: 0.65rem;
-}
-
-.studio-founder__quote {
-  font-family: var(--font-serif);
-  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
-  font-style: italic;
-  line-height: 1.35;
-  margin: 0 0 1.5rem;
-  color: var(--ink);
-}
-
-.studio-founder__name {
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin: 0 0 0.25rem;
-}
-
-.studio-founder__role {
-  font-size: 0.8rem;
-  color: var(--gold);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin: 0 0 1.25rem;
-}
-
-.studio-founder__bio {
-  margin: 0;
-  color: var(--ink-muted);
-  line-height: 1.75;
-  max-width: 34rem;
-}
-
-/* —— S7: Team —— */
-.studio-team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.studio-team-card {
-  text-align: center;
-  padding: 2rem 1.5rem 2.25rem;
-  background: var(--bg-elevated);
-  border: 1px solid var(--line);
-  transition: transform 0.4s var(--studio-ease), box-shadow 0.4s var(--studio-ease);
-}
-
-.studio-team-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lift);
-}
-
-.studio-team-card img,
-.studio-team-card .team-avatar {
-  width: 7.5rem;
-  height: 7.5rem;
-  margin: 0 auto 1.25rem;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.studio-team-card h3 {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  margin: 0 0 0.35rem;
-}
-
-.studio-team-card .team-role {
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin: 0 0 0.85rem;
-}
-
-.studio-team-card p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--ink-muted);
-  line-height: 1.6;
-}
-
-.studio-team-card__links {
-  display: flex;
-  justify-content: center;
-  gap: 0.65rem;
-  margin-top: 1rem;
-}
-
-.studio-team-card__links a {
-  width: 2.25rem;
-  height: 2.25rem;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  color: var(--ink-muted);
-  font-size: 0.85rem;
-  transition: border-color 0.25s ease, color 0.25s ease;
-}
-
-.studio-team-card__links a:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-}
-
-/* —— S8: Process —— */
+/* —— S6: Process —— */
 #process-preview.studio-section {
   padding-block: clamp(3.5rem, 7vw, 5.5rem);
 }
@@ -789,6 +628,10 @@ body.page-studio .page-hero {
 /* —— S9: Culture gallery —— */
 #culture.studio-section {
   padding-block: clamp(3.5rem, 8vw, 5.5rem);
+}
+
+.site-studio-strip[hidden] {
+  display: none !important;
 }
 
 .studio-culture-grid {
@@ -1108,8 +951,7 @@ body.page-studio .page-hero {
   }
 
   .studio-story__grid,
-  .studio-philosophy__intro,
-  .studio-founder {
+  .studio-philosophy__intro {
     grid-template-columns: 1fr;
   }
 
@@ -1119,8 +961,7 @@ body.page-studio .page-hero {
 
   .studio-philosophy__pillars,
   .studio-values-grid,
-  .studio-why-grid,
-  .studio-team-grid {
+  .studio-why-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -1154,7 +995,6 @@ body.page-studio .page-hero {
   .studio-philosophy__pillars,
   .studio-values-grid,
   .studio-why-grid,
-  .studio-team-grid,
   .studio-trust-track,
   .studio-compare {
     grid-template-columns: 1fr;
@@ -1170,10 +1010,6 @@ body.page-studio .page-hero {
 
   .studio-culture-grid {
     grid-template-columns: 1fr;
-  }
-
-  .studio-founder__portrait {
-    min-height: 360px;
   }
 
   .studio-trust-meta {

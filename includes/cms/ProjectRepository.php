@@ -12,21 +12,34 @@ final class ProjectRepository
         'interior',
         'industrial',
         'architecture',
-        'renovation',
-        'hospitality',
-        'office',
-        'villa',
-        'mixed-use',
+    ];
+
+    /** @var array<string, string> */
+    private const LEGACY_TYPE_MAP = [
+        'retail' => 'commercial',
+        'renovation' => 'residential',
+        'hospitality' => 'commercial',
+        'office' => 'commercial',
+        'villa' => 'residential',
+        'mixed-use' => 'commercial',
+        'mixed use' => 'commercial',
     ];
 
     public static function normalizeType(string $type): string
     {
-        $type = strtolower(trim($type));
-        if ($type === 'retail') {
-            return 'commercial';
+        $type = strtolower(trim(str_replace('_', '-', $type)));
+        if (isset(self::LEGACY_TYPE_MAP[$type])) {
+            $type = self::LEGACY_TYPE_MAP[$type];
         }
 
         return in_array($type, self::TYPES, true) ? $type : 'residential';
+    }
+
+    public static function typeLabel(string $type): string
+    {
+        $type = self::normalizeType($type);
+
+        return ucwords(str_replace('-', ' ', $type));
     }
 
     /**

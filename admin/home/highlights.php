@@ -31,7 +31,7 @@ home_admin_render_back();
     home_admin_render_field('home_awards_eyebrow', 'Small label', $s);
     home_admin_render_field('home_awards_title', 'Title', $s);
     ?>
-    <?php home_admin_card_link('studio.php', 'Manage highlight cards', 'Edit the four “Why clients work with us” trust points on the Studio page.'); ?>
+    <?php home_admin_card_link('studio/values.php', 'Manage highlight cards', 'Edit the four “Why clients work with us” trust points on the Studio page.'); ?>
   </div>
   <?php home_admin_render_save('Save studio highlights'); ?>
 </form>

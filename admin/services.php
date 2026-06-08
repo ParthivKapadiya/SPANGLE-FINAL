@@ -99,29 +99,48 @@ if ($action === 'edit' || $action === 'new') {
       <input type="hidden" name="action" value="save" />
       <input type="hidden" name="id" value="<?= (int) $row['id'] ?>" />
       <div class="adm-field"><label>Number (e.g. 01)</label><input type="text" name="number_label" value="<?= e($row['number_label']) ?>" /></div>
-      <div class="adm-field"><label>Title</label><input type="text" name="title" value="<?= e($row['title']) ?>" required /></div>
+      <div class="adm-field">
+        <label>Card title</label>
+        <input type="text" name="title" value="<?= e($row['title']) ?>" required />
+        <p class="adm-hint">Used in the ecosystem grid, flow diagram, home card, and footer.</p>
+      </div>
       <div class="adm-field adm-field--highlight">
-        <label>Image (shown on Services page &amp; home card)</label>
+        <label>Detail section image</label>
         <?php if (!empty($row['image_path'])): ?>
           <p><img src="../<?= e($row['image_path']) ?>" alt="" class="adm-service-preview" /></p>
         <?php else: ?>
           <p class="adm-hint">No image yet — upload one below.</p>
         <?php endif; ?>
         <input type="file" name="image_path" accept="image/*" />
+        <p class="adm-hint">Also shown on the home page service card.</p>
       </div>
       <div class="adm-field">
-        <label>Short description (home page card)</label>
+        <label>Expected outcome</label>
         <textarea name="short_description" rows="2"><?= e($row['short_description'] ?? '') ?></textarea>
+        <p class="adm-hint">“Expected outcome” panel on the services page + short text on the home card.</p>
       </div>
       <div class="adm-field">
-        <label>Eyebrow on Services page</label>
-        <input type="text" name="eyebrow" value="<?= e($row['eyebrow'] ?? '') ?>" placeholder="e.g. 01 — Architecture" />
+        <label>Eyebrow</label>
+        <input type="text" name="eyebrow" value="<?= e($row['eyebrow'] ?? '') ?>" placeholder="e.g. 01 — Approvals" />
+        <p class="adm-hint">Small label above the detail heading (e.g. 05 — Engineering).</p>
       </div>
-      <div class="adm-field"><label>Heading on Services page</label><input type="text" name="detail_title" value="<?= e($row['detail_title'] ?? '') ?>" /></div>
-      <div class="adm-field"><label>First paragraph (Services page)</label><textarea name="detail_lead_1" rows="3"><?= e($row['detail_lead_1'] ?? '') ?></textarea></div>
-      <div class="adm-field"><label>Second paragraph (Services page)</label><textarea name="detail_lead_2" rows="3"><?= e($row['detail_lead_2'] ?? '') ?></textarea></div>
-      <input type="hidden" name="show_on_home" value="1" />
-      <div class="adm-field"><label><input type="checkbox" name="is_active" value="1"<?= !empty($row['is_active']) ? ' checked' : '' ?> /> Visible on website (home, services page, footer)</label></div>
+      <div class="adm-field">
+        <label>Detail heading</label>
+        <input type="text" name="detail_title" value="<?= e($row['detail_title'] ?? '') ?>" />
+      </div>
+      <div class="adm-field">
+        <label>Main intro</label>
+        <textarea name="detail_lead_1" rows="3"><?= e($row['detail_lead_1'] ?? '') ?></textarea>
+        <p class="adm-hint">Paragraph under the detail heading on the services page.</p>
+      </div>
+      <div class="adm-field">
+        <label>What you receive</label>
+        <textarea name="detail_lead_2" rows="3"><?= e($row['detail_lead_2'] ?? '') ?></textarea>
+        <p class="adm-hint">Left panel in the two-column box on the services page.</p>
+      </div>
+      <div class="adm-field"><label>Sort order</label><input type="number" name="sort_order" value="<?= (int) ($row['sort_order'] ?? 0) ?>" min="0" step="1" /></div>
+      <div class="adm-field"><label><input type="checkbox" name="show_on_home" value="1"<?= !empty($row['show_on_home']) ? ' checked' : '' ?> /> Show on home page &amp; footer</label></div>
+      <div class="adm-field"><label><input type="checkbox" name="is_active" value="1"<?= !empty($row['is_active']) ? ' checked' : '' ?> /> Visible on services page</label></div>
       <div class="adm-actions">
         <button type="submit" class="adm-btn adm-btn-primary">Save</button>
         <a href="services.php" class="adm-btn adm-btn-ghost">Cancel</a>
@@ -142,7 +161,7 @@ $mainClass = 'adm-main--wide';
 require __DIR__ . '/includes/layout.php';
 ?>
 <p class="adm-hint adm-card" style="margin-bottom:1rem;">
-  Page banner and bottom CTA are under <a href="services-page.php" class="adm-btn adm-btn-sm adm-btn-ghost">Services page</a>.
+  Page banner and section headings are under <a href="<?= e(admin_href('services/index.php')) ?>" class="adm-btn adm-btn-sm adm-btn-ghost">Services page</a>.
   Titles and service-page copy are in <strong>Edit text</strong> for each block.
 </p>
 <div class="adm-actions" style="margin-bottom:1rem;"><a href="services.php?action=new" class="adm-btn adm-btn-primary">Add service block</a></div>

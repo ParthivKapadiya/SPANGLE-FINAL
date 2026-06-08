@@ -11,7 +11,7 @@ $section = home_admin_require_section('cta');
 extract(home_admin_page_vars($section));
 
 $keys = [
-    'home_cta_eyebrow', 'home_cta_title', 'home_cta_lead',
+    'home_cta_eyebrow', 'home_cta_title', 'home_cta_lead', 'home_cta_sub',
     'home_cta_btn_text', 'home_cta_btn_url',
 ];
 
@@ -34,6 +34,7 @@ home_admin_render_back();
     home_admin_render_field('home_cta_eyebrow', 'Small label', $s);
     home_admin_render_field('home_cta_title', 'Main heading', $s);
     home_admin_render_field('home_cta_lead', 'Supporting text', $s, 'textarea');
+    home_admin_render_field('home_cta_sub', 'Disciplines line', $s);
     home_admin_render_field('home_cta_btn_text', 'Button text', $s);
     home_admin_render_field('home_cta_btn_url', 'Button link', $s);
     ?>

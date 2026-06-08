@@ -19,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && csrf_verify()) {
     home_admin_sync_and_redirect('impact.php', 'Impact section saved.');
 }
 
-$s = settings_get_many($pdo, $keys);
-$stats = home_admin_ensure_stats($pdo);
+$s = home_admin_fill_impact_settings(settings_get_many($pdo, $keys));
+$stats = home_admin_hero_stats($pdo);
 
 require dirname(__DIR__) . '/includes/layout.php';
 home_admin_render_back();

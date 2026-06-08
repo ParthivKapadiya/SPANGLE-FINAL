@@ -14,7 +14,6 @@
     Interior: 'fa-solid fa-couch',
     Construction: 'fa-solid fa-helmet-safety',
     Turnkey: 'fa-solid fa-key',
-    Renovation: 'fa-solid fa-hammer',
   };
 
   function $(sel, root) {
@@ -355,6 +354,20 @@
     });
   }
 
+  function applyConsultOpen(el, url) {
+    if (!el) return;
+    var href = String(url || el.getAttribute('href') || '').trim();
+    if (href.indexOf('#') === 0) {
+      el.removeAttribute('data-consult-open');
+      return;
+    }
+    if (href === 'contact.html' || href.indexOf('contact') !== -1) {
+      el.setAttribute('data-consult-open', '');
+    } else {
+      el.removeAttribute('data-consult-open');
+    }
+  }
+
   function applyCta(copy, page) {
     copy = copy || {};
     page = page || {};
@@ -370,7 +383,14 @@
       btn2.textContent = copy.contact_cta_btn2_text || page.ctaSecondary.text;
       btn2.setAttribute('href', copy.contact_cta_btn2_url || (page.ctaSecondary && page.ctaSecondary.url) || '#cnt-enquiry-form');
       btn2.hidden = false;
+      applyConsultOpen(btn2, btn2.getAttribute('href'));
+    } else if (btn2 && copy.contact_cta_btn2_text) {
+      btn2.textContent = copy.contact_cta_btn2_text;
+      btn2.setAttribute('href', copy.contact_cta_btn2_url || '#cnt-enquiry-form');
+      btn2.hidden = false;
+      applyConsultOpen(btn2, copy.contact_cta_btn2_url || '#cnt-enquiry-form');
     }
+    applyConsultOpen(btn, copy.contact_cta_btn_url);
   }
 
   function applyWhatsApp(waHref, copy, page) {
@@ -506,7 +526,7 @@
   }
 
   function animateCounters() {
-    $$('[data-count]').forEach(function (el) {
+    $$('.cnt-hero-stat [data-count]').forEach(function (el) {
       var raw = el.getAttribute('data-count') || '';
       var match = raw.match(/([\d,.]+)/);
       if (!match) return;
@@ -629,7 +649,6 @@
     initReveal();
     animateCounters();
     bindLazyImages(document);
-    document.dispatchEvent(new CustomEvent('spangle:content-updated'));
   }
 
   function onData(e) {

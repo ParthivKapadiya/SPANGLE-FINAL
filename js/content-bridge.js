@@ -208,43 +208,6 @@
     return b || DEFAULT_BASE;
   }
 
-  /** CMS journal articles — served by journal-post.php from the database. */
-  function journalArticleHref(post) {
-    var slug = '';
-    var url = '';
-    if (post && typeof post === 'object') {
-      slug = String(post.slug || '').trim();
-      url = String(post.url || '').trim();
-    } else {
-      slug = String(post || '').trim();
-    }
-    var fromQuery = url.match(/[?&]slug=([a-z0-9-]+)/i);
-    if (fromQuery) slug = fromQuery[1];
-    if (!slug && url) {
-      slug = url.replace(/\?.*$/, '').replace(/\.html$/i, '').replace(/^.*\//, '');
-    }
-    slug = slug.replace(/[^a-z0-9-]/gi, '').toLowerCase();
-    if (!slug || slug === 'journal') return 'journal.html';
-    return 'journal-post.php?slug=' + encodeURIComponent(slug);
-  }
-
-  function journalSlugFromHref(href) {
-    var h = String(href || '').trim();
-    if (!h) return '';
-    var q = h.match(/[?&]slug=([a-z0-9-]+)/i);
-    if (q) return q[1];
-    var m = h.match(/(?:^|\/)([a-z0-9-]+)\.html(?:\?|$)/i);
-    if (m && m[1] && m[1] !== 'journal') return m[1];
-    return '';
-  }
-
-  function fixJournalCardLinks() {
-    $$('.blog-card-link, .journal-row a[href]').forEach(function (a) {
-      var slug = journalSlugFromHref(a.getAttribute('href') || '');
-      if (slug) a.setAttribute('href', journalArticleHref(slug));
-    });
-  }
-
   function categoryLabel(cat) {
     var c = String(cat || '').toLowerCase();
     if (c === 'residential') return 'Residential';
@@ -447,22 +410,6 @@
       }
     }
 
-    if (h.stats && h.stats.length) {
-      var stats = $$('.stats-bar .stat');
-      h.stats.forEach(function (row, i) {
-        if (!stats[i]) return;
-        var v = stats[i].querySelector('.stat-value');
-        var l = stats[i].querySelector('.stat-label');
-        if (v && row.value != null) v.textContent = row.value;
-        if (l && row.label) l.textContent = row.label;
-      });
-      if (window.SpangleHero && window.SpangleHero.renderImpactPanel) {
-        window.SpangleHero.renderImpactPanel(h.stats);
-      } else if (window.SpangleHero && window.SpangleHero.renderGlassStats) {
-        window.SpangleHero.renderGlassStats(h.stats);
-      }
-    }
-
     var abEyebrow = $('.site-about-eyebrow');
     if (abEyebrow && h.aboutEyebrow) abEyebrow.textContent = h.aboutEyebrow;
     var abTitle = $('.site-about-title');
@@ -500,7 +447,8 @@
       var whyGrid = $('#site-why-grid');
       if (whyGrid) {
         whyGrid.innerHTML = h.whyCards.map(function (card) {
-          return '<article class="home-why-card home-reveal"><h3>' + esc(card.title) + '</h3><p>' + esc(card.text) + '</p></article>';
+          var icon = card.icon ? '<i class="' + esc(card.icon) + '" aria-hidden="true"></i>' : '';
+          return '<article class="home-why-card home-reveal">' + icon + '<h3>' + esc(card.title) + '</h3><p>' + esc(card.text) + '</p></article>';
         }).join('');
       }
     }
@@ -514,32 +462,38 @@
       }
     }
 
-    if (h.impactEyebrow) {
-      var imE = $('.site-impact-eyebrow');
-      if (imE) imE.textContent = h.impactEyebrow;
+    var imE = $('.site-impact-eyebrow');
+    if (imE) imE.textContent = (h.impactEyebrow || 'Impact').trim() || 'Impact';
+    var imT = $('.site-impact-title');
+    if (imT) {
+      imT.textContent = (h.impactTitle || 'Built at scale. Trusted at home.').trim() || 'Built at scale. Trusted at home.';
     }
-    if (h.impactTitle) {
-      var imT = $('.site-impact-title');
-      if (imT) imT.textContent = h.impactTitle;
-    }
+  }
+
+  function homeProjectsLimit(home) {
+    var limit = parseInt((home && home.projectsLimit) || 8, 10);
+    if (!limit || limit < 4) limit = 4;
+    if (limit > 12) limit = 12;
+    return limit;
+  }
+
+  function sortHomeProjects(a, b) {
+    var ah = a.homeHighlight ? 1 : 0;
+    var bh = b.homeHighlight ? 1 : 0;
+    if (ah !== bh) return bh - ah;
+    return (a.sortOrder || 0) - (b.sortOrder || 0);
   }
 
   function renderHomeProjects(data) {
     var grid = $('#home-project-grid');
     if (!grid || !data.projects || !data.projects.length) return;
 
-    var highlights = data.projects.filter(function (p) {
-      return p.homeHighlight;
-    });
-    if (!highlights.length) {
-      highlights = data.projects.slice(0, 4);
-    }
-
     var home = data.home || {};
-    var limit = parseInt(home.projectsLimit, 10);
-    if (!limit || limit < 4) limit = 8;
-    if (limit > 12) limit = 12;
-    highlights = highlights.slice(0, limit);
+    var limit = homeProjectsLimit(home);
+    var sorted = data.projects.slice().sort(sortHomeProjects);
+    var highlights = sorted.filter(function (p) {
+      return p.homeHighlight;
+    }).slice(0, limit);
 
     var count = highlights.length;
     grid.className = 'project-grid project-grid--count-' + count;
@@ -937,22 +891,26 @@
       ['.site-testimonials-title', h.testimonialsTitle],
       ['.site-awards-eyebrow', h.awardsEyebrow],
       ['.site-awards-title', h.awardsTitle],
-      ['.site-team-eyebrow', h.teamEyebrow],
-      ['.site-team-title', h.teamTitle],
-      ['.site-journal-teaser-eyebrow', h.journalEyebrow],
-      ['.site-journal-teaser-title', h.journalTitle],
       ['.site-cta-eyebrow', h.ctaEyebrow],
       ['.site-cta-title', h.ctaTitle],
-      ['.site-cta-lead', h.ctaLead]
+      ['.site-cta-lead', h.ctaLead],
+      ['.site-cta-sub', h.ctaSub]
     ];
     map.forEach(function (pair) {
       var el = $(pair[0]);
       if (el && pair[1]) el.textContent = pair[1];
     });
     var ctaBtn = $('.site-cta-btn');
-    if (ctaBtn && h.ctaBtnText) {
-      ctaBtn.textContent = h.ctaBtnText;
-      if (h.ctaBtnUrl) ctaBtn.setAttribute('href', h.ctaBtnUrl);
+    if (ctaBtn && h.ctaBtnText) ctaBtn.textContent = h.ctaBtnText;
+    if (ctaBtn && h.ctaBtnUrl) {
+      var url = String(h.ctaBtnUrl).trim() || 'contact.html';
+      if (ctaBtn.tagName === 'A') ctaBtn.setAttribute('href', url);
+      var opensModal = url === '#' || url === 'contact.html' || url.indexOf('contact') !== -1;
+      if (opensModal) {
+        ctaBtn.setAttribute('data-consult-open', '');
+      } else {
+        ctaBtn.removeAttribute('data-consult-open');
+      }
     }
   }
 
@@ -977,32 +935,12 @@
     }).join('');
   }
 
-  function renderTeam(data) {
-    var grid = $('#site-team-grid');
-    if (!grid || !data.team || !data.team.length) return;
-    grid.innerHTML = data.team.map(function (m) {
-      var avatar = m.image
-        ? '<img src="' + esc(mediaSrc(m.image, data)) + '" alt="" class="team-photo" loading="lazy" />'
-        : '<div class="team-avatar" role="img" aria-label="' + esc(m.name) + ' initials">' + esc(m.initials || m.name.charAt(0)) + '</div>';
-      return '<article class="team-card">' + avatar.replace('</div>', '</div>') + '<h3>' + esc(m.name) + '</h3><p class="team-role">' + esc(m.role) + '</p><p>' + esc(m.bio) + '</p></article>';
-    }).join('');
-  }
-
   function renderAwards(data) {
     var row = $('#site-awards-row');
     if (!row || !data.awards || !data.awards.length) return;
     row.innerHTML = data.awards.map(function (a) {
       return '<div class="award-item"><i class="' + esc(a.icon || 'fas fa-trophy') + '" aria-hidden="true"></i><div><h4>' + esc(a.title) + '</h4><p>' + esc(a.subtitle) + '</p></div></div>';
     }).join('');
-  }
-
-  function renderJournalTeaser(data) {
-    var grid = $('#site-journal-teaser-grid');
-    if (!grid || !data.journalPosts || !data.journalPosts.length) return;
-    grid.innerHTML = data.journalPosts.slice(0, 4).map(function (j) {
-      return '<article class="blog-card"><a href="' + esc(journalArticleHref(j)) + '" class="blog-card-link"><div class="blog-img"><img src="' + esc(mediaSrc(j.image, data)) + '" alt="" loading="lazy" width="800" height="450" decoding="async" /></div><div class="blog-body"><h3>' + esc(j.title) + '</h3><p>' + esc(j.excerpt) + '</p><span class="blog-more">Read</span></div></a></article>';
-    }).join('');
-    fixJournalCardLinks();
   }
 
   function detectSeoPageKey() {
@@ -1014,7 +952,6 @@
     if (path.indexOf('services') !== -1) return 'services';
     if (path.indexOf('work') !== -1) return 'work';
     if (path.indexOf('process') !== -1) return 'process';
-    if (path.indexOf('journal') !== -1 && path.indexOf('journal-post') === -1) return 'journal';
     if (path.indexOf('contact') !== -1) return 'contact';
     if (path.indexOf('privacy') !== -1) return 'privacy';
     if (path.indexOf('terms') !== -1) return 'terms';
@@ -1083,14 +1020,25 @@
     setLinkHtml($('.site-home-link-services'), c.home_link_services_text, c.home_link_services_url);
     setLinkHtml($('.site-home-link-work'), c.home_link_work_text, c.home_link_work_url);
     setLinkHtml($('.site-home-link-process'), c.home_link_process_text, c.home_link_process_url);
-    setLinkHtml($('.site-home-link-journal'), c.home_link_journal_text, c.home_link_journal_url);
 
     setText('.site-studio-cta-text', 'studio_cta_text');
     setBtn('.site-studio-cta-btn', 'studio_cta_btn_text', 'studio_cta_btn_url');
-    setText('.site-services-cta-eyebrow', 'services_cta_eyebrow');
-    setText('.site-services-cta-title', 'services_cta_title');
-    setText('.site-services-cta-lead', 'services_cta_lead');
-    setBtn('.site-services-cta-btn', 'services_cta_btn_text', 'services_cta_btn_url');
+    setBtn('.site-studio-cta-btn2', 'studio_cta_btn2_text', 'studio_cta_btn2_url');
+    if (data.pages && data.pages.studio) {
+      var sp = data.pages.studio;
+      var ctaE = $('.site-studio-cta-eyebrow');
+      var ctaT = $('.site-studio-cta-title');
+      var ctaS = $('.site-studio-cta-sub');
+      if (ctaE && sp.ctaEyebrow) ctaE.textContent = sp.ctaEyebrow;
+      if (ctaT && sp.ctaTitle) ctaT.textContent = sp.ctaTitle;
+      if (ctaS && sp.ctaSub) ctaS.textContent = sp.ctaSub;
+    }
+    if (!document.body.classList.contains('page-services')) {
+      setText('.site-services-cta-eyebrow', 'services_cta_eyebrow');
+      setText('.site-services-cta-title', 'services_cta_title');
+      setText('.site-services-cta-lead', 'services_cta_lead');
+      setBtn('.site-services-cta-btn', 'services_cta_btn_text', 'services_cta_btn_url');
+    }
     setText('.site-work-cta-text', 'work_cta_text');
     setBtn('.site-work-cta-btn', 'work_cta_btn_text', 'work_cta_btn_url');
     setText('.site-work-cta-eyebrow', 'work_cta_final_eyebrow');
@@ -1112,19 +1060,13 @@
     setText('.site-work-trust-title', 'work_trust_title');
     setText('.site-process-cta-text', 'process_cta_text');
     setBtn('.site-process-cta-btn', 'process_cta_btn_text', 'process_cta_btn_url');
-    setText('.site-journal-cta-eyebrow', 'journal_cta_eyebrow');
-    setText('.site-journal-cta-title', 'journal_cta_title');
-    setText('.jnl-cta__sub', 'journal_cta_sub');
-    setText('.site-journal-cta-text', 'journal_cta_text');
-    setBtn('.site-journal-cta-btn', 'journal_cta_btn_text', 'journal_cta_btn_url');
-    setBtn('.site-journal-cta-btn-secondary', 'journal_cta_btn2_text', 'journal_cta_btn2_url');
-    setText('.jnl-newsletter__title', 'journal_newsletter_title');
-    setText('.jnl-newsletter__lead', 'journal_newsletter_lead');
-    setText('.site-contact-cta-title', 'contact_cta_title');
-    setText('.cnt-cta__sub', 'contact_cta_sub');
-    setBtn('.site-contact-cta-btn', 'contact_cta_btn_text', 'contact_cta_btn_url');
-    setBtn('.site-contact-cta-btn-secondary', 'contact_cta_btn2_text', 'contact_cta_btn2_url');
-    setText('.cnt-wa__lead', 'contact_wa_lead');
+    if (!document.getElementById('cnt-enquiry-form')) {
+      setText('.site-contact-cta-title', 'contact_cta_title');
+      setText('.cnt-cta__sub', 'contact_cta_sub');
+      setBtn('.site-contact-cta-btn', 'contact_cta_btn_text', 'contact_cta_btn_url');
+      setBtn('.site-contact-cta-btn-secondary', 'contact_cta_btn2_text', 'contact_cta_btn2_url');
+      setText('.cnt-wa__lead', 'contact_wa_lead');
+    }
 
     $$('.site-work-filter').forEach(function (btn) {
       var f = btn.getAttribute('data-filter');
@@ -1237,7 +1179,6 @@
       renderProcessList('#site-home-process-list', data.processSteps, 'home');
       renderTestimonials(data);
       renderAwards(data);
-      fixJournalCardLinks();
       renderWorkArchive(data);
 
       document.dispatchEvent(new CustomEvent('spangle:site-data', { detail: data }));

@@ -2,3 +2,13 @@
 <IfModule mod_headers.c>
   Header set X-Robots-Tag "noindex, nofollow"
 </IfModule>
+
+# Allow larger image uploads in admin (XAMPP default is often 2M)
+<IfModule mod_php.c>
+  php_value upload_max_filesize 10M
+  php_value post_max_size 12M
+</IfModule>
+<IfModule mod_php8.c>
+  php_value upload_max_filesize 10M
+  php_value post_max_size 12M
+</IfModule>

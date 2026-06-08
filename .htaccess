@@ -4,7 +4,9 @@ DirectoryIndex index.html index.php
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /SPANGLE_FINAL/
-  # Optional: legacy static journal-*.html files still work when opened directly
+  RewriteRule ^journal\.html$ index.html [R=301,L]
+  RewriteRule ^journal-post\.php$ index.html [R=301,L]
+  RewriteRule ^journal-[a-z0-9-]+\.html$ index.html [R=301,L]
   RewriteRule ^admin$ admin/ [R=301,L]
   RewriteRule ^(config|includes|database)/ - [F,L]
   RewriteRule ^php/ - [F,L]
