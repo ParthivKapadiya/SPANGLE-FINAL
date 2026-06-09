@@ -18,7 +18,7 @@ final class Upload
             return ['ok' => false, 'error' => self::uploadErrorMessage($uploadError)];
         }
 
-        $max = (int) ($appConfig['upload_max_bytes'] ?? 5242880);
+        $max = (int) ($appConfig['upload_max_bytes'] ?? 26214400);
         if (($file['size'] ?? 0) > $max) {
             return ['ok' => false, 'error' => 'Image is too large (max ' . self::formatBytes($max) . ').'];
         }

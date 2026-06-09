@@ -5,10 +5,14 @@
 
 # Allow larger image uploads in admin (XAMPP default is often 2M)
 <IfModule mod_php.c>
-  php_value upload_max_filesize 10M
-  php_value post_max_size 12M
+  php_value upload_max_filesize 25M
+  php_value post_max_size 512M
+  php_value max_file_uploads 100
+  php_value memory_limit 256M
 </IfModule>
 <IfModule mod_php8.c>
-  php_value upload_max_filesize 10M
-  php_value post_max_size 12M
+  php_value upload_max_filesize 25M
+  php_value post_max_size 512M
+  php_value max_file_uploads 100
+  php_value memory_limit 256M
 </IfModule>

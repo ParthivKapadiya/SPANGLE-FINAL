@@ -278,6 +278,19 @@ function cms_plain_paragraph_slots(string $html, int $max = 8): array
     return $parsed;
 }
 
+function cms_body_is_gallery_markup(string $html): bool
+{
+    $html = trim($html);
+    if ($html === '') {
+        return false;
+    }
+    if (stripos($html, 'project-gallery-grid') === false) {
+        return false;
+    }
+
+    return !preg_match('/<p\b/i', $html);
+}
+
 function cms_humanize_filename_alt(string $path): string
 {
     $base = basename(str_replace('%20', ' ', $path));

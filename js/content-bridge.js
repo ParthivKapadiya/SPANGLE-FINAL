@@ -484,6 +484,28 @@
     return (a.sortOrder || 0) - (b.sortOrder || 0);
   }
 
+  var homeProjectViewerBound = false;
+
+  function bindHomeProjectViewer() {
+    var grid = $('#home-project-grid');
+    if (!grid || homeProjectViewerBound) return;
+    homeProjectViewerBound = true;
+
+    function openFromTile(e) {
+      var tile = e.target.closest('[data-work-slug]');
+      if (!tile) return;
+      if (!window.SpangleWorkProjects || !window.SpangleWorkProjects.openGallery) return;
+      e.preventDefault();
+      window.SpangleWorkProjects.openGallery(tile.getAttribute('data-work-slug') || '');
+    }
+
+    grid.addEventListener('click', openFromTile);
+    grid.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      openFromTile(e);
+    });
+  }
+
   function renderHomeProjects(data) {
     var grid = $('#home-project-grid');
     if (!grid || !data.projects || !data.projects.length) return;
@@ -517,6 +539,7 @@
         var title = esc(p.title);
         var loc = esc(p.location);
         var link = esc(p.linkUrl || 'work.html');
+        var slug = esc(p.slug || '');
         var sum = esc(p.summary || '');
         var catKey = String(p.category || p.projectType || 'residential').toLowerCase();
         var metrics = [];
@@ -535,7 +558,7 @@
           height: 480,
         });
         return (
-          '<a href="' + link + '" class="' + cls + '" data-category="' + esc(catKey) + '" title="' + esc(sum) + '">' +
+          '<a href="' + link + '" class="' + cls + '" data-category="' + esc(catKey) + '" data-work-slug="' + slug + '" title="' + esc(sum) + '">' +
           '<img' + imgAttrs + ' />' +
           '<div class="project-hover">' +
           '<span class="project-cat">' + cat + '</span>' +
@@ -557,6 +580,7 @@
     $$('#home-project-grid img').forEach(function (img) {
       attachResponsiveImgFallback(img, img.getAttribute('data-rimg-primary'), 'uploads/ENTRY.jpg');
     });
+    bindHomeProjectViewer();
   }
 
   function renderGallery(data) {
@@ -624,7 +648,7 @@
   }
 
   function renderWorkArchive(data) {
-    var arch = $('.work-archive');
+    var arch = document.getElementById('work-archive');
     if (!arch || !data.projects || !data.projects.length) return;
     if (document.querySelector('[data-work-projects]')) return;
 

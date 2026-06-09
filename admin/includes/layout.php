@@ -30,6 +30,7 @@ $navSections = [
             ['id' => 'footer', 'label' => 'Footer', 'icon' => 'fa-shoe-prints', 'href' => 'footer.php'],
             ['id' => 'legal', 'label' => 'Legal pages', 'icon' => 'fa-scale-balanced', 'href' => 'legal.php'],
             ['id' => 'media', 'label' => 'Media library', 'icon' => 'fa-images', 'href' => 'media.php'],
+            ['id' => 'backup', 'label' => 'Site backup', 'icon' => 'fa-database', 'href' => 'backup.php'],
         ],
     ],
     [
@@ -73,7 +74,7 @@ $navSections = [
   <meta name="robots" content="noindex, nofollow" />
   <title><?= e($pageTitle) ?> · <?= e($brand['short']) ?> Studio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="<?= e(admin_asset('assets/admin.css', 16)) ?>" />
+  <link rel="stylesheet" href="<?= e(admin_asset('assets/admin.css', 18)) ?>" />
 </head>
 <body class="adm-app" id="adm-app">
   <div class="adm-sidebar-backdrop" id="adm-sidebar-backdrop" hidden aria-hidden="true"></div>
@@ -108,7 +109,7 @@ $navSections = [
   <div class="adm-shell">
     <header class="adm-topbar">
       <button type="button" class="adm-icon-btn adm-menu-toggle" id="adm-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="adm-sidebar"><i class="fa-solid fa-bars"></i></button>
-      <div>
+      <div class="adm-topbar-title">
         <h1><?= e($pageTitle) ?></h1>
         <?php if ($pageDescription): ?><p><?= e($pageDescription) ?></p><?php endif; ?>
       </div>

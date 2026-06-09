@@ -46,7 +46,7 @@ if ($q !== '') {
     $like = '%' . $q . '%';
     $params = [$like, $like];
 }
-$sql .= ' ORDER BY created_at DESC LIMIT 120';
+$sql .= ' ORDER BY created_at DESC';
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -59,7 +59,7 @@ require __DIR__ . '/includes/layout.php';
 <form method="post" enctype="multipart/form-data" class="adm-card">
   <?= csrf_field() ?>
   <div class="adm-field">
-    <label>Upload images <?= admin_tooltip('JPG, PNG, or WEBP up to 5 MB each') ?></label>
+    <label>Upload images <?= admin_tooltip('JPG, PNG, WEBP, or GIF up to 25 MB each. Select as many files as you need.') ?></label>
     <input type="file" name="uploads[]" accept="image/*" multiple />
   </div>
   <button type="submit" class="adm-btn adm-btn-primary">Upload</button>

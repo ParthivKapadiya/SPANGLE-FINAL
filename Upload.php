@@ -17,9 +17,10 @@ final class Upload
             return ['ok' => false, 'error' => 'Upload failed. Try a smaller image.'];
         }
 
-        $max = (int) ($appConfig['upload_max_bytes'] ?? 5242880);
+        $max = (int) ($appConfig['upload_max_bytes'] ?? 26214400);
         if (($file['size'] ?? 0) > $max) {
-            return ['ok' => false, 'error' => 'Image is too large (max 5 MB).'];
+            $mb = max(1, (int) round($max / 1048576));
+            return ['ok' => false, 'error' => 'Image is too large (max ' . $mb . ' MB).'];
         }
 
         $finfo = new finfo(FILEINFO_MIME_TYPE);

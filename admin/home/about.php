@@ -85,7 +85,7 @@ home_admin_render_back();
         <p class="adm-hint">Current: <?= e($s['home_about_image']) ?></p>
       <?php endif; ?>
       <input type="file" name="home_about_image" id="home_about_image" accept="image/jpeg,image/png,image/webp,image/gif" />
-      <p class="adm-hint">Choose a JPG, PNG, or WEBP (max 5 MB), then click <strong>Save about section</strong> below.</p>
+      <p class="adm-hint">Choose a JPG, PNG, or WEBP (max 25 MB), then click <strong>Save about section</strong> below.</p>
     </div>
     <?php
     home_admin_render_field('home_about_image_alt', 'Image description (accessibility)', $s);

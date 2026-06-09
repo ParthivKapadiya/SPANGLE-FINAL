@@ -2,7 +2,7 @@
   'use strict';
 
   var root = document.querySelector('[data-work-projects]');
-  if (!root) return;
+  var isWorkPage = !!root;
 
   var archive = document.getElementById('work-archive');
   var pagination = document.getElementById('work-pagination');
@@ -1095,13 +1095,25 @@
     }
   }
 
-  function init() {
+  function initWorkPage() {
     readUrlState();
     if (!loadProjectsFromSite()) {
-      archive.innerHTML = '<p class="work-loading">Loading projects…</p>';
+      if (archive) archive.innerHTML = '<p class="work-loading">Loading projects…</p>';
       return;
     }
     render();
+  }
+
+  function initProjectsLibrary() {
+    loadProjectsFromSite();
+  }
+
+  function boot() {
+    if (isWorkPage) {
+      initWorkPage();
+    } else {
+      initProjectsLibrary();
+    }
   }
 
   if (searchInput) {
@@ -1175,9 +1187,9 @@
   };
 
   if (window.__SPANGLE_SITE__ && window.__SPANGLE_SITE__.projects) {
-    init();
+    boot();
   } else {
-    document.addEventListener('spangle:site-data', init, { once: true });
-    setTimeout(init, 1500);
+    document.addEventListener('spangle:site-data', boot, { once: true });
+    setTimeout(boot, 1500);
   }
 })();

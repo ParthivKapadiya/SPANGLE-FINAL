@@ -1376,3 +1376,138 @@ body.adm-app {
   cursor: not-allowed;
   background: color-mix(in srgb, var(--adm-bg) 90%, var(--adm-line));
 }
+
+.adm-backup-table-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: 0.35rem 0.75rem;
+  max-height: 280px;
+  overflow: auto;
+}
+.adm-backup-table-list code {
+  font-size: 0.78rem;
+  color: var(--adm-muted);
+}
+
+.adm-topbar-title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.adm-topbar-title h1,
+.adm-topbar-title p {
+  overflow-wrap: anywhere;
+}
+
+.adm-btn-block {
+  width: 100%;
+  justify-content: center;
+}
+
+.adm-backup-actions {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+.adm-backup-action-form {
+  margin: 0;
+}
+.adm-backup-stat-line {
+  display: block;
+  line-height: 1.5;
+}
+.adm-backup-stat-line + .adm-backup-stat-line {
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .adm-topbar {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 0.85rem 1rem;
+    gap: 0.65rem;
+  }
+  .adm-topbar-title {
+    flex: 1 1 calc(100% - 3rem);
+    order: 1;
+  }
+  .adm-menu-toggle {
+    order: 0;
+  }
+  .adm-topbar-actions {
+    order: 2;
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .adm-topbar h1 {
+    font-size: 1.1rem;
+    line-height: 1.25;
+  }
+  .adm-topbar p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  .adm-user {
+    max-width: 9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .adm-main {
+    padding: 1rem;
+  }
+  .adm-main.adm-main--wide {
+    max-width: none;
+  }
+  .adm-alert {
+    margin: 0 1rem 1rem;
+  }
+  .adm-card {
+    padding: 1rem;
+  }
+  .adm-profile-copy-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .adm-profile-copy-row .adm-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .adm-profile-code {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .adm-backup-table-list {
+    grid-template-columns: 1fr 1fr;
+    max-height: none;
+  }
+  .adm-dash-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .adm-quick-actions--inline {
+    width: 100%;
+  }
+  .adm-quick-actions--inline .adm-btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .adm-topbar p {
+    display: none;
+  }
+  .adm-backup-table-list {
+    grid-template-columns: 1fr;
+  }
+  .adm-home-hub {
+    grid-template-columns: 1fr;
+  }
+}

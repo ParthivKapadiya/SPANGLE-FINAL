@@ -29,7 +29,9 @@ $publicBodyClass = 'page-project-detail';
 require SPANGLE_ROOT . '/includes/public-header.php';
 
 $typeLabel = ucwords(str_replace('-', ' ', $project['projectType']));
-$paragraphs = cms_plain_paragraph_slots((string) ($project['bodyHtml'] ?? ''), 6);
+$bodyHtml = (string) ($project['bodyHtml'] ?? '');
+$bodyIsGalleryOnly = cms_body_is_gallery_markup($bodyHtml);
+$paragraphs = cms_plain_paragraph_slots($bodyHtml, 6);
 $challenge = $paragraphs[0] ?? '';
 $approach = $paragraphs[1] ?? '';
 $result = $paragraphs[2] ?? '';
@@ -39,7 +41,7 @@ $extra = $paragraphs[5] ?? '';
 $scope = trim((string) ($project['servicesProvided'] ?? '')) ?: $typeLabel;
 ?>
 <link rel="stylesheet" href="css/work-projects.css?v=10" />
-<link rel="stylesheet" href="css/project-premium.css?v=1" />
+<link rel="stylesheet" href="css/project-premium.css?v=2" />
 <main id="main">
   <section class="prj-hero project-hero" aria-label="Project cover">
     <?php if ($project['heroImage']): ?>
@@ -131,8 +133,8 @@ $scope = trim((string) ($project['servicesProvided'] ?? '')) ?: $typeLabel;
           </div>
         <?php endif; ?>
 
-        <?php if ($project['bodyHtml'] && !$challenge && !$approach): ?>
-          <div class="article-body"><?= $project['bodyHtml'] ?></div>
+        <?php if ($bodyHtml && !$challenge && !$approach && !$bodyIsGalleryOnly): ?>
+          <div class="article-body"><?= $bodyHtml ?></div>
         <?php endif; ?>
 
         <?php if ($project['clientTestimonial']): ?>
@@ -166,7 +168,7 @@ $scope = trim((string) ($project['servicesProvided'] ?? '')) ?: $typeLabel;
     <section class="prj-section prj-section--white section fade-slide" aria-labelledby="related-title">
       <div class="prj-container">
         <h2 id="related-title" class="section-title prj-reveal">Related projects</h2>
-        <div class="work-archive wrk-masonry project-related-grid prj-reveal">
+        <div class="project-related-grid prj-reveal">
           <?php foreach ($project['related'] as $rel): ?>
             <a href="<?= e($rel['linkUrl']) ?>" class="work-card wrk-card">
               <div class="wrk-card__media">

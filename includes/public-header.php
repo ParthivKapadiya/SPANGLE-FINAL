@@ -23,7 +23,7 @@ $publicMetaDescription = $publicMetaDescription ?? '';
   <link rel="stylesheet" href="fonts/fonts.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css?v=20" />
-  <link rel="stylesheet" href="css/header-lux.css?v=27" />
+  <link rel="stylesheet" href="css/header-lux.css?v=30" />
 </head>
 <body class="<?= htmlspecialchars($publicBodyClass) ?>">
   <a class="skip-link" href="#main">Skip to content</a>

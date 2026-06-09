@@ -17,7 +17,7 @@ return [
     'login_lockout_seconds' => 900,
     /** false = use only original uploads (no -640w / -1280w copies). */
     'image_responsive_variants' => false,
-    'upload_max_bytes' => 5 * 1024 * 1024,
+    'upload_max_bytes' => 25 * 1024 * 1024,
     'upload_allowed_mimes' => [
         'image/jpeg',
         'image/png',
